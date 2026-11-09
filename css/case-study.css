@@ -26,44 +26,42 @@
 }
 
 /* ============================================================
-   CASE STUDY MODAL WINDOW CONTAINER
-   Replaces old docket with full-viewport editorial experience
+   CASE STUDY MODAL WINDOW CONTAINER (macOS Precision Window)
+   Coordinates & dimensions bound to --wx, --wy, --ww, --wh
+   Driven by macOS Genie Effect animation
    ============================================================ */
 .win-case-study {
   position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100dvh;
-  max-height: 100dvh;
+  z-index: 99998;
+  left: var(--wx, 20px);
+  top: var(--wy, 20px);
+  width: var(--ww, min(840px, calc(100vw - 24px)));
+  height: var(--wh, min(560px, calc(100dvh - 32px)));
+  max-width: calc(100vw - 16px);
+  max-height: calc(100dvh - 24px);
   margin: 0;
   padding: 0;
-  border-radius: 0;
-  background: var(--canvas);
-  color: var(--ink);
+  border-radius: 14px;
+  background: var(--canvas, #f5f5f3);
+  color: var(--ink, #0a0a0a);
   font-family: var(--font-body);
-  border: none;
-  box-shadow: none;
-  z-index: 99999;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--rule, rgba(10, 10, 10, 0.16));
+  box-shadow: 0 34px 90px -14px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  opacity: 0;
-  pointer-events: none;
-  transform: translate3d(0, 30px, 0);
-  transition: opacity 0.45s var(--ease-out-soft), transform 0.45s var(--ease-out-soft);
   box-sizing: border-box;
-}
-
-.win-case-study.is-open {
   opacity: 1;
-  pointer-events: auto;
-  transform: translate3d(0, 0, 0);
+  pointer-events: none;
 }
 
 .win-case-study[hidden] {
   display: none !important;
+}
+
+.win-case-study.settled,
+.win-case-study.is-open {
+  pointer-events: auto;
 }
 
 /* ============================================================
@@ -158,8 +156,11 @@
    CONTENT ARTICLE
    ============================================================ */
 .cs-article {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   background: var(--canvas);
   color: var(--ink);
   position: relative;
