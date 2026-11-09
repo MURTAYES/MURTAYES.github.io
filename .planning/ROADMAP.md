@@ -8,8 +8,8 @@ Build and assemble a personal portfolio for creative engineer and developer Samn
 
 - [x] **Phase 1: Section 1 — Editorial Photo Silhouette Hero & Willem Preloader** - Willem preloader animation settling into photo-silhouette hero with "Samnun Murtayes" typography and animated navigation logo.
 - [x] **Phase 2: Section 2 — Sticky Scroll-Scrubbed Manifesto Word Reveal** - Tall 260vh scroll track with sticky pinned viewport, radial dot matrix parallax, and two-stage word token scrubbing.
-- [ ] **Phase 3: Section 3 — Multiplayer Design Canvas Interactive Stage** - Interactive Figma/Webflow-style canvas with draggable `internet.` centerpiece, Modo IA auto-switch, 6 tilted floating cards, 7 autonomous role cursors, live code typing, and snapping grid.
-- [ ] **Phase 4: Section 4 — Selected Works Folders & Legacy Cleanup** - Retain tactile 3D architectural folders (ApplyKit, PharmaERP, EduHub) and dossier overlays; purge unmentioned `#process` and `#global-physics-stage`.
+- [x] **Phase 3: Section 3 — Multiplayer Design Canvas Interactive Stage** - Interactive Figma/Webflow-style canvas with draggable `internet.` centerpiece, Modo IA auto-switch, 6 tilted floating cards, 7 autonomous role cursors, live code typing, and snapping grid.
+- [x] **Phase 4: Section 4 — Selected Works Folders & Legacy Cleanup** - Retain tactile 3D architectural folders (ApplyKit, PharmaERP, EduHub) and dossier overlays; purge unmentioned `#process` and `#global-physics-stage`.
 - [ ] **Phase 5: Section 5 — Cinematic Scroll-Scrubbed Stats Section** - Danish architectural stats bridge with clip-path frame expansion (0% -> 40%), image scale settling, scrim darkening, hairline rules draw, and tabular numbers count-up for Lines of Code and Projects.
 - [ ] **Phase 6: Section 6 — What I'm Building: SVG Sine-Wave Progress Timeline** - Minimalist dark-theme route timeline with 1000x160 SVG sine-wave path draw, synchronized station pop-in nodes, alternating callouts, and responsive mobile index.
 - [ ] **Phase 7: Section 7 — Collaborative Workspace Contact Section** - Two-column `home-contacto` section with spotlight dot matrix, Aa badge, floating photo cards, autonomous "Cliente" cursor, dotted headline leaders, and CTA button.
@@ -76,7 +76,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 04-01: Retain folder showcase and dossier modals, purge legacy `#process` and physics code, and streamline works CSS/JS.
+- [x] 04-01: Retain folder showcase and dossier modals, purge legacy `#process` and physics code, and streamline works CSS/JS.
 
 ---
 
