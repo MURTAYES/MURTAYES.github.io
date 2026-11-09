@@ -326,7 +326,7 @@
    Pure Vanilla CSS · Zero Frameworks · Exact Reference Specifications
    ========================================================================== */
 
-.contact-popup {
+:is(.contact-popup, .project-page-modal) {
   --color-paper: #ffffff;
   --color-paper-light: #f3f3f3;
   --color-ink: #000000;
@@ -353,17 +353,17 @@
   transition: opacity 0.4s var(--ease-out), visibility 0.4s var(--ease-out);
 }
 
-.contact-popup[hidden] {
+:is(.contact-popup, .project-page-modal)[hidden] {
   display: none !important;
 }
 
-.contact-popup.is-open {
+:is(.contact-popup, .project-page-modal).is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-.contact-popup-scroll {
+:is(.contact-popup-scroll, .project-page-scroll) {
   position: absolute;
   inset: 0;
   overflow-y: auto;
@@ -377,7 +377,7 @@
 /* =========================================
    5-PANEL PAGE TRANSITION CURTAIN
    ========================================= */
-.contact-popup .page-transition {
+:is(.contact-popup, .project-page-modal) .page-transition {
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -385,24 +385,24 @@
   pointer-events: none;
 }
 
-.contact-popup .page-transition .panel {
+:is(.contact-popup, .project-page-modal) .page-transition .panel {
   flex: 1;
   background: var(--color-paper);
   transform: translateY(0);
   transition: transform 1s var(--ease-in-out);
 }
 
-.contact-popup .page-transition.is-hidden .panel {
+:is(.contact-popup, .project-page-modal) .page-transition.is-hidden .panel {
   transform: translateY(-100%);
 }
 
-.contact-popup .page-transition .panel:nth-child(2) { transition-delay: 0.05s; }
-.contact-popup .page-transition .panel:nth-child(3) { transition-delay: 0.1s; }
-.contact-popup .page-transition .panel:nth-child(4) { transition-delay: 0.15s; }
-.contact-popup .page-transition .panel:nth-child(5) { transition-delay: 0.2s; }
+:is(.contact-popup, .project-page-modal) .page-transition .panel:nth-child(2) { transition-delay: 0.05s; }
+:is(.contact-popup, .project-page-modal) .page-transition .panel:nth-child(3) { transition-delay: 0.1s; }
+:is(.contact-popup, .project-page-modal) .page-transition .panel:nth-child(4) { transition-delay: 0.15s; }
+:is(.contact-popup, .project-page-modal) .page-transition .panel:nth-child(5) { transition-delay: 0.2s; }
 
 /* Utilities inside Contact Popup */
-.contact-popup .link-underline {
+:is(.contact-popup, .project-page-modal) .link-underline {
   display: inline-block;
   padding-bottom: 0.08em;
   background-image: linear-gradient(currentColor, currentColor);
@@ -414,44 +414,44 @@
   text-decoration: none;
 }
 
-.contact-popup .link-underline:hover {
+:is(.contact-popup, .project-page-modal) .link-underline:hover {
   background-size: 0% 1px;
 }
 
-.contact-popup .mt-2 { margin-top: 0.5rem; }
-.contact-popup .mt-4 { margin-top: 1rem; }
+:is(.contact-popup, .project-page-modal) .mt-2 { margin-top: 0.5rem; }
+:is(.contact-popup, .project-page-modal) .mt-4 { margin-top: 1rem; }
 
-.contact-popup .reveal-text {
+:is(.contact-popup, .project-page-modal) .reveal-text {
   display: block;
   overflow: hidden;
   padding-bottom: 0.08em;
   margin-bottom: -0.08em;
 }
 
-.contact-popup .reveal-text .block {
+:is(.contact-popup, .project-page-modal) .reveal-text .block {
   display: block;
   transform: translateY(100%);
   transition: transform 0.9s var(--ease-out);
 }
 
-.contact-popup .reveal-text.is-visible .block {
+:is(.contact-popup, .project-page-modal) .reveal-text.is-visible .block {
   transform: translateY(0);
 }
 
-.contact-popup .animate-line {
+:is(.contact-popup, .project-page-modal) .animate-line {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 1s var(--ease-out);
 }
 
-.contact-popup .animate-line.is-visible {
+:is(.contact-popup, .project-page-modal) .animate-line.is-visible {
   transform: scaleX(1);
 }
 
 /* =========================================
    HEADER INSIDE POPUP
    ========================================= */
-.contact-popup .site-header {
+:is(.contact-popup, .project-page-modal) .site-header {
   position: absolute;
   top: 0;
   left: 0;
@@ -468,7 +468,7 @@
   box-sizing: border-box;
 }
 
-.contact-popup .header-inner {
+:is(.contact-popup, .project-page-modal) .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -476,7 +476,7 @@
   margin: 0 auto;
 }
 
-.contact-popup .logo {
+:is(.contact-popup, .project-page-modal) .logo {
   font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: -0.035em;
@@ -484,19 +484,19 @@
   text-decoration: none;
 }
 
-.contact-popup .header-center {
+:is(.contact-popup, .project-page-modal) .header-center {
   display: none;
   margin: 0;
   font-size: 0.9375rem;
 }
 
-.contact-popup .header-nav {
+:is(.contact-popup, .project-page-modal) .header-nav {
   display: flex;
   gap: 2rem;
   align-items: center;
 }
 
-.contact-popup .cp-close-btn {
+:is(.contact-popup, .project-page-modal) .cp-close-btn {
   background: none;
   border: none;
   color: inherit;
@@ -509,18 +509,18 @@
   transition: opacity 0.3s;
 }
 
-.contact-popup .cp-close-btn:hover {
+:is(.contact-popup, .project-page-modal) .cp-close-btn:hover {
   opacity: 0.6;
 }
 
 @media (min-width: 810px) {
-  .contact-popup .header-center { display: block; }
+  :is(.contact-popup, .project-page-modal) .header-center { display: block; }
 }
 
 /* =========================================
    HERO SECTION (DARK)
    ========================================= */
-.contact-popup .hero {
+:is(.contact-popup, .project-page-modal) .hero {
   position: relative;
   height: 100svh;
   min-height: 600px;
@@ -532,25 +532,25 @@
   box-sizing: border-box;
 }
 
-.contact-popup .hero-bg-wrap {
+:is(.contact-popup, .project-page-modal) .hero-bg-wrap {
   position: absolute;
   inset: 0;
   transform: translateY(30%);
 }
 
-.contact-popup .hero-bg {
+:is(.contact-popup, .project-page-modal) .hero-bg {
   position: absolute;
   inset: 0;
 }
 
-.contact-popup .hero-bg img {
+:is(.contact-popup, .project-page-modal) .hero-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.contact-popup.is-open .animate-image {
+:is(.contact-popup, .project-page-modal).is-open .animate-image {
   animation: heroPhoto 2s var(--ease-out) both;
 }
 
@@ -559,13 +559,13 @@
   100% { transform: scale(1); }
 }
 
-.contact-popup .hero-scrim {
+:is(.contact-popup, .project-page-modal) .hero-scrim {
   position: absolute;
   inset: 0;
   background: linear-gradient(rgba(0,0,0,0.35), transparent 25%, transparent 50%, rgba(0,0,0,0.6));
 }
 
-.contact-popup .hero-content {
+:is(.contact-popup, .project-page-modal) .hero-content {
   position: relative;
   width: 100%;
   max-width: 1600px;
@@ -578,13 +578,13 @@
   box-sizing: border-box;
 }
 
-.contact-popup .hero-sub {
+:is(.contact-popup, .project-page-modal) .hero-sub {
   font-size: 0.9375rem;
   color: rgba(255,255,255,0.7);
   margin-bottom: 0.75rem;
 }
 
-.contact-popup .hero-title {
+:is(.contact-popup, .project-page-modal) .hero-title {
   font-size: clamp(3.25rem, 7.5vw, 9rem);
   line-height: 0.95;
   letter-spacing: -0.05em;
@@ -593,7 +593,7 @@
   margin: 0;
 }
 
-.contact-popup.is-open .animate-slide-up {
+:is(.contact-popup, .project-page-modal).is-open .animate-slide-up {
   display: block;
   animation: slideUp 1.3s var(--ease-out) 0.15s both;
 }
@@ -603,25 +603,25 @@
   100% { transform: translateY(0); }
 }
 
-.contact-popup .hero-details {
+:is(.contact-popup, .project-page-modal) .hero-details {
   font-size: 0.9375rem;
 }
 
-.contact-popup .hero-details dl {
+:is(.contact-popup, .project-page-modal) .hero-details dl {
   display: grid;
   gap: 1.25rem;
 }
 
-.contact-popup .hero-details dt {
+:is(.contact-popup, .project-page-modal) .hero-details dt {
   color: rgba(255,255,255,0.7);
 }
 
-.contact-popup .hero-details dd {
+:is(.contact-popup, .project-page-modal) .hero-details dd {
   margin-top: 0.25rem;
   white-space: pre-line;
 }
 
-.contact-popup.is-open .animate-fade {
+:is(.contact-popup, .project-page-modal).is-open .animate-fade {
   opacity: 0;
   transform: translateY(12px);
   animation: fadeUp 0.9s var(--ease-out) var(--delay, 0.5s) both;
@@ -632,13 +632,13 @@
 }
 
 @media (min-width: 810px) {
-  .contact-popup .hero-content {
+  :is(.contact-popup, .project-page-modal) .hero-content {
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
     padding-bottom: 2.5rem;
   }
-  .contact-popup .hero-details {
+  :is(.contact-popup, .project-page-modal) .hero-details {
     max-width: 22rem;
   }
 }
@@ -646,34 +646,34 @@
 /* =========================================
    FORM SECTION (LIGHT)
    ========================================= */
-.contact-popup .form-section {
+:is(.contact-popup, .project-page-modal) .form-section {
   max-width: 1440px;
   margin: 0 auto;
   padding: 6rem 2rem 0;
   box-sizing: border-box;
 }
 
-.contact-popup .rule {
+:is(.contact-popup, .project-page-modal) .rule {
   height: 1px;
   background: var(--color-ink);
   width: 100%;
 }
 
-.contact-popup .form-grid {
+:is(.contact-popup, .project-page-modal) .form-grid {
   display: grid;
   gap: 4rem;
   margin-top: 2rem;
 }
 
 @media (min-width: 810px) {
-  .contact-popup .form-grid {
+  :is(.contact-popup, .project-page-modal) .form-grid {
     grid-template-columns: repeat(12, 1fr);
   }
-  .contact-popup .form-info { grid-column: span 5; }
-  .contact-popup .form-wrapper { grid-column: 7 / span 6; padding-top: 1rem; }
+  :is(.contact-popup, .project-page-modal) .form-info { grid-column: span 5; }
+  :is(.contact-popup, .project-page-modal) .form-wrapper { grid-column: 7 / span 6; padding-top: 1rem; }
 }
 
-.contact-popup .section-title {
+:is(.contact-popup, .project-page-modal) .section-title {
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   line-height: 1;
   letter-spacing: -0.035em;
@@ -681,54 +681,54 @@
   margin: 0;
 }
 
-.contact-popup .section-desc {
+:is(.contact-popup, .project-page-modal) .section-desc {
   margin-top: 1.5rem;
   font-size: 1.3125rem;
   line-height: 1.45;
   max-width: 34ch;
 }
 
-.contact-popup .contact-meta {
+:is(.contact-popup, .project-page-modal) .contact-meta {
   margin-top: 3rem;
   display: grid;
   gap: 1.5rem;
   font-size: 0.9375rem;
 }
 
-.contact-popup .contact-meta dt {
+:is(.contact-popup, .project-page-modal) .contact-meta dt {
   color: var(--color-graphite);
 }
 
 /* Form Inputs */
-.contact-popup .contact-form {
+:is(.contact-popup, .project-page-modal) .contact-form {
   display: grid;
   gap: 2rem;
 }
 
-.contact-popup .form-row {
+:is(.contact-popup, .project-page-modal) .form-row {
   display: grid;
   gap: 2rem;
 }
 
 @media (min-width: 810px) {
-  .contact-popup .form-row { grid-template-columns: 1fr 1fr; }
+  :is(.contact-popup, .project-page-modal) .form-row { grid-template-columns: 1fr 1fr; }
 }
 
-.contact-popup .input-group {
+:is(.contact-popup, .project-page-modal) .input-group {
   display: block;
   position: relative;
 }
 
-.contact-popup .input-label {
+:is(.contact-popup, .project-page-modal) .input-label {
   display: block;
   font-size: 0.9375rem;
   color: var(--color-graphite);
   margin-bottom: 0.5rem;
 }
 
-.contact-popup .input-group input,
-.contact-popup .input-group select,
-.contact-popup .input-group textarea {
+:is(.contact-popup, .project-page-modal) .input-group input,
+:is(.contact-popup, .project-page-modal) .input-group select,
+:is(.contact-popup, .project-page-modal) .input-group textarea {
   width: 100%;
   border: none;
   border-bottom: 1px solid var(--color-rule);
@@ -744,18 +744,18 @@
   box-sizing: border-box;
 }
 
-.contact-popup .input-group select {
+:is(.contact-popup, .project-page-modal) .input-group select {
   cursor: pointer;
 }
 
-.contact-popup .input-group input::placeholder,
-.contact-popup .input-group textarea::placeholder {
+:is(.contact-popup, .project-page-modal) .input-group input::placeholder,
+:is(.contact-popup, .project-page-modal) .input-group textarea::placeholder {
   color: #949494;
   opacity: 1;
 }
 
 /* Focus Underline Animation */
-.contact-popup .focus-line {
+:is(.contact-popup, .project-page-modal) .focus-line {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -767,12 +767,12 @@
   transition: transform 0.5s var(--ease-out);
 }
 
-.contact-popup .input-group:focus-within .focus-line {
+:is(.contact-popup, .project-page-modal) .input-group:focus-within .focus-line {
   transform: scaleX(1);
 }
 
 /* Button Animation */
-.contact-popup .submit-btn {
+:is(.contact-popup, .project-page-modal) .submit-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -786,7 +786,7 @@
   font-size: 1.125rem;
 }
 
-.contact-popup .btn-bg {
+:is(.contact-popup, .project-page-modal) .btn-bg {
   position: absolute;
   inset: 0;
   background: rgba(255,255,255,0.15);
@@ -795,18 +795,18 @@
   transition: transform 0.4s var(--ease-out);
 }
 
-.contact-popup .submit-btn:hover .btn-bg {
+:is(.contact-popup, .project-page-modal) .submit-btn:hover .btn-bg {
   transform: scale(1);
 }
 
-.contact-popup .btn-content {
+:is(.contact-popup, .project-page-modal) .btn-content {
   position: relative;
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.contact-popup .btn-text-roll {
+:is(.contact-popup, .project-page-modal) .btn-text-roll {
   display: flex;
   flex-direction: column;
   height: 1.3em;
@@ -814,29 +814,29 @@
   line-height: 1.3em;
 }
 
-.contact-popup .btn-text-roll span {
+:is(.contact-popup, .project-page-modal) .btn-text-roll span {
   transition: transform 0.4s var(--ease-out);
 }
 
-.contact-popup .submit-btn:hover .btn-text-roll span:first-child {
+:is(.contact-popup, .project-page-modal) .submit-btn:hover .btn-text-roll span:first-child {
   transform: translateY(-100%);
 }
 
-.contact-popup .submit-btn:hover .btn-text-roll span:last-child {
+:is(.contact-popup, .project-page-modal) .submit-btn:hover .btn-text-roll span:last-child {
   transform: translateY(-100%);
 }
 
-.contact-popup .btn-arrow {
+:is(.contact-popup, .project-page-modal) .btn-arrow {
   width: 0.875rem;
   height: 0.875rem;
   transition: transform 0.4s var(--ease-out);
 }
 
-.contact-popup .submit-btn:hover .btn-arrow {
+:is(.contact-popup, .project-page-modal) .submit-btn:hover .btn-arrow {
   transform: translateX(4px);
 }
 
-.contact-popup .form-feedback {
+:is(.contact-popup, .project-page-modal) .form-feedback {
   margin-top: 1rem;
   padding: 1rem;
   background: #f0fdf4;
@@ -848,41 +848,41 @@
 /* =========================================
    FAQ SECTION
    ========================================= */
-.contact-popup .faq-section {
+:is(.contact-popup, .project-page-modal) .faq-section {
   max-width: 1440px;
   margin: 0 auto;
   padding: 7rem 2rem;
   box-sizing: border-box;
 }
 
-.contact-popup .faq-grid {
+:is(.contact-popup, .project-page-modal) .faq-grid {
   display: grid;
   gap: 2.5rem;
 }
 
 @media (min-width: 810px) {
-  .contact-popup .faq-grid {
+  :is(.contact-popup, .project-page-modal) .faq-grid {
     grid-template-columns: repeat(12, 1fr);
   }
-  .contact-popup .faq-left { grid-column: span 4; }
-  .contact-popup .faq-right { grid-column: 6 / span 7; }
+  :is(.contact-popup, .project-page-modal) .faq-left { grid-column: span 4; }
+  :is(.contact-popup, .project-page-modal) .faq-right { grid-column: 6 / span 7; }
 }
 
-.contact-popup .faq-sub {
+:is(.contact-popup, .project-page-modal) .faq-sub {
   margin-top: 1rem;
   color: var(--color-graphite);
   max-width: 30ch;
 }
 
-.contact-popup .faq-item {
+:is(.contact-popup, .project-page-modal) .faq-item {
   border-bottom: 1px solid var(--color-rule);
 }
 
-.contact-popup .faq-item:first-child {
+:is(.contact-popup, .project-page-modal) .faq-item:first-child {
   border-top: 1px solid var(--color-rule);
 }
 
-.contact-popup .faq-trigger {
+:is(.contact-popup, .project-page-modal) .faq-trigger {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -898,18 +898,18 @@
   transition: color 0.3s;
 }
 
-.contact-popup .faq-trigger:hover {
+:is(.contact-popup, .project-page-modal) .faq-trigger:hover {
   color: var(--color-graphite);
 }
 
-.contact-popup .faq-icon {
+:is(.contact-popup, .project-page-modal) .faq-icon {
   position: relative;
   width: 1rem;
   height: 1rem;
   flex-shrink: 0;
 }
 
-.contact-popup .icon-h {
+:is(.contact-popup, .project-page-modal) .icon-h {
   position: absolute;
   top: 50%;
   left: 0;
@@ -919,7 +919,7 @@
   transform: translateY(-50%);
 }
 
-.contact-popup .icon-v {
+:is(.contact-popup, .project-page-modal) .icon-v {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -930,25 +930,25 @@
   transition: transform 0.5s var(--ease-out);
 }
 
-.contact-popup .faq-trigger[aria-expanded="true"] .icon-v {
+:is(.contact-popup, .project-page-modal) .faq-trigger[aria-expanded="true"] .icon-v {
   transform: translateX(-50%) scaleY(0);
 }
 
-.contact-popup .faq-content {
+:is(.contact-popup, .project-page-modal) .faq-content {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.5s var(--ease-out);
 }
 
-.contact-popup .faq-content.is-open {
+:is(.contact-popup, .project-page-modal) .faq-content.is-open {
   grid-template-rows: 1fr;
 }
 
-.contact-popup .faq-inner {
+:is(.contact-popup, .project-page-modal) .faq-inner {
   overflow: hidden;
 }
 
-.contact-popup .faq-inner p {
+:is(.contact-popup, .project-page-modal) .faq-inner p {
   padding-bottom: 1.25rem;
   color: var(--color-graphite);
   max-width: 56ch;
@@ -958,14 +958,14 @@
 /* =========================================
    FOOTER SECTION (DARK)
    ========================================= */
-.contact-popup .site-footer {
+:is(.contact-popup, .project-page-modal) .site-footer {
   background: var(--color-charcoal);
   color: var(--color-paper);
   overflow: hidden;
   box-sizing: border-box;
 }
 
-.contact-popup .footer-top {
+:is(.contact-popup, .project-page-modal) .footer-top {
   max-width: 1600px;
   margin: 0 auto;
   padding: 4rem 2rem;
@@ -976,15 +976,15 @@
 }
 
 @media (min-width: 810px) {
-  .contact-popup .footer-top {
+  :is(.contact-popup, .project-page-modal) .footer-top {
     grid-template-columns: repeat(12, 1fr);
   }
-  .contact-popup .footer-brand { grid-column: span 5; }
-  .contact-popup .footer-address { grid-column: 7 / span 3; }
-  .contact-popup .footer-nav { grid-column: span 2; }
+  :is(.contact-popup, .project-page-modal) .footer-brand { grid-column: span 5; }
+  :is(.contact-popup, .project-page-modal) .footer-address { grid-column: 7 / span 3; }
+  :is(.contact-popup, .project-page-modal) .footer-nav { grid-column: span 2; }
 }
 
-.contact-popup .footer-statement {
+:is(.contact-popup, .project-page-modal) .footer-statement {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -992,12 +992,12 @@
   margin: 0;
 }
 
-.contact-popup .footer-label {
+:is(.contact-popup, .project-page-modal) .footer-label {
   color: rgba(255,255,255,0.7);
   margin: 0;
 }
 
-.contact-popup .footer-nav ul {
+:is(.contact-popup, .project-page-modal) .footer-nav ul {
   list-style: none;
   margin-top: 0.5rem;
   padding: 0;
@@ -1005,12 +1005,12 @@
   gap: 0.25rem;
 }
 
-.contact-popup .footer-address p {
+:is(.contact-popup, .project-page-modal) .footer-address p {
   margin-top: 0.5rem;
 }
 
 /* Massive Wordmark */
-.contact-popup .footer-wordmark {
+:is(.contact-popup, .project-page-modal) .footer-wordmark {
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -1023,24 +1023,24 @@
   user-select: none;
 }
 
-.contact-popup .footer-wordmark .char {
+:is(.contact-popup, .project-page-modal) .footer-wordmark .char {
   display: block;
   transform: translateY(100%);
   transition: transform 1s var(--ease-out);
 }
 
-.contact-popup .footer-wordmark.is-visible .char {
+:is(.contact-popup, .project-page-modal) .footer-wordmark.is-visible .char {
   transform: translateY(0);
 }
 
 /* Stagger the letters */
-.contact-popup .footer-wordmark .char:nth-child(2) { transition-delay: 0.05s; }
-.contact-popup .footer-wordmark .char:nth-child(3) { transition-delay: 0.1s; }
-.contact-popup .footer-wordmark .char:nth-child(4) { transition-delay: 0.15s; }
-.contact-popup .footer-wordmark .char:nth-child(5) { transition-delay: 0.2s; }
-.contact-popup .footer-wordmark .char:nth-child(6) { transition-delay: 0.25s; }
+:is(.contact-popup, .project-page-modal) .footer-wordmark .char:nth-child(2) { transition-delay: 0.05s; }
+:is(.contact-popup, .project-page-modal) .footer-wordmark .char:nth-child(3) { transition-delay: 0.1s; }
+:is(.contact-popup, .project-page-modal) .footer-wordmark .char:nth-child(4) { transition-delay: 0.15s; }
+:is(.contact-popup, .project-page-modal) .footer-wordmark .char:nth-child(5) { transition-delay: 0.2s; }
+:is(.contact-popup, .project-page-modal) .footer-wordmark .char:nth-child(6) { transition-delay: 0.25s; }
 
-.contact-popup .footer-bottom {
+:is(.contact-popup, .project-page-modal) .footer-bottom {
   max-width: 1600px;
   margin: 0 auto;
   padding: 1.5rem 2rem;

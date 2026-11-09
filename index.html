@@ -981,95 +981,280 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
         </div>
       </div>
 
-      <!-- 4. macOS Genie Modal Window (<dialog>) -->
-      <dialog class="project-modal" id="projectModal" aria-labelledby="modalTitle" aria-modal="true">
-        <div class="modal-window">
-          <!-- macOS Window Titlebar -->
-          <div class="modal-header">
-            <div class="modal-nav-dots" aria-hidden="true">
-              <button type="button" class="modal-dot modal-dot--close js-modal-close-btn" aria-label="Close Case Study"></button>
-              <span class="modal-dot modal-dot--min"></span>
-              <span class="modal-dot modal-dot--max"></span>
-            </div>
-            <p class="modal-eyebrow" id="modalEyebrow">(CASE STUDY · 01) / Acme Corp</p>
-            <button type="button" class="modal-close-icon js-modal-close-btn" aria-label="Close Case Study">
-              <span>✕</span>
-            </button>
-          </div>
-
-          <!-- Window Scrollable Case Study Article -->
-          <article class="modal-body">
-            <h1 class="modal-title" id="modalTitle">FinTech Dashboard</h1>
-
-            <ul class="modal-chips" id="modalChips" aria-label="Disciplines & Technologies">
-              <li class="modal-chip">SaaS</li>
-              <li class="modal-chip">React</li>
-              <li class="modal-chip">TypeScript</li>
-              <li class="modal-chip">Decimal128</li>
-            </ul>
-
-            <!-- Hero Image Banner -->
-            <figure class="modal-hero-figure">
-              <img id="modalHeroImg" class="modal-hero-img" src="assets/images/appykit.jpg" alt="FinTech Dashboard Hero Banner" loading="lazy" />
-            </figure>
-
-            <!-- Meta Information Grid -->
-            <dl class="modal-meta-grid">
-              <div class="modal-meta-item">
-                <dt>ROLE</dt>
-                <dd id="modalRole">Lead Full-Stack Architect</dd>
-              </div>
-              <div class="modal-meta-item">
-                <dt>TIMELINE</dt>
-                <dd id="modalTimeline">4 Months</dd>
-              </div>
-              <div class="modal-meta-item">
-                <dt>YEAR</dt>
-                <dd id="modalYear">2024</dd>
-              </div>
-              <div class="modal-meta-item">
-                <dt>CLIENT</dt>
-                <dd id="modalClient">Acme Corp</dd>
-              </div>
-            </dl>
-
-            <!-- Detailed Case Study Narrative (Challenge, Solution, Outcome) -->
-            <div class="modal-narrative">
-              <div class="modal-block">
-                <h2 class="modal-block-label">THE CHALLENGE</h2>
-                <p class="modal-block-text" id="modalChallenge">
-                  Legacy point-of-sale systems suffered from 300ms+ round-trip latencies, frequent floating-point calculation drift on multi-currency transactions, and catastrophic transaction loss during retail network drops.
-                </p>
-              </div>
-
-              <div class="modal-block">
-                <h2 class="modal-block-label">THE SOLUTION</h2>
-                <p class="modal-block-text" id="modalSolution">
-                  Engineered a client-first POS engine running Decimal128 dual-entry financial journals directly in IndexedDB. Coupled with a background Web Worker synchronization queue, transactions settle locally in under 35ms and stream to PostgreSQL when connectivity resumes.
-                </p>
-              </div>
-
-              <div class="modal-block">
-                <h2 class="modal-block-label">THE OUTCOME</h2>
-                <p class="modal-block-text" id="modalOutcome">
-                  Processed 2.4M transactions with 0% data loss, sub-40ms terminal response times, and 99.99% system availability during Black Friday peak retail volumes.
-                </p>
-              </div>
-            </div>
-
-            <!-- Modal Bottom Navigation ("Next Project") -->
-            <div class="modal-footer-nav">
-              <button type="button" class="modal-next-btn" id="modalNextBtn" data-next-id="webgl">
-                <span class="modal-next-label">Next: WebGL Data Vis</span>
-                <span aria-hidden="true">→</span>
-              </button>
-              <button type="button" class="modal-dismiss-btn js-modal-close-btn">
-                Close [ESC]
-              </button>
-            </div>
-          </article>
+      <!-- 4. Full-Page Architectural Case Study Modal (Nivara Design & 5-Panel Curtain Transition) -->
+      <div id="project-page-modal" class="project-page-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="project-hero-title" hidden>
+        
+        <!-- 5-Panel Page Transition Curtain -->
+        <div class="page-transition" id="project-page-curtain" aria-hidden="true">
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
         </div>
-      </dialog>
+
+        <a href="#project-main-content" class="skip-link">Skip to content</a>
+
+        <!-- Scrollable Modal Viewport -->
+        <div class="project-page-scroll" id="project-page-scroll">
+
+          <!-- Header (Mix-blend mode to stay visible over dark/light sections) -->
+          <header class="site-header">
+            <div class="header-inner">
+              <a href="#" class="logo" data-close-project>Samnun Murtayes</a>
+              <p class="header-center" id="project-header-center">Acme Corp / Retail POS Architecture</p>
+              <nav class="header-nav">
+                <a href="#project-hero" class="link-nav">Overview</a>
+                <a href="#project-form" class="link-nav">Brief</a>
+                <a href="#project-faq" class="link-nav">FAQ</a>
+                <button type="button" class="cp-close-btn link-underline" data-close-project aria-label="Close Case Study">
+                  <span>Close [ESC] ✕</span>
+                </button>
+              </nav>
+            </div>
+          </header>
+
+          <main id="project-main-content">
+            
+            <!-- Hero Section (Dark) -->
+            <section class="hero" id="project-hero">
+              <div class="hero-bg-wrap">
+                <div class="hero-bg animate-image">
+                  <img id="project-hero-img" src="assets/images/appykit.jpg" alt="Case study hero banner" loading="eager" decoding="async">
+                </div>
+              </div>
+              <div class="hero-scrim"></div>
+              
+              <div class="hero-content">
+                <div class="hero-text-wrap">
+                  <p class="hero-sub animate-fade" id="project-hero-sub" style="--delay: 0.5s;">Case Study · 01 / SaaS Architecture</p>
+                  <h1 class="hero-title">
+                    <span class="animate-slide-up" id="project-hero-title">FinTech Dashboard</span>
+                  </h1>
+                </div>
+                
+                <div class="hero-details animate-fade" id="project-hero-details" style="--delay: 0.8s;">
+                  <dl id="project-hero-dl">
+                    <div>
+                      <dt id="project-meta-1-label">Studio / Client</dt>
+                      <dd id="project-meta-1-val">Acme Corp Retail Dispensaries<br>New York, USA</dd>
+                    </div>
+                    <div>
+                      <dt id="project-meta-2-label">Architecture</dt>
+                      <dd id="project-meta-2-val">Decimal128 Dual-Entry Journal<br>IndexedDB Local-First Kernel</dd>
+                    </div>
+                    <div>
+                      <dt id="project-meta-3-label">Performance</dt>
+                      <dd id="project-meta-3-val">&lt; 35ms Settlement Latency<br>99.99% Hardware Availability</dd>
+                    </div>
+                  </dl>
+                  <a href="#project-form" class="link-underline mt-4" id="project-hero-action">Inspect Architecture Spec ↓</a>
+                </div>
+              </div>
+            </section>
+
+            <!-- Form Section (Light) -->
+            <section class="form-section" id="project-form">
+              <div class="rule animate-line"></div>
+              
+              <div class="form-grid">
+                <div class="form-info">
+                  <h2 class="section-title">
+                    <span class="reveal-text"><span class="block" id="project-form-title">Deploy this architecture</span></span>
+                  </h2>
+                  <p class="section-desc reveal-text">
+                    <span class="block" id="project-form-desc-1">Tell us about your transactional volume, POS terminals,</span>
+                    <span class="block" id="project-form-desc-2">and distributed ledger brief. An architect reads every</span>
+                    <span class="block" id="project-form-desc-3">message and replies within two working days.</span>
+                  </p>
+                  
+                  <dl class="contact-meta">
+                    <div>
+                      <dt>Email</dt>
+                      <dd><a href="mailto:samnunmurtayes01@gmail.com" class="link-underline" id="project-contact-email">samnunmurtayes01@gmail.com</a></dd>
+                    </div>
+                    <div>
+                      <dt>Status</dt>
+                      <dd><span id="project-contact-phone">Active Sprint · Available for Consultation</span></dd>
+                    </div>
+                  </dl>
+                </div>
+
+                <div class="form-wrapper">
+                  <form class="contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Brief submitted! A partner will review and respond within two working days.');">
+                    
+                    <div class="form-row">
+                      <label class="input-group">
+                        <span class="input-label">First name</span>
+                        <input type="text" name="firstName" required autocomplete="given-name">
+                        <span class="focus-line"></span>
+                      </label>
+                      
+                      <label class="input-group">
+                        <span class="input-label">Last name</span>
+                        <input type="text" name="lastName" required autocomplete="family-name">
+                        <span class="focus-line"></span>
+                      </label>
+                    </div>
+
+                    <label class="input-group">
+                      <span class="input-label">Email</span>
+                      <input type="email" name="email" required autocomplete="email">
+                      <span class="focus-line"></span>
+                    </label>
+
+                    <label class="input-group">
+                      <span class="input-label">What is it about?</span>
+                      <select name="category" id="project-form-select" required>
+                        <option value="" disabled selected>Choose architecture tier</option>
+                        <option value="pos">High-Throughput POS Terminal</option>
+                        <option value="ledger">Distributed Decimal128 Ledger</option>
+                        <option value="offline">Offline-First Sync Engine</option>
+                        <option value="audit">Cryptographic Audit Reconciliation</option>
+                      </select>
+                      <span class="focus-line"></span>
+                    </label>
+
+                    <label class="input-group">
+                      <span class="input-label">Message</span>
+                      <textarea name="message" id="project-form-message" rows="5" placeholder="Tell us about your transaction throughput, existing databases, and target launch window." required></textarea>
+                      <span class="focus-line"></span>
+                    </label>
+
+                    <div class="form-submit-wrap">
+                      <button type="submit" class="submit-btn">
+                        <span class="btn-bg"></span>
+                        <span class="btn-content">
+                          <span class="btn-text-roll">
+                            <span>Send brief</span>
+                            <span>Send brief</span>
+                          </span>
+                          <svg viewBox="0 0 16 16" class="btn-arrow" fill="none" stroke="currentColor" stroke-width="1.3">
+                            <path d="M2 8h12M9 3l5 5-5 5"></path>
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section" id="project-faq">
+              <div class="faq-grid">
+                <div class="faq-left">
+                  <h2 class="section-title"><span class="reveal-text"><span class="block">Questions we hear first</span></span></h2>
+                  <p class="faq-sub reveal-text"><span class="block" id="project-faq-sub">Technical specifications regarding the Decimal128 financial ledger and offline-first POS engine.</span></p>
+                </div>
+                
+                <div class="faq-right">
+                  <div class="rule animate-line"></div>
+                  
+                  <div class="accordion" id="project-faq-accordion">
+                    <div class="faq-item">
+                      <button class="faq-trigger" aria-expanded="true">
+                        <span class="faq-q">How does Decimal128 prevent calculation drift?</span>
+                        <span class="faq-icon">
+                          <span class="icon-h"></span>
+                          <span class="icon-v"></span>
+                        </span>
+                      </button>
+                      <div class="faq-content is-open">
+                        <div class="faq-inner">
+                          <p class="faq-a">Standard IEEE-754 floating-point numbers introduce binary fraction rounding errors in currency additions. Decimal128 enforces exact decimal base-10 arithmetic across all cart totals, tax schedules, and ledger entries down to 34 decimal digits.</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                      <button class="faq-trigger" aria-expanded="false">
+                        <span class="faq-q">What happens if retail connectivity drops during checkout?</span>
+                        <span class="faq-icon">
+                          <span class="icon-h"></span>
+                          <span class="icon-v"></span>
+                        </span>
+                      </button>
+                      <div class="faq-content">
+                        <div class="faq-inner">
+                          <p class="faq-a">The client-side engine executes local-first write operations directly into IndexedDB with append-only transaction receipts. Transactions settle locally in under 35ms and auto-stream to PostgreSQL when network connectivity is restored.</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                      <button class="faq-trigger" aria-expanded="false">
+                        <span class="faq-q">What throughput SLA does the terminal guarantee?</span>
+                        <span class="faq-icon">
+                          <span class="icon-h"></span>
+                          <span class="icon-v"></span>
+                        </span>
+                      </button>
+                      <div class="faq-content">
+                        <div class="faq-inner">
+                          <p class="faq-a">The UI thread achieves 0ms input blocking and sub-40ms end-to-end receipt generation, tested up to 2.4 million daily transactions with 99.99% uptime.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="rule"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          </main>
+
+          <!-- Footer Section (Dark) -->
+          <footer class="site-footer">
+            <div class="footer-top">
+              <div class="footer-brand">
+                <p class="footer-statement" id="project-footer-statement">Precision financial engines &amp; bespoke retail architecture.</p>
+                <a href="mailto:samnunmurtayes01@gmail.com" class="link-underline mt-4" id="project-footer-email">samnunmurtayes01@gmail.com</a>
+              </div>
+              
+              <div class="footer-address">
+                <p class="footer-label">Office</p>
+                <p id="project-footer-addr">Available for bespoke client engagements<br>Worldwide Remote</p>
+                <span class="mt-2" style="display:inline-block; font-size:0.875rem; color:rgba(255,255,255,0.6);" id="project-footer-phone">UTC+6 Studio Hours</span>
+              </div>
+              
+              <div class="footer-nav">
+                <p class="footer-label">Index</p>
+                <ul>
+                  <li><a href="#project-hero" class="link-underline">Overview</a></li>
+                  <li><a href="#project-form" class="link-underline">Inquiry</a></li>
+                  <li><a href="#project-faq" class="link-underline">FAQ</a></li>
+                </ul>
+              </div>
+              
+              <div class="footer-nav">
+                <p class="footer-label">Elsewhere</p>
+                <ul>
+                  <li><a href="https://github.com/MURTAYES" target="_blank" rel="noopener" class="link-underline">GitHub</a></li>
+                  <li><a href="mailto:samnunmurtayes01@gmail.com" class="link-underline">Email</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Massive sliding wordmark -->
+            <div class="footer-wordmark" id="project-footer-wordmark" aria-hidden="true">
+              <span class="char">F</span>
+              <span class="char">I</span>
+              <span class="char">N</span>
+              <span class="char">T</span>
+              <span class="char">E</span>
+              <span class="char">C</span>
+              <span class="char">H</span>
+            </div>
+            
+            <div class="footer-bottom">
+              <p id="project-footer-copy">© 2026 Acme Corp · Samnun Murtayes</p>
+              <p id="project-footer-sub">Engineered in the Swiss International Typographic Style</p>
+            </div>
+          </footer>
+
+        </div>
+      </div>
     </section>
 
     <!-- 04B. SKILLS & CAPABILITIES BENTO GRID (Pure Vanilla CSS & JS) -->
