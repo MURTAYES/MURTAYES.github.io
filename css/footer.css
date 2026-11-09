@@ -1,73 +1,421 @@
-/* --------------------------------------------------------------------------
-   08. MINIMALIST ARCHITECTURAL COLOPHON FOOTER (ONLINES REFERENCE DESIGN)
-   Single-Line Centered Legal Typography with Dotted Top Divider
-   -------------------------------------------------------------------------- */
+:root {
+  --canvas: #F5F5F3;  
+  --ink: #0A0A0A;  
+  --muted: #6B6B6B;
+  --rule: rgba(10,10,10,.14); 
+  --accent: #E85C3B; 
+  --white: #FFFFFF;
+  
+  --font-display: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  --font-label: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  
+  --ease-out-soft: cubic-bezier(.22,1,.36,1);
+}
 
-.site-colophon {
+/* Ensure main content sits above the curtain reveal footer */
+main {
   position: relative;
-  width: 100%;
-  background-color: #ffffff;
-  color: #888888;
-  padding: 24px clamp(1rem, 4vw, 3rem) 28px;
-  border-top: 1px dotted rgba(0, 0, 0, 0.22);
-  box-sizing: border-box;
-  font-family: var(--font-mono, monospace);
-  font-size: 9.5px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   z-index: 10;
-  text-align: center;
+  background: var(--canvas, #F5F5F3);
 }
 
-.site-colophon__container {
-  display: block;
-  max-width: 1400px;
-  margin: 0 auto;
+/* =========================================
+   THE CURTAIN REVEAL WRAPPER
+   ========================================= */
+.footer-reveal-wrapper {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
   width: 100%;
+  clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+  z-index: 1;
 }
 
-.colophon-legal-text {
-  margin: 0;
-  line-height: 1.8;
-  color: #888888;
+.cinematic-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  min-height: 600px;
+  width: 100%;
+  overflow: hidden;
+  background: var(--canvas);
+  color: var(--ink);
+  z-index: 1;
+  box-sizing: border-box;
 }
 
-.colophon-link {
-  color: #777777;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.2s ease;
+/* =========================================
+   BACKGROUND EFFECTS
+   ========================================= */
+.footer-aurora {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 60vh;
+  width: 80vw;
+  transform: translate(-50%, -50%) scale(1);
+  background: radial-gradient(circle at 50% 50%, rgba(232, 92, 59, 0.15) 0%, rgba(10, 10, 10, 0.05) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: breathe 8s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.colophon-link:hover {
-  color: #0066ff;
+@keyframes breathe {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
 }
 
-/* --------------------------------------------------------------------------
-   17. EMOJI RAIN PARTICLES
-   -------------------------------------------------------------------------- */
-.emoji-rain-container {
+.footer-bg-grid {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, var(--rule) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rule) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
   pointer-events: none;
-  overflow: hidden;
-  z-index: 999;
+  z-index: 0;
 }
 
-.single-rain-emoji {
+/* Giant Parallax Text */
+.footer-giant-text {
   position: absolute;
-  bottom: 0;
-  font-size: 2rem;
+  bottom: -5vh;
+  left: 50%;
+  transform: translate(-50%, 10vh) scale(0.8);
+  font-size: 26vw;
+  line-height: 0.75;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--rule);
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.1) 0%, transparent 60%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  will-change: transform, opacity;
 }
 
-.single-rain-emoji-image-fire::before {
-  content: "🔥";
+/* =========================================
+   MARQUEE
+   ========================================= */
+.footer-marquee-wrap {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: rgba(245, 245, 243, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 16px 0;
+  z-index: 10;
+  transform: rotate(-2deg) scale(1.1);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
 }
 
-.single-rain-emoji-image-sparkles::before {
-  content: "✨";
+.footer-marquee {
+  display: flex;
+  width: max-content;
+  animation: footerMarquee 30s linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 0 24px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.marquee-content .accent {
+  color: var(--accent);
+  font-size: 18px;
+}
+
+@keyframes footerMarquee {
+  to { transform: translateX(-50%); }
+}
+
+/* =========================================
+   MAIN CENTER CONTENT
+   ========================================= */
+.footer-center {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  margin-top: 80px;
+  opacity: 0;
+  transform: translateY(50px);
+  will-change: transform, opacity;
+}
+
+.footer-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 7.5vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: 40px;
+  text-align: center;
+  
+  /* Metallic Glow Effect */
+  background: linear-gradient(180deg, var(--ink) 0%, rgba(10,10,10,0.4) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0px 0px 20px rgba(10,10,10,0.1));
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.pill-group.secondary {
+  gap: 12px;
+  margin-top: 6px;
+}
+
+/* =========================================
+   GLASS PILLS & MAGNETIC BUTTONS
+   ========================================= */
+.glass-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 36px;
+  border-radius: 999px;
+  font-family: var(--font-label);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--rule);
+  box-sizing: border-box;
+  
+  /* Glass Effect */
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 100%);
+  box-shadow: 
+    0 10px 30px -10px rgba(0,0,0,0.06), 
+    inset 0 1px 1px rgba(255,255,255,0.8), 
+    inset 0 -1px 2px rgba(0,0,0,0.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  
+  /* Base transition for snap-back */
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              background 0.4s ease, 
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.glass-pill:hover {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.45) 100%);
+  border-color: rgba(10, 10, 10, 0.22);
+  box-shadow: 
+    0 14px 34px -8px rgba(0,0,0,0.1), 
+    inset 0 1px 1px rgba(255,255,255,0.9);
+}
+
+.glass-pill svg {
+  width: 22px;
+  height: 22px;
+  color: var(--muted);
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.glass-pill:hover svg {
+  color: var(--ink);
+}
+
+.pill-group.secondary .glass-pill {
+  padding: 11px 22px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.pill-group.secondary .glass-pill:hover {
+  color: var(--ink);
+}
+
+/* =========================================
+   BOTTOM BAR
+   ========================================= */
+.footer-bottom {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  padding: 0 48px 32px 48px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+  }
+}
+
+.copyright {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .copyright { order: 1; }
+}
+
+.made-with {
+  padding: 10px 22px;
+  cursor: default;
+  gap: 8px;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  order: 1;
+}
+
+@media (min-width: 768px) {
+  .made-with { order: 2; }
+}
+
+.made-with strong {
+  color: var(--ink);
+  font-size: 12.5px;
+  margin-left: 4px;
+}
+
+.heart {
+  color: var(--accent);
+  font-size: 16px;
+  animation: heartbeat 2s infinite cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15%, 45% { transform: scale(1.2); }
+  30% { transform: scale(1); }
+}
+
+.back-to-top {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  justify-content: center;
+  order: 3;
+}
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+.back-to-top:hover svg {
+  transform: translateY(-4px);
+  color: var(--ink);
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
+@media (max-width: 768px) {
+  .footer-reveal-wrapper,
+  .cinematic-footer {
+    height: 100vh;
+    min-height: 560px;
+  }
+  .footer-marquee-wrap {
+    top: 24px;
+    padding: 10px 0;
+  }
+  .footer-center {
+    margin-top: 50px;
+    padding: 0 16px;
+  }
+  .footer-heading {
+    font-size: clamp(2rem, 7vw, 3.25rem);
+    margin-bottom: 24px;
+  }
+  .glass-pill {
+    padding: 14px 26px;
+    font-size: 14px;
+  }
+  .pill-group.secondary .glass-pill {
+    padding: 9px 16px;
+    font-size: 12px;
+  }
+  .footer-bottom {
+    padding: 0 20px 24px 20px;
+    gap: 14px;
+  }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .footer-aurora {
+    animation: none;
+  }
+  .footer-marquee {
+    animation: none;
+  }
+  .heart {
+    animation: none;
+  }
+  .footer-giant-text {
+    opacity: 1 !important;
+    transform: translate(-50%, 0) scale(1) !important;
+  }
+  .footer-center {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
 }
 
 /* --------------------------------------------------------------------------
