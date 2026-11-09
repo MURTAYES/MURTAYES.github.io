@@ -71,19 +71,20 @@
    -------------------------------------------------------------------------- */
 .home-hero__titulo {
   font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: clamp(4.5rem, 13vw, 11.5rem);
+  font-size: clamp(2.4rem, 5.8vw, 5.4rem);
   font-weight: 800;
-  line-height: 0.85;
-  letter-spacing: -0.055em;
-  color: #060606;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #05562B;
   margin: 0;
   cursor: grab;
   touch-action: none;
   will-change: transform;
-  text-transform: lowercase;
+  text-transform: none;
   position: relative;
   z-index: 15;
   user-select: none;
+  text-align: center;
 }
 
 .home-hero__titulo:active,
@@ -141,56 +142,107 @@
   opacity: 1;
 }
 
-/* 1. Wireframe Card */
-.home-hero__wireframe {
-  top: 14%;
-  left: 7%;
-  width: 190px;
+/* 1. Bangladesh Map & National Flag Vector Card */
+.home-hero__bd-card {
+  top: 12%;
+  left: 6%;
+  width: 220px;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 14px;
-  padding: 14px;
-  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+  padding: 13px 14px;
+  box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
-.wireframe-header {
+.bd-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bd-card-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.wf-circle {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 1.5px solid #94a3b8;
-}
-
-.wf-bar {
-  height: 6px;
-  width: 55%;
-  background: #e2e8f0;
-  border-radius: 3px;
-}
-
-.wireframe-boxes {
+.bd-flag-wrap {
+  flex-shrink: 0;
   display: flex;
-  gap: 8px;
+  align-items: center;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
-.wf-box {
-  flex: 1;
-  height: 52px;
-  background: #f8fafc;
-  border: 1px dashed #cbd5e1;
+.bd-flag-svg {
+  display: block;
+}
+
+.bd-card-title-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.bd-card-badge {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.bd-card-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #05562B;
+  letter-spacing: -0.02em;
+}
+
+.bd-map-container {
+  width: 100%;
+  height: 130px;
+  background: #f8faf9;
+  border: 1px solid rgba(5, 86, 43, 0.12);
   border-radius: 8px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
 }
 
-.wf-box.highlight {
-  background: rgba(13, 153, 255, 0.06);
-  border-color: #0d99ff;
-  border-style: solid;
+.bd-map-vector {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 4px rgba(5, 86, 43, 0.15));
+}
+
+.bd-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono, monospace);
+  font-size: 9px;
+  color: #64748b;
+  padding-top: 2px;
+}
+
+.bd-coord {
+  letter-spacing: -0.02em;
+}
+
+.bd-status-pill {
+  background: rgba(5, 86, 43, 0.10);
+  color: #05562B;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  font-size: 8.5px;
 }
 
 /* 2. Code Block with Live Typing */

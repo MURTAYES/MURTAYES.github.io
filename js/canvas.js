@@ -158,6 +158,9 @@
     if (title && selectionBox) {
       syncSelectionBox();
       window.addEventListener("resize", syncSelectionBox, { passive: true });
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(syncSelectionBox);
+      }
 
       let isDragging = false;
       let startX = 0, startY = 0;
@@ -278,9 +281,12 @@
     const typingTextEl = canvasSection.querySelector(".js-typing-text");
     if (typingTextEl) {
       const codeLines = [
-        "<h1>Fluid & Kinetic</h1>",
-        "<p>60fps zero dependencies.</p>",
-        "<script src=\"canvas.js\"></script>"
+        "<!-- Bangladesh Cartography (index.html) -->",
+        "<svg viewBox=\"0 0 1024 1024\" class=\"bd-geo\">",
+        "  <path fill=\"#05562B\" d=\"M2023 10175 c-27...\"/>",
+        "  <circle cx=\"520\" cy=\"520\" r=\"14\" fill=\"#F42A41\"/>",
+        "  <text x=\"545\" y=\"525\">Dhaka · 23.8°N 90.4°E</text>",
+        "</svg>"
       ];
       const fullText = codeLines.join("\n");
       let charIndex = 0;

@@ -42,6 +42,7 @@ Progress: [██████████] 100.0%
 | 2026-11-09 | 20261109-remove-scratch | Remove scratch folder and all temporary files | complete ✓ |
 | 2026-11-09 | 20261109-asymmetric-works-folders | Asymmetrical staggered architectural layout for Selected Works with 3 sharp-cornered folders | complete ✓ |
 | 2026-11-09 | 20261109-onlines-contact-footer | Exact match to Onlines sample design for Section 7 & Footer | complete ✓ |
+| 2026-11-09 | 20261109-section3-canvas-polish | Polish Section 3 with Bangladesh identity, English copy, and SVG map | complete ✓ |
 
 ## Accumulated Context
 
