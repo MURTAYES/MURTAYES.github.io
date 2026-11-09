@@ -194,6 +194,194 @@
       </div>
     </section>
 
+    <!-- 03B. MULTIPLAYER DESIGN CANVAS INTERACTIVE STAGE -->
+    <section id="canvas" class="home-hero-canvas js-home-hero-grilla" aria-label="Collaborative Design Canvas">
+      <!-- 60px Coordinate Grid Layer & Lit Cell Trail -->
+      <div class="grilla-celdas" aria-hidden="true">
+        <div class="grilla-celdas__lit js-grilla-lit"></div>
+      </div>
+
+      <!-- Spatial Peripheral Scatter: 6 Tilted Floating Cards with Mouse Lerp Parallax -->
+      <div class="home-hero__scatter" aria-hidden="true">
+        <!-- 1. Code Window with Live Character Typing -->
+        <div class="scatter-card scatter-card--code js-home-hero-float" data-float-parallax="0.12" data-base-rotate="-3.5">
+          <div class="code-card-header">
+            <div class="code-card-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="code-card-title">canvas.config.ts</span>
+            <span class="code-card-badge">TypeScript</span>
+          </div>
+          <div class="code-card-body">
+            <pre class="code-card-pre"><code class="js-live-type-code"></code><span class="type-caret"></span></pre>
+          </div>
+        </div>
+
+        <!-- 2. Modern Laptop Device Mockup -->
+        <div class="scatter-card scatter-card--laptop js-home-hero-float" data-float-parallax="0.18" data-base-rotate="4.2">
+          <div class="laptop-bezel">
+            <div class="laptop-camera"></div>
+            <div class="laptop-screen">
+              <div class="screen-wireframe">
+                <div class="wireframe-nav"></div>
+                <div class="wireframe-hero">
+                  <div class="wireframe-pill"></div>
+                  <div class="wireframe-title"></div>
+                  <div class="wireframe-btn"></div>
+                </div>
+                <div class="wireframe-grid">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="laptop-base"></div>
+        </div>
+
+        <!-- 3. Smartphone Frame -->
+        <div class="scatter-card scatter-card--mobile js-home-hero-float" data-float-parallax="0.14" data-base-rotate="-5.3">
+          <div class="mobile-notch"></div>
+          <div class="mobile-screen">
+            <div class="mobile-feed">
+              <div class="mobile-avatar"></div>
+              <div class="mobile-line w-75"></div>
+              <div class="mobile-card"></div>
+              <div class="mobile-line w-50"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Figma Comment Thread Card -->
+        <div class="scatter-card scatter-card--comment js-home-hero-float" data-float-parallax="0.08" data-base-rotate="2.1">
+          <div class="comment-author">
+            <span class="author-avatar" style="background-color: #ff6b4a;">C</span>
+            <div class="author-meta">
+              <span class="author-name">Cliente</span>
+              <span class="author-time">ahora</span>
+            </div>
+          </div>
+          <p class="comment-text">¿Podemos hacer que el movimiento sea aún más fluido y cinético? 🔥</p>
+          <div class="comment-reply">
+            <span class="reply-check">✓</span>
+            <span class="reply-status">Resuelto por Samnun</span>
+          </div>
+        </div>
+
+        <!-- 5. Editorial Typography Card -->
+        <div class="scatter-card scatter-card--editorial js-home-hero-float" data-float-parallax="0.15" data-base-rotate="5.89">
+          <div class="editorial-eyebrow">CREATIVE ARCHITECTURE</div>
+          <div class="editorial-title">Systems &amp; Motion</div>
+          <div class="editorial-metrics">
+            <div class="metric-item">
+              <span class="metric-num">60</span>
+              <span class="metric-unit">fps</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-num">0</span>
+              <span class="metric-unit">deps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. UI Wireframe Card -->
+        <div class="scatter-card scatter-card--wireframe js-home-hero-float" data-float-parallax="0.10" data-base-rotate="-2.8">
+          <div class="wireframe-header">
+            <span class="wf-circle"></span>
+            <span class="wf-line"></span>
+          </div>
+          <div class="wireframe-content">
+            <div class="wf-box highlight"></div>
+            <div class="wf-box"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Autonomous Multiplayer Role Cursors (7 Collaborative Personas) -->
+      <div class="home-hero__cursors-layer" aria-hidden="true">
+        <!-- 1. Desarrollador (#00d2b4) -->
+        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="0" data-cursor-role="Desarrollador" style="--cursor-color: #00d2b4;">
+          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
+          </svg>
+          <span class="cursor-tag">Desarrollador</span>
+        </div>
+
+        <!-- 2. Cliente (#ff6b4a) -->
+        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="1" data-cursor-role="Cliente" style="--cursor-color: #ff6b4a;">
+          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
+          </svg>
+          <span class="cursor-tag">Cliente</span>
+        </div>
+
+        <!-- 3. Director creativo (#9b51e0) -->
+        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="2" data-cursor-role="Director creativo" style="--cursor-color: #9b51e0;">
+          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
+          </svg>
+          <span class="cursor-tag">Director creativo</span>
+        </div>
+
+        <!-- 4. Diseñador UI/UX (#ff4081) -->
+        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="3" data-cursor-role="Diseñador UI/UX" style="--cursor-color: #ff4081;">
+          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
+          </svg>
+          <span class="cursor-tag">Diseñador UI/UX</span>
+        </div>
+
+        <!-- 5. Project Manager (#2d9cdb) -->
+        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="4" data-cursor-role="Project Manager" style="--cursor-color: #2d9cdb;">
+          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
+          </svg>
+          <span class="cursor-tag">Project Manager</span>
+        </div>
+
+        <!-- 6. QA Engineer (#f2c94c) -->
+        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="5" data-cursor-role="QA Engineer" style="--cursor-color: #f2c94c;">
+          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
+          </svg>
+          <span class="cursor-tag">QA Engineer</span>
+        </div>
+
+        <!-- 7. Motion Designer (#6fcf97) -->
+        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="6" data-cursor-role="Motion Designer" style="--cursor-color: #6fcf97;">
+          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
+          </svg>
+          <span class="cursor-tag">Motion Designer</span>
+        </div>
+      </div>
+
+      <!-- Focal Anchor: Draggable 'internet.' Centerpiece with Vector Selection Box -->
+      <div class="home-hero__centerpiece-wrap">
+        <!-- Figma Vector Selection Box -->
+        <div class="home-hero__seleccion js-home-hero-seleccion" aria-hidden="true">
+          <span class="seleccion-handle handle-tl"></span>
+          <span class="seleccion-handle handle-tc"></span>
+          <span class="seleccion-handle handle-tr"></span>
+          <span class="seleccion-handle handle-bl"></span>
+          <span class="seleccion-handle handle-bc"></span>
+          <span class="seleccion-handle handle-br"></span>
+          <span class="seleccion-dimension">1440 × 900</span>
+        </div>
+
+        <!-- Draggable Title -->
+        <h2 class="home-hero__titulo is-draggable" data-cursor="Drag">internet.</h2>
+
+        <!-- Interactive "Modo IA" Pill Switch -->
+        <div class="home-hero__switch-wrap">
+          <button type="button" class="home-hero__switch js-home-hero-switch" data-switch-interval="4000" aria-pressed="false" aria-label="Toggle Modo IA">
+            <span class="switch-indicator"></span>
+            <span class="switch-label">Modo IA</span>
+            <span class="switch-pulse" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- 04. SELECTED WORKS (TACTILE ARCHITECTURAL FOLDERS & ON-PAGE DOSSIER) -->
     <section id="works" class="works" aria-labelledby="works-title">
       <div class="works__container container">
