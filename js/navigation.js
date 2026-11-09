@@ -23,45 +23,43 @@
   }
 
   function initNavigationControllers() {
-    const menuBtn = document.getElementById("menu-btn");
-    const menuOverlay = document.getElementById("site-menu");
+    const menuToggle = document.getElementById("menuToggle") || document.getElementById("menu-btn");
+    const mainNav = document.getElementById("mainNav") || document.getElementById("site-menu");
     const scrim = document.getElementById("menu-scrim");
-    const menuLinks = document.querySelectorAll(".menu-link");
+    const navLinks = document.querySelectorAll(".nav-link, .menu-link");
 
     function toggleMenu() {
       const isOpen = document.body.classList.toggle("menu-open");
-      if (menuBtn) {
-        menuBtn.setAttribute("aria-expanded", String(isOpen));
-        menuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      if (menuToggle) {
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close Navigation Menu" : "Toggle Navigation Menu");
       }
-      if (menuOverlay) {
-        menuOverlay.setAttribute("aria-hidden", String(!isOpen));
+      if (mainNav) {
+        mainNav.setAttribute("aria-hidden", String(!isOpen));
       }
-      document.body.style.overflow = isOpen ? "hidden" : "";
     }
 
     function closeMenu() {
       document.body.classList.remove("menu-open");
-      if (menuBtn) {
-        menuBtn.setAttribute("aria-expanded", "false");
-        menuBtn.setAttribute("aria-label", "Open menu");
+      if (menuToggle) {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Toggle Navigation Menu");
       }
-      if (menuOverlay) {
-        menuOverlay.setAttribute("aria-hidden", "true");
+      if (mainNav) {
+        mainNav.setAttribute("aria-hidden", "true");
       }
-      document.body.style.overflow = "";
     }
 
-    if (menuBtn) {
-      menuBtn.addEventListener("click", toggleMenu);
+    if (menuToggle) {
+      menuToggle.addEventListener("click", toggleMenu);
     }
 
     if (scrim) {
       scrim.addEventListener("click", closeMenu);
     }
 
-    // Close menu when clicking any navigation link
-    menuLinks.forEach((link) => {
+    // Close menu automatically when any navigation link is clicked
+    navLinks.forEach((link) => {
       link.addEventListener("click", closeMenu);
     });
 

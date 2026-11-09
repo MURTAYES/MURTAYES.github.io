@@ -49,16 +49,24 @@
     </symbol>
   </svg>
 
-  <!-- 01. PRIMARY NAVIGATION (FIXED HEADER + FULLSCREEN SLIDE-OUT MENU) -->
-  <!-- FIXED HEADER -->
+  <!-- 01. PRIMARY NAVIGATION (FIXED HEADER + 3-LINE MORPHING HAMBURGER + FULLSCREEN OVERLAY) -->
   <header class="site-header willen-nav header">
     <div class="header-container">
       <a class="wordmark-link header__logo" href="#hero" aria-label="Samnun Murtayes Home" data-cursor="Home">
         <img src="assets/images/logo.svg" alt="Samnun Murtayes Logo" class="wordmark-img header__brand-logo" id="header-brand-logo">
       </a>
-      <button type="button" id="menu-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu" class="menu-toggle" data-cursor="Menu">
-        <span></span>
-        <span></span>
+      <button 
+        type="button" 
+        id="menuToggle" 
+        class="hamburger-btn menu-toggle" 
+        aria-expanded="false" 
+        aria-controls="mainNav" 
+        aria-label="Toggle Navigation Menu"
+        data-cursor="Menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
       </button>
     </div>
   </header>
@@ -66,20 +74,20 @@
   <!-- BACKDROP SCRIM -->
   <div class="menu-scrim" id="menu-scrim" aria-hidden="true"></div>
 
-  <!-- FULLSCREEN MENU OVERLAY -->
-  <div class="site-menu-overlay" id="site-menu" aria-hidden="true">
+  <!-- FULLSCREEN OVERLAY NAVIGATION -->
+  <nav id="mainNav" class="nav-overlay site-menu-overlay" aria-hidden="true">
     <div class="menu-inner">
-      <ul class="menu-list">
-        <li class="menu-item"><a href="#hero" class="menu-link" data-cursor="Home">Home</a></li>
-        <li class="menu-item"><a href="#about" class="menu-link" data-cursor="About">About</a></li>
-        <li class="menu-item"><a href="#works" class="menu-link" data-cursor="Work">Work</a></li>
-        <li class="menu-item"><a href="#contact" class="menu-link" data-cursor="Contact">Contact</a></li>
+      <ul class="nav-links menu-list">
+        <li class="menu-item"><a href="#hero" class="nav-link menu-link" data-cursor="Home">Home</a></li>
+        <li class="menu-item"><a href="#about" class="nav-link menu-link" data-cursor="About">About</a></li>
+        <li class="menu-item"><a href="#works" class="nav-link menu-link" data-cursor="Work">Work</a></li>
+        <li class="menu-item"><a href="#contact" class="nav-link menu-link" data-cursor="Contact">Contact</a></li>
       </ul>
-      <div>
+      <div class="menu-footer">
         <a href="mailto:samnun@murtayes.com" class="menu-footer-link" data-cursor="Email">SAMNUN@MURTAYES.COM</a>
       </div>
     </div>
-  </div>
+  </nav>
 
   <main id="main-content">
 

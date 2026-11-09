@@ -69,36 +69,64 @@
   transform: scale(1.08) rotate(-3deg);
 }
 
-/* Hamburger Toggle Button */
+body.menu-open {
+  overflow: hidden !important; /* Locks background scrolling */
+}
+
+/* Hamburger Button Design */
+.hamburger-btn,
 .menu-toggle {
   background: none;
   border: none;
   cursor: pointer;
+  width: 44px;
+  height: 44px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   justify-content: center;
-  gap: 7px;
-  padding: 0.5rem;
+  align-items: center;
+  gap: 6px;
   z-index: 110;
+  border-radius: 50%;
+  padding: 0;
+  transition: background-color 0.2s ease;
   touch-action: manipulation;
 }
 
-.menu-toggle span {
-  display: block;
-  height: 2px;
-  width: 32px;
-  background-color: var(--text-ink, #0a0a0a);
-  transition: transform 0.3s var(--spring-ease), opacity 0.3s ease, background-color 0.3s ease;
-  transform-origin: center;
+.hamburger-btn:hover,
+.menu-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Hamburger Animation States */
-body.menu-open .menu-toggle span:nth-child(1) {
-  transform: translateY(4.5px) rotate(45deg);
+/* The Three Lines */
+.hamburger-line,
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-ink, #060606);
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.35s var(--spring-ease),
+              opacity 0.35s var(--spring-ease),
+              background-color 0.25s ease;
 }
+
+/* Active Icon Animation (Transforms 3 lines into clean 'X') */
+body.menu-open .hamburger-line:nth-child(1),
+body.menu-open .menu-toggle span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+body.menu-open .hamburger-line:nth-child(2),
 body.menu-open .menu-toggle span:nth-child(2) {
-  transform: translateY(-4.5px) rotate(-45deg);
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+body.menu-open .hamburger-line:nth-child(3),
+body.menu-open .menu-toggle span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Scrim Overlay */
@@ -109,7 +137,7 @@ body.menu-open .menu-toggle span:nth-child(2) {
   background-color: rgba(10, 10, 10, 0.35);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s var(--spring-ease);
+  transition: opacity 0.35s var(--spring-ease);
 }
 
 body.menu-open .menu-scrim {
@@ -117,23 +145,33 @@ body.menu-open .menu-scrim {
   pointer-events: auto;
 }
 
-/* Fullscreen Slide-out Menu Overlay */
+/* Full-Screen Overlay Navigation */
+.nav-overlay,
 .site-menu-overlay {
   position: fixed;
   inset: 0;
   z-index: 95;
   background-color: var(--bg-canvas, #ffffff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   overflow-y: auto;
-  padding-top: 7rem;
-  padding-bottom: 4rem;
-  transform: translateY(-100%);
-  transition: transform 0.55s cubic-bezier(0.77, 0, 0.175, 1);
+  padding: 6rem 1.5rem 3rem;
+  opacity: 0;
   visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.35s var(--spring-ease),
+              transform 0.35s var(--spring-ease),
+              visibility 0.35s var(--spring-ease);
+  box-sizing: border-box;
 }
 
+body.menu-open .nav-overlay,
 body.menu-open .site-menu-overlay {
-  transform: translateY(0%);
+  opacity: 1;
   visibility: visible;
+  transform: translateY(0);
 }
 
 .menu-inner {
