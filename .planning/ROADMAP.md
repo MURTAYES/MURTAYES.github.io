@@ -11,7 +11,7 @@ Build and assemble a personal portfolio for creative engineer and developer Samn
 - [x] **Phase 3: Section 3 — Multiplayer Design Canvas Interactive Stage** - Interactive Figma/Webflow-style canvas with draggable `internet.` centerpiece, Modo IA auto-switch, 6 tilted floating cards, 7 autonomous role cursors, live code typing, and snapping grid.
 - [x] **Phase 4: Section 4 — Selected Works Folders & Legacy Cleanup** - Retain tactile 3D architectural folders (ApplyKit, PharmaERP, EduHub) and dossier overlays; purge unmentioned `#process` and `#global-physics-stage`.
 - [x] **Phase 5: Section 5 — Cinematic Scroll-Scrubbed Stats Section** - Danish architectural stats bridge with clip-path frame expansion (0% -> 40%), image scale settling, scrim darkening, hairline rules draw, and tabular numbers count-up for Lines of Code and Projects.
-- [ ] **Phase 6: Section 6 — What I'm Building: SVG Sine-Wave Progress Timeline** - Minimalist dark-theme route timeline with 1000x160 SVG sine-wave path draw, synchronized station pop-in nodes, alternating callouts, and responsive mobile index.
+- [x] **Phase 6: Section 6 — What I'm Building: SVG Sine-Wave Progress Timeline** - Minimalist dark-theme route timeline with 1000x160 SVG sine-wave path draw, synchronized station pop-in nodes, alternating callouts, and responsive mobile index.
 - [ ] **Phase 7: Section 7 — Collaborative Workspace Contact Section** - Two-column `home-contacto` section with spotlight dot matrix, Aa badge, floating photo cards, autonomous "Cliente" cursor, dotted headline leaders, and CTA button.
 - [ ] **Phase 8: Section 8 — Minimalist Single-Line Colophon Footer** - Minimalist architectural colophon footer with dashed blueprint divider, dynamic current year, and clean service/social links.
 
@@ -109,7 +109,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 06-01: Build "What I'm Building" dark theme section, SVG sine-wave path draw controller, alternating station cards, and responsive list fallback.
+- [x] 06-01: Build "What I'm Building" dark theme section, SVG sine-wave path draw controller, alternating station cards, and responsive list fallback.
 
 ---
 

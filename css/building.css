@@ -1,0 +1,349 @@
+/* ==========================================================================
+   06. SECTION 6: WHAT I'M BUILDING (SVG SINE-WAVE PROGRESS TIMELINE)
+   Minimalist Dark Theme · Synchronized Sine-Wave Curve & Swiss Mobile List
+   Zero External Dependencies · 60fps GPU Accelerated
+   ========================================================================== */
+
+.building-section {
+  position: relative;
+  width: 100%;
+  background-color: #161616;
+  color: #ffffff;
+  padding: clamp(5rem, 10vh, 8rem) 0;
+  overflow: hidden;
+  isolation: isolate;
+  user-select: none;
+}
+
+.building-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   Header Typography
+   -------------------------------------------------------------------------- */
+.building-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 680px;
+}
+
+.building-eyebrow {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #10b981;
+}
+
+.building-title {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.building-description {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  line-height: 1.55;
+  color: #a3a3a3;
+  margin: 0.25rem 0 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   Desktop Timeline Stage (>= 1200px)
+   -------------------------------------------------------------------------- */
+.building-timeline-desktop {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  margin-top: clamp(3rem, 6vh, 5rem);
+  display: block;
+}
+
+.sine-svg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  transform: translateY(-50%);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.sine-guide-path {
+  stroke: #2a2a2a;
+  stroke-width: 2;
+  stroke-dasharray: 4 6;
+  fill: none;
+}
+
+.sine-draw-path {
+  stroke: #10b981;
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sine-node {
+  fill: #10b981;
+  stroke: #161616;
+  stroke-width: 3;
+  transform-origin: center;
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.sine-node.is-active {
+  transform: scale(1);
+}
+
+/* --------------------------------------------------------------------------
+   Alternating Callout Cards
+   -------------------------------------------------------------------------- */
+.building-card {
+  position: absolute;
+  left: var(--station-x);
+  width: 270px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.building-card--top {
+  bottom: 50%;
+  margin-bottom: 60px;
+  transform: translateX(-50%) translateY(20px);
+}
+
+.building-card--bottom {
+  top: 50%;
+  margin-top: 60px;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.building-card.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.building-card__inner {
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.building-card__inner:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.65);
+}
+
+.building-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.building-step {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: #737373;
+}
+
+.building-card__title {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.015em;
+}
+
+.building-card__summary {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #a3a3a3;
+  margin: 0 0 12px 0;
+}
+
+/* Badges */
+.building-badge {
+  font-family: var(--font-primary, -apple-system, sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+
+.building-badge--active {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.building-badge--deployed {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.building-badge--wip {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.building-badge--shipped {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+/* Tech Tags */
+.building-card__tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.building-card__tags span {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  padding: 2px 7px;
+  background: #262626;
+  color: #d4d4d4;
+  border-radius: 4px;
+}
+
+/* Signature Link Redraw Hover Animation */
+.building-card__link {
+  font-family: var(--font-primary, -apple-system, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  color: #10b981;
+  text-decoration: none;
+  display: inline-block;
+  background-image: linear-gradient(#10b981, #10b981);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  padding-bottom: 2px;
+  transition: background-size 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.building-card__link:hover {
+  background-size: 100% 1px;
+}
+
+/* --------------------------------------------------------------------------
+   Swiss-Style Responsive Bordered List (< 1200px)
+   -------------------------------------------------------------------------- */
+.building-timeline-mobile {
+  display: none;
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+.mobile-timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-timeline-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.8rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-timeline-item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-timeline-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-node-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.mobile-timeline-step {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: #737373;
+}
+
+.mobile-timeline-title {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.mobile-timeline-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #a3a3a3;
+  margin: 0;
+}
+
+@media screen and (max-width: 1199px) {
+  .building-timeline-desktop {
+    display: none !important;
+  }
+  .building-timeline-mobile {
+    display: block !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sine-draw-path {
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+  .sine-node {
+    transform: scale(1) !important;
+    transition: none !important;
+  }
+  .building-card {
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(0) !important;
+    transition: none !important;
+  }
+}
