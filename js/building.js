@@ -1,82 +1,127 @@
 /**
- * What I'm Building Timeline Engine
- * Synchronized SVG Sine-Wave Draw & Station Pop-In Controller
+ * What I'm Building — Danish Architectural Sine-Wave Progression
+ * Scroll-Driven Liquid Dasharray & Station Coordinates Scrub Engine
  * Pure Vanilla JavaScript · 60fps GPU Hardware Accelerated
  */
 (function () {
   "use strict";
 
   function initBuildingTimeline() {
-    const section = document.getElementById("building") || document.querySelector(".js-building-section");
+    const section = document.getElementById("building");
     if (!section) return;
 
-    const drawPath = section.querySelector(".js-sine-draw-path");
-    const nodes = Array.from(section.querySelectorAll(".js-sine-node"));
-    const cards = Array.from(section.querySelectorAll(".js-building-card"));
+    const path = section.querySelector(".js-building-path");
+    const nodes = Array.from(section.querySelectorAll(".js-building-node"));
+    const stations = Array.from(section.querySelectorAll(".js-building-station"));
 
     const isReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    const STATION_METRICS = [
+      { threshold: 0.02, isAbove: true },
+      { threshold: 0.398, isAbove: false },
+      { threshold: 0.514, isAbove: true },
+      { threshold: 0.602, isAbove: false },
+      { threshold: 0.660, isAbove: true },
+      { threshold: 0.980, isAbove: false }
+    ];
+
     if (isReduced) {
-      if (drawPath) drawPath.style.strokeDashoffset = "0";
-      nodes.forEach(function (n) { n.classList.add("is-active"); });
-      cards.forEach(function (c) { c.classList.add("is-visible"); });
+      if (path) path.setAttribute("stroke-dasharray", "1 1");
+      nodes.forEach(function (n) {
+        n.classList.add("is-active");
+      });
+      stations.forEach(function (s) {
+        const inner = s.querySelector(".station-inner");
+        if (inner) {
+          inner.style.opacity = "1";
+          inner.style.transform = "none";
+        }
+      });
       return;
     }
 
-    // Initialize draw state
-    if (drawPath) {
-      drawPath.style.strokeDasharray = "1";
-      drawPath.style.strokeDashoffset = "1";
+    let targetProgress = 0;
+    let currentProgress = 0;
+    let isTicking = false;
+
+    function calculateProgress() {
+      const rect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const start = viewportHeight * 0.85;
+      const end = viewportHeight * 0.15;
+      const range = start - end;
+
+      if (range <= 0) return 0;
+      const raw = (start - rect.top) / range;
+      return Math.max(0, Math.min(1, raw));
     }
 
-    let hasTriggered = false;
-
-    // Node & card trigger schedule (milliseconds after draw start)
-    const schedule = [
-      { delay: 280, nodeIndex: 0 },
-      { delay: 720, nodeIndex: 1 },
-      { delay: 1160, nodeIndex: 2 },
-      { delay: 1600, nodeIndex: 3 }
-    ];
-
-    function activateTimeline() {
-      if (hasTriggered) return;
-      hasTriggered = true;
-
-      // Draw curve path
-      if (drawPath) {
-        drawPath.style.strokeDashoffset = "0";
+    function render() {
+      // Lerp for 60fps fluid scrubbing
+      currentProgress += (targetProgress - currentProgress) * 0.14;
+      if (Math.abs(targetProgress - currentProgress) < 0.0005) {
+        currentProgress = targetProgress;
       }
 
-      // Stagger station node and card activations
-      schedule.forEach(function (item) {
-        setTimeout(function () {
-          if (nodes[item.nodeIndex]) {
-            nodes[item.nodeIndex].classList.add("is-active");
+      // 1. Scrub SVG sine wave path stroke-dasharray
+      if (path) {
+        path.setAttribute("stroke-dasharray", currentProgress.toFixed(4) + " 1");
+      }
+
+      // 2. Scrub station nodes & callout cards
+      STATION_METRICS.forEach(function (metric, idx) {
+        const node = nodes[idx];
+        const station = stations[idx];
+        const t = metric.threshold;
+
+        // Circle Node trigger
+        if (node) {
+          if (currentProgress >= t - 0.015) {
+            node.classList.add("is-active");
+          } else {
+            node.classList.remove("is-active");
           }
-          if (cards[item.nodeIndex]) {
-            cards[item.nodeIndex].classList.add("is-visible");
+        }
+
+        // Station Card opacity & translateY transition
+        if (station) {
+          const inner = station.querySelector(".station-inner");
+          if (inner) {
+            const windowSpan = 0.055;
+            const cardProgress = Math.max(0, Math.min(1, (currentProgress - (t - 0.015)) / windowSpan));
+            inner.style.opacity = cardProgress.toFixed(4);
+            const yOffset = (1 - cardProgress) * (metric.isAbove ? 8 : -8);
+            inner.style.transform = "translateY(" + yOffset.toFixed(2) + "px)";
           }
-        }, item.delay);
+        }
       });
+
+      // Continue animation loop if still lerping
+      if (Math.abs(targetProgress - currentProgress) > 0.0005) {
+        requestAnimationFrame(render);
+      } else {
+        isTicking = false;
+      }
     }
 
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(
-        function (entries) {
-          if (entries[0].isIntersecting) {
-            activateTimeline();
-            observer.disconnect();
-          }
-        },
-        { threshold: 0.2 }
-      );
-      observer.observe(section);
-    } else {
-      activateTimeline();
+    function onScrollOrResize() {
+      targetProgress = calculateProgress();
+      if (!isTicking) {
+        isTicking = true;
+        requestAnimationFrame(render);
+      }
     }
 
-    // Connect Dossier Quick Jump Links to Selected Works Overlay
+    // Attach passive listeners
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize, { passive: true });
+
+    // Initial calculation
+    targetProgress = calculateProgress();
+    currentProgress = targetProgress;
+    render();
+
+    // Connect Dossier Quick Jump Links to Selected Works Folders
     const dossierLinks = section.querySelectorAll(".js-dossier-jump");
     dossierLinks.forEach(function (link) {
       link.addEventListener("click", function (e) {
@@ -87,7 +132,7 @@
         if (targetFolderEl) {
           setTimeout(function () {
             targetFolderEl.click();
-          }, 350);
+          }, 400);
         }
       });
     });
