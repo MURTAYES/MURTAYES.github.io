@@ -6,7 +6,7 @@ status: completed
 stopped_at: Completed all 8 phases of the portfolio redesign roadmap.
 last_updated: "2026-11-09T06:10:00.000Z"
 last_activity: 2026-11-09
-last_activity_desc: Completed Phase 8 (Minimalist Single-Line Colophon Footer)
+last_activity_desc: Completed Quick Task (Selected Works Genie Folder Redesign)
 state_head: HEAD
 progress:
   total_phases: 8
@@ -33,6 +33,12 @@ Status: Milestone Complete (100%)
 Last activity: 2026-11-09 — Completed Phase 8
 
 Progress: [██████████] 100.0%
+
+## Quick Tasks Completed
+
+| Date | Task Slug | Description | Status |
+| --- | --- | --- | --- |
+| 2026-11-09 | 20261109-works-genie-folder | Tactile Manila architectural folder with Apple Mac genie window animation | complete ✓ |
 
 ## Accumulated Context
 
