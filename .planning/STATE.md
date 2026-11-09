@@ -47,6 +47,7 @@ Progress: [██████████] 100.0%
 | 2026-11-09 | 20261109-worth-keeping-cta | Replace Section 7 with "Worth Keeping" architectural CTA and magnetic seal | complete ✓ |
 | 2026-11-09 | 20261109-move-building-after-canvas | Move Section 6 ("What I'm building") after Section 3 with black styling and smooth liquid scrub | complete ✓ |
 | 2026-11-09 | 20261109-contact-footer-reference-exact | Exact match to user sample image for Section 7 & Footer | complete ✓ |
+| 2026-11-09 | 20261109-works-text-folder-logos-modal | One side text, one side folder, logos in folder, and animated tech stack dockets | complete ✓ |
 
 ## Accumulated Context
 

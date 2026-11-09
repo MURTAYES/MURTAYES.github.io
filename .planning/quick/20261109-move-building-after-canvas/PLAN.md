@@ -6,3 +6,4 @@
 3. Preserve the exact typography system (`var(--font-primary)`, `text-h3`, `text-lead`, `text-graphite`).
 4. Style all text, sine-wave path, station nodes, and guide rules in deep architectural black (`#060606`).
 5. Ensure 60fps liquid scroll scrubbing and node activation animations operate smoothly.
+

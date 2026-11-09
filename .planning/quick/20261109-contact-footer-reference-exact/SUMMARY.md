@@ -26,3 +26,4 @@ description: Exact recreation of Section 7 and Footer from uploaded sample scree
    - Subtle spring parallax on cursor move across `.home-contacto__stage` with smooth return on mouse leave.
 4. **Minimalist Colophon Footer**:
    - Single-line centered uppercase tracking text with subtle dotted top border matching sample screenshot.
+

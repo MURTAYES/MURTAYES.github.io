@@ -1,318 +1,169 @@
 /**
  * Selected Works Architecture Module (Pure Vanilla JavaScript)
- * 3 Asymmetrical Tactile Architectural Folders with Apple Mac Genie Window Animations.
- * Sharp corners, zero external dependencies.
+ * Tactile Architectural Folders with Embedded Brand Logos & Fluid Docket Modals
+ * Zero External Dependencies · 100% Robust
  */
 (function () {
   "use strict";
 
   function initSelectedWorks() {
-    const $$ = (s) => [...document.querySelectorAll(s)];
-    const folders = $$(".folder");
-    const wins = $$(".win");
-    const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+    const folders = Array.from(document.querySelectorAll(".folder, .js-folder-trigger"));
+    const wins = Array.from(document.querySelectorAll(".win"));
+    const backdrop = document.getElementById("dossier-backdrop");
 
-    if (folders.length === 0 || wins.length === 0) return;
-    if (folders[0].dataset.worksInitialized === "true") return;
-    folders[0].dataset.worksInitialized = "true";
+    if (wins.length === 0) return;
 
-    const SH = 4;     // strip height in px: smaller = smoother funnel
-    const OV = 1;     // strips overlap by 1px so no seams show
-    const LAG = 0.45; // how long the top of the window trails the bottom (0..1)
-    const NECK = 100; // width of the funnel where it meets the folder
-    let current = -1;
-    let activeSheet = null;
-    let busy = false;
+    let activeIndex = -1;
+    let isTransitioning = false;
 
-    const clamp01 = (v) => Math.min(1, Math.max(0, v));
-    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
-    const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+    // Open a specific project dossier modal
+    function openDossier(index) {
+      if (isTransitioning) return;
+      const targetWin = wins[index];
+      if (!targetWin) return;
 
-    // Size the window and position it above the folder or centered in viewport.
-    const place = (win, folder) => {
-      const fRect = folder ? folder.getBoundingClientRect() : { top: window.innerHeight / 2 };
-      const vh = window.innerHeight;
-      const vw = window.innerWidth;
-      const w = Math.min(720, vw - 32) & ~1;
+      isTransitioning = true;
+      activeIndex = index;
 
-      let topSpace = fRect.top - 20;
-      let h, wy;
-
-      if (topSpace >= 280) {
-        h = Math.round(Math.min(520, topSpace - 16) / SH) * SH;
-        wy = Math.round(Math.max(16, (topSpace - h) / 2));
-      } else {
-        h = Math.round(Math.min(540, vh - 60) / SH) * SH;
-        wy = Math.round(Math.max(16, (vh - h) / 2));
+      // 1. Tactile Folder animation
+      const folder = folders[index];
+      if (folder) {
+        folder.classList.add("is-opening");
       }
 
-      const wx = Math.round((vw - w) / 2);
-      win.style.setProperty("--ww", w + "px");
-      win.style.setProperty("--wh", h + "px");
-      win.style.setProperty("--wx", wx + "px");
-      win.style.setProperty("--wy", wy + "px");
-    };
-
-    // Where the window enters or leaves the folder: sheet's center x, flap's top y
-    const target = (sheet, folder) => {
-      const flap = folder.querySelector(".flap");
-      const r = sheet ? sheet.getBoundingClientRect() : folder.getBoundingClientRect();
-      const flapRect = flap ? flap.getBoundingClientRect() : r;
-      return [r.left + r.width / 2, flapRect.top + 12];
-    };
-
-    /* Genie animation: Clones window into thin horizontal strips,
-       funneled along an S-shaped curve between (tx, ty) and window coordinates. */
-    const genie = (win, tx, ty, from, to, ms, ease) =>
-      new Promise((done) => {
-        if (reduce.matches) return done();
-
-        const r = win.getBoundingClientRect();
-        const x0 = r.left;
-        const y0 = r.top;
-        const w = r.width;
-        const h = r.height;
-        const n = Math.round(h / SH);
-
-        const layer = document.createElement("div");
-        layer.className = "genie";
-        layer.inert = true;
-        const strips = [];
-
-        for (let i = 0; i < n; i++) {
-          const s = document.createElement("div");
-          s.className = "strip";
-          s.style.width = w + "px";
-          s.style.height = SH + OV + "px";
-
-          const c = win.cloneNode(true);
-          c.removeAttribute("id");
-          c.removeAttribute("hidden");
-          c.classList.remove("settled");
-          c.querySelectorAll("[id]").forEach((el) => el.removeAttribute("id"));
-          const docEl = c.querySelector(".doc");
-          if (docEl) docEl.style.overflow = "hidden";
-
-          Object.assign(c.style, {
-            position: "absolute",
-            left: "0px",
-            top: -i * SH + "px",
-            width: w + "px",
-            height: h + "px",
-            margin: "0px",
-            visibility: "visible",
-          });
-
-          s.append(c);
-          layer.append(s);
-          strips.push(s);
-        }
-
-        const cx0 = x0 + w / 2;
-        const ns = NECK / w;
-        const Y = new Float32Array(n + 1);
-        const L = new Float32Array(n + 1);
-        const R = new Float32Array(n + 1);
-
-        const draw = (p) => {
-          for (let j = 0; j <= n; j++) {
-            const q = clamp01((p - LAG * (1 - j / n)) / (1 - LAG));
-            const g = q * q * (3 - 2 * q);
-            const yo = y0 + j * SH;
-            const half = (w * (1 + (ns - 1) * g)) / 2;
-            const cx = cx0 + (tx - cx0) * g;
-            Y[j] = yo + (ty - yo) * q * q;
-            L[j] = cx - half;
-            R[j] = cx + half;
-          }
-          for (let i = 0; i < n; i++) {
-            const l = (L[i] + L[i + 1]) / 2;
-            const rr = (R[i] + R[i + 1]) / 2;
-            const sy = Math.max((Y[i + 1] - Y[i]) / SH, 1e-4);
-            strips[i].style.transform = `translate(${l}px,${Y[i]}px) scale(${
-              (rr - l) / w
-            },${sy})`;
-          }
-        };
-
-        draw(from);
-        document.body.append(layer);
-        const t0 = performance.now();
-
-        const tick = (now) => {
-          const t = clamp01((now - t0) / ms);
-          draw(from + (to - from) * ease(t));
-          if (t < 1) {
-            requestAnimationFrame(tick);
-          } else {
-            layer.remove();
-            done();
-          }
-        };
-
-        requestAnimationFrame(tick);
-      });
-
-    // Page -> window (maximize)
-    const show = async (k, sheetEl) => {
-      const folder = folders[k];
-      const win = wins[k];
-      if (!folder || !win) return;
-
-      const sheets = $$(folder.querySelectorAll(".sheet"));
-      const sheet = sheetEl || sheets[1] || sheets[0];
-      activeSheet = sheet;
-
-      place(win, folder);
-      win.hidden = false;
-      win.style.visibility = "hidden";
-      if (sheet) sheet.classList.add("is-away");
-      folder.classList.add("is-fanned");
-
-      await genie(win, ...target(sheet, folder), 1, 0, 650, easeOut);
-      win.style.visibility = "";
-      win.classList.add("settled");
-      current = k;
-
-      const closeDot = win.querySelector(".dot.r");
-      if (closeDot) closeDot.focus({ preventScroll: true });
-    };
-
-    // Window -> page (minimize)
-    const hide = async () => {
-      if (current < 0) return;
-      const k = current;
-      const folder = folders[k];
-      const win = wins[k];
-      const sheet = activeSheet;
-
-      if (win) {
-        win.classList.remove("settled");
-        const playing = genie(win, ...target(sheet, folder), 0, 1, 560, easeInOut);
-        win.style.visibility = "hidden";
-        await playing;
-        win.hidden = true;
-        win.style.visibility = "";
+      // 2. Backdrop activation
+      if (backdrop) {
+        backdrop.classList.add("is-active");
       }
 
-      if (sheet) sheet.classList.remove("is-away");
-      if (folder) folder.classList.remove("is-fanned");
-      current = -1;
-      activeSheet = null;
-    };
+      // 3. Docket Window activation
+      targetWin.removeAttribute("hidden");
+      // Force reflow
+      void targetWin.offsetWidth;
+      targetWin.classList.add("is-open");
 
-    const run = async (fn) => {
-      if (busy) return;
-      busy = true;
-      try {
-        await fn();
-      } finally {
-        busy = false;
+      // 4. Lock page scrolling
+      document.body.style.overflow = "hidden";
+
+      // 5. Focus management
+      const closeBtn = targetWin.querySelector(".win-close-btn, .dot.r, [data-close-win]");
+      if (closeBtn) {
+        setTimeout(function () {
+          closeBtn.focus({ preventScroll: true });
+        }, 100);
       }
-    };
 
-    const close = () =>
-      run(async () => {
-        if (current < 0) return;
-        const k = current;
-        const sheet = activeSheet;
-        await hide();
-        if (sheet) sheet.focus({ preventScroll: true });
-      });
+      setTimeout(function () {
+        isTransitioning = false;
+      }, 380);
+    }
 
-    // Wire up each folder and its sheets
-    folders.forEach((folder, folderIdx) => {
-      const sheets = $$(folder.querySelectorAll(".sheet"));
+    // Close the currently open dossier modal
+    function closeDossier() {
+      if (isTransitioning || activeIndex < 0) return;
+      const currentWin = wins[activeIndex];
+      if (!currentWin) return;
 
-      sheets.forEach((sheet) => {
-        sheet.addEventListener("click", (e) => {
-          e.stopPropagation();
-          run(async () => {
-            if (current === folderIdx) return;
-            if (current > -1) await hide();
-            await show(folderIdx, sheet);
-          });
-        });
-      });
+      isTransitioning = true;
 
-      folder.addEventListener("click", (e) => {
-        if (!e.target.closest(".sheet") && current !== folderIdx) {
-          run(async () => {
-            if (current > -1) await hide();
-            await show(folderIdx);
-          });
-        }
-      });
-
-      // Keyboard & touch focus fanning
-      folder.addEventListener("focusin", (e) => {
-        if (e.target.matches(":focus-visible")) folder.classList.add("is-fanned");
-      });
-
-      folder.addEventListener("focusout", () => {
-        if (current !== folderIdx && !busy) folder.classList.remove("is-fanned");
-      });
-
-      folder.addEventListener("click", (e) => {
-        if (
-          matchMedia("(hover: none)").matches &&
-          !e.target.closest(".sheet") &&
-          current < 0
-        ) {
-          folder.classList.toggle("is-fanned");
-        }
-      });
-    });
-
-    // Close on dot or button click or click outside
-    document.addEventListener("click", (e) => {
-      if (current > -1 && !busy) {
-        if (e.target.closest(".dot.r, .dot.y, [data-close-win]")) {
-          close();
-        } else if (!e.target.closest(".win, .sheet, .folder, .js-dossier-jump")) {
-          close();
-        }
+      // 1. Remove active classes
+      currentWin.classList.remove("is-open");
+      if (backdrop) {
+        backdrop.classList.remove("is-active");
       }
-    });
 
-    addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && current > -1) close();
-    });
+      // 2. Remove folder active state
+      folders.forEach(function (f) {
+        f.classList.remove("is-opening");
+      });
 
-    addEventListener("resize", () => {
-      if (current > -1 && folders[current]) place(wins[current], folders[current]);
-    });
+      // 3. Restore scrolling
+      document.body.style.overflow = "";
 
-    // Section 6 jump links trigger smooth scroll and genie open
-    document.querySelectorAll(".js-dossier-jump").forEach((link) => {
-      link.addEventListener("click", (e) => {
+      // 4. Hide window after transition completes
+      setTimeout(function () {
+        currentWin.setAttribute("hidden", "");
+        activeIndex = -1;
+        isTransitioning = false;
+      }, 350);
+    }
+
+    // Bind Folders and Sheets
+    folders.forEach(function (folder, idx) {
+      // Click on folder or any child
+      folder.addEventListener("click", function (e) {
         e.preventDefault();
-        const targetFolder = link.getAttribute("data-target-folder");
-        const folderMap = { applykit: 0, pharmaerp: 1, eduhub: 2 };
-        const index = folderMap[targetFolder] ?? 0;
-        const folderEl = folders[index];
+        const clickedIndex = folder.getAttribute("data-dossier-index") !== null
+          ? parseInt(folder.getAttribute("data-dossier-index"), 10)
+          : idx;
+        openDossier(clickedIndex);
+      });
 
-        if (folderEl) {
-          folderEl.scrollIntoView({ behavior: "smooth", block: "center" });
-          setTimeout(() => {
-            run(async () => {
-              if (current === index) return;
-              if (current > -1) await hide();
-              await show(index);
-            });
-          }, 650);
+      // Keyboard support on folder
+      folder.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          const clickedIndex = folder.getAttribute("data-dossier-index") !== null
+            ? parseInt(folder.getAttribute("data-dossier-index"), 10)
+            : idx;
+          openDossier(clickedIndex);
         }
       });
     });
 
-    // Expose for external calls
-    window.openWorksDossier = (index) => {
-      run(async () => {
-        if (current === index) return;
-        if (current > -1) await hide();
-        await show(index);
+    // Bind Inspect Buttons in Text Side
+    document.querySelectorAll(".js-open-dossier").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        const idx = parseInt(btn.getAttribute("data-dossier-index"), 10);
+        openDossier(isNaN(idx) ? 0 : idx);
       });
-    };
+    });
+
+    // Close on Backdrop Click
+    if (backdrop) {
+      backdrop.addEventListener("click", function () {
+        closeDossier();
+      });
+    }
+
+    // Close on Dot, Close Button, or Escape Key
+    document.addEventListener("click", function (e) {
+      if (activeIndex > -1) {
+        if (e.target.closest(".dot.r, .dot.y, .win-close-btn, [data-close-win]")) {
+          e.preventDefault();
+          closeDossier();
+        }
+      }
+    });
+
+    window.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && activeIndex > -1) {
+        closeDossier();
+      }
+    });
+
+    // Cross-Section Jump Links (e.g. from Section 6 "What I'm building")
+    document.querySelectorAll(".js-dossier-jump").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = link.getAttribute("data-target-folder");
+        const map = { applykit: 0, pharmaerp: 1, eduhub: 2, edu52: 2 };
+        const index = map[target] !== undefined ? map[target] : 0;
+        const targetSection = document.getElementById("works");
+
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          setTimeout(function () {
+            openDossier(index);
+          }, 550);
+        }
+      });
+    });
+
+    // Expose API
+    window.openWorksDossier = openDossier;
+    window.closeWorksDossier = closeDossier;
   }
 
   window.initSelectedWorks = initSelectedWorks;
