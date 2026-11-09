@@ -1148,153 +1148,110 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
       </ol>
     </section>
 
-    <!-- 7. COLLABORATIVE WORKSPACE CONTACT SECTION -->
-    <section id="contact" class="home-contacto js-home-contacto" aria-label="Collaborative Studio &amp; Contact">
-      <div class="home-contacto__container">
+    <!-- 07. FINALE ARCHITECTURAL CTA SECTION ("WORTH KEEPING" PURE HTML/CSS/JS) -->
+    <section id="contact" class="cta-section is-ready" aria-labelledby="ctaHeading">
 
-        <!-- Left Column: Open Tactile Visual Composition -->
-        <div class="home-contacto__stage js-contacto-stage">
-          <!-- Subtle Dotted Matrix & Giant 'Aa' Watermark -->
-          <div class="home-contacto__puntos" aria-hidden="true"></div>
-          <div class="home-contacto__watermark-aa" aria-hidden="true">Aa</div>
+      <!-- Floating Preview Controls (Theme Toggle + Replay) -->
+      <div class="toolbar" role="toolbar" aria-label="Section controls">
+        <button type="button" class="toolbar__btn" id="themeBtn" aria-label="Toggle color theme">
+          <span id="themeLabel">Dark Mode</span>
+        </button>
+        <button type="button" class="toolbar__btn" id="replayBtn" aria-label="Replay entrance animation">
+          ↻ Replay
+        </button>
+      </div>
 
-          <!-- Card 1: Top-Left Analytics Chart Card -->
-          <div class="contacto-item contacto-card--chart" data-float="true">
-            <div class="chart-card__head">
-              <div class="chart-stat-item">
-                <span class="chart-stat-lbl">Clics</span>
-                <span class="chart-stat-val">115</span>
-              </div>
-              <div class="chart-stat-item" style="text-align: right;">
-                <span class="chart-stat-lbl">Impresiones</span>
-                <span class="chart-stat-val" style="color:#6366f1;">125</span>
-              </div>
-            </div>
-            <!-- Dual-line Chart SVG -->
-            <svg class="chart-card__svg" viewBox="0 0 190 55" fill="none" preserveAspectRatio="none">
-              <line x1="0" y1="50" x2="190" y2="50" stroke="#f0eee9" stroke-width="1" />
-              <line x1="0" y1="28" x2="190" y2="28" stroke="#f0eee9" stroke-width="1" stroke-dasharray="2 2" />
-              <line x1="0" y1="6" x2="190" y2="6" stroke="#f0eee9" stroke-width="1" stroke-dasharray="2 2" />
-              <!-- Impressions Line (Purple) -->
-              <path d="M0 45 L15 42 L25 48 L40 22 L55 36 L70 20 L85 30 L100 12 L115 28 L130 14 L145 22 L160 8 L175 16 L190 10" stroke="#8b5cf6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-              <!-- Clics Line (Blue) -->
-              <path d="M0 48 L15 46 L30 40 L45 32 L60 38 L75 28 L90 32 L105 22 L120 30 L135 18 L150 24 L165 14 L180 18 L190 12" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <div class="chart-card__dates">
-              <span>12/3/23</span>
-              <span>6/4/23</span>
-              <span>1/5/23</span>
-              <span>26/5/23</span>
-            </div>
+      <!-- Top Architectural Bar -->
+      <div class="cta-topbar">
+        <span>07 / Finale</span>
+        <span>Samnun Murtayes®</span>
+      </div>
+
+      <!-- Giant Monochrome Scrolling Marquee (Background Layer) -->
+      <div class="marquee-stage" aria-hidden="true">
+        <div class="marquee-track" id="marqueeTrack">
+          <!-- Group 1 -->
+          <div class="marquee-group">
+            <span class="marquee-phrase">Worth keeping</span>
+            <span class="marquee-separator"></span>
+            <span class="marquee-phrase">Worth keeping</span>
+            <span class="marquee-separator"></span>
+            <span class="marquee-phrase">Worth keeping</span>
+            <span class="marquee-separator"></span>
           </div>
-
-          <!-- Card 2: Top-Right Person at Timber Desk Photo Card -->
-          <div class="contacto-item contacto-card--photo-desk" data-float="true">
-            <div class="photo-desk__img-wrap">
-              <img src="assets/images/hero.png" alt="Creative Engineer at Desk" class="photo-desk__img" loading="lazy" />
-            </div>
-          </div>
-
-          <!-- Card 3: Bottom-Left Hands with Laptop & 'Client' Cursor -->
-          <div class="contacto-item contacto-card--photo-laptop" data-float="true">
-            <div class="photo-laptop__img-wrap">
-              <img src="assets/images/fjordhus-waterfront.webp" alt="Digital Product Collaboration" class="photo-laptop__img" loading="lazy" />
-            </div>
-            <!-- Orange Client Cursor attached -->
-            <div class="contacto-client-cursor">
-              <svg class="client-cursor__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M5.5 3.2L18.8 12.4C19.7 13.0 19.3 14.5 18.2 14.5H12.8L9.8 21.3C9.4 22.2 8.1 22.0 7.8 21.0L5.5 3.2Z" fill="#ff5533" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
-              </svg>
-              <div class="client-cursor__pill">
-                <span>Client</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4: Bottom-Right Browser Window Wireframe -->
-          <div class="contacto-item contacto-card--wireframe" data-float="true">
-            <div class="wireframe__dots">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="wireframe__body">
-              <div class="wireframe-row">
-                <span class="wf-circle"></span>
-                <span class="wf-bar w-60"></span>
-              </div>
-              <div class="wireframe-row">
-                <span class="wf-circle"></span>
-                <span class="wf-bar w-80"></span>
-              </div>
-              <div class="wireframe-box"></div>
-            </div>
-          </div>
-
-          <!-- 5 Floating App Icon Tiles -->
-          <!-- VS Code (Near Chart) -->
-          <div class="contacto-app-tile app-tile--vscode" title="Visual Studio Code">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="#007acc">
-              <path d="M17.58 2.22c-.44-.22-.98-.16-1.35.15L7.9 9.38 4.2 6.57a1 1 0 0 0-1.25.04l-1.6 1.4a1 1 0 0 0 0 1.51L4.62 12l-3.27 2.48a1 1 0 0 0 0 1.51l1.6 1.4c.36.32.9.34 1.25.04l3.7-2.81 8.33 7.01c.37.31.91.37 1.35.15l5.22-2.61c.5-.25.82-.76.82-1.32V4.53c0-.56-.32-1.07-.82-1.32l-5.22-2.61zM18 17.65l-7.2-6.06L18 5.53v12.12z"/>
-            </svg>
-          </div>
-
-          <!-- Google Docs (Left Edge) -->
-          <div class="contacto-app-tile app-tile--gdocs" title="Google Docs">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="#4285f4">
-              <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-            </svg>
-          </div>
-
-          <!-- Notion (Over Bottom Photo) -->
-          <div class="contacto-app-tile app-tile--notion" title="Notion">
-            <img src="assets/icons/notion.svg" alt="Notion" width="22" height="22" />
-          </div>
-
-          <!-- Figma (Right of Top Photo) -->
-          <div class="contacto-app-tile app-tile--figma" title="Figma">
-            <img src="assets/icons/figma.svg" alt="Figma" width="22" height="22" />
-          </div>
-
-          <!-- 3D Cube (Right Edge) -->
-          <div class="contacto-app-tile app-tile--cube" title="Spatial Design">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="#111111">
-              <path d="M12 2L2 7.5v9L12 22l10-5.5v-9L12 2zm0 2.2l7.6 4.2-3.3 1.8L8.7 6.1 12 4.2zM4 9.1l7 3.8v7.4l-7-3.8V9.1zm9 11.2v-7.4l7-3.8v7.4l-7 3.8z"/>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Right Column: Exact Onlines Reference Editorial CTA -->
-        <div class="home-contacto__content">
-          <h2 class="home-contacto__titulo">
-            <span class="titulo-line">Let's make a</span>
-            <span class="titulo-line">project together<span class="home-contacto__titulo-puntos" aria-hidden="true"></span></span>
-          </h2>
-          <p class="home-contacto__desc">
-            Let's transform your ideas into a high-quality website that works aligned to your goals. We are ready to start working.
-          </p>
-
-          <div class="home-contacto__actions">
-            <button type="button" class="home-contacto__btn-talk" data-open-contact data-cursor-pill="Let's talk">
-              <span>Let's talk</span>
-            </button>
-            <div class="home-contacto__social-icons">
-              <!-- Instagram Icon -->
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
-              <!-- LinkedIn Icon -->
-              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-              </a>
-            </div>
+          <!-- Group 2 (Identical clone for seamless -50% loop) -->
+          <div class="marquee-group">
+            <span class="marquee-phrase">Worth keeping</span>
+            <span class="marquee-separator"></span>
+            <span class="marquee-phrase">Worth keeping</span>
+            <span class="marquee-separator"></span>
+            <span class="marquee-phrase">Worth keeping</span>
+            <span class="marquee-separator"></span>
           </div>
         </div>
       </div>
+
+      <!-- Centered Foreground Stack -->
+      <div class="cta-center">
+        <!-- Badge -->
+        <div class="cta-badge reveal-item" style="--delay: 80ms;">
+          <span class="cta-badge__dot" aria-hidden="true"></span>
+          <span>Last word</span>
+        </div>
+
+        <!-- Heading -->
+        <h2 class="cta-heading reveal-item" id="ctaHeading" style="--delay: 180ms;">
+          Let's make something worth keeping.
+        </h2>
+
+        <!-- Note -->
+        <p class="cta-note reveal-item" style="--delay: 280ms;">
+          No decks, no detours: one room, your problem, and a studio that ships.
+        </p>
+
+        <!-- Seal Button -->
+        <div class="seal-wrapper reveal-item" style="--delay: 380ms;">
+          <a
+            href="mailto:samnun@murtayes.com"
+            class="seal-button"
+            id="sealButton"
+            data-open-contact
+            data-cursor-pill="Let's talk"
+            aria-label="Start the conversation"
+          >
+            <!-- Rotating Circular Text Seal -->
+            <svg class="seal-button__ring" viewBox="0 0 160 160" aria-hidden="true">
+              <defs>
+                <path
+                  id="sealCirclePath"
+                  d="M 80, 80 m -62, 0 a 62,62 0 1,1 124,0 a 62,62 0 1,1 -124,0"
+                />
+              </defs>
+              <text>
+                <textPath href="#sealCirclePath" startOffset="0%">
+                  START THE CONVERSATION • WORTH KEEPING •
+                </textPath>
+              </text>
+            </svg>
+
+            <!-- Center Button Core -->
+            <span class="seal-button__core" id="sealCore">
+              <svg class="seal-button__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+          <span class="seal-caption">Start the conversation</span>
+        </div>
+      </div>
+
+      <!-- Bottom Footnote Bar -->
+      <div class="cta-footer">
+        <span class="cta-footnote">Booking two new partners for the autumn cycle.</span>
+        <span>Autumn / Winter — 2026</span>
+      </div>
+
     </section>
   </main>
 

@@ -1,536 +1,430 @@
-/* --------------------------------------------------------------------------
-   07. CONTACT SECTION — ONLINES ARCHITECTURAL STUDIO DESIGN
-   Exact Reference Matching: Pure White Canvas, Floating Tactile Cards,
-   Giant "Aa" Watermark, Vibrant Blue "Let's talk" Pill, & Social Icons
-   -------------------------------------------------------------------------- */
-
-.home-contacto {
-  position: relative;
-  width: 100%;
-  background-color: #ffffff;
-  color: #111111;
-  padding: clamp(90px, 14vh, 160px) clamp(1.5rem, 5vw, 4rem) clamp(70px, 10vh, 120px);
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.home-contacto__container {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(2.5rem, 6vw, 6rem);
-  align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
-}
-
 /* ==========================================================================
-   Left Column: Open Visual Canvas with Floating Cards & "Aa" Watermark
+   07. FINALE ARCHITECTURAL CTA SECTION ("WORTH KEEPING" PURE HTML/CSS/JS)
+   Layer 1 — Architectural Hairline Frame: Full-viewport (100svh) with structural borders
+   Layer 2 — Giant Monochrome Background Marquee: Seamless -50% CSS loop
+   Layer 3 — Centered Editorial Stack: Badge, display typography, and 38ch note
+   Layer 4 — Magnetic "Seal" Button: Rotating textPath + vanilla JS magnetic pull
    ========================================================================== */
 
-.home-contacto__stage {
+/* 1. Design Tokens (Light & Dark Monochrome Themes) */
+.cta-section,
+[data-theme="light"] .cta-section {
+  --bg: #f8f8f6;
+  --surface: #ffffff;
+  --fg: #0b0b0c;
+  --muted: #636366;
+  --border: rgba(11, 11, 12, 0.12);
+  --marquee-fill: rgba(11, 11, 12, 0.045);
+  --marquee-stroke: rgba(11, 11, 12, 0.08);
+  --seal-bg: #0b0b0c;
+  --seal-fg: #f8f8f6;
+  --seal-ring: rgba(11, 11, 12, 0.18);
+  --badge-bg: rgba(11, 11, 12, 0.04);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.cta-section.theme-dark,
+[data-theme="dark"] .cta-section {
+  --bg: #09090b;
+  --surface: #121215;
+  --fg: #f4f4f6;
+  --muted: #8e8e93;
+  --border: rgba(244, 244, 246, 0.12);
+  --marquee-fill: rgba(244, 244, 246, 0.035);
+  --marquee-stroke: rgba(244, 244, 246, 0.08);
+  --seal-bg: #f4f4f6;
+  --seal-fg: #09090b;
+  --seal-ring: rgba(244, 244, 246, 0.22);
+  --badge-bg: rgba(244, 244, 246, 0.05);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* 2. Floating Preview Toolbar (Theme & Replay Controls) */
+.cta-section .toolbar {
+  position: absolute;
+  top: 14px;
+  left: clamp(1rem, 5vw, 4rem);
+  z-index: 50;
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.cta-section .toolbar__btn {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--fg);
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  font-weight: 500;
+  font-family: var(--font-primary, -apple-system, sans-serif);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.cta-section .toolbar__btn:hover {
+  background: var(--badge-bg);
+}
+
+.cta-section .toolbar__btn:active {
+  transform: scale(0.96);
+}
+
+/* 3. Full-Bleed Architectural Section Layout */
+.cta-section {
   position: relative;
   width: 100%;
-  height: clamp(500px, 58vh, 580px);
-  background: transparent;
-  overflow: visible;
-  user-select: none;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg);
+  color: var(--fg);
+  overflow: hidden;
+  isolation: isolate;
+  transition: background-color 0.35s ease, color 0.35s ease;
+  box-sizing: border-box;
 }
 
-/* Dotted Matrix Background Area */
-.home-contacto__puntos {
+/* Subtle Vertical Architectural Guide Lines */
+.cta-section::before,
+.cta-section::after {
+  content: "";
   position: absolute;
-  inset: -15px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
   pointer-events: none;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.09) 1.3px, transparent 1.3px);
-  background-size: 24px 24px;
-  background-position: center center;
-  mask-image: radial-gradient(circle at center, black 45%, transparent 75%);
-  -webkit-mask-image: radial-gradient(circle at center, black 45%, transparent 75%);
-  z-index: 0;
+  z-index: 2;
 }
+.cta-section::before { left: clamp(1rem, 5vw, 4rem); }
+.cta-section::after { right: clamp(1rem, 5vw, 4rem); }
 
-/* Giant "Aa" Typography Watermark */
-.home-contacto__watermark-aa {
-  position: absolute;
-  left: 45%;
-  top: 48%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(180px, 24vw, 280px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.05);
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
-}
-
-/* Base Floating Item */
-.contacto-item {
-  position: absolute;
-  will-change: transform;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
-  z-index: 5;
-}
-
-/* Card 1: Top-Left Analytics Chart Card */
-.contacto-card--chart {
-  top: 6%;
-  left: 4%;
-  width: 230px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 14px;
-  padding: 14px 16px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.03);
-  transform: rotate(-4deg);
-}
-
-.contacto-card--chart:hover {
-  transform: rotate(-2deg) translateY(-3px);
-  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.09);
-}
-
-.chart-card__head {
+/* Top Metadata Strip */
+.cta-topbar {
+  position: relative;
+  z-index: 3;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 8px;
+  align-items: center;
+  padding: 1.25rem clamp(1.5rem, 6vw, 5rem);
+  padding-left: clamp(170px, 20vw, 240px); /* Leave room for toolbar button */
+  border-bottom: 1px solid var(--border);
+  font-size: 0.75rem;
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-.chart-stat-item {
+/* 4. Giant Monochrome Background Marquee */
+.marquee-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  /* Soft fade on left and right edges */
+  mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll 34s linear infinite;
+}
+
+.cta-section:hover .marquee-track {
+  animation-play-state: running;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.marquee-phrase {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(7rem, 21vw, 22rem);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  color: var(--marquee-fill);
+  -webkit-text-stroke: 1.5px var(--marquee-stroke);
+  padding-right: 0.25em;
+}
+
+.marquee-separator {
+  display: inline-block;
+  width: clamp(1.25rem, 3vw, 3rem);
+  height: clamp(1.25rem, 3vw, 3rem);
+  border-radius: 50%;
+  border: 2px solid var(--marquee-stroke);
+  margin: 0 clamp(1.5rem, 4vw, 4rem);
+  flex-shrink: 0;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* 5. Centered Foreground Content Stack */
+.cta-center {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem clamp(1.5rem, 6vw, 5rem);
+  max-width: 980px;
+  margin: 0 auto;
 }
 
-.chart-stat-lbl {
-  font-family: var(--font-primary, sans-serif);
-  font-size: 8.5px;
+/* Staggered Entrance Animation */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--delay, 0ms);
+}
+
+.cta-section.is-ready .reveal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Badge ("Last word") */
+.cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background-color: var(--badge-bg);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #888888;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: var(--fg);
+  margin-bottom: 1.75rem;
 }
 
-.chart-stat-val {
-  font-family: var(--font-mono, monospace);
-  font-size: 15px;
-  font-weight: 700;
-  color: #111111;
-  line-height: 1.2;
-}
-
-.chart-card__svg {
-  width: 100%;
-  height: 64px;
-  overflow: visible;
-}
-
-.chart-card__dates {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font-mono, monospace);
-  font-size: 7.5px;
-  color: #aaaaaa;
-  margin-top: 6px;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  padding-top: 4px;
-}
-
-/* Card 2: Top-Right Person at Desk Photo Card */
-.contacto-card--photo-desk {
-  top: 4%;
-  right: 10%;
-  width: 180px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  padding: 7px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
-  transform: rotate(6deg);
-}
-
-.contacto-card--photo-desk:hover {
-  transform: rotate(4deg) translateY(-3px);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.11);
-}
-
-.photo-desk__img-wrap {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #f0eee9;
-}
-
-.photo-desk__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-/* Card 3: Bottom-Left Person with Laptop Photo Card */
-.contacto-card--photo-laptop {
-  bottom: 8%;
-  left: 14%;
-  width: 190px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  padding: 7px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
-  transform: rotate(-6deg);
-  position: absolute;
-}
-
-.contacto-card--photo-laptop:hover {
-  transform: rotate(-4deg) translateY(-3px);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.11);
-}
-
-.photo-laptop__img-wrap {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #f0eee9;
-}
-
-.photo-laptop__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-/* Card 4: Bottom-Right Browser Window Wireframe */
-.contacto-card--wireframe {
-  bottom: 12%;
-  right: 8%;
-  width: 200px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  padding: 10px 14px 14px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
-  transform: rotate(4deg);
-}
-
-.contacto-card--wireframe:hover {
-  transform: rotate(2deg) translateY(-3px);
-  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.09);
-}
-
-.wireframe__dots {
-  display: flex;
-  gap: 5px;
-  margin-bottom: 10px;
-}
-
-.wireframe__dots span {
+.cta-badge__dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #dfddd6;
+  background-color: var(--fg);
+  animation: pulse-dot 2.2s ease-in-out infinite;
 }
 
-.wireframe__body {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.75); }
 }
 
-.wireframe-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.wf-circle {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #f0eee9;
-}
-
-.wf-bar {
-  height: 6px;
-  border-radius: 3px;
-  background: #f0eee9;
-}
-
-.wf-bar.w-80 { width: 80%; }
-.wf-bar.w-60 { width: 60%; }
-.wf-bar.w-40 { width: 40%; }
-
-.wireframe-box {
-  width: 100%;
-  height: 24px;
-  border-radius: 4px;
-  background: #f7f6f2;
-  border: 1px dashed rgba(0, 0, 0, 0.08);
-}
-
-/* Floating App Icon Tiles (Rounded Squares with Shadow) */
-.contacto-app-tile {
-  position: absolute;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-  z-index: 10;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
-}
-
-.contacto-app-tile:hover {
-  transform: scale(1.15) translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-}
-
-.contacto-app-tile svg,
-.contacto-app-tile img {
-  width: 22px;
-  height: 22px;
-  display: block;
-}
-
-/* Positions matching screenshot */
-.app-tile--vscode {
-  top: 36%;
-  left: 9%;
-}
-
-.app-tile--gdocs {
-  bottom: 34%;
-  left: 3%;
-}
-
-.app-tile--notion {
-  bottom: 24%;
-  left: 12%;
-}
-
-.app-tile--figma {
-  top: 36%;
-  right: 14%;
-}
-
-.app-tile--cube {
-  bottom: 30%;
-  right: 3%;
-}
-
-/* Autonomous "Client" Orange Cursor attached to Card 3 */
-.contacto-client-cursor {
-  position: absolute;
-  left: 34px;
-  top: 32px;
-  pointer-events: none;
-  z-index: 15;
-  display: flex;
-  align-items: flex-start;
-  gap: 5px;
-}
-
-.client-cursor__arrow {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
-}
-
-.client-cursor__pill {
-  background: #ff5533;
-  color: #ffffff;
-  font-family: var(--font-primary, sans-serif);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 3px 9px;
-  border-radius: 4px;
-  box-shadow: 0 3px 10px rgba(255, 85, 51, 0.35);
-  transform: translateY(8px);
-  white-space: nowrap;
-}
-
-/* ==========================================================================
-   Right Column: High-Impact Editorial Conversion CTA
-   ========================================================================== */
-
-.home-contacto__content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.home-contacto__titulo {
+/* Heading ("Let's make something worth keeping.") */
+.cta-heading {
   font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: clamp(2.8rem, 5.2vw, 4.6rem);
-  line-height: 1.05;
-  font-weight: 800;
-  letter-spacing: -0.038em;
-  color: #111111;
-  margin: 0 0 20px 0;
-  text-transform: none;
+  font-size: clamp(2.5rem, 6.2vw, 5.5rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  color: var(--fg);
+  text-wrap: balance;
+  max-width: 15ch;
+  margin-bottom: 1.5rem;
 }
 
-.titulo-line {
-  display: flex;
-  align-items: baseline;
-  white-space: nowrap;
-}
-
-/* Expanding Dotted Baseline Leader extending from "project together" */
-.home-contacto__titulo-puntos {
-  flex: 1;
-  border-bottom: 2px dotted rgba(0, 0, 0, 0.22);
-  margin: 0 0 6px 14px;
-  min-width: 40px;
-}
-
-.home-contacto__desc {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: clamp(0.98rem, 1.25vw, 1.12rem);
-  line-height: 1.6;
-  color: #666666;
-  margin: 0 0 32px 0;
-  max-width: 44ch;
-}
-
-.home-contacto__actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* Vibrant Blue Pill "Let's talk" Button */
-.home-contacto__btn-talk {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 34px;
-  background-color: #0066ff;
-  color: #ffffff;
+/* Note ("No decks, no detours...") */
+.cta-note {
   font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.95rem;
-  font-weight: 700;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.28);
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 42ch;
+  text-wrap: pretty;
+  margin-bottom: 3rem;
 }
 
-.home-contacto__btn-talk:hover {
-  background-color: #0052cc;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 102, 255, 0.38);
-}
-
-/* Social Icon Buttons (Instagram & LinkedIn) */
-.home-contacto__social-icons {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.social-icon-btn {
+/* 6. Interactive Rotating "Seal" Button */
+.seal-wrapper {
+  position: relative;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: #0066ff;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  gap: 1rem;
+}
+
+.seal-button {
+  position: relative;
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
   text-decoration: none;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--seal-ring);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+  will-change: transform;
 }
 
-.social-icon-btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.8;
+/* Outer Dashed Stamp Ring */
+.seal-button::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1px dashed var(--seal-ring);
+  pointer-events: none;
+  transition: transform 0.5s ease;
 }
 
-.social-icon-btn svg {
+/* Rotating Circular SVG Text */
+.seal-button__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: spin-seal 18s linear infinite;
+  pointer-events: none;
+}
+
+.seal-button:hover .seal-button__ring {
+  animation-duration: 7s;
+}
+
+.seal-button__ring text {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 10.2px;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  fill: var(--fg);
+}
+
+/* Inner Solid Core */
+.seal-button__core {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: var(--seal-bg);
+  color: var(--seal-fg);
+  display: grid;
+  place-items: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.seal-button:hover .seal-button__core {
+  transform: scale(1.12);
+}
+
+.seal-button__arrow {
   width: 22px;
   height: 22px;
-  display: block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ==========================================================================
-   Responsive Adaptations
-   ========================================================================== */
+.seal-button:hover .seal-button__arrow {
+  transform: translate(2px, -2px);
+}
 
-@media (max-width: 1080px) {
-  .home-contacto__container {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
+@keyframes spin-seal {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
-  .home-contacto__stage {
-    height: 480px;
-  }
+/* Accessible visible label underneath the seal */
+.seal-caption {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+}
+
+/* 7. Bottom Footnote Bar */
+.cta-footer {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem clamp(1.5rem, 6vw, 5rem);
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  font-family: var(--font-primary, sans-serif);
+  color: var(--muted);
+}
+
+.cta-footnote {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cta-footnote::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--fg);
 }
 
 @media (max-width: 640px) {
-  .home-contacto {
-    padding: 70px 1.25rem 60px;
-  }
-
-  .home-contacto__stage {
-    height: 400px;
-  }
-
-  .titulo-line {
-    white-space: normal;
-  }
-
-  .home-contacto__titulo-puntos {
+  .cta-section::before,
+  .cta-section::after {
     display: none;
   }
-
-  .contacto-card--chart {
-    width: 170px;
-    padding: 10px 12px;
+  .cta-topbar {
+    padding-left: clamp(1.5rem, 6vw, 5rem);
+    padding-top: 3.5rem;
   }
-
-  .contacto-card--photo-desk {
-    width: 135px;
-    right: 4%;
-  }
-
-  .contacto-card--photo-laptop {
-    width: 140px;
-    left: 8%;
-  }
-
-  .contacto-card--wireframe {
-    width: 150px;
-    right: 4%;
-  }
-
-  .contacto-app-tile {
-    width: 36px;
-    height: 36px;
-  }
-
-  .contacto-app-tile svg,
-  .contacto-app-tile img {
-    width: 18px;
-    height: 18px;
+  .cta-footer {
+    justify-content: center;
+    text-align: center;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .contacto-item,
-  .contacto-app-tile {
+  .marquee-track,
+  .seal-button__ring,
+  .cta-badge__dot {
     animation: none !important;
-    transition: none !important;
   }
 }
