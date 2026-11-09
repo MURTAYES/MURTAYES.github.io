@@ -32,7 +32,7 @@
       }, 120);
     }
 
-    // Direct click triggers (if any)
+    // Direct click triggers (if any explicit button exists outside the slider)
     const directTriggers = document.querySelectorAll("[data-open-contact]");
     directTriggers.forEach(function (btn) {
       btn.addEventListener("click", function (e) {
@@ -52,20 +52,23 @@
       const label = slider.querySelector(".js-slide-label");
 
       let isDragging = false;
+      let hasMoved = false;
       let startX = 0;
       let currentX = 0;
       let maxTravel = 0;
+      let nudgeTimeout = null;
 
       function calcMax() {
         const sliderWidth = slider.clientWidth;
         const thumbWidth = thumb ? thumb.offsetWidth : 46;
-        // 5px left/right padding
+        // 5px padding on each side
         maxTravel = Math.max(0, sliderWidth - thumbWidth - 10);
         return maxTravel;
       }
 
       function resetSlider() {
         isDragging = false;
+        hasMoved = false;
         currentX = 0;
         slider.classList.remove("is-dragging", "is-unlocked");
 
@@ -84,28 +87,76 @@
         slider.setAttribute("aria-valuenow", "0");
       }
 
+      function triggerUnlock() {
+        if (slider.classList.contains("is-unlocked")) return;
+        slider.classList.add("is-unlocked");
+        calcMax();
+
+        if (thumb) {
+          thumb.style.transition = "transform 0.22s cubic-bezier(0.16, 1, 0.3, 1)";
+          thumb.style.transform = "translate3d(" + maxTravel.toFixed(1) + "px, 0, 0)";
+        }
+        if (fill) {
+          fill.style.transition = "width 0.22s cubic-bezier(0.16, 1, 0.3, 1)";
+          fill.style.width = "100%";
+        }
+        if (label) {
+          label.style.transition = "opacity 0.2s ease";
+          label.style.opacity = "0";
+        }
+        slider.setAttribute("aria-valuenow", "100");
+
+        setTimeout(function () {
+          openModal();
+        }, 180);
+      }
+
+      function triggerNudge() {
+        if (slider.classList.contains("is-unlocked")) return;
+        clearTimeout(nudgeTimeout);
+        slider.classList.remove("is-nudging");
+        // Force reflow
+        void slider.offsetWidth;
+        slider.classList.add("is-nudging");
+        nudgeTimeout = setTimeout(function () {
+          slider.classList.remove("is-nudging");
+        }, 450);
+      }
+
       function onPointerDown(e) {
         if (slider.classList.contains("is-unlocked")) return;
+        if (e.button !== undefined && e.button !== 0) return; // Primary pointer only
+
         calcMax();
         if (maxTravel <= 0) return;
 
         isDragging = true;
+        hasMoved = false;
         startX = e.clientX;
         currentX = 0;
 
         slider.classList.add("is-dragging");
+        slider.classList.remove("is-nudging");
+
         try {
-          if (thumb) thumb.setPointerCapture(e.pointerId);
+          slider.setPointerCapture(e.pointerId);
         } catch (_) {}
 
         if (thumb) thumb.style.transition = "none";
         if (fill) fill.style.transition = "none";
         if (label) label.style.transition = "none";
+
+        if (e.cancelable) e.preventDefault();
       }
 
       function onPointerMove(e) {
         if (!isDragging) return;
+
         const deltaX = e.clientX - startX;
+        if (Math.abs(deltaX) > 4) {
+          hasMoved = true;
+        }
+
         currentX = Math.max(0, Math.min(maxTravel, deltaX));
         const progress = maxTravel > 0 ? currentX / maxTravel : 0;
 
@@ -119,6 +170,16 @@
           label.style.opacity = Math.max(0, 1 - progress * 1.45).toFixed(2);
         }
         slider.setAttribute("aria-valuenow", Math.round(progress * 100));
+
+        // Auto unlock when dragged all the way to the end
+        if (progress >= 0.95) {
+          isDragging = false;
+          slider.classList.remove("is-dragging");
+          try {
+            slider.releasePointerCapture(e.pointerId);
+          } catch (_) {}
+          triggerUnlock();
+        }
       }
 
       function onPointerUp(e) {
@@ -127,74 +188,46 @@
         slider.classList.remove("is-dragging");
 
         try {
-          if (thumb) thumb.releasePointerCapture(e.pointerId);
+          slider.releasePointerCapture(e.pointerId);
         } catch (_) {}
 
         const progress = maxTravel > 0 ? currentX / maxTravel : 0;
 
-        // Unlock only when dragged left-to-right past 80%
-        if (progress >= 0.8) {
-          slider.classList.add("is-unlocked");
-          if (thumb) {
-            thumb.style.transition = "transform 0.22s cubic-bezier(0.16, 1, 0.3, 1)";
-            thumb.style.transform = "translate3d(" + maxTravel.toFixed(1) + "px, 0, 0)";
-          }
-          if (fill) {
-            fill.style.transition = "width 0.22s cubic-bezier(0.16, 1, 0.3, 1)";
-            fill.style.width = "100%";
-          }
-          if (label) {
-            label.style.transition = "opacity 0.2s ease";
-            label.style.opacity = "0";
-          }
-          slider.setAttribute("aria-valuenow", "100");
-
-          setTimeout(function () {
-            openModal();
-          }, 180);
+        // ONLY when slid left to right (>= 70%) does the form appear
+        if (progress >= 0.70) {
+          triggerUnlock();
         } else {
           resetSlider();
+          // If clicked or tapped without sliding, gently nudge to guide the user
+          if (!hasMoved) {
+            triggerNudge();
+          }
         }
       }
 
-      if (thumb) {
-        thumb.addEventListener("pointerdown", onPointerDown);
-      }
-      slider.addEventListener("pointerdown", function (e) {
-        if (e.target !== thumb && !thumb.contains(e.target)) {
-          onPointerDown(e);
-        }
-      });
+      slider.addEventListener("pointerdown", onPointerDown);
+      slider.addEventListener("pointermove", onPointerMove);
+      slider.addEventListener("pointerup", onPointerUp);
+      slider.addEventListener("pointercancel", onPointerUp);
 
       window.addEventListener("pointermove", onPointerMove);
       window.addEventListener("pointerup", onPointerUp);
       window.addEventListener("pointercancel", onPointerUp);
 
-      // Keyboard Accessibility (ArrowRight, Enter, Space)
+      // Prevent native browser dragging of SVGs / text
+      slider.addEventListener("dragstart", function (e) {
+        e.preventDefault();
+      });
+
+      // Keyboard Accessibility: ArrowRight slides left-to-right to unlock
       slider.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowRight" || e.key === "Enter" || e.key === " ") {
+        if (e.key === "ArrowRight") {
           e.preventDefault();
-          if (slider.classList.contains("is-unlocked")) return;
-          calcMax();
-
-          slider.classList.add("is-unlocked");
-          if (thumb) {
-            thumb.style.transition = "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)";
-            thumb.style.transform = "translate3d(" + maxTravel.toFixed(1) + "px, 0, 0)";
-          }
-          if (fill) {
-            fill.style.transition = "width 0.35s cubic-bezier(0.16, 1, 0.3, 1)";
-            fill.style.width = "100%";
-          }
-          if (label) {
-            label.style.transition = "opacity 0.22s ease";
-            label.style.opacity = "0";
-          }
-          slider.setAttribute("aria-valuenow", "100");
-
-          setTimeout(function () {
-            openModal();
-          }, 220);
+          triggerUnlock();
+        } else if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          // Visual nudge showing user should slide
+          triggerNudge();
         }
       });
 

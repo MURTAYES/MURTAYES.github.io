@@ -193,11 +193,16 @@
   overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: pan-y;
-  cursor: default;
+  -webkit-user-drag: none;
+  touch-action: none;
+  cursor: grab;
   outline: none;
   transition: box-shadow 0.25s ease, border-color 0.25s ease;
   box-sizing: border-box;
+}
+
+.slide-to-talk.is-dragging {
+  cursor: grabbing;
 }
 
 .slide-to-talk:focus-visible {
@@ -308,6 +313,28 @@
   justify-content: center;
   position: relative;
   transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+}
+
+.slide-to-talk__thumb * {
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+}
+
+/* Nudge Animation when clicked/tapped without sliding */
+@keyframes slideNudge {
+  0% { transform: translate3d(0, 0, 0); }
+  25% { transform: translate3d(14px, 0, 0); }
+  50% { transform: translate3d(3px, 0, 0); }
+  75% { transform: translate3d(9px, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.slide-to-talk.is-nudging .slide-to-talk__thumb {
+  animation: slideNudge 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .slide-to-talk:not(.is-dragging) .slide-to-talk__thumb:hover .slide-thumb__circle {

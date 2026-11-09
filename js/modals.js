@@ -65,7 +65,7 @@
     if (!modal) return;
 
     const openTriggers = document.querySelectorAll(
-      '.footer__big, [href="/contact"], [href="#contact"], .nav-button-wrap .btn, [data-open-contact]'
+      '.footer__big, [href="/contact"], .nav-button-wrap .btn, [data-open-contact]'
     );
     const closeTriggers = modal.querySelectorAll("[data-close-contact]");
     const form = document.getElementById("drawer-contact-form");
