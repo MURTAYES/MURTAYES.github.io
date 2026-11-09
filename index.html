@@ -51,22 +51,21 @@
     </symbol>
   </svg>
 
-  <!-- 01. PRIMARY NAVIGATION (FIXED HEADER + 3-LINE MORPHING HAMBURGER + FULLSCREEN OVERLAY) -->
+  <!-- 01. PRIMARY NAVIGATION (FIXED HEADER + 2-LINE MORPHING HAMBURGER + FULLSCREEN OVERLAY) -->
   <header class="site-header willen-nav header">
     <div class="header-container">
-      <a class="wordmark-link header__logo" href="#hero" aria-label="Samnun Murtayes Home" data-cursor="Home">
-        <img src="assets/images/logo.svg" alt="Samnun Murtayes Logo" class="wordmark-img header__brand-logo" id="header-brand-logo">
+      <a class="wordmark-link header__logo" href="#hero" aria-label="Home" data-cursor="Home">
+        <img src="assets/images/logo.svg" alt="Logo" class="wordmark-img header__brand-logo" id="header-brand-logo">
       </a>
       <button 
         type="button" 
         id="menuToggle" 
         class="hamburger-btn menu-toggle" 
         aria-expanded="false" 
-        aria-controls="mainNav" 
-        aria-label="Toggle Navigation Menu"
+        aria-controls="site-menu" 
+        aria-label="Open menu"
         data-cursor="Menu"
       >
-        <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
@@ -74,22 +73,44 @@
   </header>
 
   <!-- BACKDROP SCRIM -->
-  <div class="menu-scrim" id="menu-scrim" aria-hidden="true"></div>
+  <div class="menu-scrim" id="menu-scrim" data-menu-scrim="closed" aria-hidden="true"></div>
 
-  <!-- FULLSCREEN OVERLAY NAVIGATION -->
-  <nav id="mainNav" class="nav-overlay site-menu-overlay" aria-hidden="true">
-    <div class="menu-inner">
-      <ul class="nav-links menu-list">
-        <li class="menu-item"><a href="#hero" class="nav-link menu-link" data-cursor="Home">Home</a></li>
-        <li class="menu-item"><a href="#about" class="nav-link menu-link" data-cursor="About">About</a></li>
-        <li class="menu-item"><a href="#works" class="nav-link menu-link" data-cursor="Work">Work</a></li>
-        <li class="menu-item"><a href="#contact" class="nav-link menu-link" data-cursor="Contact">Contact</a></li>
-      </ul>
-      <div class="menu-footer">
-        <a href="mailto:samnun@murtayes.com" class="menu-footer-link" data-cursor="Email">SAMNUN@MURTAYES.COM</a>
+  <!-- FULLSCREEN PAMIDOR-STYLE MENU OVERLAY -->
+  <div class="site-menu-wrap" aria-hidden="true">
+    <div id="site-menu" class="site-menu site-menu-overlay" data-menu="closed" tabindex="-1">
+      <div class="site-menu-inner menu-inner">
+        <ul class="site-menu-list menu-list">
+          <li data-menu-item="true" style="--menu-i:0">
+            <a class="site-menu-link menu-link" href="#hero" data-cursor="Home">
+              <span class="sr-only">Home</span>
+              <span class="site-menu-text" aria-hidden="true">Home</span>
+            </a>
+          </li>
+          <li data-menu-item="true" style="--menu-i:1">
+            <a class="site-menu-link menu-link" href="#about" data-cursor="Studio">
+              <span class="sr-only">Studio</span>
+              <span class="site-menu-text" aria-hidden="true">Studio</span>
+            </a>
+          </li>
+          <li data-menu-item="true" style="--menu-i:2">
+            <a class="site-menu-link menu-link" href="#works" data-cursor="Work">
+              <span class="sr-only">Work</span>
+              <span class="site-menu-text" aria-hidden="true">Work</span>
+            </a>
+          </li>
+          <li data-menu-item="true" style="--menu-i:3">
+            <a class="site-menu-link menu-link" href="#building" data-cursor="Art Lab">
+              <span class="sr-only">Art Lab</span>
+              <span class="site-menu-text" aria-hidden="true">Art Lab</span>
+            </a>
+          </li>
+        </ul>
+        <div data-menu-item="true" style="--menu-i:4" class="site-menu-footer menu-footer">
+          <a class="site-menu-email menu-footer-link" href="mailto:dor@pamidordesign.co" data-cursor="Email">DOR@PAMIDORDESIGN.CO</a>
+        </div>
       </div>
     </div>
-  </nav>
+  </div>
 
   <main id="main-content">
 
