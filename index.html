@@ -783,8 +783,8 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
       </div>
     </section>
 
-    <!-- 04. SELECTED WORK: DIGITAL DESKTOP (3D FOLDER STACKS & MACOS GENIE MODAL) -->
-    <section id="works" class="works-desktop-section" aria-labelledby="works-title">
+    <!-- 04. SELECTED WORK: EDITORIAL ASYMMETRICAL DESK & MACOS GENIE MODAL -->
+    <section id="works" class="works-desk-section" aria-labelledby="works-title">
       <div class="works-container">
         <!-- 1. Section Header -->
         <header class="works-header">
@@ -792,254 +792,191 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
           <h2 id="works-title" class="works-title">Projects I've shipped.</h2>
         </header>
 
-        <!-- 2. The 3-Folder Desktop Grid -->
-        <div class="works-desktop-grid">
+        <!-- 2. The Staggered Grid (No 3-in-a-row · 2 Columns on Desktop) -->
+        <div class="work-grid">
 
-          <!-- FOLDER 1: SaaS Products -->
-          <div class="work-folder js-work-folder" data-folder="saas" style="--folder-i: 0;">
-            <div class="folder-3d-stage">
+          <!-- FOLDER 1: FinTech Dashboard (Acme Corp) -->
+          <article 
+            class="work-folder js-work-folder" 
+            data-project-id="fintech" 
+            role="button" 
+            tabindex="0" 
+            aria-label="Open case study for FinTech Dashboard" 
+            data-cursor-pill="Inspect Project"
+          >
+            <div class="folder-stage">
               <div class="folder-spotlight" aria-hidden="true"></div>
 
-              <!-- Back Folder with top-left tab -->
+              <!-- Top Center Client/Project Logo -->
+              <img src="assets/images/icon-128.png" class="folder-logo" alt="Acme Corp Logo" loading="lazy" />
+
+              <!-- Back Folder (Tab + Back Body) -->
               <div class="folder-back">
                 <div class="folder-tab">
-                  <span class="folder-tab-label">SaaS Products</span>
+                  <span class="folder-tab-badge">01 / SAAS</span>
                 </div>
                 <div class="folder-back-body"></div>
               </div>
 
-              <!-- 3 Stacked Mini File Cards (Buttons for Accessibility) -->
-              <div class="folder-files" role="group" aria-label="SaaS Products Files">
-                <button type="button" class="file-card js-file-btn" data-project-id="fintech-dashboard" aria-label="Open FinTech Dashboard">
-                  <div class="file-card-bar">
-                    <div class="file-card-dots" aria-hidden="true">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <span class="file-card-badge">POS.V4</span>
+              <!-- Peeking Preview Paper Inside Folder -->
+              <div class="folder-paper" aria-hidden="true">
+                <div class="folder-paper-header">
+                  <div class="folder-paper-dots">
+                    <span></span><span></span><span></span>
                   </div>
-                  <div class="file-card-content">
-                    <p class="file-card-title">FinTech Dashboard</p>
-                    <div class="file-card-skeleton" aria-hidden="true">
-                      <div class="file-card-line file-card-line--long"></div>
-                      <div class="file-card-line file-card-line--short"></div>
-                    </div>
-                    <span class="file-card-tag">Decimal128 · Kernel</span>
-                  </div>
-                </button>
-
-                <button type="button" class="file-card js-file-btn" data-project-id="hr-portal" aria-label="Open HR Portal">
-                  <div class="file-card-bar">
-                    <div class="file-card-dots" aria-hidden="true">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <span class="file-card-badge">MV3.24</span>
-                  </div>
-                  <div class="file-card-content">
-                    <p class="file-card-title">HR Portal</p>
-                    <div class="file-card-skeleton" aria-hidden="true">
-                      <div class="file-card-line file-card-line--long"></div>
-                      <div class="file-card-line file-card-line--medium"></div>
-                    </div>
-                    <span class="file-card-tag">AES-GCM · Heuristics</span>
-                  </div>
-                </button>
-
-                <button type="button" class="file-card js-file-btn" data-project-id="billing-kernel" aria-label="Open Cloud Billing Kernel">
-                  <div class="file-card-bar">
-                    <div class="file-card-dots" aria-hidden="true">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <span class="file-card-badge">API.V2</span>
-                  </div>
-                  <div class="file-card-content">
-                    <p class="file-card-title">Billing Kernel</p>
-                    <div class="file-card-skeleton" aria-hidden="true">
-                      <div class="file-card-line file-card-line--medium"></div>
-                      <div class="file-card-line file-card-line--short"></div>
-                    </div>
-                    <span class="file-card-tag">Kafka · Metered</span>
-                  </div>
-                </button>
+                  <span class="folder-paper-year">2024 · POS.V4</span>
+                </div>
+                <p class="folder-paper-title">FinTech Terminal</p>
+                <div class="folder-paper-skeleton">
+                  <div class="folder-paper-line folder-paper-line--long"></div>
+                  <div class="folder-paper-line folder-paper-line--medium"></div>
+                  <div class="folder-paper-line folder-paper-line--short"></div>
+                </div>
               </div>
 
               <!-- Front Pocket -->
               <div class="folder-pocket">
-                <div class="folder-pocket-meta">
-                  <span class="folder-pocket-vol">01 / VOL</span>
-                  <span class="folder-pocket-count">3 Files</span>
+                <div class="folder-pocket-top">
+                  <span class="folder-pocket-index">01 / VOL</span>
+                  <span class="folder-pocket-client">Acme Corp</span>
                 </div>
                 <div class="folder-pocket-body">
-                  <h3 class="folder-name">SaaS Products</h3>
-                  <p class="folder-desc">High-throughput accounting kernels &amp; enterprise dashboards.</p>
+                  <h3 class="folder-pocket-title">FinTech Dashboard</h3>
+                  <ul class="folder-pocket-chips" aria-label="Tags">
+                    <li class="folder-pocket-chip">SaaS</li>
+                    <li class="folder-pocket-chip">React</li>
+                    <li class="folder-pocket-chip">Decimal128</li>
+                  </ul>
                 </div>
-                <div class="folder-pocket-cue" aria-hidden="true">
-                  <span>Hover to fan files</span>
+                <div class="folder-pocket-footer">
+                  <span>Case Study</span>
+                  <span class="folder-pocket-action">Inspect ↗</span>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- FOLDER 2: Interactive Experiments -->
-          <div class="work-folder js-work-folder" data-folder="experiments" style="--folder-i: 1;">
-            <div class="folder-3d-stage">
+          <!-- FOLDER 2: WebGL Data Vis (Nova Labs) - Staggered margin-top: 120px -->
+          <article 
+            class="work-folder js-work-folder" 
+            data-project-id="webgl" 
+            role="button" 
+            tabindex="0" 
+            aria-label="Open case study for WebGL Data Vis" 
+            data-cursor-pill="Inspect Project"
+          >
+            <div class="folder-stage">
               <div class="folder-spotlight" aria-hidden="true"></div>
 
+              <!-- Top Center Client/Project Logo -->
+              <img src="assets/images/pharmaerp-logo.png" class="folder-logo" alt="Nova Labs Logo" loading="lazy" />
+
+              <!-- Back Folder (Tab + Back Body) -->
               <div class="folder-back">
                 <div class="folder-tab">
-                  <span class="folder-tab-label">Interactive</span>
+                  <span class="folder-tab-badge">02 / EXPERIMENTS</span>
                 </div>
                 <div class="folder-back-body"></div>
               </div>
 
-              <div class="folder-files" role="group" aria-label="Interactive Experiments Files">
-                <button type="button" class="file-card js-file-btn" data-project-id="webgl-data-vis" aria-label="Open WebGL Data Vis">
-                  <div class="file-card-bar">
-                    <div class="file-card-dots" aria-hidden="true">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <span class="file-card-badge">GLSL.4</span>
+              <!-- Peeking Preview Paper Inside Folder -->
+              <div class="folder-paper" aria-hidden="true">
+                <div class="folder-paper-header">
+                  <div class="folder-paper-dots">
+                    <span></span><span></span><span></span>
                   </div>
-                  <div class="file-card-content">
-                    <p class="file-card-title">WebGL Data Vis</p>
-                    <div class="file-card-skeleton" aria-hidden="true">
-                      <div class="file-card-line file-card-line--long"></div>
-                      <div class="file-card-line file-card-line--medium"></div>
-                    </div>
-                    <span class="file-card-tag">100k Particles · 60fps</span>
-                  </div>
-                </button>
-
-                <button type="button" class="file-card js-file-btn" data-project-id="fluid-shader" aria-label="Open Fluid Physics Stage">
-                  <div class="file-card-bar">
-                    <div class="file-card-dots" aria-hidden="true">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <span class="file-card-badge">EULER</span>
-                  </div>
-                  <div class="file-card-content">
-                    <p class="file-card-title">Fluid Physics</p>
-                    <div class="file-card-skeleton" aria-hidden="true">
-                      <div class="file-card-line file-card-line--medium"></div>
-                      <div class="file-card-line file-card-line--short"></div>
-                    </div>
-                    <span class="file-card-tag">Navier-Stokes Grid</span>
-                  </div>
-                </button>
-
-                <button type="button" class="file-card js-file-btn" data-project-id="kinetic-typography" aria-label="Open Kinetic Typography">
-                  <div class="file-card-bar">
-                    <div class="file-card-dots" aria-hidden="true">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <span class="file-card-badge">FONTS</span>
-                  </div>
-                  <div class="file-card-content">
-                    <p class="file-card-title">Kinetic Typography</p>
-                    <div class="file-card-skeleton" aria-hidden="true">
-                      <div class="file-card-line file-card-line--long"></div>
-                      <div class="file-card-line file-card-line--short"></div>
-                    </div>
-                    <span class="file-card-tag">Variable Optical Axes</span>
-                  </div>
-                </button>
+                  <span class="folder-paper-year">2024 · GLSL.2</span>
+                </div>
+                <p class="folder-paper-title">Topological Audio</p>
+                <div class="folder-paper-skeleton">
+                  <div class="folder-paper-line folder-paper-line--long"></div>
+                  <div class="folder-paper-line folder-paper-line--medium"></div>
+                  <div class="folder-paper-line folder-paper-line--short"></div>
+                </div>
               </div>
 
+              <!-- Front Pocket -->
               <div class="folder-pocket">
-                <div class="folder-pocket-meta">
-                  <span class="folder-pocket-vol">02 / VOL</span>
-                  <span class="folder-pocket-count">3 Files</span>
+                <div class="folder-pocket-top">
+                  <span class="folder-pocket-index">02 / VOL</span>
+                  <span class="folder-pocket-client">Nova Labs</span>
                 </div>
                 <div class="folder-pocket-body">
-                  <h3 class="folder-name">Interactive Experiments</h3>
-                  <p class="folder-desc">WebGL simulations, shaders &amp; dynamic motion systems.</p>
+                  <h3 class="folder-pocket-title">WebGL Data Vis</h3>
+                  <ul class="folder-pocket-chips" aria-label="Tags">
+                    <li class="folder-pocket-chip">Three.js</li>
+                    <li class="folder-pocket-chip">Canvas</li>
+                    <li class="folder-pocket-chip">GLSL</li>
+                  </ul>
                 </div>
-                <div class="folder-pocket-cue" aria-hidden="true">
-                  <span>Hover to fan files</span>
+                <div class="folder-pocket-footer">
+                  <span>Case Study</span>
+                  <span class="folder-pocket-action">Inspect ↗</span>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- FOLDER 3: Brand Systems -->
-          <div class="work-folder js-work-folder" data-folder="brands" style="--folder-i: 2;">
-            <div class="folder-3d-stage">
+          <!-- FOLDER 3: Brand Identity System (Aura Systems) - Staggered margin-top: -60px, 84% width -->
+          <article 
+            class="work-folder js-work-folder" 
+            data-project-id="brand" 
+            role="button" 
+            tabindex="0" 
+            aria-label="Open case study for Brand Identity System" 
+            data-cursor-pill="Inspect Project"
+          >
+            <div class="folder-stage">
               <div class="folder-spotlight" aria-hidden="true"></div>
 
+              <!-- Top Center Client/Project Logo -->
+              <img src="assets/images/edu52.png" class="folder-logo" alt="Aura Systems Logo" loading="lazy" />
+
+              <!-- Back Folder (Tab + Back Body) -->
               <div class="folder-back">
                 <div class="folder-tab">
-                  <span class="folder-tab-label">Brand Systems</span>
+                  <span class="folder-tab-badge">03 / BRAND</span>
                 </div>
                 <div class="folder-back-body"></div>
               </div>
 
-              <div class="folder-files" role="group" aria-label="Brand Systems Files">
-                <button type="button" class="file-card js-file-btn" data-project-id="aura-identity" aria-label="Open Aura Identity">
-                  <div class="file-card-bar">
-                    <div class="file-card-dots" aria-hidden="true">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <span class="file-card-badge">BRAND</span>
+              <!-- Peeking Preview Paper Inside Folder -->
+              <div class="folder-paper" aria-hidden="true">
+                <div class="folder-paper-header">
+                  <div class="folder-paper-dots">
+                    <span></span><span></span><span></span>
                   </div>
-                  <div class="file-card-content">
-                    <p class="file-card-title">Aura Identity</p>
-                    <div class="file-card-skeleton" aria-hidden="true">
-                      <div class="file-card-line file-card-line--long"></div>
-                      <div class="file-card-line file-card-line--medium"></div>
-                    </div>
-                    <span class="file-card-tag">Identity · Monolith</span>
-                  </div>
-                </button>
-
-                <button type="button" class="file-card js-file-btn" data-project-id="nova-design-system" aria-label="Open Nova Design System">
-                  <div class="file-card-bar">
-                    <div class="file-card-dots" aria-hidden="true">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <span class="file-card-badge">TOKENS</span>
-                  </div>
-                  <div class="file-card-content">
-                    <p class="file-card-title">Nova System</p>
-                    <div class="file-card-skeleton" aria-hidden="true">
-                      <div class="file-card-line file-card-line--medium"></div>
-                      <div class="file-card-line file-card-line--short"></div>
-                    </div>
-                    <span class="file-card-tag">Design Tokens · AAA</span>
-                  </div>
-                </button>
-
-                <button type="button" class="file-card js-file-btn" data-project-id="icon-grid-spec" aria-label="Open Icon Grid Spec">
-                  <div class="file-card-bar">
-                    <div class="file-card-dots" aria-hidden="true">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <span class="file-card-badge">VECTOR</span>
-                  </div>
-                  <div class="file-card-content">
-                    <p class="file-card-title">Icon Grid Spec</p>
-                    <div class="file-card-skeleton" aria-hidden="true">
-                      <div class="file-card-line file-card-line--long"></div>
-                      <div class="file-card-line file-card-line--short"></div>
-                    </div>
-                    <span class="file-card-tag">24px Optical Geometry</span>
-                  </div>
-                </button>
+                  <span class="folder-paper-year">2024 · TOKENS</span>
+                </div>
+                <p class="folder-paper-title">Monolith Architecture</p>
+                <div class="folder-paper-skeleton">
+                  <div class="folder-paper-line folder-paper-line--long"></div>
+                  <div class="folder-paper-line folder-paper-line--medium"></div>
+                  <div class="folder-paper-line folder-paper-line--short"></div>
+                </div>
               </div>
 
+              <!-- Front Pocket -->
               <div class="folder-pocket">
-                <div class="folder-pocket-meta">
-                  <span class="folder-pocket-vol">03 / VOL</span>
-                  <span class="folder-pocket-count">3 Files</span>
+                <div class="folder-pocket-top">
+                  <span class="folder-pocket-index">03 / VOL</span>
+                  <span class="folder-pocket-client">Aura Systems</span>
                 </div>
                 <div class="folder-pocket-body">
-                  <h3 class="folder-name">Brand Systems</h3>
-                  <p class="folder-desc">Design tokens, typography standards &amp; icon frameworks.</p>
+                  <h3 class="folder-pocket-title">Brand Identity System</h3>
+                  <ul class="folder-pocket-chips" aria-label="Tags">
+                    <li class="folder-pocket-chip">Figma</li>
+                    <li class="folder-pocket-chip">Brand</li>
+                    <li class="folder-pocket-chip">Design Tokens</li>
+                  </ul>
                 </div>
-                <div class="folder-pocket-cue" aria-hidden="true">
-                  <span>Hover to fan files</span>
+                <div class="folder-pocket-footer">
+                  <span>Case Study</span>
+                  <span class="folder-pocket-action">Inspect ↗</span>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
 
         </div>
       </div>
@@ -1047,59 +984,90 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
       <!-- 4. macOS Genie Modal Window (<dialog>) -->
       <dialog class="project-modal" id="projectModal" aria-labelledby="modalTitle" aria-modal="true">
         <div class="modal-window">
-          <!-- Window Header (macOS Traffic Light Bar) -->
+          <!-- macOS Window Titlebar -->
           <div class="modal-header">
             <div class="modal-nav-dots" aria-hidden="true">
-              <button type="button" class="modal-dot modal-dot--close js-modal-close-btn" aria-label="Close Project Modal"></button>
+              <button type="button" class="modal-dot modal-dot--close js-modal-close-btn" aria-label="Close Case Study"></button>
               <span class="modal-dot modal-dot--min"></span>
               <span class="modal-dot modal-dot--max"></span>
             </div>
-            <p class="modal-eyebrow" id="modalEyebrow">(CASE STUDY · 01) / SaaS Products</p>
-            <button type="button" class="modal-close-icon js-modal-close-btn" aria-label="Close Project Modal">
+            <p class="modal-eyebrow" id="modalEyebrow">(CASE STUDY · 01) / Acme Corp</p>
+            <button type="button" class="modal-close-icon js-modal-close-btn" aria-label="Close Case Study">
               <span>✕</span>
             </button>
           </div>
 
-          <!-- Window Scrollable Body -->
-          <div class="modal-body">
-            <h2 class="modal-title" id="modalTitle">FinTech Dashboard</h2>
+          <!-- Window Scrollable Case Study Article -->
+          <article class="modal-body">
+            <h1 class="modal-title" id="modalTitle">FinTech Dashboard</h1>
 
             <ul class="modal-chips" id="modalChips" aria-label="Disciplines & Technologies">
-              <li class="modal-chip">Next.js</li>
+              <li class="modal-chip">SaaS</li>
+              <li class="modal-chip">React</li>
               <li class="modal-chip">TypeScript</li>
               <li class="modal-chip">Decimal128</li>
             </ul>
 
-            <p class="modal-summary" id="modalSummary">
-              Clinical retail counter POS kernel and FEFO batch accounting engine with Decimal128 dual-entry financial journals.
-            </p>
+            <!-- Hero Image Banner -->
+            <figure class="modal-hero-figure">
+              <img id="modalHeroImg" class="modal-hero-img" src="assets/images/appykit.jpg" alt="FinTech Dashboard Hero Banner" loading="lazy" />
+            </figure>
 
-            <div class="modal-rule" aria-hidden="true"></div>
-
-            <dl class="modal-meta" id="modalMeta">
-              <div><dt>ROLE</dt><dd id="modalRole">Lead Full-Stack Architect</dd></div>
-              <div><dt>TIMELINE</dt><dd id="modalTimeline">4 Months</dd></div>
-              <div><dt>YEAR</dt><dd id="modalYear">2024</dd></div>
-              <div><dt>TEAM</dt><dd id="modalTeam">3 Engineers, 1 Designer</dd></div>
+            <!-- Meta Information Grid -->
+            <dl class="modal-meta-grid">
+              <div class="modal-meta-item">
+                <dt>ROLE</dt>
+                <dd id="modalRole">Lead Full-Stack Architect</dd>
+              </div>
+              <div class="modal-meta-item">
+                <dt>TIMELINE</dt>
+                <dd id="modalTimeline">4 Months</dd>
+              </div>
+              <div class="modal-meta-item">
+                <dt>YEAR</dt>
+                <dd id="modalYear">2024</dd>
+              </div>
+              <div class="modal-meta-item">
+                <dt>CLIENT</dt>
+                <dd id="modalClient">Acme Corp</dd>
+              </div>
             </dl>
 
-            <div class="modal-highlights" id="modalHighlights">
-              <!-- Dynamically populated metric cards -->
+            <!-- Detailed Case Study Narrative (Challenge, Solution, Outcome) -->
+            <div class="modal-narrative">
+              <div class="modal-block">
+                <h2 class="modal-block-label">THE CHALLENGE</h2>
+                <p class="modal-block-text" id="modalChallenge">
+                  Legacy point-of-sale systems suffered from 300ms+ round-trip latencies, frequent floating-point calculation drift on multi-currency transactions, and catastrophic transaction loss during retail network drops.
+                </p>
+              </div>
+
+              <div class="modal-block">
+                <h2 class="modal-block-label">THE SOLUTION</h2>
+                <p class="modal-block-text" id="modalSolution">
+                  Engineered a client-first POS engine running Decimal128 dual-entry financial journals directly in IndexedDB. Coupled with a background Web Worker synchronization queue, transactions settle locally in under 35ms and stream to PostgreSQL when connectivity resumes.
+                </p>
+              </div>
+
+              <div class="modal-block">
+                <h2 class="modal-block-label">THE OUTCOME</h2>
+                <p class="modal-block-text" id="modalOutcome">
+                  Processed 2.4M transactions with 0% data loss, sub-40ms terminal response times, and 99.99% system availability during Black Friday peak retail volumes.
+                </p>
+              </div>
             </div>
 
-            <div class="modal-section">
-              <h4 class="modal-section-heading">ARCHITECTURAL OVERVIEW</h4>
-              <p class="modal-desc" id="modalDesc">
-                Detailed project narrative.
-              </p>
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" class="modal-action-btn js-modal-close-btn">
-                <span>Close Window [ESC]</span>
+            <!-- Modal Bottom Navigation ("Next Project") -->
+            <div class="modal-footer-nav">
+              <button type="button" class="modal-next-btn" id="modalNextBtn" data-next-id="webgl">
+                <span class="modal-next-label">Next: WebGL Data Vis</span>
+                <span aria-hidden="true">→</span>
+              </button>
+              <button type="button" class="modal-dismiss-btn js-modal-close-btn">
+                Close [ESC]
               </button>
             </div>
-          </div>
+          </article>
         </div>
       </dialog>
     </section>

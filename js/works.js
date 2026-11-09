@@ -1,7 +1,7 @@
 /**
  * ==========================================================================
- * SELECTED WORK: DIGITAL DESKTOP CONTROLLER (PURE VANILLA JS)
- * Apple macOS Genie Minimize Transition & 3D Folder Stack Interactions
+ * SELECTED WORK: EDITORIAL ASYMMETRICAL DESK & MACOS GENIE CONTROLLER
+ * Apple macOS Genie Minimize Transition & 3D Interactive Physical Folders
  * Zero Frameworks · Zero CDNs · 60fps Hardware Accelerated
  * ==========================================================================
  */
@@ -9,190 +9,93 @@
 (function () {
   "use strict";
 
-  // Comprehensive Project Dossier Catalog
-  const PROJECTS = {
-    "fintech-dashboard": {
-      category: "SaaS Products",
+  // Comprehensive Case Study Catalog for the 3 Asymmetric Folders
+  const CASE_STUDIES = {
+    "fintech": {
+      id: "fintech",
+      nextId: "webgl",
       number: "01",
+      category: "SaaS Products",
+      client: "Acme Corp",
       title: "FinTech Dashboard",
-      chips: ["Next.js", "TypeScript", "Tailwind CSS", "Decimal128", "PostgreSQL"],
-      summary: "Clinical retail counter POS kernel and FEFO batch accounting engine with Decimal128 dual-entry financial journals and sub-50ms audit reconciliation.",
+      tags: ["SaaS", "React", "TypeScript", "Decimal128", "PostgreSQL"],
+      image: "assets/images/appykit.jpg",
+      imageAlt: "FinTech Dashboard High-Throughput POS Terminal Interface",
       role: "Lead Full-Stack Architect",
       timeline: "4 Months",
       year: "2024",
       team: "3 Engineers, 1 Designer",
-      highlights: [
-        { label: "LATENCY", value: "< 40ms", desc: "Sub-frame transaction settlement" },
-        { label: "PRECISION", value: "Decimal128", desc: "Dual-entry balanced ledgers" },
-        { label: "AVAILABILITY", value: "99.99%", desc: "Local-first offline sync buffer" }
-      ],
-      description: "Architected a high-throughput POS terminal and financial accounting kernel designed for high-volume retail dispensaries. Leveraged Decimal128 fixed-point arithmetic to prevent floating-point rounding errors across multi-currency ledgers, paired with an offline-first IndexedDB buffer that guarantees zero transaction drop during connectivity outages."
+      challenge: "Legacy point-of-sale systems suffered from 300ms+ round-trip latencies, frequent floating-point calculation drift on multi-currency transactions, and catastrophic transaction loss during retail network drops.",
+      solution: "Engineered a client-first POS engine running Decimal128 dual-entry financial journals directly in IndexedDB. Coupled with a background Web Worker synchronization queue, transactions settle locally in under 35ms and stream to PostgreSQL when connectivity resumes.",
+      outcome: "Processed 2.4M transactions with 0% data loss, sub-40ms terminal response times, and 99.99% system availability during Black Friday peak retail volumes."
     },
-    "hr-portal": {
-      category: "SaaS Products",
+    "webgl": {
+      id: "webgl",
+      nextId: "brand",
       number: "02",
-      title: "HR Portal",
-      chips: ["Web Extensions MV3", "AES-GCM", "IndexedDB", "Vanilla JS"],
-      summary: "Bilingual DOM heuristics engine and automated application workflow featuring section-scoped traversal and client-side AES-GCM encryption.",
-      role: "Senior Interaction Engineer",
-      timeline: "6 Months",
-      year: "2024",
-      team: "Solo Project",
-      highlights: [
-        { label: "SCAN SPEED", value: "< 35ms", desc: "DOM tree heuristics traversal" },
-        { label: "SECURITY", value: "AES-256", desc: "Zero cloud transmission vault" },
-        { label: "ACCURACY", value: "98.4%", desc: "Bilingual form field resolution" }
-      ],
-      description: "Built a zero-cloud candidate credential vault and DOM heuristics engine running natively inside Chrome Manifest V3. Evaluates bilingual application fields in real-time, executing localized autofill operations while storing all sensitive cryptographic tokens inside client-side IndexedDB encrypted with user-derived keys."
-    },
-    "billing-kernel": {
-      category: "SaaS Products",
-      number: "03",
-      title: "Cloud Billing Kernel",
-      chips: ["Go", "Redis", "Kafka", "Stripe API", "Docker"],
-      summary: "Event-driven recurring billing terminal processing metered usage metrics with sub-millisecond rate-limit idempotency.",
-      role: "Backend Systems Engineer",
-      timeline: "3 Months",
-      year: "2023",
-      team: "2 Engineers",
-      highlights: [
-        { label: "THROUGHPUT", value: "25k req/s", desc: "Streamed usage telemetry" },
-        { label: "IDEMPOTENCY", value: "100%", desc: "Deduplicated charge verification" },
-        { label: "SYNC DELAY", value: "< 120ms", desc: "End-to-end ledger propagation" }
-      ],
-      description: "Designed a distributed recurring billing engine for multi-tenant SaaS platforms. Handles complex seat allocation tiers, tiered usage-based overages, and dynamic invoice generation with cryptographic audit trails and webhook self-healing retries."
-    },
-    "webgl-data-vis": {
       category: "Interactive Experiments",
-      number: "04",
+      client: "Nova Labs",
       title: "WebGL Data Vis",
-      chips: ["WebGL 2.0", "GLSL Shaders", "Web Audio API", "Mathematical Vectors"],
-      summary: "Real-time 100,000-particle topological soundscape simulation powered by custom GLSL fragment shaders and Web Audio frequency analysis.",
+      tags: ["Three.js", "Canvas", "GLSL Shaders", "Web Audio API"],
+      image: "assets/images/pharma.jpg",
+      imageAlt: "WebGL 100,000 Particle Topological Soundscape Visualization",
       role: "Creative Technologist",
       timeline: "2 Months",
       year: "2024",
-      team: "Independent Research",
-      highlights: [
-        { label: "PARTICLES", value: "100,000", desc: "GPU simulated at 60fps" },
-        { label: "AUDIO SYNC", value: "< 8ms", desc: "Real-time FFT buffer analysis" },
-        { label: "BUNDLE SIZE", value: "14KB", desc: "Raw vanilla WebGL kernel" }
-      ],
-      description: "An interactive spatial audio visualizer exploring mathematical topology and particle dynamics. Custom vertex shaders evaluate Fourier transform spectrum bins directly on the GPU, generating undulating fluid ribbons that respond dynamically to ambient acoustics and cursor gravity wells."
+      team: "Solo Research",
+      challenge: "Visualizing 100,000+ multidimensional data nodes simultaneously in standard desktop browsers caused massive main-thread lockups, dropping frame rates to single digits and freezing UI controls.",
+      solution: "Developed a bespoke WebGL 2.0 visualization engine using custom GLSL GPGPU vertex compute shaders and instanced geometry. Dynamic spatial indexing algorithms partition node clusters across GPU texture buffers, enabling 60fps topological exploration and real-time audio FFT sync.",
+      outcome: "Maintained sustained 60fps rendering across 100,000 particles on low-power laptop GPUs, with a lightweight zero-dependency footprint of only 14KB gzip."
     },
-    "fluid-shader": {
-      category: "Interactive Experiments",
-      number: "05",
-      title: "Fluid Physics Stage",
-      chips: ["Canvas 2D", "GLSL", "Navier-Stokes", "Vanilla JS"],
-      summary: "Interactive 60fps Eulerian fluid dynamics grid with cursor force injection and real-time dye advection equations.",
-      role: "Interaction Designer",
-      timeline: "1 Month",
-      year: "2023",
-      team: "Solo Experiment",
-      highlights: [
-        { label: "FRAME RATE", value: "60 FPS", desc: "Zero garbage collection pauses" },
-        { label: "GRID DENSITY", value: "128x128", desc: "Bilinear interpolated advection" },
-        { label: "MEMORY", value: "< 24MB", desc: "Pre-allocated typed arrays" }
-      ],
-      description: "A lightweight implementation of stable fluid dynamics in the browser. Employs Jacobi iterations for pressure projection and velocity advection on typed Float32Arrays, producing organic smoke and watercolor dispersion trails under cursor movement."
-    },
-    "kinetic-typography": {
-      category: "Interactive Experiments",
-      number: "06",
-      title: "Kinetic Typography",
-      chips: ["Variable Fonts", "CSS Houdini", "RequestAnimationFrame", "SVG"],
-      summary: "Magnetic parametric type deformation system responding to cursor velocity and scroll acceleration vectors.",
-      role: "Frontend Engineer",
-      timeline: "3 Weeks",
-      year: "2023",
-      team: "Solo Experiment",
-      highlights: [
-        { label: "RESPONSIVENESS", value: "Instant", desc: "Direct hardware compositor sync" },
-        { label: "AXES", value: "wght / wdth", desc: "Continuous optical axes modulation" },
-        { label: "DEPENDENCIES", value: "Zero", desc: "Native browser font variations" }
-      ],
-      description: "Explores the intersection of typography and physics. Glyphs deform along variable font axes proportionally to cursor proximity and acceleration vectors, simulating elastic tension and liquid ink dispersion without dropping below 60 frames per second."
-    },
-    "aura-identity": {
+    "brand": {
+      id: "brand",
+      nextId: "fintech",
+      number: "03",
       category: "Brand Systems",
-      number: "07",
-      title: "Aura Identity",
-      chips: ["Brand Architecture", "Typographic Scale", "SVG Systems", "Figma Tokens"],
-      summary: "Comprehensive monolithic identity system, typographic scale, and spatial design guidelines built for an autonomous AI research lab.",
+      client: "Aura Systems",
+      title: "Brand Identity System",
+      tags: ["Figma", "Brand", "Design Tokens", "Typography"],
+      image: "assets/images/edu52-banner.webp",
+      imageAlt: "Aura Systems Monolithic Brand Architecture & Design Tokens",
       role: "Brand Designer & Developer",
       timeline: "3 Months",
       year: "2024",
       team: "Client Engagement",
-      highlights: [
-        { label: "COMPONENTS", value: "120+", desc: "Documented atomic tokens" },
-        { label: "CONTRAST", value: "AAA Spec", desc: "Automated perceptual luminance" },
-        { label: "EXPORT", value: "Multi-Platform", desc: "JSON, CSS, Swift, Android" }
-      ],
-      description: "Created a comprehensive brand architecture and generative design language for an artificial intelligence research group. Combines austere Swiss International typographic principles with glowing chromatic accents, establishing a confident visual voice across digital platforms, printed editorial releases, and physical workspaces."
-    },
-    "nova-design-system": {
-      category: "Brand Systems",
-      number: "08",
-      title: "Nova Design System",
-      chips: ["Design Tokens", "PostCSS", "Web Components", "WCAG 2.1 AAA"],
-      summary: "Zero-dependency design token framework with automated WCAG AAA contrast guarantees, responsive fluid modular scales, and cross-platform distribution.",
-      role: "Lead Design System Engineer",
-      timeline: "5 Months",
-      year: "2023",
-      team: "4 Designers, 6 Engineers",
-      highlights: [
-        { label: "ADOPTION", value: "100%", desc: "Deployed across 8 products" },
-        { label: "ACCESSIBILITY", value: "100/100", desc: "Automated Lighthouse score" },
-        { label: "BUILD TIME", value: "< 2.1s", desc: "Zero runtime overhead" }
-      ],
-      description: "Engineered an enterprise-wide design token architecture connecting Figma variable libraries to production codebases. Implements mathematical fluid clamp calculations, semantic theme switching, and strict contrast enforcement that eliminates visual regression during multi-brand rollouts."
-    },
-    "icon-grid-spec": {
-      category: "Brand Systems",
-      number: "09",
-      title: "Icon Grid Spec",
-      chips: ["Vector Geometry", "SVG Optimization", "Iconography", "CLI Tooling"],
-      summary: "Architectural 24px optical grid system with strict line-weight consistency and automated SVG build optimization pipelines.",
-      role: "Visual Systems Designer",
-      timeline: "2 Months",
-      year: "2023",
-      team: "Solo Project",
-      highlights: [
-        { label: "GLYPHS", value: "240+", desc: "Optical 24x24 pixel grid" },
-        { label: "FILE SAVINGS", value: "62%", desc: "Automated curve simplification" },
-        { label: "PIXEL ALIGN", value: "100%", desc: "Sub-pixel sharpness verification" }
-      ],
-      description: "A unified geometric iconography system developed on a rigorous 24px bounding box. Every glyph adheres to strict corner radius rules, optical weight balancing, and automated pipeline scripts that strip metadata, convert strokes to compound paths, and generate tree-shakeable SVG symbols."
+      challenge: "A rapidly scaling autonomous AI laboratory needed a monolithic, unified brand design system that scaled effortlessly across editorial whitepapers, enterprise dashboards, and physical research installations without accumulating design debt.",
+      solution: "Designed an austere Swiss International design framework consisting of 120+ atomic design tokens, automated WCAG AAA color luminance verification, responsive typography clamp scales, and strict 24px optical vector grids.",
+      outcome: "Adopted across 8 production applications with 100% design system token coverage, reducing frontend handoff cycles by 65% and eliminating visual regression across light and dark modes."
     }
   };
 
   let isInitialized = false;
 
-  function initDigitalDesktop() {
+  function initEditorialDesk() {
     if (isInitialized) return;
     isInitialized = true;
 
     const folders = document.querySelectorAll(".js-work-folder");
-    const fileButtons = document.querySelectorAll(".js-file-btn");
     const modal = document.getElementById("projectModal");
     if (!modal) return;
 
     const modalEyebrow = document.getElementById("modalEyebrow");
     const modalTitle = document.getElementById("modalTitle");
     const modalChips = document.getElementById("modalChips");
-    const modalSummary = document.getElementById("modalSummary");
+    const modalHeroImg = document.getElementById("modalHeroImg");
     const modalRole = document.getElementById("modalRole");
     const modalTimeline = document.getElementById("modalTimeline");
     const modalYear = document.getElementById("modalYear");
-    const modalTeam = document.getElementById("modalTeam");
-    const modalHighlights = document.getElementById("modalHighlights");
-    const modalDesc = document.getElementById("modalDesc");
+    const modalClient = document.getElementById("modalClient");
+    const modalChallenge = document.getElementById("modalChallenge");
+    const modalSolution = document.getElementById("modalSolution");
+    const modalOutcome = document.getElementById("modalOutcome");
+    const modalNextBtn = document.getElementById("modalNextBtn");
     const closeButtons = document.querySelectorAll(".js-modal-close-btn");
 
-    let lastActiveTrigger = null;
+    let lastActiveFolder = null;
+    let currentProjectId = "fintech";
     let isClosing = false;
 
-    // 1. Spotlight Tracking on Folder Hover
+    // 1. Spotlight Tracking on .work-folder
     folders.forEach((folder) => {
       folder.addEventListener("mousemove", (e) => {
         const rect = folder.getBoundingClientRect();
@@ -202,90 +105,86 @@
         folder.style.setProperty("--my", `${my}px`);
       });
 
-      // Mobile Touch Tap to expand/collapse folder
-      folder.addEventListener("click", (e) => {
-        // If clicking directly on a file button, do not toggle folder
-        if (e.target.closest(".js-file-btn")) return;
-
-        const wasOpen = folder.classList.contains("is-open");
-        folders.forEach((f) => f.classList.remove("is-open"));
-        if (!wasOpen) {
-          folder.classList.add("is-open");
+      // Keyboard Accessibility: Enter / Space triggers click
+      folder.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          folder.click();
         }
+      });
+
+      // Folder Click: Opens Full Case-Study Modal with macOS Genie Animation
+      folder.addEventListener("click", () => {
+        const projectId = folder.getAttribute("data-project-id") || "fintech";
+        openGenieModal(folder, projectId);
       });
     });
 
-    // Close open folders when clicking outside
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".js-work-folder")) {
-        folders.forEach((f) => f.classList.remove("is-open"));
-      }
-    });
-
     // 2. Populate Modal Content
-    function populateModal(data) {
+    function populateModalContent(data) {
       if (!data) return;
+      currentProjectId = data.id;
 
-      if (modalEyebrow) modalEyebrow.textContent = `(CASE STUDY · ${data.number}) / ${data.category}`;
+      if (modalEyebrow) modalEyebrow.textContent = `(CASE STUDY · ${data.number}) / ${data.client}`;
       if (modalTitle) modalTitle.textContent = data.title;
-      if (modalSummary) modalSummary.textContent = data.summary;
       if (modalRole) modalRole.textContent = data.role;
       if (modalTimeline) modalTimeline.textContent = data.timeline;
       if (modalYear) modalYear.textContent = data.year;
-      if (modalTeam) modalTeam.textContent = data.team;
-      if (modalDesc) modalDesc.textContent = data.description;
+      if (modalClient) modalClient.textContent = data.client;
+      if (modalChallenge) modalChallenge.textContent = data.challenge;
+      if (modalSolution) modalSolution.textContent = data.solution;
+      if (modalOutcome) modalOutcome.textContent = data.outcome;
 
-      // Populate Chips
+      if (modalHeroImg) {
+        modalHeroImg.src = data.image;
+        modalHeroImg.alt = data.imageAlt;
+      }
+
+      // Populate Tag Chips
       if (modalChips) {
         modalChips.innerHTML = "";
-        data.chips.forEach((chip) => {
+        data.tags.forEach((tag) => {
           const li = document.createElement("li");
           li.className = "modal-chip";
-          li.textContent = chip;
+          li.textContent = tag;
           modalChips.appendChild(li);
         });
       }
 
-      // Populate Highlight Metric Cards
-      if (modalHighlights) {
-        modalHighlights.innerHTML = "";
-        data.highlights.forEach((h) => {
-          const card = document.createElement("div");
-          card.className = "modal-highlight-card";
-          card.innerHTML = `
-            <p class="modal-highlight-label">${h.label}</p>
-            <p class="modal-highlight-value">${h.value}</p>
-            <p class="modal-highlight-desc">${h.desc}</p>
-          `;
-          modalHighlights.appendChild(card);
-        });
+      // Configure "Next Project" Button
+      if (modalNextBtn) {
+        const nextProject = CASE_STUDIES[data.nextId];
+        modalNextBtn.setAttribute("data-next-id", data.nextId);
+        const nextLabel = modalNextBtn.querySelector(".modal-next-label");
+        if (nextLabel) {
+          nextLabel.textContent = `Next: ${nextProject.title}`;
+        }
       }
     }
 
     // 3. Open Modal with macOS Genie Math
-    function openModalWithGenie(button) {
+    function openGenieModal(folder, projectId) {
       if (isClosing) return;
-      lastActiveTrigger = button;
+      lastActiveFolder = folder;
 
-      const projectId = button.getAttribute("data-project-id");
-      const projectData = PROJECTS[projectId] || PROJECTS["fintech-dashboard"];
+      const projectData = CASE_STUDIES[projectId] || CASE_STUDIES["fintech"];
 
-      // Calculate clicked file center relative to viewport center
-      const fileRect = button.getBoundingClientRect();
-      const originX = fileRect.left + fileRect.width / 2 - window.innerWidth / 2;
-      const originY = fileRect.top + fileRect.height / 2 - window.innerHeight / 2;
+      // Calculate folder's exact center on screen using getBoundingClientRect()
+      const rect = folder.getBoundingClientRect();
+      const originX = rect.left + rect.width / 2 - window.innerWidth / 2;
+      const originY = rect.top + rect.height / 2 - window.innerHeight / 2;
 
       modal.style.setProperty("--origin-x", `${Math.round(originX)}px`);
       modal.style.setProperty("--origin-y", `${Math.round(originY)}px`);
 
-      populateModal(projectData);
+      populateModalContent(projectData);
 
-      // Open dialog
+      // Open Native Dialog
       if (!modal.open) {
         modal.showModal();
       }
 
-      // Force two RAF cycles for smooth hardware transition from pinched scale(0.1) to scale(1)
+      // Double RAF for smooth hardware acceleration from distorted scale(0.05) to full scale(1)
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           modal.classList.add("is-open");
@@ -295,15 +194,15 @@
     }
 
     // 4. Close Modal with Reverse Genie Minimize
-    function closeModalWithGenie() {
+    function closeGenieModal() {
       if (!modal.open || isClosing) return;
       isClosing = true;
 
-      // If trigger element moved or available, recalculate origin coordinates
-      if (lastActiveTrigger) {
-        const fileRect = lastActiveTrigger.getBoundingClientRect();
-        const originX = fileRect.left + fileRect.width / 2 - window.innerWidth / 2;
-        const originY = fileRect.top + fileRect.height / 2 - window.innerHeight / 2;
+      // Recalculate origin coordinates if folder moved during scroll
+      if (lastActiveFolder) {
+        const rect = lastActiveFolder.getBoundingClientRect();
+        const originX = rect.left + rect.width / 2 - window.innerWidth / 2;
+        const originY = rect.top + rect.height / 2 - window.innerHeight / 2;
         modal.style.setProperty("--origin-x", `${Math.round(originX)}px`);
         modal.style.setProperty("--origin-y", `${Math.round(originY)}px`);
       }
@@ -311,50 +210,64 @@
       modal.classList.remove("is-open");
       modal.classList.add("is-closing");
 
-      // Wait 400ms for the reverse genie pinch before closing dialog
+      // Wait 400ms for reverse genie animation to complete before closing dialog
       setTimeout(() => {
         modal.close();
         modal.classList.remove("is-closing");
         isClosing = false;
-        if (lastActiveTrigger) {
-          lastActiveTrigger.focus();
+        if (lastActiveFolder) {
+          lastActiveFolder.focus();
         }
       }, 400);
     }
 
-    // Attach File Click Listeners
-    fileButtons.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        openModalWithGenie(btn);
-      });
-    });
+    // Next Project Button inside Modal
+    if (modalNextBtn) {
+      modalNextBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const nextId = modalNextBtn.getAttribute("data-next-id") || "fintech";
+        const nextData = CASE_STUDIES[nextId];
+        const nextFolder = document.querySelector(`.js-work-folder[data-project-id="${nextId}"]`);
+        if (nextFolder) {
+          lastActiveFolder = nextFolder;
+          const rect = nextFolder.getBoundingClientRect();
+          const originX = rect.left + rect.width / 2 - window.innerWidth / 2;
+          const originY = rect.top + rect.height / 2 - window.innerHeight / 2;
+          modal.style.setProperty("--origin-x", `${Math.round(originX)}px`);
+          modal.style.setProperty("--origin-y", `${Math.round(originY)}px`);
+        }
 
-    // Attach Close Button Listeners
+        // Smoothly scroll modal back to top and swap content
+        modal.scrollTo({ top: 0, behavior: "smooth" });
+        populateModalContent(nextData);
+      });
+    }
+
+    // Close Button Handlers
     closeButtons.forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.preventDefault();
-        closeModalWithGenie();
+        closeGenieModal();
       });
     });
 
-    // Native Esc Key Intercept for Reverse Genie Animation
+    // Native Esc Key Intercept for Reverse Genie Transition
     modal.addEventListener("cancel", (e) => {
       e.preventDefault();
-      closeModalWithGenie();
+      closeGenieModal();
     });
 
     // Backdrop Click Handling
     modal.addEventListener("click", (e) => {
       const rect = modal.getBoundingClientRect();
-      const clickedInDialog =
+      const clickedInside =
         rect.top <= e.clientY &&
         e.clientY <= rect.top + rect.height &&
         rect.left <= e.clientX &&
         e.clientX <= rect.left + rect.width;
 
-      if (!clickedInDialog) {
-        closeModalWithGenie();
+      if (!clickedInside) {
+        closeGenieModal();
       }
     });
 
@@ -362,42 +275,42 @@
     modal.addEventListener("keydown", (e) => {
       if (e.key !== "Tab" || !modal.open) return;
 
-      const focusableElements = modal.querySelectorAll(
+      const focusable = modal.querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
       );
-      if (focusableElements.length === 0) return;
+      if (focusable.length === 0) return;
 
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
+      const firstEl = focusable[0];
+      const lastEl = focusable[focusable.length - 1];
 
       if (e.shiftKey) {
-        if (document.activeElement === firstElement) {
+        if (document.activeElement === firstEl) {
           e.preventDefault();
-          lastElement.focus();
+          lastEl.focus();
         }
       } else {
-        if (document.activeElement === lastElement) {
+        if (document.activeElement === lastEl) {
           e.preventDefault();
-          firstElement.focus();
+          firstEl.focus();
         }
       }
     });
 
-    // Connect timeline quick jump links (e.g. .js-dossier-jump) to digital desktop files
+    // Connect timeline jump links to the 3 asymmetric folders
     document.querySelectorAll(".js-dossier-jump").forEach((link) => {
       link.addEventListener("click", (e) => {
-        const target = link.getAttribute("data-target-folder") || "";
-        let targetId = "fintech-dashboard";
-        if (target.includes("applykit") || target.includes("saas")) targetId = "fintech-dashboard";
-        else if (target.includes("pharmaerp") || target.includes("hr")) targetId = "hr-portal";
-        else if (target.includes("eduhub") || target.includes("exp")) targetId = "webgl-data-vis";
+        const target = (link.getAttribute("data-target-folder") || "").toLowerCase();
+        let targetId = "fintech";
+        if (target.includes("apply") || target.includes("fintech") || target.includes("saas")) targetId = "fintech";
+        else if (target.includes("pharma") || target.includes("webgl") || target.includes("exp")) targetId = "webgl";
+        else if (target.includes("edu") || target.includes("brand")) targetId = "brand";
 
-        const btn = document.querySelector(`.js-file-btn[data-project-id="${targetId}"]`);
-        if (btn) {
+        const folderEl = document.querySelector(`.js-work-folder[data-project-id="${targetId}"]`);
+        if (folderEl) {
           setTimeout(() => {
-            btn.scrollIntoView({ behavior: "smooth", block: "center" });
+            folderEl.scrollIntoView({ behavior: "smooth", block: "center" });
             setTimeout(() => {
-              openModalWithGenie(btn);
+              openGenieModal(folderEl, targetId);
             }, 500);
           }, 350);
         }
@@ -405,12 +318,13 @@
     });
   }
 
-  window.initDigitalDesktop = initDigitalDesktop;
-  window.initSelectedWorks = initDigitalDesktop;
+  window.initEditorialDesk = initEditorialDesk;
+  window.initDigitalDesktop = initEditorialDesk;
+  window.initSelectedWorks = initEditorialDesk;
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initDigitalDesktop);
+    document.addEventListener("DOMContentLoaded", initEditorialDesk);
   } else {
-    initDigitalDesktop();
+    initEditorialDesk();
   }
 })();
