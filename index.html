@@ -1783,8 +1783,6 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
               <span class="skills-marquee-item">Lenis <span class="skills-marquee-sep">·</span></span>
             </div>
           </div>
-          <!-- 4. Footnote -->
-          <p class="skills-footnote">Full stack on request.</p>
         </div>
       </div>
     </section>
@@ -1925,34 +1923,6 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
             </ul>
           </article>
         </div>
-
-        <!-- 3. Infinite Marquee -->
-        <div class="cta-marquee-wrap">
-          <div class="cta-marquee" aria-label="Collaboration marquee">
-            <div class="cta-marquee-track">
-              <span class="cta-marquee-item">Product Engineering <span class="cta-marquee-sep">✦</span></span>
-              <span class="cta-marquee-item">Design Systems <span class="cta-marquee-sep">✦</span></span>
-              <span class="cta-marquee-item">Motion &amp; Interaction <span class="cta-marquee-sep">✦</span></span>
-              <span class="cta-marquee-item">Performance Audits <span class="cta-marquee-sep">✦</span></span>
-              <span class="cta-marquee-item">Bespoke Web <span class="cta-marquee-sep">✦</span></span>
-              <span class="cta-marquee-item">Full-Stack Sprints <span class="cta-marquee-sep">✦</span></span>
-              <span class="cta-marquee-item">Rapid Prototyping <span class="cta-marquee-sep">✦</span></span>
-            </div>
-            <div class="cta-marquee-track" aria-hidden="true">
-              <span class="cta-marquee-item">Product Engineering <span class="cta-marquee-sep">✦</span></span>
-              <span class="cta-marquee-item">Design Systems <span class="cta-marquee-sep">✦</span></span>
-              <span class="cta-marquee-item">Motion &amp; Interaction <span class="cta-marquee-sep">✦</span></span>
-              <span class="cta-marquee-item">Performance Audits <span class="cta-marquee-sep">✦</span></span>
-              <span class="cta-marquee-item">Bespoke Web <span class="cta-marquee-sep">✦</span></span>
-              <span class="cta-marquee-item">Full-Stack Sprints <span class="cta-marquee-sep">✦</span></span>
-              <span class="cta-marquee-item">Rapid Prototyping <span class="cta-marquee-sep">✦</span></span>
-            </div>
-          </div>
-          <!-- 4. Direct Email Footnote -->
-          <p class="cta-footnote">
-            Direct inquiries: <a href="mailto:samnun@murtayes.com" class="cta-email-link">samnun@murtayes.com</a> &mdash; Usually responds within 24 hours.
-          </p>
-        </div>
       </div>
     </section>
   </main>
@@ -1972,6 +1942,10 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
       <div class="contact-modal__backdrop" data-close-contact></div>
       <div class="contact-modal__panel">
         <div class="contact-modal__header">
+          <div class="contact-modal__status">
+            <span class="status-pulse-dot" aria-hidden="true"></span>
+            <span>Available for Sprints</span>
+          </div>
           <button type="button" class="contact-modal__close" data-close-contact aria-label="Close contact drawer">
             <span>Close</span>
             <span class="contact-modal__close-icon" aria-hidden="true">✕</span>
@@ -1979,44 +1953,46 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
         </div>
 
         <div class="contact-form__content">
-          <h2 class="contact-form__heading">Let's connect.</h2>
+          <h2 id="contact-modal-title" class="contact-form__heading">Let's connect.</h2>
+          <p class="contact-form__subheading">Tell me about your project, timeline, and goals. I usually reply within 24 hours.</p>
+
           <div class="contact-form__socials" aria-label="Direct contact and social profiles">
             <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="LinkedIn Profile" data-cursor-pill="LinkedIn">
-              <img src="assets/icons/linkedin.svg" alt="LinkedIn Logo" width="20" height="20" class="contact-social-icon" />
+              <img src="assets/icons/linkedin.svg" alt="LinkedIn Logo" width="16" height="16" class="contact-social-icon" />
               <span>LinkedIn</span>
             </a>
             <a href="https://github.com/MURTAYES" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="GitHub Profile" data-cursor-pill="GitHub">
-              <img src="assets/icons/github-light.svg" alt="GitHub Logo" width="20" height="20" class="contact-social-icon" />
+              <img src="assets/icons/github-light.svg" alt="GitHub Logo" width="16" height="16" class="contact-social-icon" />
               <span>GitHub</span>
             </a>
             <a href="mailto:samnun@murtayes.com" class="contact-social-btn" aria-label="Gmail Direct Email" data-cursor-pill="Gmail">
-              <img src="assets/icons/gmail.svg" alt="Gmail Logo" width="20" height="20" class="contact-social-icon" />
+              <img src="assets/icons/gmail.svg" alt="Gmail Logo" width="16" height="16" class="contact-social-icon" />
               <span>Gmail</span>
             </a>
           </div>
 
           <form id="drawer-contact-form" class="contact-form__form" novalidate>
-            <div class="contact-form__field-wrap">
+            <div class="contact-form__field-wrap" style="--field-i: 1">
               <label for="contact-name" class="contact-form__label">Name</label>
-              <input id="contact-name" type="text" autocomplete="name" placeholder="Your name"
+              <input id="contact-name" type="text" autocomplete="name" placeholder="Your name or company"
                 class="contact-form__input" name="name" required />
             </div>
 
-            <div class="contact-form__field-wrap">
+            <div class="contact-form__field-wrap" style="--field-i: 2">
               <label for="contact-email" class="contact-form__label">Email</label>
               <input id="contact-email" type="email" autocomplete="email" placeholder="you@domain.com"
                 class="contact-form__input" name="email" required />
             </div>
 
-            <div class="contact-form__field-wrap">
+            <div class="contact-form__field-wrap" style="--field-i: 3">
               <label for="contact-message" class="contact-form__label">Message</label>
               <textarea id="contact-message" name="message"
-                placeholder="Tell me a bit about what you're working on..."
+                placeholder="Tell me a bit about what you're looking to build..."
                 class="contact-form__input contact-form__textarea" rows="4" required></textarea>
             </div>
 
-            <div class="contact-form__action">
-              <button type="submit" class="contact-form__submit" aria-busy="false" data-cursor-pill="Send">
+            <div class="contact-form__action" style="--field-i: 4">
+              <button type="submit" class="contact-form__submit" aria-busy="false" data-cursor-pill="Send Message">
                 <span class="contact-form__submit-text">Send Message</span>
                 <span class="contact-form__submit-arrow" aria-hidden="true">→</span>
               </button>

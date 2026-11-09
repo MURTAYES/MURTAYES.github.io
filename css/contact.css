@@ -376,83 +376,7 @@
 }
 
 /* ============================================================
-   6. CTA INFINITE MARQUEE (Below Grid)
-   ============================================================ */
-.cta-marquee-wrap {
-  width: 100%;
-  border-top: 1px solid var(--rule, rgba(10, 10, 10, 0.14));
-  padding-block: 20px;
-  margin-top: 48px;
-  box-sizing: border-box;
-}
-
-.cta-marquee {
-  display: flex;
-  overflow: hidden;
-  user-select: none;
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-}
-
-.cta-marquee-track {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  white-space: nowrap;
-  animation: marquee-scroll 32s linear infinite;
-  will-change: transform;
-  flex-shrink: 0;
-  padding-right: 40px;
-}
-
-.cta-marquee:hover .cta-marquee-track {
-  animation-play-state: paused;
-}
-
-.cta-marquee-item {
-  font-family: var(--font-label, 'Inter', system-ui, -apple-system, sans-serif);
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: .14em;
-  color: var(--muted, #6b6b6b);
-  display: inline-flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.cta-marquee-sep {
-  color: var(--accent, #E85C3B);
-  font-size: 14px;
-}
-
-/* ============================================================
-   7. FOOTNOTE & DIRECT INQUIRY LINK
-   ============================================================ */
-.cta-footnote {
-  text-align: center;
-  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
-  font-size: 13px;
-  color: var(--muted, #6b6b6b);
-  margin-top: 32px;
-  margin-bottom: 0;
-  letter-spacing: 0.02em;
-}
-
-.cta-email-link {
-  color: var(--ink, #0a0a0a);
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.2s ease;
-}
-
-.cta-email-link:hover {
-  color: var(--accent, #E85C3B);
-}
-
-/* ============================================================
-   8. RESPONSIVE & ACCESSIBILITY ADAPTATIONS
+   6. RESPONSIVE & ACCESSIBILITY ADAPTATIONS
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   .slide-to-talk__text {
@@ -464,9 +388,5 @@
   }
   .status-pulse-dot {
     animation: none;
-  }
-  .cta-marquee-track {
-    animation: none !important;
-    transform: none !important;
   }
 }
