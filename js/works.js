@@ -41,17 +41,43 @@
         backdrop.classList.add("is-active");
       }
 
-      // 3. Docket Window activation
+      // 3. Case Study Window activation
       targetWin.removeAttribute("hidden");
+      targetWin.scrollTop = 0;
       // Force reflow
       void targetWin.offsetWidth;
       targetWin.classList.add("is-open");
 
-      // 4. Lock page scrolling
+      // 4. Trigger rules and reveals inside the window
+      const rules = targetWin.querySelectorAll(".cs-rule");
+      const reveals = targetWin.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                if (entry.target.classList.contains("cs-rule")) {
+                  entry.target.classList.add("is-drawn");
+                }
+                entry.target.classList.add("is-visible");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { root: targetWin, threshold: 0.1 }
+        );
+        rules.forEach(function (r) { obs.observe(r); });
+        reveals.forEach(function (rv) { obs.observe(rv); });
+      } else {
+        rules.forEach(function (r) { r.classList.add("is-drawn"); });
+        reveals.forEach(function (rv) { rv.classList.add("is-visible"); });
+      }
+
+      // 5. Lock page scrolling
       document.body.style.overflow = "hidden";
 
-      // 5. Focus management
-      const closeBtn = targetWin.querySelector(".win-close-btn, .dot.r, [data-close-win]");
+      // 6. Focus management
+      const closeBtn = targetWin.querySelector(".cs-nav-close-btn, .close-dot, .win-close-btn, [data-close-win]");
       if (closeBtn) {
         setTimeout(function () {
           closeBtn.focus({ preventScroll: true });
@@ -135,9 +161,24 @@
     // Close on Dot, Close Button, or Escape Key
     document.addEventListener("click", function (e) {
       if (activeIndex > -1) {
-        if (e.target.closest(".dot.r, .dot.y, .win-close-btn, [data-close-win]")) {
+        if (e.target.closest(".dot.r, .dot.y, .win-close-btn, .cs-nav-close-btn, .close-dot, [data-close-win]")) {
           e.preventDefault();
           closeDossier();
+          return;
+        }
+
+        // Next project link inside active case study
+        const nextLink = e.target.closest(".js-cs-next");
+        if (nextLink) {
+          e.preventDefault();
+          const nextIdx = parseInt(nextLink.getAttribute("data-next-index"), 10);
+          if (!isNaN(nextIdx)) {
+            closeDossier();
+            setTimeout(function () {
+              openDossier(nextIdx);
+            }, 360);
+          }
+          return;
         }
       }
     });

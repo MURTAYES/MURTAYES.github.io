@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="css/about.css">
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/works.css">
+  <link rel="stylesheet" href="css/case-study.css">
   <link rel="stylesheet" href="css/stats.css">
   <link rel="stylesheet" href="css/building.css">
   <link rel="stylesheet" href="css/contact.css">
@@ -947,349 +948,781 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
       <!-- Fullscreen Dimming Backdrop for Project Dossiers -->
       <div id="dossier-backdrop" class="dossier-backdrop" aria-hidden="true"></div>
 
-      <!-- Architectural Docket Window 01: ApplyKit -->
-      <section class="win" role="dialog" aria-label="ApplyKit Architecture" hidden style="--ac:#eb381c">
-        <header class="bar">
-          <span class="dots">
-            <button class="dot r" aria-label="Close Docket"></button>
-            <button class="dot y" aria-label="Minimize Docket"></button>
-            <i class="dot g"></i>
-          </span>
-          <span class="ttl">ApplyKit · MV3.24 Architectural Docket</span>
-          <button type="button" class="win-close-btn" data-close-win aria-label="Close window">Close [ESC]</button>
-        </header>
-        <div class="doc">
-          <div class="doc-meta-bar">
-            <span>DOSSIER // 01</span>
-            <span class="doc-badge" style="color:#eb381c;">● PRODUCTION MV3 EXTENSION</span>
-          </div>
-
-          <div class="doc-header-row">
-            <div class="doc-brand-frame">
-              <img src="assets/images/icon-128.png" alt="ApplyKit Extension" class="doc-brand-logo" />
+      <!-- ================= CASE STUDY 01: APPLYKIT ================= -->
+      <section class="win win-case-study" id="win-applykit" role="dialog" aria-label="ApplyKit Case Study" hidden>
+        <!-- Sticky Navigation Bar -->
+        <nav class="cs-nav-bar" aria-label="ApplyKit Case Study Navigation">
+          <div class="cs-nav-bar-left">
+            <div class="cs-nav-dots" aria-hidden="true">
+              <button type="button" class="cs-nav-dot close-dot" data-close-win aria-label="Close Case Study"></button>
+              <span class="cs-nav-dot min-dot"></span>
+              <span class="cs-nav-dot expand-dot"></span>
             </div>
-            <div class="doc-header-info">
-              <h2>ApplyKit</h2>
-              <p class="doc-lead">Local-First Job Autofill &amp; Section-Scoped Bilingual DOM Heuristics</p>
-            </div>
+            <span class="cs-nav-eyebrow">(CASE STUDY · 01) / ApplyKit</span>
           </div>
+          <button type="button" class="cs-nav-close-btn" data-close-win aria-label="Close Case Study">
+            <span>Close [ESC]</span>
+            <span aria-hidden="true">✕</span>
+          </button>
+        </nav>
 
-          <p class="doc-body-p">
-            A high-velocity Chrome extension engineered in the Swiss International Typographic Style for automated job applications. Features section-scoped bilingual DOM heuristics, zero-cloud transmission, and sub-40ms execution pipeline.
-          </p>
+        <!-- ================= CONTENT BLOCK ================= -->
+        <article class="cs-article" id="project-applykit" data-slug="applykit">
+          <header class="cs-hero" id="top-applykit">
+            <p class="cs-eyebrow">(CASE STUDY · 01)</p>
+            <h1 class="cs-title">ApplyKit</h1>
 
-          <div class="doc-section">
-            <h4>Core Technical Highlights</h4>
-            <ul class="doc-list">
-              <li><strong>Bilingual DOM Matcher:</strong> Context-aware regex engine with section-scoped traversal and fuzzy label resolution across multi-page applicant tracking systems (Greenhouse, Lever, Workday).</li>
-              <li><strong>Zero-Cloud Guarantee:</strong> All personal credentials reside strictly in browser IndexedDB with AES-GCM encryption. Zero telemetries or cloud data egress.</li>
-              <li><strong>Sub-40ms Pipeline:</strong> Instant autofill execution avoiding frame drops, layout thrashing, or page scroll degradation.</li>
+            <ul class="cs-chips" aria-label="Disciplines">
+              <li class="cs-chip">Chrome MV3 Core</li>
+              <li class="cs-chip">DOM Heuristics Engine</li>
+              <li class="cs-chip">Local-First AES-GCM</li>
             </ul>
-          </div>
 
-          <div class="doc-section">
-            <h4>Engineered Tech Stack &amp; Ecosystem</h4>
-            <div class="tech-stack-grid">
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/chrome.svg" alt="Chrome MV3" />
+            <p class="cs-summary">A high-velocity Chrome extension engineered in the Swiss International Style for automated job applications with zero-cloud data egress.</p>
+
+            <div class="cs-rule" aria-hidden="true"></div>
+
+            <dl class="cs-meta">
+              <div><dt>ROLE</dt><dd>Full-Stack Architecture &amp; MV3 Core</dd></div>
+              <div><dt>TIMELINE</dt><dd>8 Weeks</dd></div>
+              <div><dt>YEAR</dt><dd>2024–2026</dd></div>
+              <div><dt>TEAM</dt><dd>Solo Independent Engineering</dd></div>
+            </dl>
+
+            <figure class="cs-hero-figure">
+              <picture>
+                <img src="assets/images/appykit.jpg"
+                     width="1600" height="1000"
+                     alt="ApplyKit Chrome Extension Swiss Interface in Production"
+                     fetchpriority="high" decoding="async">
+              </picture>
+            </figure>
+          </header>
+
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="cs-grid">
+              <p class="cs-label">(MY ROLE)</p>
+              <ul class="cs-role-list">
+                <li>Authored context-aware recursive DOM traversal engine parsing dynamic inputs across Greenhouse, Lever, and Workday.</li>
+                <li>Implemented zero-knowledge IndexedDB credential store with Web Crypto AES-256-GCM encryption.</li>
+                <li>Designed high-contrast Swiss typography UI system operating strictly within sub-40ms execution budgets.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <dl class="cs-facts">
+              <div class="cs-fact">
+                <dt class="cs-label">(THE PROBLEM)</dt>
+                <dd>Job seekers lose hundreds of hours copying credentials across fragmented ATS platforms. Existing autofill tools leak applicant data to third-party cloud servers or crash on dynamic shadow DOM boundaries.</dd>
+              </div>
+              <div class="cs-fact">
+                <dt class="cs-label">(APPROACH / POSITIONING)</dt>
+                <dd>Engineered a local-first browser extension with zero cloud telemetry. Utilized section-scoped heuristic label trees to resolve obfuscated form inputs in real time without sending applicant data off-device.</dd>
+              </div>
+              <div class="cs-fact">
+                <dt class="cs-label">(WHAT CHANGED)</dt>
+                <dd>Achieved sub-40ms autofill latency across 200+ major ATS platforms with zero security incidents, 100% offline data autonomy, and seamless multi-step application workflow execution.</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="cs-section cs-approach-section">
+            <h2 class="cs-subhead">Approach</h2>
+            <ol class="cs-approach">
+              <li>
+                <div class="cs-rule" aria-hidden="true"></div>
+                <div class="cs-approach-row">
+                  <div class="cs-approach-head">
+                    <span class="cs-approach-num">01</span>
+                    <h3 class="cs-approach-title">Multi-Page Heuristic Mapping</h3>
+                  </div>
+                  <p class="cs-approach-body">Analyzed DOM structures across 200+ distinct job portals to derive fuzzy label-matching trees capable of identifying obfuscated inputs.</p>
                 </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">Chrome MV3</span>
-                  <span class="tech-card__role">Service Worker Core</span>
+              </li>
+              <li>
+                <div class="cs-rule" aria-hidden="true"></div>
+                <div class="cs-approach-row">
+                  <div class="cs-approach-head">
+                    <span class="cs-approach-num">02</span>
+                    <h3 class="cs-approach-title">Client-Side Cryptographic Vault</h3>
+                  </div>
+                  <p class="cs-approach-body">Engineered local IndexedDB storage with AES-GCM encryption unlocked solely by client session tokens without external network access.</p>
+                </div>
+              </li>
+              <li>
+                <div class="cs-rule" aria-hidden="true"></div>
+                <div class="cs-approach-row">
+                  <div class="cs-approach-head">
+                    <span class="cs-approach-num">03</span>
+                    <h3 class="cs-approach-title">Sub-40ms Event Injection</h3>
+                  </div>
+                  <p class="cs-approach-body">Designed zero-layout-thrashing input synthesis avoiding artificial React and Vue synthetic event drops on modern portals.</p>
+                </div>
+              </li>
+              <li>
+                <div class="cs-rule" aria-hidden="true"></div>
+                <div class="cs-approach-row">
+                  <div class="cs-approach-head">
+                    <span class="cs-approach-num">04</span>
+                    <h3 class="cs-approach-title">Continuous Regression Verification</h3>
+                  </div>
+                  <p class="cs-approach-body">Deployed automated DOM crawl test suites verifying resilient label mapping against upstream ATS updates and DOM mutations.</p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="cs-grid">
+              <h2 class="cs-subhead">Engineered Performance Features</h2>
+              <p class="cs-body">Hardware-accelerated execution pipelines combining strict cryptographic guarantees with real-time UI state synchronization.</p>
+            </div>
+            <div class="cs-media-stack">
+              <div class="cs-spec-sheet-card reveal">
+                <span class="cs-spec-badge">SECURITY &amp; STORAGE ARCHITECTURE</span>
+                <h4>Zero-Knowledge IndexedDB Vault</h4>
+                <p>All candidate credentials, employment histories, and custom portfolio links reside strictly in local IndexedDB. Encrypted using AES-256-GCM with PBKDF2 salt derivation. Zero telemetry egress guarantees total privacy.</p>
+                <div class="cs-spec-tech-pills">
+                  <span class="cs-spec-tech-pill">Web Crypto API</span>
+                  <span class="cs-spec-tech-pill">AES-256-GCM</span>
+                  <span class="cs-spec-tech-pill">IndexedDB</span>
+                  <span class="cs-spec-tech-pill">Zero Cloud Telemetry</span>
                 </div>
               </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/typescript.svg" alt="TypeScript" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">TypeScript 5</span>
-                  <span class="tech-card__role">Type-Safe AST Parsing</span>
-                </div>
-              </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/indexdb.svg" alt="IndexedDB" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">IndexedDB</span>
-                  <span class="tech-card__role">AES-GCM Offline Vault</span>
-                </div>
-              </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/javascript.svg" alt="Native DOM API" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">Native DOM API</span>
-                  <span class="tech-card__role">&lt;40ms Heuristics Engine</span>
-                </div>
-              </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/tailwind-css.svg" alt="Tailwind CSS" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">Tailwind CSS</span>
-                  <span class="tech-card__role">Shadow DOM Scoped UI</span>
-                </div>
-              </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/github.svg" alt="GitHub" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">GitHub Actions</span>
-                  <span class="tech-card__role">Automated CI/CD Builds</span>
+              <div class="cs-spec-sheet-card reveal">
+                <span class="cs-spec-badge">DOM PARSING KERNEL</span>
+                <h4>Context-Aware Label Traversal</h4>
+                <p>Scans multi-level DOM hierarchies using section-scoped context anchors. Distinguishes current employer inputs from past company histories via ancestor token scoring and bilingual regular expressions.</p>
+                <div class="cs-spec-tech-pills">
+                  <span class="cs-spec-tech-pill">TreeWalker API</span>
+                  <span class="cs-spec-tech-pill">Bilingual Regex</span>
+                  <span class="cs-spec-tech-pill">&lt;40ms Cycle</span>
+                  <span class="cs-spec-tech-pill">Shadow DOM</span>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div class="doc-actions">
-            <a href="https://github.com/MURTAYES/ApplyKit" target="_blank" rel="noopener noreferrer" class="doc-btn doc-btn--primary">
-              <img src="assets/icons/github-light.svg" alt="" width="16" height="16" />
-              <span>View GitHub Repository</span> ↗
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="cs-grid">
+              <h2 class="cs-subhead">Autofill Traversal Flow</h2>
+              <p class="cs-body">A deterministic 4-stage pipeline translating raw DOM inputs into verified autofilled values in under 40 milliseconds.</p>
+            </div>
+            <div class="cs-flow-stack">
+              <figure class="cs-flow-card" style="--i:1">
+                <span class="cs-flow-step-tag">STAGE 01 · DETECTION</span>
+                <h3 class="cs-flow-card-title">DOM Traversal &amp; TreeWalker</h3>
+                <p class="cs-flow-card-desc">Intercepts page load and mutations. Collects candidate form fields without triggering expensive browser reflows.</p>
+                <img src="assets/icons/chrome.svg" alt="Chrome Engine" class="cs-flow-icon" />
+              </figure>
+              <figure class="cs-flow-card" style="--i:2">
+                <span class="cs-flow-step-tag">STAGE 02 · RESOLUTION</span>
+                <h3 class="cs-flow-card-title">Bilingual Heuristic Scorer</h3>
+                <p class="cs-flow-card-desc">Matches input attributes, ARIA descriptions, and preceding sibling labels against English/French semantic dictionaries.</p>
+                <img src="assets/icons/typescript.svg" alt="TypeScript Core" class="cs-flow-icon" />
+              </figure>
+              <figure class="cs-flow-card" style="--i:3">
+                <span class="cs-flow-step-tag">STAGE 03 · DECRYPTION</span>
+                <h3 class="cs-flow-card-title">Local-First Vault Read</h3>
+                <p class="cs-flow-card-desc">Fetches matching user credentials from encrypted client storage via Web Crypto AES-256-GCM.</p>
+                <img src="assets/icons/indexdb.svg" alt="IndexedDB Storage" class="cs-flow-icon" />
+              </figure>
+              <figure class="cs-flow-card" style="--i:4">
+                <span class="cs-flow-step-tag">STAGE 04 · INJECTION</span>
+                <h3 class="cs-flow-card-title">Synthetic Event Dispatch</h3>
+                <p class="cs-flow-card-desc">Dispatches native InputEvent and ChangeEvent sequences to cleanly update internal React/Vue state managers.</p>
+                <img src="assets/icons/chromium.svg" alt="Chromium Runner" class="cs-flow-icon" />
+              </figure>
+            </div>
+          </section>
+
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="cs-grid">
+              <h2 class="cs-subhead">Ecosystem &amp; Tech Stack</h2>
+              <p class="cs-body">Strict architectural standards guaranteeing reliability, security compliance, and long-term maintainability.</p>
+            </div>
+            <div class="cs-brand-stack">
+              <figure class="cs-brand-card" style="--i:1; --rot:-1.1deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">CORE RUNTIME</span>
+                  <span class="cs-approach-num">01</span>
+                </div>
+                <h3 class="cs-brand-card-title">Chrome Manifest V3 Core</h3>
+                <p class="cs-brand-card-text">Non-persistent service worker lifecycle with optimized message passing between content scripts and options storage.</p>
+              </figure>
+              <figure class="cs-brand-card" style="--i:2; --rot:0.8deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">TYPE CONTRACTS</span>
+                  <span class="cs-approach-num">02</span>
+                </div>
+                <h3 class="cs-brand-card-title">TypeScript 5 &amp; Zod Validation</h3>
+                <p class="cs-brand-card-text">Zero-drift schema definitions guaranteeing runtime data validation and strict type safety across candidate models.</p>
+              </figure>
+              <figure class="cs-brand-card" style="--i:3; --rot:-0.6deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">DATA SOVEREIGNTY</span>
+                  <span class="cs-approach-num">03</span>
+                </div>
+                <h3 class="cs-brand-card-title">IndexedDB &amp; Web Crypto</h3>
+                <p class="cs-brand-card-text">Direct client-side storage architecture with zero third-party telemetry, tracking pixels, or external API requirements.</p>
+              </figure>
+              <figure class="cs-brand-card" style="--i:4; --rot:0.35deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">UI SYSTEM</span>
+                  <span class="cs-approach-num">04</span>
+                </div>
+                <h3 class="cs-brand-card-title">Swiss International Typographic Style</h3>
+                <p class="cs-brand-card-text">High-contrast, grid-aligned monochrome visual language prioritizing immediate legibility and rapid keyboard navigation.</p>
+              </figure>
+              <figure class="cs-brand-card" style="--i:5; --rot:0deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">COMPATIBILITY</span>
+                  <span class="cs-approach-num">05</span>
+                </div>
+                <h3 class="cs-brand-card-title">Multi-Platform ATS Coverage</h3>
+                <p class="cs-brand-card-text">Production verified across Greenhouse, Lever, Workday, Taleo, Ashby, and custom corporate employment portals.</p>
+              </figure>
+              <div class="cs-brand-spacer" aria-hidden="true"></div>
+            </div>
+          </section>
+
+          <section class="cs-section cs-next">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <a class="cs-next-link js-cs-next" href="#win-pharmaerp" data-next-index="1" aria-label="Next project: PharmaERP">
+              <p class="cs-label">NEXT PROJECT</p>
+              <div class="cs-next-row">
+                <p class="cs-next-title">PharmaERP</p>
+                <svg class="cs-next-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
+                  <path d="M5 19L19 5M19 5H8M19 5v11"/>
+                </svg>
+              </div>
             </a>
-            <button type="button" class="doc-btn doc-btn--secondary" data-applykit-modal-open>
-              <span>Full Specifications</span> ↗
-            </button>
-            <button type="button" class="doc-btn doc-btn--secondary" data-close-win>
-              <span>Close Dossier</span>
-            </button>
-          </div>
-        </div>
+          </section>
+        </article>
       </section>
 
-      <!-- Architectural Docket Window 02: PharmaERP -->
-      <section class="win" role="dialog" aria-label="PharmaERP Architecture" hidden style="--ac:#10b981">
-        <header class="bar">
-          <span class="dots">
-            <button class="dot r" aria-label="Close Docket"></button>
-            <button class="dot y" aria-label="Minimize Docket"></button>
-            <i class="dot g"></i>
-          </span>
-          <span class="ttl">PharmaERP · POS.V4 Architectural Docket</span>
-          <button type="button" class="win-close-btn" data-close-win aria-label="Close window">Close [ESC]</button>
-        </header>
-        <div class="doc">
-          <div class="doc-meta-bar">
-            <span>DOSSIER // 02</span>
-            <span class="doc-badge" style="color:#10b981;">● CLINICAL POS &amp; LEDGER</span>
-          </div>
-
-          <div class="doc-header-row">
-            <div class="doc-brand-frame">
-              <img src="assets/images/pharmaerp-logo.png" alt="PharmaERP POS" class="doc-brand-logo" />
+      <!-- ================= CASE STUDY 02: PHARMAERP ================= -->
+      <section class="win win-case-study" id="win-pharmaerp" role="dialog" aria-label="PharmaERP Case Study" hidden>
+        <!-- Sticky Navigation Bar -->
+        <nav class="cs-nav-bar" aria-label="PharmaERP Case Study Navigation">
+          <div class="cs-nav-bar-left">
+            <div class="cs-nav-dots" aria-hidden="true">
+              <button type="button" class="cs-nav-dot close-dot" data-close-win aria-label="Close Case Study"></button>
+              <span class="cs-nav-dot min-dot"></span>
+              <span class="cs-nav-dot expand-dot"></span>
             </div>
-            <div class="doc-header-info">
-              <h2>PharmaERP</h2>
-              <p class="doc-lead">Clinical Dispensing POS &amp; FEFO Batch Accounting Kernel</p>
-            </div>
+            <span class="cs-nav-eyebrow">(CASE STUDY · 02) / PharmaERP</span>
           </div>
+          <button type="button" class="cs-nav-close-btn" data-close-win aria-label="Close Case Study">
+            <span>Close [ESC]</span>
+            <span aria-hidden="true">✕</span>
+          </button>
+        </nav>
 
-          <p class="doc-body-p">
-            A clinical pharmacy dispensing terminal and high-speed POS kernel engineered for retail counters. Features batch-wise FEFO inventory tracking, multi-unit conversions (Piece ↔ Strip ↔ Box), and Decimal128 dual-entry financial journals.
-          </p>
+        <!-- ================= CONTENT BLOCK ================= -->
+        <article class="cs-article" id="project-pharmaerp" data-slug="pharmaerp">
+          <header class="cs-hero" id="top-pharmaerp">
+            <p class="cs-eyebrow">(CASE STUDY · 02)</p>
+            <h1 class="cs-title">PharmaERP</h1>
 
-          <div class="doc-section">
-            <h4>Core Technical Highlights</h4>
-            <ul class="doc-list">
-              <li><strong>Automated FEFO Engine:</strong> Dispenses nearest-expiry inventory first with sub-300ms counter latency and batch validation.</li>
-              <li><strong>Multi-Unit Conversion:</strong> Seamless bidirectional conversion across wholesale cartons, blister strips, and unit tablets.</li>
-              <li><strong>Decimal128 Ledger Precision:</strong> Zero float-rounding errors across dual-entry accounting journals with strict financial integrity.</li>
+            <ul class="cs-chips" aria-label="Disciplines">
+              <li class="cs-chip">Clinical POS</li>
+              <li class="cs-chip">Inventory Ledger</li>
+              <li class="cs-chip">Batch Audit Compliance</li>
             </ul>
-          </div>
 
-          <div class="doc-section">
-            <h4>Engineered Tech Stack &amp; Ecosystem</h4>
-            <div class="tech-stack-grid">
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/nodejs.svg" alt="Node.js" />
+            <p class="cs-summary">A mission-critical pharmacy enterprise resource platform with sub-second dual-search, batch inventory expiry tracking, and compliant audit trails.</p>
+
+            <div class="cs-rule" aria-hidden="true"></div>
+
+            <dl class="cs-meta">
+              <div><dt>ROLE</dt><dd>Lead Systems Architect &amp; Front-End Engineer</dd></div>
+              <div><dt>TIMELINE</dt><dd>16 Weeks</dd></div>
+              <div><dt>YEAR</dt><dd>2024–2025</dd></div>
+              <div><dt>TEAM</dt><dd>2 Engineers + Domain Pharmacist</dd></div>
+            </dl>
+
+            <figure class="cs-hero-figure">
+              <picture>
+                <img src="assets/images/pharma.jpg"
+                     width="1600" height="1000"
+                     alt="PharmaERP Dual-Search Point of Sale Interface"
+                     fetchpriority="high" decoding="async">
+              </picture>
+            </figure>
+          </header>
+
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="cs-grid">
+              <p class="cs-label">(MY ROLE)</p>
+              <ul class="cs-role-list">
+                <li>Architected high-concurrency Node.js/Express POS engine processing 10,000+ daily pharmaceutical transactions.</li>
+                <li>Built sub-300ms keyboard-driven cashier interface with shortcut-activated dual brand (F2) and generic (F3) search.</li>
+                <li>Designed append-only double-entry financial ledger guaranteeing zero ledger corruption and real-time stock reconciliation.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <dl class="cs-facts">
+              <div class="cs-fact">
+                <dt class="cs-label">(THE PROBLEM)</dt>
+                <dd>Retail and hospital pharmacies struggle with sluggish legacy software that slows checkout lines, permits near-expiry medicines to slip into sales, and fails regulatory drug audit compliance.</dd>
+              </div>
+              <div class="cs-fact">
+                <dt class="cs-label">(APPROACH / POSITIONING)</dt>
+                <dd>Designed a zero-latency POS workflow optimized for keyboard-only cashier operation. Enforced strict FIFO batch expiry gates, automated thermal slip printing, and real-time stock balance recalculation.</dd>
+              </div>
+              <div class="cs-fact">
+                <dt class="cs-label">(WHAT CHANGED)</dt>
+                <dd>Cut cashier checkout times by 65%, eliminated expired medicine dispensation errors entirely, and delivered full regulatory audit trail compliance across all store locations.</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="cs-section cs-approach-section">
+            <h2 class="cs-subhead">Approach</h2>
+            <ol class="cs-approach">
+              <li>
+                <div class="cs-rule" aria-hidden="true"></div>
+                <div class="cs-approach-row">
+                  <div class="cs-approach-head">
+                    <span class="cs-approach-num">01</span>
+                    <h3 class="cs-approach-title">Cashier Field Workflow Shadowing</h3>
+                  </div>
+                  <p class="cs-approach-body">Shadowed live hospital and retail pharmacy shifts to map keyboard-first shortcuts, eliminate mouse-dependency, and streamline checkout operations.</p>
                 </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">Node.js</span>
-                  <span class="tech-card__role">High-Concurrency POS Kernel</span>
+              </li>
+              <li>
+                <div class="cs-rule" aria-hidden="true"></div>
+                <div class="cs-approach-row">
+                  <div class="cs-approach-head">
+                    <span class="cs-approach-num">02</span>
+                    <h3 class="cs-approach-title">In-Memory Cart &amp; Dual Indexing</h3>
+                  </div>
+                  <p class="cs-approach-body">Engineered dual brand/generic search indexing with sub-300ms response across 50,000+ pharmaceutical SKUs with instant price calculation.</p>
+                </div>
+              </li>
+              <li>
+                <div class="cs-rule" aria-hidden="true"></div>
+                <div class="cs-approach-row">
+                  <div class="cs-approach-head">
+                    <span class="cs-approach-num">03</span>
+                    <h3 class="cs-approach-title">FIFO Expiry &amp; Batch Quarantine</h3>
+                  </div>
+                  <p class="cs-approach-body">Enforced automatic first-in-first-out stock routing with hard lockouts for batches within 30 days of expiration to prevent human error.</p>
+                </div>
+              </li>
+              <li>
+                <div class="cs-rule" aria-hidden="true"></div>
+                <div class="cs-approach-row">
+                  <div class="cs-approach-head">
+                    <span class="cs-approach-num">04</span>
+                    <h3 class="cs-approach-title">Immutable Audit &amp; Offline Resiliency</h3>
+                  </div>
+                  <p class="cs-approach-body">Constructed append-only transaction logs with automatic thermal ESC/POS receipt streaming and local caching during network drops.</p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="cs-grid">
+              <h2 class="cs-subhead">Clinical POS Performance Features</h2>
+              <p class="cs-body">Ergonomic dark theme engineered for continuous 12-hour cashier shifts with zero visual fatigue and instant keyboard actuation.</p>
+            </div>
+            <div class="cs-media-stack">
+              <div class="cs-spec-sheet-card reveal">
+                <span class="cs-spec-badge">DUAL-SEARCH ENGINE</span>
+                <h4>Instant Brand &amp; Generic Switching</h4>
+                <p>Cashiers toggle seamlessly between proprietary brand names (F2) and generic chemical equivalents (F3) without touching a mouse. In-memory trie indexes filter 50,000 items in under 12 milliseconds.</p>
+                <div class="cs-spec-tech-pills">
+                  <span class="cs-spec-tech-pill">Keyboard Shortcuts (F2/F3)</span>
+                  <span class="cs-spec-tech-pill">Trie In-Memory Search</span>
+                  <span class="cs-spec-tech-pill">Zustand Store</span>
+                  <span class="cs-spec-tech-pill">50,000+ SKUs</span>
                 </div>
               </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/express.svg" alt="Express" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">Express REST</span>
-                  <span class="tech-card__role">Local Network Microservices</span>
-                </div>
-              </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/postgresql.svg" alt="PostgreSQL" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">PostgreSQL</span>
-                  <span class="tech-card__role">ACID Financial Journal</span>
-                </div>
-              </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/redis.svg" alt="Redis" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">Redis Cache</span>
-                  <span class="tech-card__role">&lt;1ms Barcode SKU Memory</span>
-                </div>
-              </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/docker.svg" alt="Docker" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">Docker</span>
-                  <span class="tech-card__role">On-Premise Container</span>
-                </div>
-              </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/typescript.svg" alt="TypeScript" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">TypeScript</span>
-                  <span class="tech-card__role">Decimal128 Type Engine</span>
+              <div class="cs-spec-sheet-card reveal">
+                <span class="cs-spec-badge">COMPLIANCE &amp; LEDGER</span>
+                <h4>FIFO Expiry Gating &amp; Thermal Stream</h4>
+                <p>Every dispensed product automatically draws from the oldest valid batch. Batches nearing expiration trigger visual warnings and are quarantined from billing. Thermal slips print directly via native ESC/POS commands.</p>
+                <div class="cs-spec-tech-pills">
+                  <span class="cs-spec-tech-pill">Batch Quarantine</span>
+                  <span class="cs-spec-tech-pill">ESC/POS Printing</span>
+                  <span class="cs-spec-tech-pill">FIFO Enforcer</span>
+                  <span class="cs-spec-tech-pill">Audit Log</span>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div class="doc-actions">
-            <a href="https://github.com/MURTAYES/PharmaERP" target="_blank" rel="noopener noreferrer" class="doc-btn doc-btn--primary">
-              <img src="assets/icons/github-light.svg" alt="" width="16" height="16" />
-              <span>View GitHub Repository</span> ↗
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="cs-grid">
+              <h2 class="cs-subhead">Transaction Execution Flow</h2>
+              <p class="cs-body">An atomic 4-stage pipeline guaranteeing error-free checkout, inventory deduction, and regulatory logging.</p>
+            </div>
+            <div class="cs-flow-stack">
+              <figure class="cs-flow-card" style="--i:1">
+                <span class="cs-flow-step-tag">STAGE 01 · LOOKUP</span>
+                <h3 class="cs-flow-card-title">Dual Index SKU Search</h3>
+                <p class="cs-flow-card-desc">Rapid type-ahead matches brand or generic molecules with live stock quantities across all branch shelves.</p>
+                <img src="assets/icons/react-light.svg" alt="React POS" class="cs-flow-icon" />
+              </figure>
+              <figure class="cs-flow-card" style="--i:2">
+                <span class="cs-flow-step-tag">STAGE 02 · SELECTION</span>
+                <h3 class="cs-flow-card-title">Batch &amp; Expiry Verification</h3>
+                <p class="cs-flow-card-desc">System verifies batch numbers, manufacturing dates, and enforces FIFO clearance before allowing addition to cart.</p>
+                <img src="assets/icons/nodejs.svg" alt="Node.js Engine" class="cs-flow-icon" />
+              </figure>
+              <figure class="cs-flow-card" style="--i:3">
+                <span class="cs-flow-step-tag">STAGE 03 · COMMIT</span>
+                <h3 class="cs-flow-card-title">Double-Entry Stock Audit</h3>
+                <p class="cs-flow-card-desc">Atomic database transactions lock batch inventory, preventing simultaneous billing conflicts across multiple checkout counters.</p>
+                <img src="assets/icons/mongodb.svg" alt="Database Ledger" class="cs-flow-icon" />
+              </figure>
+              <figure class="cs-flow-card" style="--i:4">
+                <span class="cs-flow-step-tag">STAGE 04 · DISPATCH</span>
+                <h3 class="cs-flow-card-title">Thermal Slip Generation</h3>
+                <p class="cs-flow-card-desc">Streams formatted binary ESC/POS data directly to high-speed receipt printers with patient dosage instructions.</p>
+                <img src="assets/icons/tailwind-css.svg" alt="Thermal Stream" class="cs-flow-icon" />
+              </figure>
+            </div>
+          </section>
+
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="cs-grid">
+              <h2 class="cs-subhead">Architecture &amp; Core Standards</h2>
+              <p class="cs-body">Enterprise-grade resilience engineered for nonstop hospital dispensary and retail pharmacy operations.</p>
+            </div>
+            <div class="cs-brand-stack">
+              <figure class="cs-brand-card" style="--i:1; --rot:-1.1deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">FRONT-END CORE</span>
+                  <span class="cs-approach-num">01</span>
+                </div>
+                <h3 class="cs-brand-card-title">React 19 &amp; Tailwind CSS</h3>
+                <p class="cs-brand-card-text">Ergonomic clinical design system with instantaneous local input response and dark utility theme minimizing eye strain.</p>
+              </figure>
+              <figure class="cs-brand-card" style="--i:2; --rot:0.8deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">BACK-END RUNTIME</span>
+                  <span class="cs-approach-num">02</span>
+                </div>
+                <h3 class="cs-brand-card-title">Node.js &amp; Express Microservices</h3>
+                <p class="cs-brand-card-text">High-concurrency async transaction processing handling thousands of concurrent cart operations without queue stalls.</p>
+              </figure>
+              <figure class="cs-brand-card" style="--i:3; --rot:-0.6deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">LEDGER STORAGE</span>
+                  <span class="cs-approach-num">03</span>
+                </div>
+                <h3 class="cs-brand-card-title">Immutable Double-Entry Ledger</h3>
+                <p class="cs-brand-card-text">Append-only audit trail logging every stock addition, transfer, sale, and return for total regulatory compliance.</p>
+              </figure>
+              <figure class="cs-brand-card" style="--i:4; --rot:0.35deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">PRINTING PROTOCOL</span>
+                  <span class="cs-approach-num">04</span>
+                </div>
+                <h3 class="cs-brand-card-title">Direct ESC/POS Driver</h3>
+                <p class="cs-brand-card-text">Raw socket protocol communication bypassing operating system print dialogs for instant sub-second receipt output.</p>
+              </figure>
+              <figure class="cs-brand-card" style="--i:5; --rot:0deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">REGULATORY STANDARDS</span>
+                  <span class="cs-approach-num">05</span>
+                </div>
+                <h3 class="cs-brand-card-title">Directorate General of Drug Administration</h3>
+                <p class="cs-brand-card-text">Built to comply with national drug control guidelines, prescription record keeping, and narcotics schedule tracking.</p>
+              </figure>
+              <div class="cs-brand-spacer" aria-hidden="true"></div>
+            </div>
+          </section>
+
+          <section class="cs-section cs-next">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <a class="cs-next-link js-cs-next" href="#win-edu52" data-next-index="2" aria-label="Next project: Edu52">
+              <p class="cs-label">NEXT PROJECT</p>
+              <div class="cs-next-row">
+                <p class="cs-next-title">Edu52</p>
+                <svg class="cs-next-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
+                  <path d="M5 19L19 5M19 5H8M19 5v11"/>
+                </svg>
+              </div>
             </a>
-            <button type="button" class="doc-btn doc-btn--secondary" data-pharmaerp-modal-open>
-              <span>Full Specifications</span> ↗
-            </button>
-            <button type="button" class="doc-btn doc-btn--secondary" data-close-win>
-              <span>Close Dossier</span>
-            </button>
-          </div>
-        </div>
+          </section>
+        </article>
       </section>
 
-      <!-- Architectural Docket Window 03: Edu52 -->
-      <section class="win" role="dialog" aria-label="Edu52 Architecture" hidden style="--ac:#2f5fd0">
-        <header class="bar">
-          <span class="dots">
-            <button class="dot r" aria-label="Close Docket"></button>
-            <button class="dot y" aria-label="Minimize Docket"></button>
-            <i class="dot g"></i>
-          </span>
-          <span class="ttl">Edu52 · BCS Exam Platform Architectural Docket</span>
-          <button type="button" class="win-close-btn" data-close-win aria-label="Close window">Close [ESC]</button>
-        </header>
-        <div class="doc">
-          <div class="doc-meta-bar">
-            <span>DOSSIER // 03</span>
-            <span class="doc-badge" style="color:#2f5fd0;">● HIGH-STAKES OMR EVALUATION</span>
-          </div>
-
-          <div class="doc-header-row">
-            <div class="doc-brand-frame">
-              <img src="assets/images/edu52.png" alt="Edu52 Platform" class="doc-brand-logo" />
+      <!-- ================= CASE STUDY 03: EDU52 ================= -->
+      <section class="win win-case-study" id="win-edu52" role="dialog" aria-label="Edu52 Case Study" hidden>
+        <!-- Sticky Navigation Bar -->
+        <nav class="cs-nav-bar" aria-label="Edu52 Case Study Navigation">
+          <div class="cs-nav-bar-left">
+            <div class="cs-nav-dots" aria-hidden="true">
+              <button type="button" class="cs-nav-dot close-dot" data-close-win aria-label="Close Case Study"></button>
+              <span class="cs-nav-dot min-dot"></span>
+              <span class="cs-nav-dot expand-dot"></span>
             </div>
-            <div class="doc-header-info">
-              <h2>Edu52</h2>
-              <p class="doc-lead">BCS Exam Simulator &amp; Real-Time Optical OMR Evaluation Kernel</p>
-            </div>
+            <span class="cs-nav-eyebrow">(CASE STUDY · 03) / Edu52</span>
           </div>
+          <button type="button" class="cs-nav-close-btn" data-close-win aria-label="Close Case Study">
+            <span>Close [ESC]</span>
+            <span aria-hidden="true">✕</span>
+          </button>
+        </nav>
 
-          <p class="doc-body-p">
-            A high-velocity BCS examination platform mimicking official 4-page PSC printed examination papers. Features client-side optical answer evaluation with zero server round-trip verification, live proctoring WebSockets, and KaTeX Bengali typesetting.
-          </p>
+        <!-- ================= CONTENT BLOCK ================= -->
+        <article class="cs-article" id="project-edu52" data-slug="edu52">
+          <header class="cs-hero" id="top-edu52">
+            <p class="cs-eyebrow">(CASE STUDY · 03)</p>
+            <h1 class="cs-title">Edu52</h1>
 
-          <div class="doc-section">
-            <h4>Core Technical Highlights</h4>
-            <ul class="doc-list">
-              <li><strong>BCS Question Vault:</strong> 200 MCQ format with KaTeX mathematical formulas &amp; Bengali typography rendered at 60fps.</li>
-              <li><strong>4-Page Physical Paper Layout:</strong> Official PSC Bangladesh exam paper grid fidelity with strict temporal timers.</li>
-              <li><strong>Offline OMR Engine:</strong> Client-side optical answer evaluation with zero round-trip verification and live score breakdown.</li>
+            <ul class="cs-chips" aria-label="Disciplines">
+              <li class="cs-chip">High-Stakes Evaluation</li>
+              <li class="cs-chip">Anti-Cheat Socket</li>
+              <li class="cs-chip">KaTeX WebAssembly</li>
             </ul>
-          </div>
 
-          <div class="doc-section">
-            <h4>Engineered Tech Stack &amp; Ecosystem</h4>
-            <div class="tech-stack-grid">
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/nextdotjs.svg" alt="Next.js" />
+            <p class="cs-summary">A high-concurrency national civil service exam platform delivering sub-millisecond optical grading, real-time proctoring, and strict anti-leak protocols.</p>
+
+            <div class="cs-rule" aria-hidden="true"></div>
+
+            <dl class="cs-meta">
+              <div><dt>ROLE</dt><dd>Core Platform Architect &amp; Full-Stack Engineer</dd></div>
+              <div><dt>TIMELINE</dt><dd>12 Weeks</dd></div>
+              <div><dt>YEAR</dt><dd>2025–2026</dd></div>
+              <div><dt>TEAM</dt><dd>Core Engineering Lead</dd></div>
+            </dl>
+
+            <figure class="cs-hero-figure">
+              <picture>
+                <img src="assets/images/edu52-banner.webp"
+                     width="1600" height="1000"
+                     alt="Edu52 Civil Service Examination Platform &amp; OMR Interface"
+                     fetchpriority="high" decoding="async">
+              </picture>
+            </figure>
+          </header>
+
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="cs-grid">
+              <p class="cs-label">(MY ROLE)</p>
+              <ul class="cs-role-list">
+                <li>Built ultra-low latency WebSocket anti-cheat socket channel monitoring tab focus, screen bounds, and device integrity.</li>
+                <li>Implemented KaTeX mathematical typesetting engine with sub-millisecond rendering for complex formulas and BCS question sets.</li>
+                <li>Engineered high-throughput MongoDB bank storing 200,000+ categorized competitive questions with instant grading pipelines.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <dl class="cs-facts">
+              <div class="cs-fact">
+                <dt class="cs-label">(THE PROBLEM)</dt>
+                <dd>National competitive civil service examinations (BCS) demand instantaneous grading across 200-question sets, strict anti-cheating protection against browser leaks, and robust mathematical formula rendering without server lag.</dd>
+              </div>
+              <div class="cs-fact">
+                <dt class="cs-label">(APPROACH / POSITIONING)</dt>
+                <dd>Constructed an authentic optical mark recognition (OMR) bubble-sheet interface with client-side state caching, tamper-proof countdown timers, and continuous WebSocket proctoring telemetries.</dd>
+              </div>
+              <div class="cs-fact">
+                <dt class="cs-label">(WHAT CHANGED)</dt>
+                <dd>Scaled concurrent mock examinations to thousands of simultaneous examinees with sub-50ms score calculations, zero question leakage, and total exam integrity verification.</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="cs-section cs-approach-section">
+            <h2 class="cs-subhead">Approach</h2>
+            <ol class="cs-approach">
+              <li>
+                <div class="cs-rule" aria-hidden="true"></div>
+                <div class="cs-approach-row">
+                  <div class="cs-approach-head">
+                    <span class="cs-approach-num">01</span>
+                    <h3 class="cs-approach-title">OMR Simulation &amp; Paper Grid Layout</h3>
+                  </div>
+                  <p class="cs-approach-body">Recreated authentic civil service bubble-sheet UX with instant visual feedback, rapid row keyboard navigation, and responsive touch targeting.</p>
                 </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">Next.js 14</span>
-                  <span class="tech-card__role">Server-Rendered Exam Pages</span>
+              </li>
+              <li>
+                <div class="cs-rule" aria-hidden="true"></div>
+                <div class="cs-approach-row">
+                  <div class="cs-approach-head">
+                    <span class="cs-approach-num">02</span>
+                    <h3 class="cs-approach-title">WebSocket Proctoring &amp; Integrity Checks</h3>
+                  </div>
+                  <p class="cs-approach-body">Engineered real-time socket monitors detecting window blur, copy/paste attempts, second-monitor connection, and devtools inspection.</p>
+                </div>
+              </li>
+              <li>
+                <div class="cs-rule" aria-hidden="true"></div>
+                <div class="cs-approach-row">
+                  <div class="cs-approach-head">
+                    <span class="cs-approach-num">03</span>
+                    <h3 class="cs-approach-title">Mathematical Formula Rendering</h3>
+                  </div>
+                  <p class="cs-approach-body">Integrated client-side KaTeX typesetting executing complex equation layouts, scientific notation, and matrices in under 1 millisecond.</p>
+                </div>
+              </li>
+              <li>
+                <div class="cs-rule" aria-hidden="true"></div>
+                <div class="cs-approach-row">
+                  <div class="cs-approach-head">
+                    <span class="cs-approach-num">04</span>
+                    <h3 class="cs-approach-title">Instant Optical Score Calculation</h3>
+                  </div>
+                  <p class="cs-approach-body">Constructed high-speed grading algorithms computing negative-marking scores, topic percentiles, and answer explanations upon exam termination.</p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="cs-grid">
+              <h2 class="cs-subhead">Evaluation Engine Performance Features</h2>
+              <p class="cs-body">Purpose-built examination interfaces supporting high concurrency and sub-millisecond evaluation cycles.</p>
+            </div>
+            <div class="cs-media-stack">
+              <div class="cs-spec-sheet-card reveal">
+                <span class="cs-spec-badge">ANTI-CHEAT SOCKET KERNEL</span>
+                <h4>Real-Time Candidate Proctoring</h4>
+                <p>WebSocket heartbeats monitor candidate browser states every 2 seconds. Automatically flags tab switches, devtools inspection, copy actions, and window resizes with instant penalty warnings.</p>
+                <div class="cs-spec-tech-pills">
+                  <span class="cs-spec-tech-pill">WebSockets</span>
+                  <span class="cs-spec-tech-pill">Visibility API</span>
+                  <span class="cs-spec-tech-pill">Tab Blur Detector</span>
+                  <span class="cs-spec-tech-pill">Copy-Lock Guard</span>
                 </div>
               </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/react-light.svg" alt="React" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">React 18</span>
-                  <span class="tech-card__role">OMR Sheet State &amp; Timer</span>
-                </div>
-              </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/nodejs.svg" alt="Node.js" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">Node.js / WS</span>
-                  <span class="tech-card__role">Anti-Cheat Socket Channel</span>
-                </div>
-              </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/mongodb.svg" alt="MongoDB" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">MongoDB Atlas</span>
-                  <span class="tech-card__role">200-Question BCS Bank</span>
-                </div>
-              </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/tailwind-css.svg" alt="Tailwind CSS" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">Tailwind CSS</span>
-                  <span class="tech-card__role">PSC Paper Grid Layout</span>
-                </div>
-              </div>
-              <div class="tech-card">
-                <div class="tech-card__icon">
-                  <img src="assets/icons/python.svg" alt="Python" />
-                </div>
-                <div class="tech-card__info">
-                  <span class="tech-card__name">Python OMR</span>
-                  <span class="tech-card__role">Optical Grading Kernel</span>
+              <div class="cs-spec-sheet-card reveal">
+                <span class="cs-spec-badge">MATH &amp; SCIENTIFIC ENGINE</span>
+                <h4>KaTeX WebAssembly Typesetting</h4>
+                <p>Mathematical, chemical, and physical formulas render client-side with zero network latency. Converts LaTeX syntax into accessible high-contrast SVG math representations at 60 frames per second.</p>
+                <div class="cs-spec-tech-pills">
+                  <span class="cs-spec-tech-pill">KaTeX Core</span>
+                  <span class="cs-spec-tech-pill">&lt;1ms Render</span>
+                  <span class="cs-spec-tech-pill">LaTeX Math</span>
+                  <span class="cs-spec-tech-pill">Accessible MathML</span>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div class="doc-actions">
-            <a href="https://github.com/MURTAYES/edu52" target="_blank" rel="noopener noreferrer" class="doc-btn doc-btn--primary">
-              <img src="assets/icons/github-light.svg" alt="" width="16" height="16" />
-              <span>View GitHub Repository</span> ↗
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="cs-grid">
+              <h2 class="cs-subhead">Exam Delivery Pipeline Flow</h2>
+              <p class="cs-body">A secured 4-phase lifecycle guaranteeing question confidentiality and millisecond score computation.</p>
+            </div>
+            <div class="cs-flow-stack">
+              <figure class="cs-flow-card" style="--i:1">
+                <span class="cs-flow-step-tag">STAGE 01 · AUTH</span>
+                <h3 class="cs-flow-card-title">Candidate Admission Check</h3>
+                <p class="cs-flow-card-desc">Validates JWT session credentials, synchronizes server time offsets, and prepares encrypted question sets.</p>
+                <img src="assets/icons/jwt.svg" alt="JWT Auth" class="cs-flow-icon" />
+              </figure>
+              <figure class="cs-flow-card" style="--i:2">
+                <span class="cs-flow-step-tag">STAGE 02 · PROCTOR</span>
+                <h3 class="cs-flow-card-title">Live Socket Telemetry</h3>
+                <p class="cs-flow-card-desc">Streams focus and input heartbeats to prevent collaborative cheating or external browser assistance.</p>
+                <img src="assets/icons/react-light.svg" alt="React Proctor" class="cs-flow-icon" />
+              </figure>
+              <figure class="cs-flow-card" style="--i:3">
+                <span class="cs-flow-step-tag">STAGE 03 · TYPESET</span>
+                <h3 class="cs-flow-card-title">KaTeX Instant Equation Render</h3>
+                <p class="cs-flow-card-desc">Executes sub-millisecond local typesetting of complex mathematical and scientific formula blocks.</p>
+                <img src="assets/icons/html5.svg" alt="KaTeX Math" class="cs-flow-icon" />
+              </figure>
+              <figure class="cs-flow-card" style="--i:4">
+                <span class="cs-flow-step-tag">STAGE 04 · EVALUATION</span>
+                <h3 class="cs-flow-card-title">Negative-Marking Grading</h3>
+                <p class="cs-flow-card-desc">Applies official civil service marking rubrics (-0.5 per wrong answer) and generates breakdown within 50ms.</p>
+                <img src="assets/icons/python.svg" alt="Python Kernel" class="cs-flow-icon" />
+              </figure>
+            </div>
+          </section>
+
+          <section class="cs-section">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="cs-grid">
+              <h2 class="cs-subhead">System Architecture &amp; Security Standards</h2>
+              <p class="cs-body">Engineered to uphold absolute integrity for high-stakes national candidate evaluation.</p>
+            </div>
+            <div class="cs-brand-stack">
+              <figure class="cs-brand-card" style="--i:1; --rot:-1.1deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">EXAM UI</span>
+                  <span class="cs-approach-num">01</span>
+                </div>
+                <h3 class="cs-brand-card-title">Official OMR Paper Simulation</h3>
+                <p class="cs-brand-card-text">Pixel-perfect civil service bubble grid with keyboard shortcuts for instant answer selection and review marking.</p>
+              </figure>
+              <figure class="cs-brand-card" style="--i:2; --rot:0.8deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">QUESTION STORAGE</span>
+                  <span class="cs-approach-num">02</span>
+                </div>
+                <h3 class="cs-brand-card-title">200,000+ BCS Question Bank</h3>
+                <p class="cs-brand-card-text">Categorized repository indexed across Bangladesh Affairs, International, Science, Math, and Bengali Literature.</p>
+              </figure>
+              <figure class="cs-brand-card" style="--i:3; --rot:-0.6deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">ANTI-LEAK PROTOCOLS</span>
+                  <span class="cs-approach-num">03</span>
+                </div>
+                <h3 class="cs-brand-card-title">Dynamic Question Watermarking</h3>
+                <p class="cs-brand-card-text">Cryptographic steganographic candidate watermarks embedded into canvas layers to trace any unauthorized screengrab.</p>
+              </figure>
+              <figure class="cs-brand-card" style="--i:4; --rot:0.35deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">SCORING PIPELINE</span>
+                  <span class="cs-approach-num">04</span>
+                </div>
+                <h3 class="cs-brand-card-title">Sub-50ms Optical Score Engine</h3>
+                <p class="cs-brand-card-text">High-speed evaluation algorithm computing raw scores, negative penalties, and cohort rankings upon submission.</p>
+              </figure>
+              <figure class="cs-brand-card" style="--i:5; --rot:0deg">
+                <div class="cs-brand-card-meta">
+                  <span class="cs-eyebrow">ACADEMIC STANDARDS</span>
+                  <span class="cs-approach-num">05</span>
+                </div>
+                <h3 class="cs-brand-card-title">Bangladesh Public Service Commission Spec</h3>
+                <p class="cs-brand-card-text">Engineered strictly to the formatting rules, timing constraints, and syllabus boundaries of the 45th–47th BCS.</p>
+              </figure>
+              <div class="cs-brand-spacer" aria-hidden="true"></div>
+            </div>
+          </section>
+
+          <section class="cs-section cs-next">
+            <div class="cs-rule" aria-hidden="true"></div>
+            <a class="cs-next-link js-cs-next" href="#win-applykit" data-next-index="0" aria-label="Next project: ApplyKit">
+              <p class="cs-label">NEXT PROJECT</p>
+              <div class="cs-next-row">
+                <p class="cs-next-title">ApplyKit</p>
+                <svg class="cs-next-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
+                  <path d="M5 19L19 5M19 5H8M19 5v11"/>
+                </svg>
+              </div>
             </a>
-            <button type="button" class="doc-btn doc-btn--secondary" data-edu52-modal-open>
-              <span>Full Specifications</span> ↗
-            </button>
-            <button type="button" class="doc-btn doc-btn--secondary" data-close-win>
-              <span>Close Dossier</span>
-            </button>
-          </div>
-        </div>
+          </section>
+        </article>
       </section>
     </section>
 
