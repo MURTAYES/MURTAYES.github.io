@@ -783,954 +783,325 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
       </div>
     </section>
 
-    <!-- 04. SELECTED WORKS (ONE SIDE TEXT, ONE SIDE FOLDER · EMBEDDED LOGOS · FLUID DOCKET MODALS) -->
-    <section id="works" class="works" aria-labelledby="works-title">
-      <div class="works__container container">
-        <!-- Section Header -->
-        <div class="section-head">
-          <h2 id="works-title" class="works-heading" aria-label="Selected Works">
-            Selected Works
-          </h2>
-        </div>
+    <!-- 04. SELECTED WORK: DIGITAL DESKTOP (3D FOLDER STACKS & MACOS GENIE MODAL) -->
+    <section id="works" class="works-desktop-section" aria-labelledby="works-title">
+      <div class="works-container">
+        <!-- 1. Section Header -->
+        <header class="works-header">
+          <p class="works-label">(SELECTED WORK)</p>
+          <h2 id="works-title" class="works-title">Projects I've shipped.</h2>
+        </header>
 
-        <!-- Asymmetrical Staggered Editorial Grid (One Side Text, One Side Folder) -->
-        <div class="works-asymmetric-grid">
+        <!-- 2. The 3-Folder Desktop Grid -->
+        <div class="works-desktop-grid">
 
-          <!-- 01. ApplyKit: Left Text, Right Folder -->
-          <article class="works-row works-row--1" aria-label="ApplyKit Project">
-            <div class="works-text-side">
-              <p class="works-project-desc">
-                Bilingual DOM heuristics engine and automated application workflow.<br>
-                Features section-scoped traversal and client-side AES-GCM encryption.
-              </p>
-            </div>
+          <!-- FOLDER 1: SaaS Products -->
+          <div class="work-folder js-work-folder" data-folder="saas" style="--folder-i: 0;">
+            <div class="folder-3d-stage">
+              <div class="folder-spotlight" aria-hidden="true"></div>
 
-            <div class="works-folder-side">
-              <div class="folder-stage">
-                <div class="folder js-folder-trigger" role="button" tabindex="0" aria-label="Open ApplyKit Architectural Folder" data-dossier-index="0" data-cursor-pill="Open ApplyKit">
-                  <div class="back"></div>
-                  <div class="sheets">
-                    <button type="button" class="sheet" style="--ac:#eb381c" data-dossier-index="0" aria-label="Open ApplyKit Manifest">
-                      <div class="sheet-head">
-                        <img src="assets/images/icon-128.png" alt="" class="sheet-icon" />
-                        <b>ApplyKit</b>
-                      </div>
-                      <span class="sheet-spec">BUILD · MV3.24</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                    <button type="button" class="sheet" style="--ac:#eb381c" data-dossier-index="0" aria-label="Open ApplyKit Engine">
-                      <div class="sheet-head">
-                        <img src="assets/images/icon-128.png" alt="" class="sheet-icon" />
-                        <b>Engine</b>
-                      </div>
-                      <span class="sheet-spec">LOCAL-FIRST</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                    <button type="button" class="sheet" style="--ac:#eb381c" data-dossier-index="0" aria-label="Open ApplyKit Latency">
-                      <div class="sheet-head">
-                        <img src="assets/images/icon-128.png" alt="" class="sheet-icon" />
-                        <b>Latency</b>
-                      </div>
-                      <span class="sheet-spec">&lt;40ms DOM SCAN</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                  </div>
-                  <div class="flap">
-                    <div class="folder-center-icon">
-                      <img src="assets/images/icon-128.png" alt="ApplyKit Logo" class="folder-icon-img" />
+              <!-- Back Folder with top-left tab -->
+              <div class="folder-back">
+                <div class="folder-tab">
+                  <span class="folder-tab-label">SaaS Products</span>
+                </div>
+                <div class="folder-back-body"></div>
+              </div>
+
+              <!-- 3 Stacked Mini File Cards (Buttons for Accessibility) -->
+              <div class="folder-files" role="group" aria-label="SaaS Products Files">
+                <button type="button" class="file-card js-file-btn" data-project-id="fintech-dashboard" aria-label="Open FinTech Dashboard">
+                  <div class="file-card-bar">
+                    <div class="file-card-dots" aria-hidden="true">
+                      <span></span><span></span><span></span>
                     </div>
+                    <span class="file-card-badge">POS.V4</span>
                   </div>
+                  <div class="file-card-content">
+                    <p class="file-card-title">FinTech Dashboard</p>
+                    <div class="file-card-skeleton" aria-hidden="true">
+                      <div class="file-card-line file-card-line--long"></div>
+                      <div class="file-card-line file-card-line--short"></div>
+                    </div>
+                    <span class="file-card-tag">Decimal128 · Kernel</span>
+                  </div>
+                </button>
+
+                <button type="button" class="file-card js-file-btn" data-project-id="hr-portal" aria-label="Open HR Portal">
+                  <div class="file-card-bar">
+                    <div class="file-card-dots" aria-hidden="true">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <span class="file-card-badge">MV3.24</span>
+                  </div>
+                  <div class="file-card-content">
+                    <p class="file-card-title">HR Portal</p>
+                    <div class="file-card-skeleton" aria-hidden="true">
+                      <div class="file-card-line file-card-line--long"></div>
+                      <div class="file-card-line file-card-line--medium"></div>
+                    </div>
+                    <span class="file-card-tag">AES-GCM · Heuristics</span>
+                  </div>
+                </button>
+
+                <button type="button" class="file-card js-file-btn" data-project-id="billing-kernel" aria-label="Open Cloud Billing Kernel">
+                  <div class="file-card-bar">
+                    <div class="file-card-dots" aria-hidden="true">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <span class="file-card-badge">API.V2</span>
+                  </div>
+                  <div class="file-card-content">
+                    <p class="file-card-title">Billing Kernel</p>
+                    <div class="file-card-skeleton" aria-hidden="true">
+                      <div class="file-card-line file-card-line--medium"></div>
+                      <div class="file-card-line file-card-line--short"></div>
+                    </div>
+                    <span class="file-card-tag">Kafka · Metered</span>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Front Pocket -->
+              <div class="folder-pocket">
+                <div class="folder-pocket-meta">
+                  <span class="folder-pocket-vol">01 / VOL</span>
+                  <span class="folder-pocket-count">3 Files</span>
+                </div>
+                <div class="folder-pocket-body">
+                  <h3 class="folder-name">SaaS Products</h3>
+                  <p class="folder-desc">High-throughput accounting kernels &amp; enterprise dashboards.</p>
+                </div>
+                <div class="folder-pocket-cue" aria-hidden="true">
+                  <span>Hover to fan files</span>
                 </div>
               </div>
             </div>
-          </article>
+          </div>
 
-          <!-- 02. PharmaERP: Left Folder, Right Text (Alternating Layout) -->
-          <article class="works-row works-row--2" aria-label="PharmaERP Project">
-            <div class="works-folder-side">
-              <div class="folder-stage">
-                <div class="folder js-folder-trigger" role="button" tabindex="0" aria-label="Open PharmaERP Architectural Folder" data-dossier-index="1" data-cursor-pill="Open PharmaERP">
-                  <div class="back"></div>
-                  <div class="sheets">
-                    <button type="button" class="sheet" style="--ac:#10b981" data-dossier-index="1" aria-label="Open PharmaERP POS">
-                      <div class="sheet-head">
-                        <img src="assets/images/pharmaerp-logo.png" alt="" class="sheet-icon" />
-                        <b>PharmaERP</b>
-                      </div>
-                      <span class="sheet-spec">BUILD · POS.V4</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                    <button type="button" class="sheet" style="--ac:#10b981" data-dossier-index="1" aria-label="Open PharmaERP Ledger">
-                      <div class="sheet-head">
-                        <img src="assets/images/pharmaerp-logo.png" alt="" class="sheet-icon" />
-                        <b>Ledger</b>
-                      </div>
-                      <span class="sheet-spec">DECIMAL128 ACID</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                    <button type="button" class="sheet" style="--ac:#10b981" data-dossier-index="1" aria-label="Open PharmaERP FEFO">
-                      <div class="sheet-head">
-                        <img src="assets/images/pharmaerp-logo.png" alt="" class="sheet-icon" />
-                        <b>Batch FEFO</b>
-                      </div>
-                      <span class="sheet-spec">&lt;300ms LATENCY</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                  </div>
-                  <div class="flap">
-                    <div class="folder-center-icon">
-                      <img src="assets/images/pharmaerp-logo.png" alt="PharmaERP Logo" class="folder-icon-img" />
+          <!-- FOLDER 2: Interactive Experiments -->
+          <div class="work-folder js-work-folder" data-folder="experiments" style="--folder-i: 1;">
+            <div class="folder-3d-stage">
+              <div class="folder-spotlight" aria-hidden="true"></div>
+
+              <div class="folder-back">
+                <div class="folder-tab">
+                  <span class="folder-tab-label">Interactive</span>
+                </div>
+                <div class="folder-back-body"></div>
+              </div>
+
+              <div class="folder-files" role="group" aria-label="Interactive Experiments Files">
+                <button type="button" class="file-card js-file-btn" data-project-id="webgl-data-vis" aria-label="Open WebGL Data Vis">
+                  <div class="file-card-bar">
+                    <div class="file-card-dots" aria-hidden="true">
+                      <span></span><span></span><span></span>
                     </div>
+                    <span class="file-card-badge">GLSL.4</span>
                   </div>
+                  <div class="file-card-content">
+                    <p class="file-card-title">WebGL Data Vis</p>
+                    <div class="file-card-skeleton" aria-hidden="true">
+                      <div class="file-card-line file-card-line--long"></div>
+                      <div class="file-card-line file-card-line--medium"></div>
+                    </div>
+                    <span class="file-card-tag">100k Particles · 60fps</span>
+                  </div>
+                </button>
+
+                <button type="button" class="file-card js-file-btn" data-project-id="fluid-shader" aria-label="Open Fluid Physics Stage">
+                  <div class="file-card-bar">
+                    <div class="file-card-dots" aria-hidden="true">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <span class="file-card-badge">EULER</span>
+                  </div>
+                  <div class="file-card-content">
+                    <p class="file-card-title">Fluid Physics</p>
+                    <div class="file-card-skeleton" aria-hidden="true">
+                      <div class="file-card-line file-card-line--medium"></div>
+                      <div class="file-card-line file-card-line--short"></div>
+                    </div>
+                    <span class="file-card-tag">Navier-Stokes Grid</span>
+                  </div>
+                </button>
+
+                <button type="button" class="file-card js-file-btn" data-project-id="kinetic-typography" aria-label="Open Kinetic Typography">
+                  <div class="file-card-bar">
+                    <div class="file-card-dots" aria-hidden="true">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <span class="file-card-badge">FONTS</span>
+                  </div>
+                  <div class="file-card-content">
+                    <p class="file-card-title">Kinetic Typography</p>
+                    <div class="file-card-skeleton" aria-hidden="true">
+                      <div class="file-card-line file-card-line--long"></div>
+                      <div class="file-card-line file-card-line--short"></div>
+                    </div>
+                    <span class="file-card-tag">Variable Optical Axes</span>
+                  </div>
+                </button>
+              </div>
+
+              <div class="folder-pocket">
+                <div class="folder-pocket-meta">
+                  <span class="folder-pocket-vol">02 / VOL</span>
+                  <span class="folder-pocket-count">3 Files</span>
+                </div>
+                <div class="folder-pocket-body">
+                  <h3 class="folder-name">Interactive Experiments</h3>
+                  <p class="folder-desc">WebGL simulations, shaders &amp; dynamic motion systems.</p>
+                </div>
+                <div class="folder-pocket-cue" aria-hidden="true">
+                  <span>Hover to fan files</span>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="works-text-side">
-              <p class="works-project-desc">
-                Clinical retail counter POS kernel and FEFO batch accounting engine.<br>
-                Multi-unit dispensing terminal with Decimal128 dual-entry financial journals.
-              </p>
-            </div>
-          </article>
+          <!-- FOLDER 3: Brand Systems -->
+          <div class="work-folder js-work-folder" data-folder="brands" style="--folder-i: 2;">
+            <div class="folder-3d-stage">
+              <div class="folder-spotlight" aria-hidden="true"></div>
 
-          <!-- 03. Edu52: Left Text, Right Folder -->
-          <article class="works-row works-row--3" aria-label="Edu52 Project">
-            <div class="works-text-side">
-              <p class="works-project-desc">
-                High-stakes 200-question BCS examination simulator and optical evaluation.<br>
-                Client-side optical answer grading with live proctoring and KaTeX typography.
-              </p>
-            </div>
+              <div class="folder-back">
+                <div class="folder-tab">
+                  <span class="folder-tab-label">Brand Systems</span>
+                </div>
+                <div class="folder-back-body"></div>
+              </div>
 
-            <div class="works-folder-side">
-              <div class="folder-stage">
-                <div class="folder js-folder-trigger" role="button" tabindex="0" aria-label="Open Edu52 Architectural Folder" data-dossier-index="2" data-cursor-pill="Open Edu52">
-                  <div class="back"></div>
-                  <div class="sheets">
-                    <button type="button" class="sheet" style="--ac:#2f5fd0" data-dossier-index="2" aria-label="Open Edu52 Simulator">
-                      <div class="sheet-head">
-                        <img src="assets/images/edu52.png" alt="" class="sheet-icon" />
-                        <b>Edu52</b>
-                      </div>
-                      <span class="sheet-spec">BUILD · 76% BETA</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                    <button type="button" class="sheet" style="--ac:#2f5fd0" data-dossier-index="2" aria-label="Open Edu52 OMR">
-                      <div class="sheet-head">
-                        <img src="assets/images/edu52.png" alt="" class="sheet-icon" />
-                        <b>OMR Kernel</b>
-                      </div>
-                      <span class="sheet-spec">KATEX FORMULAS</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                    <button type="button" class="sheet" style="--ac:#2f5fd0" data-dossier-index="2" aria-label="Open Edu52 Sockets">
-                      <div class="sheet-head">
-                        <img src="assets/images/edu52.png" alt="" class="sheet-icon" />
-                        <b>Sockets</b>
-                      </div>
-                      <span class="sheet-spec">200 CONCURRENT</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                  </div>
-                  <div class="flap">
-                    <div class="folder-center-icon">
-                      <img src="assets/images/edu52.png" alt="Edu52 Logo" class="folder-icon-img" />
-                      <span class="folder-lock-badge" title="Project Docket Locked">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                      </span>
+              <div class="folder-files" role="group" aria-label="Brand Systems Files">
+                <button type="button" class="file-card js-file-btn" data-project-id="aura-identity" aria-label="Open Aura Identity">
+                  <div class="file-card-bar">
+                    <div class="file-card-dots" aria-hidden="true">
+                      <span></span><span></span><span></span>
                     </div>
+                    <span class="file-card-badge">BRAND</span>
                   </div>
+                  <div class="file-card-content">
+                    <p class="file-card-title">Aura Identity</p>
+                    <div class="file-card-skeleton" aria-hidden="true">
+                      <div class="file-card-line file-card-line--long"></div>
+                      <div class="file-card-line file-card-line--medium"></div>
+                    </div>
+                    <span class="file-card-tag">Identity · Monolith</span>
+                  </div>
+                </button>
+
+                <button type="button" class="file-card js-file-btn" data-project-id="nova-design-system" aria-label="Open Nova Design System">
+                  <div class="file-card-bar">
+                    <div class="file-card-dots" aria-hidden="true">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <span class="file-card-badge">TOKENS</span>
+                  </div>
+                  <div class="file-card-content">
+                    <p class="file-card-title">Nova System</p>
+                    <div class="file-card-skeleton" aria-hidden="true">
+                      <div class="file-card-line file-card-line--medium"></div>
+                      <div class="file-card-line file-card-line--short"></div>
+                    </div>
+                    <span class="file-card-tag">Design Tokens · AAA</span>
+                  </div>
+                </button>
+
+                <button type="button" class="file-card js-file-btn" data-project-id="icon-grid-spec" aria-label="Open Icon Grid Spec">
+                  <div class="file-card-bar">
+                    <div class="file-card-dots" aria-hidden="true">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <span class="file-card-badge">VECTOR</span>
+                  </div>
+                  <div class="file-card-content">
+                    <p class="file-card-title">Icon Grid Spec</p>
+                    <div class="file-card-skeleton" aria-hidden="true">
+                      <div class="file-card-line file-card-line--long"></div>
+                      <div class="file-card-line file-card-line--short"></div>
+                    </div>
+                    <span class="file-card-tag">24px Optical Geometry</span>
+                  </div>
+                </button>
+              </div>
+
+              <div class="folder-pocket">
+                <div class="folder-pocket-meta">
+                  <span class="folder-pocket-vol">03 / VOL</span>
+                  <span class="folder-pocket-count">3 Files</span>
+                </div>
+                <div class="folder-pocket-body">
+                  <h3 class="folder-name">Brand Systems</h3>
+                  <p class="folder-desc">Design tokens, typography standards &amp; icon frameworks.</p>
+                </div>
+                <div class="folder-pocket-cue" aria-hidden="true">
+                  <span>Hover to fan files</span>
                 </div>
               </div>
             </div>
-          </article>
+          </div>
 
         </div>
       </div>
 
-      <!-- Fullscreen Dimming Backdrop for Project Dossiers -->
-      <div id="dossier-backdrop" class="dossier-backdrop" aria-hidden="true"></div>
-
-      <!-- ================= CASE STUDY 01: APPLYKIT ================= -->
-      <section class="win win-case-study" id="win-applykit" role="dialog" aria-label="ApplyKit Case Study" hidden>
-        <!-- Sticky Navigation Bar -->
-        <nav class="cs-nav-bar bar" aria-label="ApplyKit Case Study Navigation">
-          <div class="cs-nav-bar-left">
-            <div class="cs-nav-dots dots" aria-hidden="true">
-              <button type="button" class="cs-nav-dot close-dot dot r" data-close-win aria-label="Close Case Study"></button>
-              <button type="button" class="cs-nav-dot min-dot dot y" data-close-win aria-label="Minimize Case Study"></button>
-              <span class="cs-nav-dot expand-dot dot g"></span>
+      <!-- 4. macOS Genie Modal Window (<dialog>) -->
+      <dialog class="project-modal" id="projectModal" aria-labelledby="modalTitle" aria-modal="true">
+        <div class="modal-window">
+          <!-- Window Header (macOS Traffic Light Bar) -->
+          <div class="modal-header">
+            <div class="modal-nav-dots" aria-hidden="true">
+              <button type="button" class="modal-dot modal-dot--close js-modal-close-btn" aria-label="Close Project Modal"></button>
+              <span class="modal-dot modal-dot--min"></span>
+              <span class="modal-dot modal-dot--max"></span>
             </div>
-            <span class="cs-nav-eyebrow ttl">(CASE STUDY · 01) / ApplyKit</span>
+            <p class="modal-eyebrow" id="modalEyebrow">(CASE STUDY · 01) / SaaS Products</p>
+            <button type="button" class="modal-close-icon js-modal-close-btn" aria-label="Close Project Modal">
+              <span>✕</span>
+            </button>
           </div>
-          <button type="button" class="cs-nav-close-btn win-close-btn" data-close-win aria-label="Close Case Study">
-            <span>Close [ESC]</span>
-            <span aria-hidden="true">✕</span>
-          </button>
-        </nav>
 
-        <!-- ================= CONTENT BLOCK ================= -->
-        <article class="cs-article doc" id="project-applykit" data-slug="applykit">
-          <header class="cs-hero" id="top-applykit">
-            <p class="cs-eyebrow">(CASE STUDY · 01)</p>
-            <h1 class="cs-title">ApplyKit</h1>
+          <!-- Window Scrollable Body -->
+          <div class="modal-body">
+            <h2 class="modal-title" id="modalTitle">FinTech Dashboard</h2>
 
-            <ul class="cs-chips" aria-label="Disciplines">
-              <li class="cs-chip">Chrome MV3 Core</li>
-              <li class="cs-chip">DOM Heuristics Engine</li>
-              <li class="cs-chip">Local-First AES-GCM</li>
+            <ul class="modal-chips" id="modalChips" aria-label="Disciplines & Technologies">
+              <li class="modal-chip">Next.js</li>
+              <li class="modal-chip">TypeScript</li>
+              <li class="modal-chip">Decimal128</li>
             </ul>
 
-            <p class="cs-summary">A high-velocity Chrome extension engineered in the Swiss International Style for automated job applications with zero-cloud data egress.</p>
+            <p class="modal-summary" id="modalSummary">
+              Clinical retail counter POS kernel and FEFO batch accounting engine with Decimal128 dual-entry financial journals.
+            </p>
 
-            <div class="cs-rule" aria-hidden="true"></div>
+            <div class="modal-rule" aria-hidden="true"></div>
 
-            <dl class="cs-meta">
-              <div><dt>ROLE</dt><dd>Full-Stack Architecture &amp; MV3 Core</dd></div>
-              <div><dt>TIMELINE</dt><dd>8 Weeks</dd></div>
-              <div><dt>YEAR</dt><dd>2024–2026</dd></div>
-              <div><dt>TEAM</dt><dd>Solo Independent Engineering</dd></div>
+            <dl class="modal-meta" id="modalMeta">
+              <div><dt>ROLE</dt><dd id="modalRole">Lead Full-Stack Architect</dd></div>
+              <div><dt>TIMELINE</dt><dd id="modalTimeline">4 Months</dd></div>
+              <div><dt>YEAR</dt><dd id="modalYear">2024</dd></div>
+              <div><dt>TEAM</dt><dd id="modalTeam">3 Engineers, 1 Designer</dd></div>
             </dl>
 
-            <figure class="cs-hero-figure">
-              <picture>
-                <img src="assets/images/appykit.jpg"
-                     width="1600" height="1000"
-                     alt="ApplyKit Chrome Extension Swiss Interface in Production"
-                     fetchpriority="high" decoding="async">
-              </picture>
-            </figure>
-          </header>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <div class="cs-grid">
-              <p class="cs-label">(MY ROLE)</p>
-              <ul class="cs-role-list">
-                <li>Authored context-aware recursive DOM traversal engine parsing dynamic inputs across Greenhouse, Lever, and Workday.</li>
-                <li>Implemented zero-knowledge IndexedDB credential store with Web Crypto AES-256-GCM encryption.</li>
-                <li>Designed high-contrast Swiss typography UI system operating strictly within sub-40ms execution budgets.</li>
-              </ul>
+            <div class="modal-highlights" id="modalHighlights">
+              <!-- Dynamically populated metric cards -->
             </div>
-          </section>
 
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <dl class="cs-facts">
-              <div class="cs-fact">
-                <dt class="cs-label">(THE PROBLEM)</dt>
-                <dd>Job seekers lose hundreds of hours copying credentials across fragmented ATS platforms. Existing autofill tools leak applicant data to third-party cloud servers or crash on dynamic shadow DOM boundaries.</dd>
-              </div>
-              <div class="cs-fact">
-                <dt class="cs-label">(APPROACH / POSITIONING)</dt>
-                <dd>Engineered a local-first browser extension with zero cloud telemetry. Utilized section-scoped heuristic label trees to resolve obfuscated form inputs in real time without sending applicant data off-device.</dd>
-              </div>
-              <div class="cs-fact">
-                <dt class="cs-label">(WHAT CHANGED)</dt>
-                <dd>Achieved sub-40ms autofill latency across 200+ major ATS platforms with zero security incidents, 100% offline data autonomy, and seamless multi-step application workflow execution.</dd>
-              </div>
-            </dl>
-          </section>
+            <div class="modal-section">
+              <h4 class="modal-section-heading">ARCHITECTURAL OVERVIEW</h4>
+              <p class="modal-desc" id="modalDesc">
+                Detailed project narrative.
+              </p>
+            </div>
 
-          <section class="cs-section cs-approach-section">
-            <h2 class="cs-subhead">Approach</h2>
-            <ol class="cs-approach">
-              <li>
-                <div class="cs-rule" aria-hidden="true"></div>
-                <div class="cs-approach-row">
-                  <div class="cs-approach-head">
-                    <span class="cs-approach-num">01</span>
-                    <h3 class="cs-approach-title">Multi-Page Heuristic Mapping</h3>
-                  </div>
-                  <p class="cs-approach-body">Analyzed DOM structures across 200+ distinct job portals to derive fuzzy label-matching trees capable of identifying obfuscated inputs.</p>
-                </div>
-              </li>
-              <li>
-                <div class="cs-rule" aria-hidden="true"></div>
-                <div class="cs-approach-row">
-                  <div class="cs-approach-head">
-                    <span class="cs-approach-num">02</span>
-                    <h3 class="cs-approach-title">Client-Side Cryptographic Vault</h3>
-                  </div>
-                  <p class="cs-approach-body">Engineered local IndexedDB storage with AES-GCM encryption unlocked solely by client session tokens without external network access.</p>
-                </div>
-              </li>
-              <li>
-                <div class="cs-rule" aria-hidden="true"></div>
-                <div class="cs-approach-row">
-                  <div class="cs-approach-head">
-                    <span class="cs-approach-num">03</span>
-                    <h3 class="cs-approach-title">Sub-40ms Event Injection</h3>
-                  </div>
-                  <p class="cs-approach-body">Designed zero-layout-thrashing input synthesis avoiding artificial React and Vue synthetic event drops on modern portals.</p>
-                </div>
-              </li>
-              <li>
-                <div class="cs-rule" aria-hidden="true"></div>
-                <div class="cs-approach-row">
-                  <div class="cs-approach-head">
-                    <span class="cs-approach-num">04</span>
-                    <h3 class="cs-approach-title">Continuous Regression Verification</h3>
-                  </div>
-                  <p class="cs-approach-body">Deployed automated DOM crawl test suites verifying resilient label mapping against upstream ATS updates and DOM mutations.</p>
-                </div>
-              </li>
-            </ol>
-          </section>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <div class="cs-grid">
-              <h2 class="cs-subhead">Engineered Performance Features</h2>
-              <p class="cs-body">Hardware-accelerated execution pipelines combining strict cryptographic guarantees with real-time UI state synchronization.</p>
+            <div class="modal-footer">
+              <button type="button" class="modal-action-btn js-modal-close-btn">
+                <span>Close Window [ESC]</span>
+              </button>
             </div>
-            <div class="cs-media-stack">
-              <div class="cs-spec-sheet-card reveal">
-                <span class="cs-spec-badge">SECURITY &amp; STORAGE ARCHITECTURE</span>
-                <h4>Zero-Knowledge IndexedDB Vault</h4>
-                <p>All candidate credentials, employment histories, and custom portfolio links reside strictly in local IndexedDB. Encrypted using AES-256-GCM with PBKDF2 salt derivation. Zero telemetry egress guarantees total privacy.</p>
-                <div class="cs-spec-tech-pills">
-                  <span class="cs-spec-tech-pill">Web Crypto API</span>
-                  <span class="cs-spec-tech-pill">AES-256-GCM</span>
-                  <span class="cs-spec-tech-pill">IndexedDB</span>
-                  <span class="cs-spec-tech-pill">Zero Cloud Telemetry</span>
-                </div>
-              </div>
-              <div class="cs-spec-sheet-card reveal">
-                <span class="cs-spec-badge">DOM PARSING KERNEL</span>
-                <h4>Context-Aware Label Traversal</h4>
-                <p>Scans multi-level DOM hierarchies using section-scoped context anchors. Distinguishes current employer inputs from past company histories via ancestor token scoring and bilingual regular expressions.</p>
-                <div class="cs-spec-tech-pills">
-                  <span class="cs-spec-tech-pill">TreeWalker API</span>
-                  <span class="cs-spec-tech-pill">Bilingual Regex</span>
-                  <span class="cs-spec-tech-pill">&lt;40ms Cycle</span>
-                  <span class="cs-spec-tech-pill">Shadow DOM</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <div class="cs-grid">
-              <h2 class="cs-subhead">Autofill Traversal Flow</h2>
-              <p class="cs-body">A deterministic 4-stage pipeline translating raw DOM inputs into verified autofilled values in under 40 milliseconds.</p>
-            </div>
-            <div class="cs-flow-stack">
-              <figure class="cs-flow-card" style="--i:1">
-                <span class="cs-flow-step-tag">STAGE 01 · DETECTION</span>
-                <h3 class="cs-flow-card-title">DOM Traversal &amp; TreeWalker</h3>
-                <p class="cs-flow-card-desc">Intercepts page load and mutations. Collects candidate form fields without triggering expensive browser reflows.</p>
-                <img src="assets/icons/chrome.svg" alt="Chrome Engine" class="cs-flow-icon" />
-              </figure>
-              <figure class="cs-flow-card" style="--i:2">
-                <span class="cs-flow-step-tag">STAGE 02 · RESOLUTION</span>
-                <h3 class="cs-flow-card-title">Bilingual Heuristic Scorer</h3>
-                <p class="cs-flow-card-desc">Matches input attributes, ARIA descriptions, and preceding sibling labels against English/French semantic dictionaries.</p>
-                <img src="assets/icons/typescript.svg" alt="TypeScript Core" class="cs-flow-icon" />
-              </figure>
-              <figure class="cs-flow-card" style="--i:3">
-                <span class="cs-flow-step-tag">STAGE 03 · DECRYPTION</span>
-                <h3 class="cs-flow-card-title">Local-First Vault Read</h3>
-                <p class="cs-flow-card-desc">Fetches matching user credentials from encrypted client storage via Web Crypto AES-256-GCM.</p>
-                <img src="assets/icons/indexdb.svg" alt="IndexedDB Storage" class="cs-flow-icon" />
-              </figure>
-              <figure class="cs-flow-card" style="--i:4">
-                <span class="cs-flow-step-tag">STAGE 04 · INJECTION</span>
-                <h3 class="cs-flow-card-title">Synthetic Event Dispatch</h3>
-                <p class="cs-flow-card-desc">Dispatches native InputEvent and ChangeEvent sequences to cleanly update internal React/Vue state managers.</p>
-                <img src="assets/icons/chromium.svg" alt="Chromium Runner" class="cs-flow-icon" />
-              </figure>
-            </div>
-          </section>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <div class="cs-grid">
-              <h2 class="cs-subhead">Ecosystem &amp; Tech Stack</h2>
-              <p class="cs-body">Strict architectural standards guaranteeing reliability, security compliance, and long-term maintainability.</p>
-            </div>
-            <div class="cs-brand-stack">
-              <figure class="cs-brand-card" style="--i:1; --rot:-1.1deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">CORE RUNTIME</span>
-                  <span class="cs-approach-num">01</span>
-                </div>
-                <h3 class="cs-brand-card-title">Chrome Manifest V3 Core</h3>
-                <p class="cs-brand-card-text">Non-persistent service worker lifecycle with optimized message passing between content scripts and options storage.</p>
-              </figure>
-              <figure class="cs-brand-card" style="--i:2; --rot:0.8deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">TYPE CONTRACTS</span>
-                  <span class="cs-approach-num">02</span>
-                </div>
-                <h3 class="cs-brand-card-title">TypeScript 5 &amp; Zod Validation</h3>
-                <p class="cs-brand-card-text">Zero-drift schema definitions guaranteeing runtime data validation and strict type safety across candidate models.</p>
-              </figure>
-              <figure class="cs-brand-card" style="--i:3; --rot:-0.6deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">DATA SOVEREIGNTY</span>
-                  <span class="cs-approach-num">03</span>
-                </div>
-                <h3 class="cs-brand-card-title">IndexedDB &amp; Web Crypto</h3>
-                <p class="cs-brand-card-text">Direct client-side storage architecture with zero third-party telemetry, tracking pixels, or external API requirements.</p>
-              </figure>
-              <figure class="cs-brand-card" style="--i:4; --rot:0.35deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">UI SYSTEM</span>
-                  <span class="cs-approach-num">04</span>
-                </div>
-                <h3 class="cs-brand-card-title">Swiss International Typographic Style</h3>
-                <p class="cs-brand-card-text">High-contrast, grid-aligned monochrome visual language prioritizing immediate legibility and rapid keyboard navigation.</p>
-              </figure>
-              <figure class="cs-brand-card" style="--i:5; --rot:0deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">COMPATIBILITY</span>
-                  <span class="cs-approach-num">05</span>
-                </div>
-                <h3 class="cs-brand-card-title">Multi-Platform ATS Coverage</h3>
-                <p class="cs-brand-card-text">Production verified across Greenhouse, Lever, Workday, Taleo, Ashby, and custom corporate employment portals.</p>
-              </figure>
-              <div class="cs-brand-spacer" aria-hidden="true"></div>
-            </div>
-          </section>
-
-          <section class="cs-section cs-next">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <a class="cs-next-link js-cs-next" href="#win-pharmaerp" data-next-index="1" aria-label="Next project: PharmaERP">
-              <p class="cs-label">NEXT PROJECT</p>
-              <div class="cs-next-row">
-                <p class="cs-next-title">PharmaERP</p>
-                <svg class="cs-next-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <path d="M5 19L19 5M19 5H8M19 5v11"/>
-                </svg>
-              </div>
-            </a>
-          </section>
-        </article>
-      </section>
-
-      <!-- ================= CASE STUDY 02: PHARMAERP ================= -->
-      <section class="win win-case-study" id="win-pharmaerp" role="dialog" aria-label="PharmaERP Case Study" hidden>
-        <!-- Sticky Navigation Bar -->
-        <nav class="cs-nav-bar bar" aria-label="PharmaERP Case Study Navigation">
-          <div class="cs-nav-bar-left">
-            <div class="cs-nav-dots dots" aria-hidden="true">
-              <button type="button" class="cs-nav-dot close-dot dot r" data-close-win aria-label="Close Case Study"></button>
-              <button type="button" class="cs-nav-dot min-dot dot y" data-close-win aria-label="Minimize Case Study"></button>
-              <span class="cs-nav-dot expand-dot dot g"></span>
-            </div>
-            <span class="cs-nav-eyebrow ttl">(CASE STUDY · 02) / PharmaERP</span>
           </div>
-          <button type="button" class="cs-nav-close-btn win-close-btn" data-close-win aria-label="Close Case Study">
-            <span>Close [ESC]</span>
-            <span aria-hidden="true">✕</span>
-          </button>
-        </nav>
-
-        <!-- ================= CONTENT BLOCK ================= -->
-        <article class="cs-article doc" id="project-pharmaerp" data-slug="pharmaerp">
-          <header class="cs-hero" id="top-pharmaerp">
-            <p class="cs-eyebrow">(CASE STUDY · 02)</p>
-            <h1 class="cs-title">PharmaERP</h1>
-
-            <ul class="cs-chips" aria-label="Disciplines">
-              <li class="cs-chip">Clinical POS</li>
-              <li class="cs-chip">Inventory Ledger</li>
-              <li class="cs-chip">Batch Audit Compliance</li>
-            </ul>
-
-            <p class="cs-summary">A mission-critical pharmacy enterprise resource platform with sub-second dual-search, batch inventory expiry tracking, and compliant audit trails.</p>
-
-            <div class="cs-rule" aria-hidden="true"></div>
-
-            <dl class="cs-meta">
-              <div><dt>ROLE</dt><dd>Lead Systems Architect &amp; Front-End Engineer</dd></div>
-              <div><dt>TIMELINE</dt><dd>16 Weeks</dd></div>
-              <div><dt>YEAR</dt><dd>2024–2025</dd></div>
-              <div><dt>TEAM</dt><dd>2 Engineers + Domain Pharmacist</dd></div>
-            </dl>
-
-            <figure class="cs-hero-figure">
-              <picture>
-                <img src="assets/images/pharma.jpg"
-                     width="1600" height="1000"
-                     alt="PharmaERP Dual-Search Point of Sale Interface"
-                     fetchpriority="high" decoding="async">
-              </picture>
-            </figure>
-          </header>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <div class="cs-grid">
-              <p class="cs-label">(MY ROLE)</p>
-              <ul class="cs-role-list">
-                <li>Architected high-concurrency Node.js/Express POS engine processing 10,000+ daily pharmaceutical transactions.</li>
-                <li>Built sub-300ms keyboard-driven cashier interface with shortcut-activated dual brand (F2) and generic (F3) search.</li>
-                <li>Designed append-only double-entry financial ledger guaranteeing zero ledger corruption and real-time stock reconciliation.</li>
-              </ul>
-            </div>
-          </section>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <dl class="cs-facts">
-              <div class="cs-fact">
-                <dt class="cs-label">(THE PROBLEM)</dt>
-                <dd>Retail and hospital pharmacies struggle with sluggish legacy software that slows checkout lines, permits near-expiry medicines to slip into sales, and fails regulatory drug audit compliance.</dd>
-              </div>
-              <div class="cs-fact">
-                <dt class="cs-label">(APPROACH / POSITIONING)</dt>
-                <dd>Designed a zero-latency POS workflow optimized for keyboard-only cashier operation. Enforced strict FIFO batch expiry gates, automated thermal slip printing, and real-time stock balance recalculation.</dd>
-              </div>
-              <div class="cs-fact">
-                <dt class="cs-label">(WHAT CHANGED)</dt>
-                <dd>Cut cashier checkout times by 65%, eliminated expired medicine dispensation errors entirely, and delivered full regulatory audit trail compliance across all store locations.</dd>
-              </div>
-            </dl>
-          </section>
-
-          <section class="cs-section cs-approach-section">
-            <h2 class="cs-subhead">Approach</h2>
-            <ol class="cs-approach">
-              <li>
-                <div class="cs-rule" aria-hidden="true"></div>
-                <div class="cs-approach-row">
-                  <div class="cs-approach-head">
-                    <span class="cs-approach-num">01</span>
-                    <h3 class="cs-approach-title">Cashier Field Workflow Shadowing</h3>
-                  </div>
-                  <p class="cs-approach-body">Shadowed live hospital and retail pharmacy shifts to map keyboard-first shortcuts, eliminate mouse-dependency, and streamline checkout operations.</p>
-                </div>
-              </li>
-              <li>
-                <div class="cs-rule" aria-hidden="true"></div>
-                <div class="cs-approach-row">
-                  <div class="cs-approach-head">
-                    <span class="cs-approach-num">02</span>
-                    <h3 class="cs-approach-title">In-Memory Cart &amp; Dual Indexing</h3>
-                  </div>
-                  <p class="cs-approach-body">Engineered dual brand/generic search indexing with sub-300ms response across 50,000+ pharmaceutical SKUs with instant price calculation.</p>
-                </div>
-              </li>
-              <li>
-                <div class="cs-rule" aria-hidden="true"></div>
-                <div class="cs-approach-row">
-                  <div class="cs-approach-head">
-                    <span class="cs-approach-num">03</span>
-                    <h3 class="cs-approach-title">FIFO Expiry &amp; Batch Quarantine</h3>
-                  </div>
-                  <p class="cs-approach-body">Enforced automatic first-in-first-out stock routing with hard lockouts for batches within 30 days of expiration to prevent human error.</p>
-                </div>
-              </li>
-              <li>
-                <div class="cs-rule" aria-hidden="true"></div>
-                <div class="cs-approach-row">
-                  <div class="cs-approach-head">
-                    <span class="cs-approach-num">04</span>
-                    <h3 class="cs-approach-title">Immutable Audit &amp; Offline Resiliency</h3>
-                  </div>
-                  <p class="cs-approach-body">Constructed append-only transaction logs with automatic thermal ESC/POS receipt streaming and local caching during network drops.</p>
-                </div>
-              </li>
-            </ol>
-          </section>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <div class="cs-grid">
-              <h2 class="cs-subhead">Clinical POS Performance Features</h2>
-              <p class="cs-body">Ergonomic dark theme engineered for continuous 12-hour cashier shifts with zero visual fatigue and instant keyboard actuation.</p>
-            </div>
-            <div class="cs-media-stack">
-              <div class="cs-spec-sheet-card reveal">
-                <span class="cs-spec-badge">DUAL-SEARCH ENGINE</span>
-                <h4>Instant Brand &amp; Generic Switching</h4>
-                <p>Cashiers toggle seamlessly between proprietary brand names (F2) and generic chemical equivalents (F3) without touching a mouse. In-memory trie indexes filter 50,000 items in under 12 milliseconds.</p>
-                <div class="cs-spec-tech-pills">
-                  <span class="cs-spec-tech-pill">Keyboard Shortcuts (F2/F3)</span>
-                  <span class="cs-spec-tech-pill">Trie In-Memory Search</span>
-                  <span class="cs-spec-tech-pill">Zustand Store</span>
-                  <span class="cs-spec-tech-pill">50,000+ SKUs</span>
-                </div>
-              </div>
-              <div class="cs-spec-sheet-card reveal">
-                <span class="cs-spec-badge">COMPLIANCE &amp; LEDGER</span>
-                <h4>FIFO Expiry Gating &amp; Thermal Stream</h4>
-                <p>Every dispensed product automatically draws from the oldest valid batch. Batches nearing expiration trigger visual warnings and are quarantined from billing. Thermal slips print directly via native ESC/POS commands.</p>
-                <div class="cs-spec-tech-pills">
-                  <span class="cs-spec-tech-pill">Batch Quarantine</span>
-                  <span class="cs-spec-tech-pill">ESC/POS Printing</span>
-                  <span class="cs-spec-tech-pill">FIFO Enforcer</span>
-                  <span class="cs-spec-tech-pill">Audit Log</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <div class="cs-grid">
-              <h2 class="cs-subhead">Transaction Execution Flow</h2>
-              <p class="cs-body">An atomic 4-stage pipeline guaranteeing error-free checkout, inventory deduction, and regulatory logging.</p>
-            </div>
-            <div class="cs-flow-stack">
-              <figure class="cs-flow-card" style="--i:1">
-                <span class="cs-flow-step-tag">STAGE 01 · LOOKUP</span>
-                <h3 class="cs-flow-card-title">Dual Index SKU Search</h3>
-                <p class="cs-flow-card-desc">Rapid type-ahead matches brand or generic molecules with live stock quantities across all branch shelves.</p>
-                <img src="assets/icons/react-light.svg" alt="React POS" class="cs-flow-icon" />
-              </figure>
-              <figure class="cs-flow-card" style="--i:2">
-                <span class="cs-flow-step-tag">STAGE 02 · SELECTION</span>
-                <h3 class="cs-flow-card-title">Batch &amp; Expiry Verification</h3>
-                <p class="cs-flow-card-desc">System verifies batch numbers, manufacturing dates, and enforces FIFO clearance before allowing addition to cart.</p>
-                <img src="assets/icons/nodejs.svg" alt="Node.js Engine" class="cs-flow-icon" />
-              </figure>
-              <figure class="cs-flow-card" style="--i:3">
-                <span class="cs-flow-step-tag">STAGE 03 · COMMIT</span>
-                <h3 class="cs-flow-card-title">Double-Entry Stock Audit</h3>
-                <p class="cs-flow-card-desc">Atomic database transactions lock batch inventory, preventing simultaneous billing conflicts across multiple checkout counters.</p>
-                <img src="assets/icons/mongodb.svg" alt="Database Ledger" class="cs-flow-icon" />
-              </figure>
-              <figure class="cs-flow-card" style="--i:4">
-                <span class="cs-flow-step-tag">STAGE 04 · DISPATCH</span>
-                <h3 class="cs-flow-card-title">Thermal Slip Generation</h3>
-                <p class="cs-flow-card-desc">Streams formatted binary ESC/POS data directly to high-speed receipt printers with patient dosage instructions.</p>
-                <img src="assets/icons/tailwind-css.svg" alt="Thermal Stream" class="cs-flow-icon" />
-              </figure>
-            </div>
-          </section>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <div class="cs-grid">
-              <h2 class="cs-subhead">Architecture &amp; Core Standards</h2>
-              <p class="cs-body">Enterprise-grade resilience engineered for nonstop hospital dispensary and retail pharmacy operations.</p>
-            </div>
-            <div class="cs-brand-stack">
-              <figure class="cs-brand-card" style="--i:1; --rot:-1.1deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">FRONT-END CORE</span>
-                  <span class="cs-approach-num">01</span>
-                </div>
-                <h3 class="cs-brand-card-title">React 19 &amp; Tailwind CSS</h3>
-                <p class="cs-brand-card-text">Ergonomic clinical design system with instantaneous local input response and dark utility theme minimizing eye strain.</p>
-              </figure>
-              <figure class="cs-brand-card" style="--i:2; --rot:0.8deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">BACK-END RUNTIME</span>
-                  <span class="cs-approach-num">02</span>
-                </div>
-                <h3 class="cs-brand-card-title">Node.js &amp; Express Microservices</h3>
-                <p class="cs-brand-card-text">High-concurrency async transaction processing handling thousands of concurrent cart operations without queue stalls.</p>
-              </figure>
-              <figure class="cs-brand-card" style="--i:3; --rot:-0.6deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">LEDGER STORAGE</span>
-                  <span class="cs-approach-num">03</span>
-                </div>
-                <h3 class="cs-brand-card-title">Immutable Double-Entry Ledger</h3>
-                <p class="cs-brand-card-text">Append-only audit trail logging every stock addition, transfer, sale, and return for total regulatory compliance.</p>
-              </figure>
-              <figure class="cs-brand-card" style="--i:4; --rot:0.35deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">PRINTING PROTOCOL</span>
-                  <span class="cs-approach-num">04</span>
-                </div>
-                <h3 class="cs-brand-card-title">Direct ESC/POS Driver</h3>
-                <p class="cs-brand-card-text">Raw socket protocol communication bypassing operating system print dialogs for instant sub-second receipt output.</p>
-              </figure>
-              <figure class="cs-brand-card" style="--i:5; --rot:0deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">REGULATORY STANDARDS</span>
-                  <span class="cs-approach-num">05</span>
-                </div>
-                <h3 class="cs-brand-card-title">Directorate General of Drug Administration</h3>
-                <p class="cs-brand-card-text">Built to comply with national drug control guidelines, prescription record keeping, and narcotics schedule tracking.</p>
-              </figure>
-              <div class="cs-brand-spacer" aria-hidden="true"></div>
-            </div>
-          </section>
-
-          <section class="cs-section cs-next">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <a class="cs-next-link js-cs-next" href="#win-edu52" data-next-index="2" aria-label="Next project: Edu52">
-              <p class="cs-label">NEXT PROJECT</p>
-              <div class="cs-next-row">
-                <p class="cs-next-title">Edu52</p>
-                <svg class="cs-next-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <path d="M5 19L19 5M19 5H8M19 5v11"/>
-                </svg>
-              </div>
-            </a>
-          </section>
-        </article>
-      </section>
-
-      <!-- ================= CASE STUDY 03: EDU52 ================= -->
-      <section class="win win-case-study" id="win-edu52" role="dialog" aria-label="Edu52 Case Study" hidden>
-        <!-- Sticky Navigation Bar -->
-        <nav class="cs-nav-bar bar" aria-label="Edu52 Case Study Navigation">
-          <div class="cs-nav-bar-left">
-            <div class="cs-nav-dots dots" aria-hidden="true">
-              <button type="button" class="cs-nav-dot close-dot dot r" data-close-win aria-label="Close Case Study"></button>
-              <button type="button" class="cs-nav-dot min-dot dot y" data-close-win aria-label="Minimize Case Study"></button>
-              <span class="cs-nav-dot expand-dot dot g"></span>
-            </div>
-            <span class="cs-nav-eyebrow ttl">(CASE STUDY · 03) / Edu52</span>
-          </div>
-          <button type="button" class="cs-nav-close-btn win-close-btn" data-close-win aria-label="Close Case Study">
-            <span>Close [ESC]</span>
-            <span aria-hidden="true">✕</span>
-          </button>
-        </nav>
-
-        <!-- ================= CONTENT BLOCK ================= -->
-        <article class="cs-article doc" id="project-edu52" data-slug="edu52">
-          <header class="cs-hero" id="top-edu52">
-            <p class="cs-eyebrow">(CASE STUDY · 03)</p>
-            <h1 class="cs-title">Edu52</h1>
-
-            <ul class="cs-chips" aria-label="Disciplines">
-              <li class="cs-chip">High-Stakes Evaluation</li>
-              <li class="cs-chip">Anti-Cheat Socket</li>
-              <li class="cs-chip">KaTeX WebAssembly</li>
-            </ul>
-
-            <p class="cs-summary">A high-concurrency national civil service exam platform delivering sub-millisecond optical grading, real-time proctoring, and strict anti-leak protocols.</p>
-
-            <div class="cs-rule" aria-hidden="true"></div>
-
-            <dl class="cs-meta">
-              <div><dt>ROLE</dt><dd>Core Platform Architect &amp; Full-Stack Engineer</dd></div>
-              <div><dt>TIMELINE</dt><dd>12 Weeks</dd></div>
-              <div><dt>YEAR</dt><dd>2025–2026</dd></div>
-              <div><dt>TEAM</dt><dd>Core Engineering Lead</dd></div>
-            </dl>
-
-            <figure class="cs-hero-figure">
-              <picture>
-                <img src="assets/images/edu52-banner.webp"
-                     width="1600" height="1000"
-                     alt="Edu52 Civil Service Examination Platform &amp; OMR Interface"
-                     fetchpriority="high" decoding="async">
-              </picture>
-            </figure>
-          </header>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <div class="cs-grid">
-              <p class="cs-label">(MY ROLE)</p>
-              <ul class="cs-role-list">
-                <li>Built ultra-low latency WebSocket anti-cheat socket channel monitoring tab focus, screen bounds, and device integrity.</li>
-                <li>Implemented KaTeX mathematical typesetting engine with sub-millisecond rendering for complex formulas and BCS question sets.</li>
-                <li>Engineered high-throughput MongoDB bank storing 200,000+ categorized competitive questions with instant grading pipelines.</li>
-              </ul>
-            </div>
-          </section>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <dl class="cs-facts">
-              <div class="cs-fact">
-                <dt class="cs-label">(THE PROBLEM)</dt>
-                <dd>National competitive civil service examinations (BCS) demand instantaneous grading across 200-question sets, strict anti-cheating protection against browser leaks, and robust mathematical formula rendering without server lag.</dd>
-              </div>
-              <div class="cs-fact">
-                <dt class="cs-label">(APPROACH / POSITIONING)</dt>
-                <dd>Constructed an authentic optical mark recognition (OMR) bubble-sheet interface with client-side state caching, tamper-proof countdown timers, and continuous WebSocket proctoring telemetries.</dd>
-              </div>
-              <div class="cs-fact">
-                <dt class="cs-label">(WHAT CHANGED)</dt>
-                <dd>Scaled concurrent mock examinations to thousands of simultaneous examinees with sub-50ms score calculations, zero question leakage, and total exam integrity verification.</dd>
-              </div>
-            </dl>
-          </section>
-
-          <section class="cs-section cs-approach-section">
-            <h2 class="cs-subhead">Approach</h2>
-            <ol class="cs-approach">
-              <li>
-                <div class="cs-rule" aria-hidden="true"></div>
-                <div class="cs-approach-row">
-                  <div class="cs-approach-head">
-                    <span class="cs-approach-num">01</span>
-                    <h3 class="cs-approach-title">OMR Simulation &amp; Paper Grid Layout</h3>
-                  </div>
-                  <p class="cs-approach-body">Recreated authentic civil service bubble-sheet UX with instant visual feedback, rapid row keyboard navigation, and responsive touch targeting.</p>
-                </div>
-              </li>
-              <li>
-                <div class="cs-rule" aria-hidden="true"></div>
-                <div class="cs-approach-row">
-                  <div class="cs-approach-head">
-                    <span class="cs-approach-num">02</span>
-                    <h3 class="cs-approach-title">WebSocket Proctoring &amp; Integrity Checks</h3>
-                  </div>
-                  <p class="cs-approach-body">Engineered real-time socket monitors detecting window blur, copy/paste attempts, second-monitor connection, and devtools inspection.</p>
-                </div>
-              </li>
-              <li>
-                <div class="cs-rule" aria-hidden="true"></div>
-                <div class="cs-approach-row">
-                  <div class="cs-approach-head">
-                    <span class="cs-approach-num">03</span>
-                    <h3 class="cs-approach-title">Mathematical Formula Rendering</h3>
-                  </div>
-                  <p class="cs-approach-body">Integrated client-side KaTeX typesetting executing complex equation layouts, scientific notation, and matrices in under 1 millisecond.</p>
-                </div>
-              </li>
-              <li>
-                <div class="cs-rule" aria-hidden="true"></div>
-                <div class="cs-approach-row">
-                  <div class="cs-approach-head">
-                    <span class="cs-approach-num">04</span>
-                    <h3 class="cs-approach-title">Instant Optical Score Calculation</h3>
-                  </div>
-                  <p class="cs-approach-body">Constructed high-speed grading algorithms computing negative-marking scores, topic percentiles, and answer explanations upon exam termination.</p>
-                </div>
-              </li>
-            </ol>
-          </section>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <div class="cs-grid">
-              <h2 class="cs-subhead">Evaluation Engine Performance Features</h2>
-              <p class="cs-body">Purpose-built examination interfaces supporting high concurrency and sub-millisecond evaluation cycles.</p>
-            </div>
-            <div class="cs-media-stack">
-              <div class="cs-spec-sheet-card reveal">
-                <span class="cs-spec-badge">ANTI-CHEAT SOCKET KERNEL</span>
-                <h4>Real-Time Candidate Proctoring</h4>
-                <p>WebSocket heartbeats monitor candidate browser states every 2 seconds. Automatically flags tab switches, devtools inspection, copy actions, and window resizes with instant penalty warnings.</p>
-                <div class="cs-spec-tech-pills">
-                  <span class="cs-spec-tech-pill">WebSockets</span>
-                  <span class="cs-spec-tech-pill">Visibility API</span>
-                  <span class="cs-spec-tech-pill">Tab Blur Detector</span>
-                  <span class="cs-spec-tech-pill">Copy-Lock Guard</span>
-                </div>
-              </div>
-              <div class="cs-spec-sheet-card reveal">
-                <span class="cs-spec-badge">MATH &amp; SCIENTIFIC ENGINE</span>
-                <h4>KaTeX WebAssembly Typesetting</h4>
-                <p>Mathematical, chemical, and physical formulas render client-side with zero network latency. Converts LaTeX syntax into accessible high-contrast SVG math representations at 60 frames per second.</p>
-                <div class="cs-spec-tech-pills">
-                  <span class="cs-spec-tech-pill">KaTeX Core</span>
-                  <span class="cs-spec-tech-pill">&lt;1ms Render</span>
-                  <span class="cs-spec-tech-pill">LaTeX Math</span>
-                  <span class="cs-spec-tech-pill">Accessible MathML</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <div class="cs-grid">
-              <h2 class="cs-subhead">Exam Delivery Pipeline Flow</h2>
-              <p class="cs-body">A secured 4-phase lifecycle guaranteeing question confidentiality and millisecond score computation.</p>
-            </div>
-            <div class="cs-flow-stack">
-              <figure class="cs-flow-card" style="--i:1">
-                <span class="cs-flow-step-tag">STAGE 01 · AUTH</span>
-                <h3 class="cs-flow-card-title">Candidate Admission Check</h3>
-                <p class="cs-flow-card-desc">Validates JWT session credentials, synchronizes server time offsets, and prepares encrypted question sets.</p>
-                <img src="assets/icons/jwt.svg" alt="JWT Auth" class="cs-flow-icon" />
-              </figure>
-              <figure class="cs-flow-card" style="--i:2">
-                <span class="cs-flow-step-tag">STAGE 02 · PROCTOR</span>
-                <h3 class="cs-flow-card-title">Live Socket Telemetry</h3>
-                <p class="cs-flow-card-desc">Streams focus and input heartbeats to prevent collaborative cheating or external browser assistance.</p>
-                <img src="assets/icons/react-light.svg" alt="React Proctor" class="cs-flow-icon" />
-              </figure>
-              <figure class="cs-flow-card" style="--i:3">
-                <span class="cs-flow-step-tag">STAGE 03 · TYPESET</span>
-                <h3 class="cs-flow-card-title">KaTeX Instant Equation Render</h3>
-                <p class="cs-flow-card-desc">Executes sub-millisecond local typesetting of complex mathematical and scientific formula blocks.</p>
-                <img src="assets/icons/html5.svg" alt="KaTeX Math" class="cs-flow-icon" />
-              </figure>
-              <figure class="cs-flow-card" style="--i:4">
-                <span class="cs-flow-step-tag">STAGE 04 · EVALUATION</span>
-                <h3 class="cs-flow-card-title">Negative-Marking Grading</h3>
-                <p class="cs-flow-card-desc">Applies official civil service marking rubrics (-0.5 per wrong answer) and generates breakdown within 50ms.</p>
-                <img src="assets/icons/python.svg" alt="Python Kernel" class="cs-flow-icon" />
-              </figure>
-            </div>
-          </section>
-
-          <section class="cs-section">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <div class="cs-grid">
-              <h2 class="cs-subhead">System Architecture &amp; Security Standards</h2>
-              <p class="cs-body">Engineered to uphold absolute integrity for high-stakes national candidate evaluation.</p>
-            </div>
-            <div class="cs-brand-stack">
-              <figure class="cs-brand-card" style="--i:1; --rot:-1.1deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">EXAM UI</span>
-                  <span class="cs-approach-num">01</span>
-                </div>
-                <h3 class="cs-brand-card-title">Official OMR Paper Simulation</h3>
-                <p class="cs-brand-card-text">Pixel-perfect civil service bubble grid with keyboard shortcuts for instant answer selection and review marking.</p>
-              </figure>
-              <figure class="cs-brand-card" style="--i:2; --rot:0.8deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">QUESTION STORAGE</span>
-                  <span class="cs-approach-num">02</span>
-                </div>
-                <h3 class="cs-brand-card-title">200,000+ BCS Question Bank</h3>
-                <p class="cs-brand-card-text">Categorized repository indexed across Bangladesh Affairs, International, Science, Math, and Bengali Literature.</p>
-              </figure>
-              <figure class="cs-brand-card" style="--i:3; --rot:-0.6deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">ANTI-LEAK PROTOCOLS</span>
-                  <span class="cs-approach-num">03</span>
-                </div>
-                <h3 class="cs-brand-card-title">Dynamic Question Watermarking</h3>
-                <p class="cs-brand-card-text">Cryptographic steganographic candidate watermarks embedded into canvas layers to trace any unauthorized screengrab.</p>
-              </figure>
-              <figure class="cs-brand-card" style="--i:4; --rot:0.35deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">SCORING PIPELINE</span>
-                  <span class="cs-approach-num">04</span>
-                </div>
-                <h3 class="cs-brand-card-title">Sub-50ms Optical Score Engine</h3>
-                <p class="cs-brand-card-text">High-speed evaluation algorithm computing raw scores, negative penalties, and cohort rankings upon submission.</p>
-              </figure>
-              <figure class="cs-brand-card" style="--i:5; --rot:0deg">
-                <div class="cs-brand-card-meta">
-                  <span class="cs-eyebrow">ACADEMIC STANDARDS</span>
-                  <span class="cs-approach-num">05</span>
-                </div>
-                <h3 class="cs-brand-card-title">Bangladesh Public Service Commission Spec</h3>
-                <p class="cs-brand-card-text">Engineered strictly to the formatting rules, timing constraints, and syllabus boundaries of the 45th–47th BCS.</p>
-              </figure>
-              <div class="cs-brand-spacer" aria-hidden="true"></div>
-            </div>
-          </section>
-
-          <section class="cs-section cs-next">
-            <div class="cs-rule" aria-hidden="true"></div>
-            <a class="cs-next-link js-cs-next" href="#win-applykit" data-next-index="0" aria-label="Next project: ApplyKit">
-              <p class="cs-label">NEXT PROJECT</p>
-              <div class="cs-next-row">
-                <p class="cs-next-title">ApplyKit</p>
-                <svg class="cs-next-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <path d="M5 19L19 5M19 5H8M19 5v11"/>
-                </svg>
-              </div>
-            </a>
-          </section>
-        </article>
-      </section>
+        </div>
+      </dialog>
     </section>
 
     <!-- 04B. SKILLS & CAPABILITIES BENTO GRID (Pure Vanilla CSS & JS) -->
