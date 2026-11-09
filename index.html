@@ -898,61 +898,56 @@
   </section>
 
     <!-- 05. CINEMATIC SCROLL-SCRUBBED STATS SECTION (Danish Architectural Aesthetic) -->
-    <section id="stats" class="stats-track js-stats-track" aria-label="Engineering Performance &amp; Scale">
-      <div class="stats-sticky js-stats-sticky">
-        <!-- Pinned Architectural Image Frame with Expanding Clip-Path & Darkening Scrim -->
-        <div class="stats-frame js-stats-frame" aria-hidden="true">
-          <div class="stats-bg-image js-stats-image"></div>
-          <div class="stats-scrim js-stats-scrim"></div>
-        </div>
-
-        <!-- 12-Column Swiss Content Grid -->
-        <div class="stats-container container js-stats-content">
-          <div class="stats-header">
-            <span class="stats-eyebrow">Performance &amp; Scale</span>
-            <h2 class="stats-heading">Engineering metrics by the numbers.</h2>
+    <section id="stats" aria-labelledby="stats-title" class="relative mt-28 h-[260svh] m:mt-40">
+      <div class="sticky top-0 h-svh overflow-hidden">
+        <div class="absolute inset-0 bg-ink" style="clip-path: inset(30% 35%);">
+          <div class="absolute inset-0" style="transform: scale(1.25);">
+            <img alt="Fjordhus waterfront architecture" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;" src="assets/images/fjordhus-waterfront.webp">
           </div>
-
-          <div class="stats-grid">
-            <!-- Stat 01: Lines of Code -->
-            <div class="stat-card js-stat-card">
-              <span class="stat-hairline js-stat-hairline" aria-hidden="true"></span>
-              <div class="stat-metric">
-                <span class="stat-number js-stat-num" data-target="120" data-suffix="K+">0</span>
+          <div class="absolute inset-0 bg-ink" style="opacity:0"></div>
+        </div>
+        <div class="pointer-events-none relative mx-auto flex h-full w-full max-w-[1600px] flex-col justify-center px-4 text-paper m:px-8" style="opacity: 0; transform: translateY(40px);">
+          <div class="grid gap-10 m:grid-cols-12">
+            <h2 id="stats-title" class="text-small m:col-span-3">Since 2011</h2>
+            <p class="max-w-[34ch] font-statement text-h4 m:col-span-8 m:col-start-5">Fifteen years of work, counted. Every figure covers built and in-progress projects together.</p>
+            <dl class="grid grid-cols-2 gap-x-6 gap-y-10 m:col-span-8 m:col-start-5 m:mt-6">
+              <div>
+                <dt class="text-small text-paper/70">
+                  <span class="block h-px origin-left bg-paper/30" style="transform: none;"></span>
+                  <span class="block pt-4">Buildings completed</span>
+                </dt>
+                <dd class="mt-2 font-headline text-title leading-none" style="opacity: 1; transform: none;">
+                  <span class="tabular-nums" data-target="41">41</span>
+                </dd>
               </div>
-              <h3 class="stat-label">Production Code Written</h3>
-              <p class="stat-note">TypeScript, React, &amp; Modern CSS</p>
-            </div>
-
-            <!-- Stat 02: Systems Shipped -->
-            <div class="stat-card js-stat-card">
-              <span class="stat-hairline js-stat-hairline" aria-hidden="true"></span>
-              <div class="stat-metric">
-                <span class="stat-number js-stat-num" data-target="18" data-suffix="+">0</span>
+              <div>
+                <dt class="text-small text-paper/70">
+                  <span class="block h-px origin-left bg-paper/30" style="transform: none;"></span>
+                  <span class="block pt-4">Square metres designed</span>
+                </dt>
+                <dd class="mt-2 font-headline text-title leading-none" style="opacity: 1; transform: none;">
+                  <span class="tabular-nums" data-target="212" data-suffix="k">212k</span>
+                </dd>
               </div>
-              <h3 class="stat-label">Bespoke Systems Shipped</h3>
-              <p class="stat-note">Platforms, MVPs, &amp; Microservices</p>
-            </div>
-
-            <!-- Stat 03: Performance Score -->
-            <div class="stat-card js-stat-card">
-              <span class="stat-hairline js-stat-hairline" aria-hidden="true"></span>
-              <div class="stat-metric">
-                <span class="stat-number js-stat-num" data-target="100" data-suffix="%">0</span>
+              <div>
+                <dt class="text-small text-paper/70">
+                  <span class="block h-px origin-left bg-paper/30" style="transform: none;"></span>
+                  <span class="block pt-4">People in the studio</span>
+                </dt>
+                <dd class="mt-2 font-headline text-title leading-none" style="opacity: 1; transform: none;">
+                  <span class="tabular-nums" data-target="24">24</span>
+                </dd>
               </div>
-              <h3 class="stat-label">Performance Score</h3>
-              <p class="stat-note">Lighthouse &amp; Core Web Vitals</p>
-            </div>
-
-            <!-- Stat 04: Frame Budget -->
-            <div class="stat-card js-stat-card">
-              <span class="stat-hairline js-stat-hairline" aria-hidden="true"></span>
-              <div class="stat-metric">
-                <span class="stat-number js-stat-num" data-target="16" data-prefix="&lt;" data-suffix="ms">0</span>
+              <div>
+                <dt class="text-small text-paper/70">
+                  <span class="block h-px origin-left bg-paper/30" style="transform: none;"></span>
+                  <span class="block pt-4">Awards and nominations</span>
+                </dt>
+                <dd class="mt-2 font-headline text-title leading-none" style="opacity: 1; transform: none;">
+                  <span class="tabular-nums" data-target="9">9</span>
+                </dd>
               </div>
-              <h3 class="stat-label">Frame Budget</h3>
-              <p class="stat-note">Strict 60 FPS Fluid Kinetic Target</p>
-            </div>
+            </dl>
           </div>
         </div>
       </div>
