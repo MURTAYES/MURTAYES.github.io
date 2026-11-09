@@ -1,8 +1,7 @@
 /**
  * Vanilla JavaScript DecryptText Engine
- * Decrypts text dynamically through rapid glyph cycling, staggered lock-in,
- * jittered resolution sweeps, and accent glow flashes.
- * MIT Licensed · Clean-room Vanilla JS implementation for Samnun Murtayes Portfolio.
+ * Clean-room 1:1 Vanilla JS implementation matching Motiq DecryptText specification.
+ * Zero external dependencies. Zero CDN.
  */
 (function () {
   "use strict";
@@ -11,9 +10,8 @@
   const POOL_DISPLAY = "#%&@$?!*+=/{}[]<>~^";
   const HOVER_COOLDOWN = 1500;
   const CYCLE_SPREAD = 35;
-  const FLASH_MS = 420;
 
-  // PRNG (Mulberry32) for deterministic jitter
+  // Mulberry32 deterministic PRNG (matching reference)
   function makeRng(seed) {
     let a = seed >>> 0;
     return function () {
@@ -30,16 +28,17 @@
 
   class DecryptInstance {
     constructor(element) {
-      this.el = element;
-      this.text = this.el.getAttribute("data-decrypt") || this.el.textContent.trim();
-      this.speed = parseInt(this.el.getAttribute("data-speed") || "40", 10);
-      this.stagger = parseInt(this.el.getAttribute("data-stagger") || "32", 10);
-      this.startDelay = parseInt(this.el.getAttribute("data-start-delay") || "350", 10);
-      this.jitter = parseInt(this.el.getAttribute("data-jitter") || "80", 10);
-      this.loop = this.el.getAttribute("data-loop") === "false" ? false : parseInt(this.el.getAttribute("data-loop") || "6500", 10);
-      this.variant = this.el.getAttribute("data-variant") || "terminal";
-      this.seed = parseInt(this.el.getAttribute("data-seed") || "1", 10);
-      this.retriggerOnHover = this.el.getAttribute("data-retrigger") !== "false";
+      this.root = element;
+      this.contentEl = this.root.querySelector(".js-decrypt-content") || this.root;
+      this.text = this.root.getAttribute("data-decrypt") || this.contentEl.textContent.trim();
+      this.speed = parseInt(this.root.getAttribute("data-speed") || "45", 10);
+      this.stagger = parseInt(this.root.getAttribute("data-stagger") || "55", 10);
+      this.startDelay = parseInt(this.root.getAttribute("data-start-delay") || "600", 10);
+      this.jitter = parseInt(this.root.getAttribute("data-jitter") || "120", 10);
+      this.loop = this.root.getAttribute("data-loop") === "false" ? false : parseInt(this.root.getAttribute("data-loop") || "5200", 10);
+      this.variant = this.root.getAttribute("data-variant") || "terminal";
+      this.seed = parseInt(this.root.getAttribute("data-seed") || "1", 10);
+      this.retriggerOnHover = this.root.getAttribute("data-retrigger") !== "false";
 
       this.pool = this.variant === "terminal" ? POOL_TERMINAL : POOL_DISPLAY;
       this.rafId = null;
@@ -54,24 +53,12 @@
       if (isReducedMotion()) {
         this.resolveAll();
       } else {
-        setTimeout(() => this.play(), this.startDelay);
+        this.play();
       }
     }
 
     initDOM() {
-      this.el.innerHTML = "";
-      this.el.classList.add("decrypt-text-root");
-
-      // Accessible screen-reader text
-      const srSpan = document.createElement("span");
-      srSpan.className = "sr-only";
-      srSpan.textContent = this.text;
-      this.el.appendChild(srSpan);
-
-      // Visible glyph layer
-      const glyphLayer = document.createElement("span");
-      glyphLayer.className = "decrypt-glyph-layer";
-      glyphLayer.setAttribute("aria-hidden", "true");
+      this.contentEl.innerHTML = "";
 
       const words = this.text.split(" ");
       this.cells = [];
@@ -90,17 +77,15 @@
           this.cells.push(charSpan);
         });
 
-        glyphLayer.appendChild(wordSpan);
+        this.contentEl.appendChild(wordSpan);
 
         if (wIdx < words.length - 1) {
           const spaceSpan = document.createElement("span");
-          spaceSpan.className = "decrypt-space";
+          spaceSpan.className = "decrypt-word";
           spaceSpan.innerHTML = "&nbsp;";
-          glyphLayer.appendChild(spaceSpan);
+          this.contentEl.appendChild(spaceSpan);
         }
       });
-
-      this.el.appendChild(glyphLayer);
     }
 
     stop() {
@@ -180,7 +165,7 @@
     bindEvents() {
       if (!this.retriggerOnHover) return;
 
-      const triggerEl = this.el.closest(".decrypt-terminal-card") || this.el;
+      const triggerEl = this.root;
       triggerEl.addEventListener("mouseenter", () => {
         if (isReducedMotion()) return;
         if (this.rafId !== null) return;
@@ -191,7 +176,7 @@
   }
 
   function initAllDecrypts() {
-    const targets = document.querySelectorAll(".js-decrypt-text, [data-decrypt]");
+    const targets = document.querySelectorAll(".js-decrypt-terminal, .js-decrypt-text, [data-decrypt]");
     targets.forEach((el) => {
       if (!el._decryptInstance) {
         el._decryptInstance = new DecryptInstance(el);
@@ -207,4 +192,3 @@
     initAllDecrypts();
   }
 })();
-
