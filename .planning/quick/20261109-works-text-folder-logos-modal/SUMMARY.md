@@ -26,3 +26,4 @@ description: Redesign Selected Works with one side text, one side folder, embedd
 5. **Dismissal & Accessibility**:
    - Closes via red traffic light dot, close button, ESC key, or backdrop click.
    - Traps scroll while modal is active.
+

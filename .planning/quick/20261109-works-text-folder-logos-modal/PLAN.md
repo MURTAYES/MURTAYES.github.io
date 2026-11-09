@@ -20,3 +20,4 @@ status: complete
    - Detailed project write-up with core highlights.
    - **Tech stack grid displaying official SVG logos** with names and architecture roles.
    - Reliable close on red dot, close button, ESC key, or backdrop click.
+
