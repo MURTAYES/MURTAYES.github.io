@@ -39,6 +39,7 @@ Progress: [██████████] 100.0%
 | Date | Task Slug | Description | Status |
 | --- | --- | --- | --- |
 | 2026-11-09 | 20261109-works-genie-folder | Tactile Manila architectural folder with Apple Mac genie window animation | complete ✓ |
+| 2026-11-09 | 20261109-remove-scratch | Remove scratch folder and all temporary files | complete ✓ |
 
 ## Accumulated Context
 

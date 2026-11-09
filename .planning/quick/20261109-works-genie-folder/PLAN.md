@@ -25,3 +25,4 @@ Implement the user's tactile folder and Apple-style genie squeeze window animati
    - Verify folder hover and fan out.
    - Verify genie window open and close animation.
    - Verify zero JS console errors.
+

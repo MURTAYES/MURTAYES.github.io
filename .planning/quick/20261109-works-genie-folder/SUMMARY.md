@@ -17,3 +17,4 @@ description: Replace Selected Works with tactile Manila architectural folder and
   - Dynamic GPU strip slicing (`SH = 4px`, `OV = 1px`) creating smooth window expansion from behind the folder flap.
   - Full keyboard accessibility (`Escape` key, `:focus-visible` fanning), click-outside closing, and traffic light controls (`.dot.r`, `.dot.y`).
   - Integrated `.js-dossier-jump` links from Section 6 to smooth-scroll and trigger genie window opening.
+
