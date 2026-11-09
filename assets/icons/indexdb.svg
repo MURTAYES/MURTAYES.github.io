@@ -1,0 +1,14 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74 74" width="74" height="74">
+	<style>
+		.s0 { fill: #ff7f50 } 
+		.s1 { fill: none;stroke: #879196;stroke-width: 2 } 
+		.s2 { fill: #ffffff } 
+	</style>
+	<g id="Icon-Architecture-Category/48/Database_48">
+		<path id="Rectangle" fill-rule="evenodd" class="s0" d="m5 5h64v64h-64z"/>
+		<path id="#879196-Border-Copy-9" fill-rule="evenodd" class="s1" d="m1 1h72v72h-72z"/>
+		<g id="Icon-Category/48/Database_48">
+			<path id="Database_Category-Icon_48_Squid--" fill-rule="evenodd" class="s2" d="m52 21.44v31.12c0 4.18-7.73 6.44-15 6.44-7.27 0-15-2.26-15-6.44v-31.12c0-4.18 7.73-6.44 15-6.44 7.27 0 15 2.26 15 6.44zm-2 21.57v-7.35c-2.77 2.03-7.99 3.1-13 3.1-5.01 0-10.23-1.07-13-3.1v7.35c0 2.1 5.56 4.44 13 4.44 7.44 0 13-2.34 13-4.44zm0 9.55v-6.21c-2.77 2.03-7.99 3.1-13 3.1-5.01 0-10.23-1.07-13-3.1v6.21c0 2.1 5.56 4.44 13 4.44 7.44 0 13-2.34 13-4.44zm-26-31.12c0 2.1 5.56 4.44 13 4.44 7.44 0 13-2.34 13-4.44 0-2.1-5.56-4.44-13-4.44-7.44 0-13 2.34-13 4.44zm26 10.88v-7.54c-2.77 2.03-7.99 3.1-13 3.1-5.01 0-10.23-1.07-13-3.1v7.54c0 2.1 5.56 4.44 13 4.44 7.44 0 13-2.34 13-4.44z"/>
+		</g>
+	</g>
+</svg>
