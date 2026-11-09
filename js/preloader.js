@@ -320,9 +320,6 @@
         }, 500);
       }
 
-      const boldNav = document.querySelector(".bold-nav-full");
-      if (boldNav) boldNav.classList.add("is-visible");
-
       // Cleanup preloader container and unlock scroll
       setTimeout(() => {
         heroSection.style.clipPath = "";
@@ -366,14 +363,12 @@
         r.style.transform = "none";
       });
     }
-    const desktopNav = document.querySelector(".willen-nav");
+    const desktopNav = document.querySelector(".site-header") || document.querySelector(".willen-nav");
     if (desktopNav) {
       desktopNav.classList.add("is-visible");
       desktopNav.style.opacity = "1";
       desktopNav.style.transform = "none";
     }
-    const boldNav = document.querySelector(".bold-nav-full");
-    if (boldNav) boldNav.classList.add("is-visible");
   }
 
   window.initHeroPreloader = initHeroPreloader;

@@ -13,11 +13,11 @@
   <link rel="alternate icon" href="assets/images/logo.svg">
   <link rel="apple-touch-icon" href="assets/images/logo.svg">
 
-  <!-- Google Fonts: Inter (UI Workhorse), Lora (Editorial Serif), Pixelify Sans (Retro Accent) -->
+  <!-- Google Fonts: Plus Jakarta Sans (Primary Editorial Nav), Inter (UI), Lora (Serif), Pixelify Sans (Retro) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Pixelify+Sans:wght@400..700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Pixelify+Sans:wght@400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Modular Stylesheets (Parallel Streaming & Caching) -->
@@ -49,50 +49,37 @@
     </symbol>
   </svg>
 
-  <!-- 01. NAVIGATION ARCHITECTURE (Matching Reference Screenshot) -->
-  <!-- Desktop Minimalist Floating Navigation -->
-  <header class="header willen-nav header--editorial" navbar-scroll>
-    <a class="header__logo" data-cursor="Home" href="/" aria-label="Samnun Murtayes Home">
-      <img src="assets/images/logo.svg" alt="Samnun Murtayes Logo" class="header__brand-logo" width="48" height="48">
-    </a>
-
-    <div class="header__actions nav-anim">
-      <button type="button" class="header__menu-button" data-navigation-toggle="toggle" aria-expanded="false"
-        aria-controls="site-menu" aria-label="Toggle navigation">
-        <span class="header__bars" aria-hidden="true">
-          <span class="header__bar"></span>
-          <span class="header__bar"></span>
-        </span>
+  <!-- 01. PRIMARY NAVIGATION (FIXED HEADER + FULLSCREEN SLIDE-OUT MENU) -->
+  <!-- FIXED HEADER -->
+  <header class="site-header willen-nav header">
+    <div class="header-container">
+      <a class="wordmark-link header__logo" href="#hero" aria-label="Samnun Murtayes Home" data-cursor="Home">
+        <img src="assets/images/logo.svg" alt="Samnun Murtayes Logo" class="wordmark-img header__brand-logo" id="header-brand-logo">
+      </a>
+      <button type="button" id="menu-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu" class="menu-toggle" data-cursor="Menu">
+        <span></span>
+        <span></span>
       </button>
     </div>
   </header>
 
-  <!-- Full-Screen Mobile Drawer Navigation -->
-  <nav class="bold-nav-full" data-navigation-status="not-active">
-    <div class="bold-nav-full__bar">
-      <button class="bold-nav-full__hamburger" data-navigation-toggle="toggle" aria-label="Toggle navigation">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-      <a href="/" class="nav-logo-link" aria-label="Samnun Murtayes">
-        <img src="assets/images/logo.svg" alt="Samnun Murtayes" class="nav-logo-img" style="height: 38px;">
-      </a>
-    </div>
-    <div class="bold-nav-full__tile">
-      <div class="u-container bold-nav-full__content">
-        <ul class="bold-nav-full__ul">
-          <li><a href="#about" class="bold-nav-full__link" data-navigation-toggle="close">About Me</a></li>
-          <li><a href="#contact" class="bold-nav-full__link" data-navigation-toggle="close">Contact</a></li>
-          <li><a href="#works" class="bold-nav-full__link" data-navigation-toggle="close">Works</a></li>
-        </ul>
-        <div class="bold-nav__bottom">
-          <span class="bold-nav__community">Available for select client projects & engineering</span>
-          <a href="#contact" class="bold-nav__email">samnun@murtayes.com</a>
-        </div>
+  <!-- BACKDROP SCRIM -->
+  <div class="menu-scrim" id="menu-scrim" aria-hidden="true"></div>
+
+  <!-- FULLSCREEN MENU OVERLAY -->
+  <div class="site-menu-overlay" id="site-menu" aria-hidden="true">
+    <div class="menu-inner">
+      <ul class="menu-list">
+        <li class="menu-item"><a href="#hero" class="menu-link" data-cursor="Home">Home</a></li>
+        <li class="menu-item"><a href="#about" class="menu-link" data-cursor="About">About</a></li>
+        <li class="menu-item"><a href="#works" class="menu-link" data-cursor="Work">Work</a></li>
+        <li class="menu-item"><a href="#contact" class="menu-link" data-cursor="Contact">Contact</a></li>
+      </ul>
+      <div>
+        <a href="mailto:samnun@murtayes.com" class="menu-footer-link" data-cursor="Email">SAMNUN@MURTAYES.COM</a>
       </div>
     </div>
-  </nav>
+  </div>
 
   <main id="main-content">
 
@@ -198,20 +185,19 @@
       </section>
     </section>
 
-    <!-- 03. ABOUT SECTION -->
-    <section id="about" class="c-section about-section" data-theme="light" data-c-section-pt="l" data-c-section-pb="m">
-      <div class="u-container">
-        <div class="article-wrapper">
-          <div class="article-col__left">
-            <h2 class="about-me-title">About Me</h2>
-          </div>
-          <div class="article-col__right">
-            <h3 class="u-h3" data-gradient-wave-text="" data-gradient-wave-scroll-start="top 90%"
-              data-gradient-wave-scroll-end="center 40%" data-gradient-wave-color-start="rgba(31, 31, 31, 0.25)"
-              data-gradient-wave-color-wave="#eb381c">
-              I engineer software where performance, privacy, and tactile motion converge. Specializing in local-first browser architectures, zero-drift transactional systems, and micro-interactions that feel immediate and natural.
-            </h3>
-          </div>
+    <!-- 03. MANIFESTO / ABOUT (STICKY SCROLL-SCRUBBED WORD REVEAL) -->
+    <section id="about" class="home-quote-block wp-block-onlines-home-quote-block is-animating" aria-label="Manifesto">
+      <div class="home-quote-block__sticky js-quote-sticky">
+        <div class="home-quote-block__dots patron-puntos js-quote-dots" aria-hidden="true"></div>
+
+        <div class="home-quote-block__contenido">
+          <h2 class="home-quote-block__titulo js-quote-texto" data-quote-group="titulo">
+            <span class="js-quote-word">Hacemos</span> <span class="js-quote-word">sitios</span> <span class="js-quote-word">web</span> <span class="js-quote-word">de</span> <span class="js-quote-word">alta</span> <span class="js-quote-word">calidad</span> <span class="js-quote-word">para</span> <span class="js-quote-word">empresas,</span> <span class="js-quote-word">gobiernos</span> <span class="js-quote-word">y</span> <span class="js-quote-word">organizaciones.</span>
+          </h2>
+
+          <p class="home-quote-block__subtitulo js-quote-texto" data-quote-group="subtitulo">
+            <span class="js-quote-word">Siguiendo</span> <span class="js-quote-word">nuestro</span> <span class="js-quote-word">objetivo</span> <span class="js-quote-word">de</span> <span class="js-quote-word">que</span> <br class="quote-break"><span class="js-quote-word">internet</span> <span class="js-quote-word">sea</span> <span class="js-quote-word">un</span> <span class="js-quote-word">lugar</span> <span class="js-quote-word">mejor.</span>
+          </p>
         </div>
       </div>
     </section>
