@@ -120,6 +120,30 @@
     currentProgress = targetProgress;
     render();
 
+    // --------------------------------------------------------------------------
+    // White -> Black -> White Viewport-Center IntersectionObserver
+    // Matching the architecture of onlines.com.ar (.home-bloque-dark-mode)
+    // --------------------------------------------------------------------------
+    if ("IntersectionObserver" in window) {
+      const darkThemeObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              document.body.classList.add("is-dark");
+            } else {
+              document.body.classList.remove("is-dark");
+            }
+          });
+        },
+        {
+          rootMargin: "-40% 0px -40% 0px",
+          threshold: 0
+        }
+      );
+
+      darkThemeObserver.observe(section);
+    }
+
     // Connect Dossier Quick Jump Links to Selected Works Folders
     const dossierLinks = section.querySelectorAll(".js-dossier-jump");
     dossierLinks.forEach(function (link) {

@@ -20,3 +20,4 @@ description: Refined architectural CTA section with iPhone unlock shimmer button
    - Kinetic vertical text roll on hover with zero layout shift.
    - Circular white badge with dual-arrow slide transition (`translate(160%, -160%)`).
    - Click opens the interactive right-side contact drawer (`#contact-modal`).
+

@@ -14,6 +14,12 @@
 :root {
   color-scheme: light dark;
 
+  /* Global Dynamic Scroll-Theme Tokens (onlines.com.ar architecture) */
+  --page-bg: #ffffff;
+  --page-text: #060606;
+  --page-muted: #525866;
+  --border-subtle: rgba(6, 6, 6, 0.08);
+
   /* Global Color Palette matching nbnzia.com */
   --_color---bg-page: #fbfbfa;
   --_color---bg-dark: #fbfbfa;
@@ -150,10 +156,11 @@ html, body {
 }
 
 html {
-  background-color: var(--_color---bg-page);
-  color: var(--_color---text-main);
+  background-color: var(--page-bg);
+  color: var(--page-text);
   scroll-behavior: auto;
   overflow-x: clip;
+  transition: background-color 0.65s cubic-bezier(0.16, 1, 0.3, 1), color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html.is--scroll-locked,
@@ -164,12 +171,21 @@ html.is--modal-open {
 
 body {
   font-family: var(--font-primary);
-  background-color: var(--_color---bg-page);
-  color: var(--_color---text-main);
+  background-color: var(--page-bg);
+  color: var(--page-text);
   min-height: 100vh;
   line-height: 1.4;
   overflow-x: clip;
   position: relative;
+  transition: background-color 0.65s cubic-bezier(0.16, 1, 0.3, 1), color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dynamic Dark Mode Theme Transition (Triggered by .home-bloque-dark-mode) */
+body.is-dark {
+  --page-bg: #05070b;
+  --page-text: #ffffff;
+  --page-muted: #94a3b8;
+  --border-subtle: rgba(255, 255, 255, 0.12);
 }
 
 body.is--scroll-locked,

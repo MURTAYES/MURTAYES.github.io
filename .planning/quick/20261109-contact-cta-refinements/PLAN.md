@@ -20,3 +20,4 @@ status: complete
    - Kinetic vertical text flip on hover (`btn-text-main` translates down, `btn-text-hover` translates into place).
    - Circular badge with dual arrow transition (default arrow translates up-right, hover arrow slides in from bottom-left).
    - Triggers the contact modal drawer (`#contact-modal`).
+
