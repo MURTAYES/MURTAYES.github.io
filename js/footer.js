@@ -1,11 +1,18 @@
 /**
- * Footer Utilities Module
- * Handles real-time Dhaka timezone clock and smooth back-to-top scrolling
+ * Footer Utilities Module (Pure Vanilla JavaScript)
+ * Handles dynamic current year, real-time Dhaka timezone clock, and smooth back-to-top scrolling
  */
 (function () {
   "use strict";
 
   function initFooterUtilities() {
+    // Dynamic Copyright Year
+    const yearEl = document.getElementById("footer-year");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+
+    // Live Dhaka Time (UTC+6)
     function updateLiveTime() {
       let timeStr = "";
       try {
@@ -28,7 +35,8 @@
     updateLiveTime();
     setInterval(updateLiveTime, 1000);
 
-    const topBtn = document.querySelector(".footer__top, #footer-back-top");
+    // Smooth Scroll to Top
+    const topBtn = document.querySelector("#footer-back-top, .colophon-top-btn, .footer__top");
     if (topBtn) {
       topBtn.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -37,4 +45,10 @@
   }
 
   window.initFooterUtilities = initFooterUtilities;
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initFooterUtilities);
+  } else {
+    initFooterUtilities();
+  }
 })();
