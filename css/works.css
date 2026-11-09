@@ -71,7 +71,7 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--ink, #0A0A0A);
-  margin-top: 12px;
+  margin-top: 0;
   margin-bottom: 0;
   max-width: 24ch;
 }
