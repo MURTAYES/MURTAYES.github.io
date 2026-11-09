@@ -37,6 +37,9 @@
     const growingImage = container.querySelector(".willem__growing-image");
     const headingStart = container.querySelectorAll(".willem__h1-start .willem__letter");
     const headingEnd = container.querySelectorAll(".willem__h1-end .willem__letter");
+    const img1 = container.querySelector(".willem__cover-image-extra.is--1");
+    const img2 = container.querySelector(".willem__cover-image-extra.is--2");
+    const img3 = container.querySelector(".willem__cover-image-extra.is--3");
     const heroCard = container.querySelector(".willem__card-hero.is--4");
     const loaderLogo = heroCard ? heroCard.querySelector("#loader-brand-logo") : null;
     const heroSection = container.querySelector(".hero--silhouette") || container.querySelector(".hero--wilcock") || container.querySelector(".hero");
@@ -77,15 +80,68 @@
       }, 180);
     }
 
+    // Step 3: Cycle Logos (Gemini -> Claude -> GitHub -> Brand Logo)
+    if (img1) {
+      img1.style.opacity = "1";
+      img1.style.transform = "scale(1)";
+      img1.style.transition = "opacity 0.28s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1)";
+    }
+    if (img2) {
+      img2.style.opacity = "0";
+      img2.style.transform = "scale(0.85)";
+      img2.style.transition = "opacity 0.28s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1)";
+    }
+    if (img3) {
+      img3.style.opacity = "0";
+      img3.style.transform = "scale(0.85)";
+      img3.style.transition = "opacity 0.28s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1)";
+    }
     if (heroCard) {
-      heroCard.style.opacity = "1";
-      heroCard.style.transform = "scale(1)";
+      heroCard.style.opacity = "0";
+      heroCard.style.transform = "scale(0.85)";
+      heroCard.style.transition = "opacity 0.32s ease, transform 0.36s cubic-bezier(0.16, 1, 0.3, 1)";
     }
 
-    // Step 3: Fullscreen Blossom & Brand Logo Flight directly to Navbar
+    // Transition 1: Gemini -> Claude
+    setTimeout(() => {
+      if (img1) {
+        img1.style.opacity = "0";
+        img1.style.transform = "scale(0.85)";
+      }
+      if (img2) {
+        img2.style.opacity = "1";
+        img2.style.transform = "scale(1)";
+      }
+    }, 950);
+
+    // Transition 2: Claude -> GitHub
+    setTimeout(() => {
+      if (img2) {
+        img2.style.opacity = "0";
+        img2.style.transform = "scale(0.85)";
+      }
+      if (img3) {
+        img3.style.opacity = "1";
+        img3.style.transform = "scale(1)";
+      }
+    }, 1550);
+
+    // Transition 3: GitHub -> User's Brand Logo
+    setTimeout(() => {
+      if (img3) {
+        img3.style.opacity = "0";
+        img3.style.transform = "scale(0.85)";
+      }
+      if (heroCard) {
+        heroCard.style.opacity = "1";
+        heroCard.style.transform = "scale(1)";
+      }
+    }, 2150);
+
+    // Step 4: Fullscreen Blossom & Brand Logo Flight to Navbar
     setTimeout(() => {
       triggerBlossomAndFlight();
-    }, 1150);
+    }, 2750);
 
     function triggerBlossomAndFlight() {
       if (!heroSection) return;
