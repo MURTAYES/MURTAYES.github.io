@@ -7,3 +7,4 @@ Completely remove the `scratch/` directory and its tracked/untracked temporary f
 1. Remove all files and directory at `scratch/` via `git rm -r` and filesystem removal.
 2. Verify directory is deleted and working tree is clean.
 3. Update STATE.md.
+

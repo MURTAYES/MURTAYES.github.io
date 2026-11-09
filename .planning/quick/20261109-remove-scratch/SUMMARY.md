@@ -9,3 +9,4 @@ description: Remove scratch folder and all temporary files
 
 - Removed `scratch/` directory and all tracked/untracked scripts.
 - Verified repository cleanliness.
+

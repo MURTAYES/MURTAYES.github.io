@@ -432,54 +432,155 @@
       </div>
     </section>
 
-    <!-- 04. SELECTED WORKS (TACTILE ARCHITECTURAL FOLDER & APPLE GENIE WINDOW) -->
+    <!-- 04. SELECTED WORKS (ASYMMETRIC ARCHITECTURAL FOLDERS & APPLE GENIE WINDOWS) -->
     <section id="works" class="works" aria-labelledby="works-title">
       <div class="works__container container">
-        <!-- Section Header -->
+        <!-- Section Header (Clean, No Eyebrow, No Subtitle) -->
         <div class="section-head">
-          <div class="works__eyebrow eyebrow">
-            <span>[§ 04 · SELECTED ARCHITECTURAL WORKS]</span>
-          </div>
           <h2 id="works-title" class="works-heading" aria-label="Selected Works">
             Selected Works
           </h2>
-          <p class="works-lead">
-            Tactile architectural dossier. Click any sheet to inspect the technical docket.
-          </p>
         </div>
 
-        <!-- Interactive Tactile Manila Folder Stage -->
-        <div class="works__stage">
-          <div class="folder" role="region" aria-label="Interactive Project Folders">
-            <div class="back"></div>
-            <div class="sheets">
-              <!-- Sheet 01: ApplyKit -->
-              <button type="button" class="sheet" style="--ac:#eb381c" aria-label="Open ApplyKit Specification" data-cursor-pill="Open ApplyKit">
-                <b>ApplyKit</b>
-                <span class="sheet-spec">Chrome MV3 · Local-First</span>
-                <i></i><i></i><i></i><i></i><i></i>
-              </button>
+        <!-- Asymmetrical Staggered Editorial Grid (Nivara Copenhagen Aesthetic) -->
+        <div class="works-asymmetric-grid">
 
-              <!-- Sheet 02: PharmaERP -->
-              <button type="button" class="sheet" style="--ac:#10b981" aria-label="Open PharmaERP Specification" data-cursor-pill="Open PharmaERP">
-                <b>PharmaERP</b>
-                <span class="sheet-spec">Clinical POS · FEFO</span>
-                <i></i><i></i><i></i><i></i><i></i>
-              </button>
+          <!-- 01. ApplyKit: Left Figure & Tactile Folder -->
+          <article class="works-row works-row--1" aria-label="ApplyKit Project">
+            <figure class="works-figure">
+              <div class="works-figure__frame">
+                <img src="assets/images/appykit.jpg" alt="ApplyKit Chrome Extension UI" class="works-figure__img" loading="lazy" />
+              </div>
+              <figcaption class="works-figure__caption">
+                <span class="caption-tag">FIG. 01</span>
+                <span>ApplyKit — Bilingual DOM heuristics engine &amp; candidate credential vault.</span>
+              </figcaption>
+            </figure>
 
-              <!-- Sheet 03: EduHub -->
-              <button type="button" class="sheet" style="--ac:#2f5fd0" aria-label="Open EduHub Specification" data-cursor-pill="Open EduHub">
-                <b>EduHub</b>
-                <span class="sheet-spec">BCS Simulator · Beta</span>
-                <i></i><i></i><i></i><i></i><i></i>
-              </button>
+            <div class="works-content">
+              <p class="works-content__prose">
+                Section-scoped bilingual DOM traversal and fuzzy label resolution engineered for instant job applications with zero cloud transmission.
+              </p>
+
+              <!-- ApplyKit Manila Folder (Sharp Corners) -->
+              <div class="folder-stage">
+                <div class="folder" role="region" aria-label="ApplyKit Architectural Folder" data-cursor-pill="Open ApplyKit">
+                  <div class="back"></div>
+                  <div class="sheets">
+                    <button type="button" class="sheet" style="--ac:#eb381c" aria-label="Open ApplyKit Manifest">
+                      <b>ApplyKit</b>
+                      <span class="sheet-spec">BUILD · MV3.24</span>
+                      <i></i><i></i><i></i><i></i><i></i>
+                    </button>
+                    <button type="button" class="sheet" style="--ac:#eb381c" aria-label="Open ApplyKit Engine">
+                      <b>Engine</b>
+                      <span class="sheet-spec">LOCAL-FIRST</span>
+                      <i></i><i></i><i></i><i></i><i></i>
+                    </button>
+                    <button type="button" class="sheet" style="--ac:#eb381c" aria-label="Open ApplyKit Latency">
+                      <b>Latency</b>
+                      <span class="sheet-spec">&lt;40ms DOM SCAN</span>
+                      <i></i><i></i><i></i><i></i><i></i>
+                    </button>
+                  </div>
+                  <div class="flap"><span class="tag">01 · ApplyKit</span></div>
+                </div>
+              </div>
             </div>
-            <div class="flap"><span class="tag">Selected Works</span></div>
-          </div>
+          </article>
+
+          <!-- 02. PharmaERP: Right-Shifted Asymmetrical Composition -->
+          <article class="works-row works-row--2" aria-label="PharmaERP Project">
+            <div class="works-content">
+              <p class="works-content__prose">
+                High-speed retail counter POS kernel with automated expiry-first inventory tracking and Decimal128 dual-entry financial journals.
+              </p>
+
+              <!-- PharmaERP Manila Folder (Sharp Corners) -->
+              <div class="folder-stage">
+                <div class="folder" role="region" aria-label="PharmaERP Architectural Folder" data-cursor-pill="Open PharmaERP">
+                  <div class="back"></div>
+                  <div class="sheets">
+                    <button type="button" class="sheet" style="--ac:#10b981" aria-label="Open PharmaERP POS">
+                      <b>PharmaERP</b>
+                      <span class="sheet-spec">BUILD · POS.V4</span>
+                      <i></i><i></i><i></i><i></i><i></i>
+                    </button>
+                    <button type="button" class="sheet" style="--ac:#10b981" aria-label="Open PharmaERP Ledger">
+                      <b>Ledger</b>
+                      <span class="sheet-spec">DECIMAL128 ACID</span>
+                      <i></i><i></i><i></i><i></i><i></i>
+                    </button>
+                    <button type="button" class="sheet" style="--ac:#10b981" aria-label="Open PharmaERP FEFO">
+                      <b>Batch FEFO</b>
+                      <span class="sheet-spec">&lt;300ms LATENCY</span>
+                      <i></i><i></i><i></i><i></i><i></i>
+                    </button>
+                  </div>
+                  <div class="flap"><span class="tag">02 · PharmaERP</span></div>
+                </div>
+              </div>
+            </div>
+
+            <figure class="works-figure">
+              <div class="works-figure__frame">
+                <img src="assets/images/pharma.jpg" alt="PharmaERP Clinical POS Terminal" class="works-figure__img" loading="lazy" />
+              </div>
+              <figcaption class="works-figure__caption">
+                <span class="caption-tag">FIG. 02</span>
+                <span>PharmaERP — Clinical pharmacy dispensing terminal &amp; FEFO accounting kernel.</span>
+              </figcaption>
+            </figure>
+          </article>
+
+          <!-- 03. EduHub: Staggered Lower Composition -->
+          <article class="works-row works-row--3" aria-label="EduHub Project">
+            <figure class="works-figure">
+              <div class="works-figure__frame">
+                <img src="assets/images/edu52-banner.webp" alt="EduHub BCS Simulator" class="works-figure__img" loading="lazy" />
+              </div>
+              <figcaption class="works-figure__caption">
+                <span class="caption-tag">FIG. 03</span>
+                <span>EduHub — BCS exam simulator with split-booklet layout &amp; OMR kernel.</span>
+              </figcaption>
+            </figure>
+
+            <div class="works-content">
+              <p class="works-content__prose">
+                High-stakes 200-question BCS examination simulator with client-side optical answer evaluation and anti-cheat websockets.
+              </p>
+
+              <!-- EduHub Manila Folder (Sharp Corners) -->
+              <div class="folder-stage">
+                <div class="folder" role="region" aria-label="EduHub Architectural Folder" data-cursor-pill="Open EduHub">
+                  <div class="back"></div>
+                  <div class="sheets">
+                    <button type="button" class="sheet" style="--ac:#2f5fd0" aria-label="Open EduHub Simulator">
+                      <b>EduHub</b>
+                      <span class="sheet-spec">SPRINT · 76% BETA</span>
+                      <i></i><i></i><i></i><i></i><i></i>
+                    </button>
+                    <button type="button" class="sheet" style="--ac:#2f5fd0" aria-label="Open EduHub OMR">
+                      <b>OMR Kernel</b>
+                      <span class="sheet-spec">KATEX FORMULAS</span>
+                      <i></i><i></i><i></i><i></i><i></i>
+                    </button>
+                    <button type="button" class="sheet" style="--ac:#2f5fd0" aria-label="Open EduHub Sockets">
+                      <b>Sockets</b>
+                      <span class="sheet-spec">200 CONCURRENT</span>
+                      <i></i><i></i><i></i><i></i><i></i>
+                    </button>
+                  </div>
+                  <div class="flap"><span class="tag">03 · EduHub</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
 
-      <!-- Genie Window 01: ApplyKit -->
+      <!-- Sharp Genie Window 01: ApplyKit -->
       <section class="win" role="dialog" aria-label="ApplyKit Architecture" hidden style="--ac:#eb381c">
         <header class="bar">
           <span class="dots">
@@ -487,17 +588,29 @@
             <button class="dot y" aria-label="Minimize"></button>
             <i class="dot g"></i>
           </span>
-          <span class="ttl">ApplyKit — MV3.24 Docket</span>
+          <span class="ttl">ApplyKit · MV3.24 Architectural Docket</span>
         </header>
         <div class="doc">
-          <div class="doc-header">
-            <span class="doc-badge" style="color:#eb381c;background:rgba(235,56,28,0.08);">PRODUCTION EXTENSION</span>
-            <h2>ApplyKit</h2>
-            <p class="doc-summary">Local-First Job Autofill &amp; Section-Scoped Bilingual DOM Heuristics</p>
+          <div class="doc-meta-bar">
+            <span>DOSSIER // 01</span>
+            <span class="doc-badge" style="color:#eb381c;">PRODUCTION EXTENSION</span>
           </div>
+
+          <figure class="doc-hero-figure">
+            <div class="doc-hero-img-wrap">
+              <img src="assets/images/appykit.jpg" alt="ApplyKit Extension UI" class="doc-hero-img" loading="lazy" />
+            </div>
+            <figcaption class="doc-hero-caption">
+              Fig. 1.1 — Local-First DOM heuristics engine &amp; candidate credential vault.
+            </figcaption>
+          </figure>
+
+          <h2>ApplyKit</h2>
+          <p class="doc-lead">Local-First Job Autofill &amp; Section-Scoped Bilingual DOM Heuristics</p>
           <p>
             A high-velocity Chrome extension engineered in the Swiss International Typographic Style for automated job applications. Features section-scoped bilingual DOM heuristics, zero-cloud transmission, and sub-40ms execution.
           </p>
+
           <div class="doc-section">
             <h4>Core Technical Highlights</h4>
             <ul class="doc-list">
@@ -506,6 +619,7 @@
               <li><strong>Sub-40ms Pipeline:</strong> Instant autofill execution avoiding frame drops or page scroll degradation.</li>
             </ul>
           </div>
+
           <div class="doc-section">
             <h4>Stack &amp; Benchmarks</h4>
             <div class="doc-chips">
@@ -516,21 +630,22 @@
               <span class="doc-chip">Zero-Cloud</span>
             </div>
           </div>
+
           <div class="doc-actions">
             <button type="button" class="doc-btn doc-btn--primary" data-applykit-modal-open data-cursor-pill="Read Specs">
-              <span>Open Blueprint Docket</span> ↗
+              <span>Full Docket</span> ↗
             </button>
             <a href="https://github.com/MURTAYES/ApplyKit" target="_blank" rel="noopener noreferrer" class="doc-btn doc-btn--secondary">
               <span>View GitHub</span> ↗
             </a>
             <button type="button" class="doc-btn doc-btn--secondary" data-close-win>
-              <span>Done Reading</span>
+              <span>Close</span>
             </button>
           </div>
         </div>
       </section>
 
-      <!-- Genie Window 02: PharmaERP -->
+      <!-- Sharp Genie Window 02: PharmaERP -->
       <section class="win" role="dialog" aria-label="PharmaERP Architecture" hidden style="--ac:#10b981">
         <header class="bar">
           <span class="dots">
@@ -538,17 +653,29 @@
             <button class="dot y" aria-label="Minimize"></button>
             <i class="dot g"></i>
           </span>
-          <span class="ttl">PharmaERP — POS.V4 Docket</span>
+          <span class="ttl">PharmaERP · POS.V4 Architectural Docket</span>
         </header>
         <div class="doc">
-          <div class="doc-header">
-            <span class="doc-badge" style="color:#10b981;background:rgba(16,185,129,0.08);">CLINICAL POS &amp; LEDGER</span>
-            <h2>PharmaERP</h2>
-            <p class="doc-summary">Clinical Dispensing POS &amp; FEFO Batch Accounting Kernel</p>
+          <div class="doc-meta-bar">
+            <span>DOSSIER // 02</span>
+            <span class="doc-badge" style="color:#10b981;">CLINICAL POS &amp; LEDGER</span>
           </div>
+
+          <figure class="doc-hero-figure">
+            <div class="doc-hero-img-wrap">
+              <img src="assets/images/pharma.jpg" alt="PharmaERP Clinical POS" class="doc-hero-img" loading="lazy" />
+            </div>
+            <figcaption class="doc-hero-caption">
+              Fig. 2.1 — Retail pharmacy counter terminal &amp; FEFO batch-tracking accounting kernel.
+            </figcaption>
+          </figure>
+
+          <h2>PharmaERP</h2>
+          <p class="doc-lead">Clinical Dispensing POS &amp; FEFO Batch Accounting Kernel</p>
           <p>
             A clinical pharmacy dispensing terminal and high-speed POS kernel engineered for retail counters. Features batch-wise FEFO inventory tracking, multi-unit conversions (Piece ↔ Strip ↔ Box), and Decimal128 ledger precision.
           </p>
+
           <div class="doc-section">
             <h4>Core Technical Highlights</h4>
             <ul class="doc-list">
@@ -557,6 +684,7 @@
               <li><strong>Decimal128 Ledger Precision:</strong> Zero float-rounding errors across dual-entry accounting journals.</li>
             </ul>
           </div>
+
           <div class="doc-section">
             <h4>Stack &amp; Benchmarks</h4>
             <div class="doc-chips">
@@ -567,21 +695,22 @@
               <span class="doc-chip">Sub-300ms FEFO</span>
             </div>
           </div>
+
           <div class="doc-actions">
             <button type="button" class="doc-btn doc-btn--primary" data-pharmaerp-modal-open data-cursor-pill="Read Specs">
-              <span>Open Blueprint Docket</span> ↗
+              <span>Full Docket</span> ↗
             </button>
             <a href="https://github.com/MURTAYES/PharmaERP" target="_blank" rel="noopener noreferrer" class="doc-btn doc-btn--secondary">
               <span>View GitHub</span> ↗
             </a>
             <button type="button" class="doc-btn doc-btn--secondary" data-close-win>
-              <span>Done Reading</span>
+              <span>Close</span>
             </button>
           </div>
         </div>
       </section>
 
-      <!-- Genie Window 03: EduHub -->
+      <!-- Sharp Genie Window 03: EduHub -->
       <section class="win" role="dialog" aria-label="EduHub Architecture" hidden style="--ac:#2f5fd0">
         <header class="bar">
           <span class="dots">
@@ -589,17 +718,29 @@
             <button class="dot y" aria-label="Minimize"></button>
             <i class="dot g"></i>
           </span>
-          <span class="ttl">EduHub — Private Beta Docket</span>
+          <span class="ttl">EduHub · Private Beta Docket</span>
         </header>
         <div class="doc">
-          <div class="doc-header">
-            <span class="doc-badge" style="color:#2f5fd0;background:rgba(47,95,208,0.08);">PRIVATE BETA · 76% SPRINT</span>
-            <h2>EduHub</h2>
-            <p class="doc-summary">BCS Exam Simulator &amp; Real-Time OMR Evaluation Engine</p>
+          <div class="doc-meta-bar">
+            <span>DOSSIER // 03</span>
+            <span class="doc-badge" style="color:#2f5fd0;">PRIVATE BETA · 76% SPRINT</span>
           </div>
+
+          <figure class="doc-hero-figure">
+            <div class="doc-hero-img-wrap">
+              <img src="assets/images/edu52-banner.webp" alt="EduHub BCS Simulator" class="doc-hero-img" loading="lazy" />
+            </div>
+            <figcaption class="doc-hero-caption">
+              Fig. 3.1 — BCS 200 MCQ split-booklet exam simulation &amp; real-time OMR evaluator.
+            </figcaption>
+          </figure>
+
+          <h2>EduHub</h2>
+          <p class="doc-lead">BCS Exam Simulator &amp; Real-Time OMR Evaluation Engine</p>
           <p>
             A distributed examination platform designed to simulate high-stakes BCS examinations. Features 4-page physical booklet layouts, offline-first OMR evaluation kernels, and real-time proctoring websockets with 200 concurrent candidates.
           </p>
+
           <div class="doc-section">
             <h4>Milestone Progress Matrix (76%)</h4>
             <ul class="doc-list">
@@ -609,6 +750,7 @@
               <li><strong>Proctoring Sockets:</strong> 76% completed active beta testing.</li>
             </ul>
           </div>
+
           <div class="doc-section">
             <h4>Stack &amp; Benchmarks</h4>
             <div class="doc-chips">
@@ -619,15 +761,16 @@
               <span class="doc-chip">200 Sockets</span>
             </div>
           </div>
+
           <div class="doc-actions">
             <button type="button" class="doc-btn doc-btn--primary" data-edu52-modal-open data-cursor-pill="Read Specs">
-              <span>Preview Blueprint Docket</span> ↗
+              <span>Preview Docket</span> ↗
             </button>
             <a href="https://github.com/MURTAYES/edu52" target="_blank" rel="noopener noreferrer" class="doc-btn doc-btn--secondary">
               <span>View GitHub</span> ↗
             </a>
             <button type="button" class="doc-btn doc-btn--secondary" data-close-win>
-              <span>Done Reading</span>
+              <span>Close</span>
             </button>
           </div>
         </div>

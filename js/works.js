@@ -1,28 +1,27 @@
 /**
  * Selected Works Architecture Module (Pure Vanilla JavaScript)
- * Interactive Tactile Architectural Manila Folder with Apple Mac Genie Window Animation.
- * Zero external libraries or bundlers.
+ * 3 Asymmetrical Tactile Architectural Folders with Apple Mac Genie Window Animations.
+ * Sharp corners, zero external dependencies.
  */
 (function () {
   "use strict";
 
   function initSelectedWorks() {
     const $$ = (s) => [...document.querySelectorAll(s)];
-    const folder = document.querySelector(".folder");
-    const flap = document.querySelector(".flap");
-    const sheets = $$(".sheet");
+    const folders = $$(".folder");
     const wins = $$(".win");
     const reduce = matchMedia("(prefers-reduced-motion: reduce)");
 
-    if (!folder || !flap || sheets.length === 0 || wins.length === 0) return;
-    if (folder.dataset.worksInitialized === "true") return;
-    folder.dataset.worksInitialized = "true";
+    if (folders.length === 0 || wins.length === 0) return;
+    if (folders[0].dataset.worksInitialized === "true") return;
+    folders[0].dataset.worksInitialized = "true";
 
     const SH = 4;     // strip height in px: smaller = smoother funnel
     const OV = 1;     // strips overlap by 1px so no seams show
     const LAG = 0.45; // how long the top of the window trails the bottom (0..1)
     const NECK = 100; // width of the funnel where it meets the folder
     let current = -1;
+    let activeSheet = null;
     let busy = false;
 
     const clamp01 = (v) => Math.min(1, Math.max(0, v));
@@ -30,20 +29,20 @@
     const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
     // Size the window and position it above the folder or centered in viewport.
-    const place = (win) => {
-      const fRect = folder.getBoundingClientRect();
+    const place = (win, folder) => {
+      const fRect = folder ? folder.getBoundingClientRect() : { top: window.innerHeight / 2 };
       const vh = window.innerHeight;
       const vw = window.innerWidth;
-      const w = Math.min(680, vw - 32) & ~1;
+      const w = Math.min(720, vw - 32) & ~1;
 
       let topSpace = fRect.top - 20;
       let h, wy;
 
       if (topSpace >= 280) {
-        h = Math.round(Math.min(480, topSpace - 16) / SH) * SH;
+        h = Math.round(Math.min(520, topSpace - 16) / SH) * SH;
         wy = Math.round(Math.max(16, (topSpace - h) / 2));
       } else {
-        h = Math.round(Math.min(500, vh - 60) / SH) * SH;
+        h = Math.round(Math.min(540, vh - 60) / SH) * SH;
         wy = Math.round(Math.max(16, (vh - h) / 2));
       }
 
@@ -54,14 +53,16 @@
       win.style.setProperty("--wy", wy + "px");
     };
 
-    // Where the window enters or leaves the folder: the page's x, just inside the flap's lip
-    const target = (sheet) => {
-      const r = sheet.getBoundingClientRect();
-      return [r.left + r.width / 2, flap.getBoundingClientRect().top + 12];
+    // Where the window enters or leaves the folder: sheet's center x, flap's top y
+    const target = (sheet, folder) => {
+      const flap = folder.querySelector(".flap");
+      const r = sheet ? sheet.getBoundingClientRect() : folder.getBoundingClientRect();
+      const flapRect = flap ? flap.getBoundingClientRect() : r;
+      return [r.left + r.width / 2, flapRect.top + 12];
     };
 
-    /* Genie animation: The window is cloned into horizontal strips; every frame each strip is
-       moved and squeezed along an S-shaped funnel ending at (tx, ty). */
+    /* Genie animation: Clones window into thin horizontal strips,
+       funneled along an S-shaped curve between (tx, ty) and window coordinates. */
     const genie = (win, tx, ty, from, to, ms, ease) =>
       new Promise((done) => {
         if (reduce.matches) return done();
@@ -153,14 +154,22 @@
       });
 
     // Page -> window (maximize)
-    const show = async (k) => {
+    const show = async (k, sheetEl) => {
+      const folder = folders[k];
       const win = wins[k];
-      place(win);
+      if (!folder || !win) return;
+
+      const sheets = $$(folder.querySelectorAll(".sheet"));
+      const sheet = sheetEl || sheets[1] || sheets[0];
+      activeSheet = sheet;
+
+      place(win, folder);
       win.hidden = false;
       win.style.visibility = "hidden";
-      sheets[k].classList.add("is-away");
+      if (sheet) sheet.classList.add("is-away");
       folder.classList.add("is-fanned");
-      await genie(win, ...target(sheets[k]), 1, 0, 650, easeOut);
+
+      await genie(win, ...target(sheet, folder), 1, 0, 650, easeOut);
       win.style.visibility = "";
       win.classList.add("settled");
       current = k;
@@ -173,15 +182,23 @@
     const hide = async () => {
       if (current < 0) return;
       const k = current;
+      const folder = folders[k];
       const win = wins[k];
-      win.classList.remove("settled");
-      const playing = genie(win, ...target(sheets[k]), 0, 1, 560, easeInOut);
-      win.style.visibility = "hidden";
-      await playing;
-      win.hidden = true;
-      win.style.visibility = "";
-      sheets[k].classList.remove("is-away");
+      const sheet = activeSheet;
+
+      if (win) {
+        win.classList.remove("settled");
+        const playing = genie(win, ...target(sheet, folder), 0, 1, 560, easeInOut);
+        win.style.visibility = "hidden";
+        await playing;
+        win.hidden = true;
+        win.style.visibility = "";
+      }
+
+      if (sheet) sheet.classList.remove("is-away");
+      if (folder) folder.classList.remove("is-fanned");
       current = -1;
+      activeSheet = null;
     };
 
     const run = async (fn) => {
@@ -198,21 +215,54 @@
       run(async () => {
         if (current < 0) return;
         const k = current;
+        const sheet = activeSheet;
         await hide();
-        folder.classList.remove("is-fanned");
-        if (sheets[k]) sheets[k].focus({ preventScroll: true });
+        if (sheet) sheet.focus({ preventScroll: true });
       });
 
-    // Sheet click triggers genie open
-    sheets.forEach((s, k) =>
-      s.addEventListener("click", () =>
-        run(async () => {
-          if (current === k) return;
-          if (current > -1) await hide();
-          await show(k);
-        })
-      )
-    );
+    // Wire up each folder and its sheets
+    folders.forEach((folder, folderIdx) => {
+      const sheets = $$(folder.querySelectorAll(".sheet"));
+
+      sheets.forEach((sheet) => {
+        sheet.addEventListener("click", (e) => {
+          e.stopPropagation();
+          run(async () => {
+            if (current === folderIdx) return;
+            if (current > -1) await hide();
+            await show(folderIdx, sheet);
+          });
+        });
+      });
+
+      folder.addEventListener("click", (e) => {
+        if (!e.target.closest(".sheet") && current !== folderIdx) {
+          run(async () => {
+            if (current > -1) await hide();
+            await show(folderIdx);
+          });
+        }
+      });
+
+      // Keyboard & touch focus fanning
+      folder.addEventListener("focusin", (e) => {
+        if (e.target.matches(":focus-visible")) folder.classList.add("is-fanned");
+      });
+
+      folder.addEventListener("focusout", () => {
+        if (current !== folderIdx && !busy) folder.classList.remove("is-fanned");
+      });
+
+      folder.addEventListener("click", (e) => {
+        if (
+          matchMedia("(hover: none)").matches &&
+          !e.target.closest(".sheet") &&
+          current < 0
+        ) {
+          folder.classList.toggle("is-fanned");
+        }
+      });
+    });
 
     // Close on dot or button click or click outside
     document.addEventListener("click", (e) => {
@@ -230,50 +280,32 @@
     });
 
     addEventListener("resize", () => {
-      if (current > -1) place(wins[current]);
+      if (current > -1 && folders[current]) place(wins[current], folders[current]);
     });
 
-    // Keyboard & touch accessibility
-    folder.addEventListener("focusin", (e) => {
-      if (e.target.matches(":focus-visible")) folder.classList.add("is-fanned");
-    });
-
-    folder.addEventListener("focusout", () => {
-      if (current < 0 && !busy) folder.classList.remove("is-fanned");
-    });
-
-    folder.addEventListener("click", (e) => {
-      if (
-        matchMedia("(hover: none)").matches &&
-        !e.target.closest(".sheet") &&
-        current < 0
-      ) {
-        folder.classList.toggle("is-fanned");
-      }
-    });
-
-    // Section 6 jump links trigger genie open
+    // Section 6 jump links trigger smooth scroll and genie open
     document.querySelectorAll(".js-dossier-jump").forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
         const targetFolder = link.getAttribute("data-target-folder");
         const folderMap = { applykit: 0, pharmaerp: 1, eduhub: 2 };
         const index = folderMap[targetFolder] ?? 0;
-        const worksSection = document.getElementById("works");
-        if (worksSection) {
-          worksSection.scrollIntoView({ behavior: "smooth" });
+        const folderEl = folders[index];
+
+        if (folderEl) {
+          folderEl.scrollIntoView({ behavior: "smooth", block: "center" });
           setTimeout(() => {
             run(async () => {
               if (current === index) return;
               if (current > -1) await hide();
               await show(index);
             });
-          }, 600);
+          }, 650);
         }
       });
     });
 
-    // Expose for external access
+    // Expose for external calls
     window.openWorksDossier = (index) => {
       run(async () => {
         if (current === index) return;
