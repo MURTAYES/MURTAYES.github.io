@@ -31,6 +31,11 @@
       window.initSkillsSection();
     }
 
+    // 05C. Kind Words / Testimonials Dual Kinetic Marquee
+    if (typeof window.initTestimonialsSection === "function") {
+      window.initTestimonialsSection();
+    }
+
     // 06. Navigation Controllers, Scroll Hide/Show & Theme Synchronization
     if (typeof window.initNavigationControllers === "function") {
       window.initNavigationControllers();
