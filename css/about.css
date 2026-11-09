@@ -1,0 +1,90 @@
+/* --------------------------------------------------------------------------
+   SECTION 2: STICKY SCROLL-SCRUBBED MANIFESTO WORD REVEAL
+   -------------------------------------------------------------------------- */
+
+/* 1. TALL SCROLL TRACK */
+.home-quote-block {
+  position: relative;
+  height: 260vh; /* Controls how long the section stays pinned while scrolling */
+  background-color: var(--bg-canvas, #ffffff);
+  color: var(--text-ink, #060606);
+  z-index: 10;
+}
+
+/* 2. STICKY VIEWPORT CONTAINER */
+.home-quote-block__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--bg-canvas, #ffffff);
+}
+
+/* 3. RADIAL DOT PATTERN BACKGROUND */
+.home-quote-block__dots {
+  position: absolute;
+  inset: -10%;
+  background-image: radial-gradient(rgba(6, 6, 6, 0.12) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 75%);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* 4. TYPOGRAPHY & WORD TOKENS */
+.home-quote-block__contenido {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  padding: 0 1.5rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.home-quote-block__titulo {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif);
+  font-size: clamp(2.2rem, 5vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  margin: 0 0 2rem 0;
+  color: var(--text-ink, #060606);
+}
+
+.home-quote-block__subtitulo {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif);
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: #333333;
+}
+
+/* Individual Word State */
+.js-quote-word {
+  display: inline-block;
+  opacity: 0.12;
+  transform: translateY(10px);
+  filter: blur(2px);
+  transition: opacity 0.15s ease-out, transform 0.2s ease-out, filter 0.2s ease-out;
+  will-change: opacity, transform, filter;
+}
+
+@media (max-width: 640px) {
+  .home-quote-block {
+    height: 230vh;
+  }
+  .home-quote-block__titulo {
+    margin-bottom: 1.5rem;
+  }
+  .quote-break {
+    display: none;
+  }
+}
