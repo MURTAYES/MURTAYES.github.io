@@ -1,6 +1,6 @@
 /* ==========================================================================
-   06. SECTION 6: WHAT I'M BUILDING
-   Danish Architectural Sine-Wave Progression (Nivara aesthetic)
+   SECTION: WHAT I'M BUILDING (DANISH ARCHITECTURAL SINE-WAVE PROGRESSION)
+   Black Monochrome Design System · Preserved Font System
    Zero External Dependencies · Vanilla CSS System · 60fps GPU Accelerated
    ========================================================================== */
 
@@ -15,8 +15,10 @@
   margin-right: auto;
   padding-left: clamp(1rem, 3vw, 2rem);
   padding-right: clamp(1rem, 3vw, 2rem);
-  padding-top: clamp(6rem, 12vh, 10rem);
-  color: #ffffff;
+  padding-top: clamp(4rem, 9vh, 8rem);
+  padding-bottom: clamp(3rem, 7vh, 6rem);
+  color: #060606;
+  background-color: transparent;
   isolation: isolate;
   box-sizing: border-box;
 }
@@ -68,7 +70,7 @@
 }
 
 .building-section .mt-16 {
-  margin-top: 4rem;
+  margin-top: 3.5rem;
 }
 
 .building-section .py-3 {
@@ -134,39 +136,43 @@
 }
 
 /* --------------------------------------------------------------------------
-   Typography & Colors (Nivara Danish Architectural System)
+   Typography & Colors (Pure Black Monochrome System)
    -------------------------------------------------------------------------- */
 .building-section .font-display {
   font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .building-section .text-h3 {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
   font-size: clamp(2.2rem, 3.8vw, 3.6rem);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  color: #ffffff;
+  color: #060606;
   margin: 0;
 }
 
 .building-section .text-lead {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
   font-size: clamp(1.05rem, 1.2vw, 1.25rem);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.35;
   letter-spacing: -0.015em;
-  color: #ffffff;
+  color: #060606;
   margin: 0;
 }
 
 .building-section .text-graphite {
-  color: #8c8f94;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  color: #4b5563;
   font-size: 0.9375rem;
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 0.25rem 0 0 0;
 }
 
 .building-section .text-small {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
   font-size: 0.8125rem;
   line-height: 1.4;
 }
@@ -182,22 +188,23 @@
 }
 
 .building-section .border-ink {
-  border-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(6, 6, 6, 0.16);
 }
 
 .building-section .border-rule {
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(6, 6, 6, 0.08);
 }
 
 /* --------------------------------------------------------------------------
-   Interactive Links (Nivara Redraw Underline Hover Effect)
+   Interactive Links (Pure Black Underline Hover Effect)
    -------------------------------------------------------------------------- */
 .building-section .link {
   position: relative;
   display: inline-block;
-  color: #ffffff;
+  color: #060606;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 0.8125rem;
   width: fit-content;
   transition: color 0.25s ease;
 }
@@ -208,11 +215,11 @@
   left: 0;
   bottom: -2px;
   width: 100%;
-  height: 1px;
-  background-color: currentColor;
+  height: 1.5px;
+  background-color: #060606;
   transform-origin: right center;
   transform: scaleX(0);
-  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .building-section .link:hover::after,
@@ -222,33 +229,35 @@
 }
 
 .building-section .link:hover {
-  color: #ffffff;
+  color: #000000;
 }
 
 /* --------------------------------------------------------------------------
-   Desktop Timeline & SVG Sine-Wave Geometry
+   Desktop Timeline & SVG Sine-Wave Geometry (Pure Black)
    -------------------------------------------------------------------------- */
 .building-section .js-building-svg {
   display: block;
   width: 100%;
   height: auto;
   overflow: visible;
-  color: #ffffff;
+  color: #060606;
   pointer-events: none;
 }
 
 .building-section .js-building-path {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.85);
-  stroke-width: 1.2;
+  stroke: #060606;
+  stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
   will-change: stroke-dasharray;
 }
 
-/* Sine-wave Station Circle Nodes */
+/* Sine-wave Station Circle Nodes (Pure Black with crisp white halo) */
 .building-section .js-building-node {
-  fill: #ffffff;
+  fill: #060606;
+  stroke: #ffffff;
+  stroke-width: 2;
   transform-origin: center;
   transform-box: fill-box;
   transform: scale(0);
@@ -268,7 +277,7 @@
 .building-section .station-inner {
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -287,7 +296,7 @@
   }
 
   .building-section.m\:pt-40 {
-    padding-top: 10rem;
+    padding-top: clamp(5rem, 10vh, 8.5rem);
   }
 
   .building-section .m\:grid-cols-12 {

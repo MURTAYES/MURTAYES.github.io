@@ -47,12 +47,11 @@
     function calculateProgress() {
       const rect = section.getBoundingClientRect();
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-      const start = viewportHeight * 0.85;
-      const end = viewportHeight * 0.15;
-      const range = start - end;
+      const start = viewportHeight * 0.80;
+      const distance = rect.height * 0.75 + viewportHeight * 0.35;
 
-      if (range <= 0) return 0;
-      const raw = (start - rect.top) / range;
+      if (distance <= 0) return 0;
+      const raw = (start - rect.top) / distance;
       return Math.max(0, Math.min(1, raw));
     }
 

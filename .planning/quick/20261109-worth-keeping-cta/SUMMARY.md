@@ -21,3 +21,4 @@ Replaced Section 7 (`#contact`) with the "Worth Keeping" architectural CTA compo
 5. **Theme & Animation Controls**:
    - Light/Dark monochrome theme toggle.
    - Replay button for staggered entrance animation (`.is-ready`).
+

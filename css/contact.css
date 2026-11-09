@@ -1,430 +1,448 @@
-/* ==========================================================================
-   07. FINALE ARCHITECTURAL CTA SECTION ("WORTH KEEPING" PURE HTML/CSS/JS)
-   Layer 1 — Architectural Hairline Frame: Full-viewport (100svh) with structural borders
-   Layer 2 — Giant Monochrome Background Marquee: Seamless -50% CSS loop
-   Layer 3 — Centered Editorial Stack: Badge, display typography, and 38ch note
-   Layer 4 — Magnetic "Seal" Button: Rotating textPath + vanilla JS magnetic pull
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   07. CONTACT SECTION — ONLINES ARCHITECTURAL STUDIO EXACT REFERENCE
+   Pure White Open Canvas, Floating Tactile Cards, Giant "Aa" Typography Watermark,
+   Vibrant Blue "Let's talk" Pill & Social Icons
+   -------------------------------------------------------------------------- */
 
-/* 1. Design Tokens (Light & Dark Monochrome Themes) */
-.cta-section,
-[data-theme="light"] .cta-section {
-  --bg: #f8f8f6;
-  --surface: #ffffff;
-  --fg: #0b0b0c;
-  --muted: #636366;
-  --border: rgba(11, 11, 12, 0.12);
-  --marquee-fill: rgba(11, 11, 12, 0.045);
-  --marquee-stroke: rgba(11, 11, 12, 0.08);
-  --seal-bg: #0b0b0c;
-  --seal-fg: #f8f8f6;
-  --seal-ring: rgba(11, 11, 12, 0.18);
-  --badge-bg: rgba(11, 11, 12, 0.04);
-  --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-}
-
-.cta-section.theme-dark,
-[data-theme="dark"] .cta-section {
-  --bg: #09090b;
-  --surface: #121215;
-  --fg: #f4f4f6;
-  --muted: #8e8e93;
-  --border: rgba(244, 244, 246, 0.12);
-  --marquee-fill: rgba(244, 244, 246, 0.035);
-  --marquee-stroke: rgba(244, 244, 246, 0.08);
-  --seal-bg: #f4f4f6;
-  --seal-fg: #09090b;
-  --seal-ring: rgba(244, 244, 246, 0.22);
-  --badge-bg: rgba(244, 244, 246, 0.05);
-  --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-}
-
-/* 2. Floating Preview Toolbar (Theme & Replay Controls) */
-.cta-section .toolbar {
-  position: absolute;
-  top: 14px;
-  left: clamp(1rem, 5vw, 4rem);
-  z-index: 50;
-  display: inline-flex;
-  gap: 4px;
-  padding: 4px;
-  border-radius: 6px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-}
-
-.cta-section .toolbar__btn {
-  appearance: none;
-  background: transparent;
-  border: none;
-  color: var(--fg);
-  height: 28px;
-  padding: 0 10px;
-  border-radius: 4px;
-  font-size: 11.5px;
-  font-weight: 500;
-  font-family: var(--font-primary, -apple-system, sans-serif);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: background-color 0.15s ease, transform 0.1s ease;
-}
-
-.cta-section .toolbar__btn:hover {
-  background: var(--badge-bg);
-}
-
-.cta-section .toolbar__btn:active {
-  transform: scale(0.96);
-}
-
-/* 3. Full-Bleed Architectural Section Layout */
-.cta-section {
+.home-contacto {
   position: relative;
   width: 100%;
-  min-height: 100svh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background-color: var(--bg);
-  color: var(--fg);
-  overflow: hidden;
-  isolation: isolate;
-  transition: background-color 0.35s ease, color 0.35s ease;
+  background-color: #ffffff;
+  color: #111111;
+  padding: clamp(80px, 11vh, 140px) clamp(1.5rem, 5vw, 4rem) clamp(70px, 10vh, 120px);
   box-sizing: border-box;
-}
-
-/* Subtle Vertical Architectural Guide Lines */
-.cta-section::before,
-.cta-section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--border);
-  pointer-events: none;
-  z-index: 2;
-}
-.cta-section::before { left: clamp(1rem, 5vw, 4rem); }
-.cta-section::after { right: clamp(1rem, 5vw, 4rem); }
-
-/* Top Metadata Strip */
-.cta-topbar {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem clamp(1.5rem, 6vw, 5rem);
-  padding-left: clamp(170px, 20vw, 240px); /* Leave room for toolbar button */
-  border-bottom: 1px solid var(--border);
-  font-size: 0.75rem;
-  font-family: var(--font-mono, monospace);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-/* 4. Giant Monochrome Background Marquee */
-.marquee-stage {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: flex;
-  align-items: center;
   overflow: hidden;
+}
+
+.home-contacto__container {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+  max-width: 1360px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Left Column: Open Visual Canvas with Floating Cards & "Aa" Watermark
+   ========================================================================== */
+
+.home-contacto__stage {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  height: clamp(420px, 48vw, 520px);
+  margin: 0 auto;
+  background: transparent;
+  overflow: visible;
+  user-select: none;
+}
+
+/* Subtle Dotted Matrix Area */
+.home-contacto__dots {
+  position: absolute;
+  inset: -20px;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  background-position: center center;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000000 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000000 50%, transparent 100%);
+  z-index: 0;
+}
+
+/* Giant "Aa" Typography Watermark */
+.home-contacto__watermark-aa {
+  position: absolute;
+  left: 45%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(200px, 24vw, 300px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.045);
   pointer-events: none;
   user-select: none;
-  /* Soft fade on left and right edges */
-  mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+  z-index: 1;
 }
 
-.marquee-track {
-  display: flex;
-  width: max-content;
+/* Base Floating Item */
+.contacto-item {
+  position: absolute;
   will-change: transform;
-  animation: marquee-scroll 34s linear infinite;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  z-index: 5;
 }
 
-.cta-section:hover .marquee-track {
-  animation-play-state: running;
+/* Card 1: Top-Left Analytics Chart Card */
+.contacto-card--chart {
+  top: 4%;
+  left: 3%;
+  width: clamp(200px, 24vw, 235px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 13px 16px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02);
+  z-index: 2;
 }
 
-.marquee-group {
+.contacto-card--chart:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.09);
+}
+
+.chart-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.chart-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-stat-item--right {
+  text-align: right;
+}
+
+.chart-stat-lbl {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 8.5px;
+  font-weight: 600;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chart-stat-val {
+  font-family: var(--font-mono, monospace);
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.2;
+}
+
+.val--purple {
+  color: #6366f1;
+}
+
+.chart-card__svg {
+  width: 100%;
+  height: 52px;
+  display: block;
+  overflow: visible;
+}
+
+.chart-card__dates {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono, monospace);
+  font-size: 7.5px;
+  color: #aaaaaa;
+  margin-top: 6px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 4px;
+}
+
+/* Card 2: Top-Right Person at Desk Photo Card */
+.contacto-card--photo-desk {
+  top: 2%;
+  right: 6%;
+  width: clamp(155px, 18vw, 185px);
+  z-index: 3;
+}
+
+.contacto-card--photo-desk:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.photo-desk__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+}
+
+/* Card 3: Bottom-Left Person with Laptop Photo Card */
+.contacto-card--photo-laptop {
+  bottom: 6%;
+  left: 9%;
+  width: clamp(160px, 19vw, 195px);
+  z-index: 4;
+}
+
+.contacto-card--photo-laptop:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.photo-laptop__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+}
+
+/* Card 4: Bottom-Right Browser Window Wireframe */
+.contacto-card--wireframe {
+  bottom: 10%;
+  right: 4%;
+  width: clamp(175px, 20vw, 210px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 11px 13px 14px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+  z-index: 2;
+}
+
+.contacto-card--wireframe:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.09);
+}
+
+.wireframe__dots {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 9px;
+}
+
+.wireframe__dots span {
+  width: 5.5px;
+  height: 5.5px;
+  border-radius: 50%;
+  background: #dfddd6;
+}
+
+.wireframe__body {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.wireframe-row {
   display: flex;
   align-items: center;
-  white-space: nowrap;
+  gap: 7px;
 }
 
-.marquee-phrase {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(7rem, 21vw, 22rem);
-  font-weight: 800;
-  line-height: 0.85;
-  letter-spacing: -0.055em;
-  text-transform: uppercase;
-  color: var(--marquee-fill);
-  -webkit-text-stroke: 1.5px var(--marquee-stroke);
-  padding-right: 0.25em;
-}
-
-.marquee-separator {
-  display: inline-block;
-  width: clamp(1.25rem, 3vw, 3rem);
-  height: clamp(1.25rem, 3vw, 3rem);
+.wf-circle {
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
-  border: 2px solid var(--marquee-stroke);
-  margin: 0 clamp(1.5rem, 4vw, 4rem);
+  background: #f0eee9;
   flex-shrink: 0;
 }
 
-@keyframes marquee-scroll {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
+.wf-bar {
+  height: 5.5px;
+  border-radius: 3px;
+  background: #f0eee9;
 }
 
-/* 5. Centered Foreground Content Stack */
-.cta-center {
-  position: relative;
-  z-index: 3;
+.wf-bar--60 { width: 60%; }
+.wf-bar--80 { width: 80%; }
+
+.wireframe-box {
+  width: 100%;
+  height: 22px;
+  border-radius: 4px;
+  background: #faf9f6;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Floating App Icon Tiles (Rounded Squares with Soft Drop Shadow) */
+.contacto-app-tile {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 4rem clamp(1.5rem, 6vw, 5rem);
-  max-width: 980px;
-  margin: 0 auto;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  z-index: 6;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
 }
 
-/* Staggered Entrance Animation */
-.reveal-item {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: var(--delay, 0ms);
+.contacto-app-tile:hover {
+  transform: scale(1.15) translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
 }
 
-.cta-section.is-ready .reveal-item {
-  opacity: 1;
+.contacto-app-tile svg,
+.contacto-app-tile img {
+  display: block;
+}
+
+/* Positions matching screenshot */
+.app-tile--vscode {
+  top: 36%;
+  left: 7%;
+}
+
+.app-tile--gdocs {
+  bottom: 34%;
+  left: 0%;
+}
+
+.app-tile--figma {
+  top: 36%;
+  right: 12%;
+}
+
+.app-tile--cube {
+  bottom: 28%;
+  right: 0%;
+}
+
+/* ==========================================================================
+   Right Column: High-Impact Editorial Conversion CTA
+   ========================================================================== */
+
+.home-contacto__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: clamp(0.5rem, 2vw, 2.5rem);
+}
+
+.home-contacto__titulo {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: clamp(2.8rem, 5.2vw, 4.6rem);
+  line-height: 1.06;
+  font-weight: 800;
+  letter-spacing: -0.038em;
+  color: #111111;
+  margin: 0 0 20px 0;
+  text-transform: none;
+}
+
+.home-contacto__desc {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: clamp(1.02rem, 1.25vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: #71717a;
+  margin: 0 0 30px 0;
+  max-width: 480px;
+}
+
+.home-contacto__actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Vibrant Blue "Let's talk" Pill Button (#0859D4) */
+.home-contacto__btn-talk {
+  background-color: #0859D4;
+  color: #ffffff;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 13px 34px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(8, 89, 212, 0.25);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.home-contacto__btn-talk:hover {
+  background-color: #0649b3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(8, 89, 212, 0.35);
+}
+
+.home-contacto__btn-talk:active {
   transform: translateY(0);
 }
 
-/* Badge ("Last word") */
-.cta-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background-color: var(--badge-bg);
-  backdrop-filter: blur(6px);
-  font-family: var(--font-mono, monospace);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--fg);
-  margin-bottom: 1.75rem;
-}
-
-.cta-badge__dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--fg);
-  animation: pulse-dot 2.2s ease-in-out infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(0.75); }
-}
-
-/* Heading ("Let's make something worth keeping.") */
-.cta-heading {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: clamp(2.5rem, 6.2vw, 5.5rem);
-  font-weight: 600;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
-  color: var(--fg);
-  text-wrap: balance;
-  max-width: 15ch;
-  margin-bottom: 1.5rem;
-}
-
-/* Note ("No decks, no detours...") */
-.cta-note {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(1rem, 1.35vw, 1.2rem);
-  line-height: 1.55;
-  color: var(--muted);
-  max-width: 42ch;
-  text-wrap: pretty;
-  margin-bottom: 3rem;
-}
-
-/* 6. Interactive Rotating "Seal" Button */
-.seal-wrapper {
-  position: relative;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.seal-button {
-  position: relative;
-  width: 152px;
-  height: 152px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  text-decoration: none;
-  color: var(--fg);
-  background: var(--surface);
-  border: 1px solid var(--seal-ring);
-  box-shadow: var(--shadow);
-  cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease;
-  will-change: transform;
-}
-
-/* Outer Dashed Stamp Ring */
-.seal-button::before {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border-radius: 50%;
-  border: 1px dashed var(--seal-ring);
-  pointer-events: none;
-  transition: transform 0.5s ease;
-}
-
-/* Rotating Circular SVG Text */
-.seal-button__ring {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  animation: spin-seal 18s linear infinite;
-  pointer-events: none;
-}
-
-.seal-button:hover .seal-button__ring {
-  animation-duration: 7s;
-}
-
-.seal-button__ring text {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: 10.2px;
-  font-weight: 700;
-  letter-spacing: 0.19em;
-  text-transform: uppercase;
-  fill: var(--fg);
-}
-
-/* Inner Solid Core */
-.seal-button__core {
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
-  background-color: var(--seal-bg);
-  color: var(--seal-fg);
-  display: grid;
-  place-items: center;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.seal-button:hover .seal-button__core {
-  transform: scale(1.12);
-}
-
-.seal-button__arrow {
-  width: 22px;
-  height: 22px;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.seal-button:hover .seal-button__arrow {
-  transform: translate(2px, -2px);
-}
-
-@keyframes spin-seal {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Accessible visible label underneath the seal */
-.seal-caption {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--fg);
-  letter-spacing: -0.01em;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 2px;
-}
-
-/* 7. Bottom Footnote Bar */
-.cta-footer {
-  position: relative;
-  z-index: 3;
+/* Social Icons next to button in matching Royal Blue (#0859D4) */
+.home-contacto__socials {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  padding: 1.25rem clamp(1.5rem, 6vw, 5rem);
-  border-top: 1px solid var(--border);
-  font-size: 0.8125rem;
-  font-family: var(--font-primary, sans-serif);
-  color: var(--muted);
+  gap: 14px;
 }
 
-.cta-footnote {
+.contacto-social-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-}
-
-.cta-footnote::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--fg);
+  color: #0859D4;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-@media (max-width: 640px) {
-  .cta-section::before,
-  .cta-section::after {
-    display: none;
+.contacto-social-link:hover {
+  transform: translateY(-2px);
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .home-contacto__container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
   }
-  .cta-topbar {
-    padding-left: clamp(1.5rem, 6vw, 5rem);
-    padding-top: 3.5rem;
-  }
-  .cta-footer {
-    justify-content: center;
+
+  .home-contacto__content {
+    align-items: center;
     text-align: center;
+    padding-left: 0;
+  }
+
+  .home-contacto__desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-contacto__actions {
+    justify-content: center;
+  }
+
+  .home-contacto__stage {
+    height: clamp(380px, 60vw, 480px);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track,
-  .seal-button__ring,
-  .cta-badge__dot {
-    animation: none !important;
+@media (max-width: 600px) {
+  .home-contacto {
+    padding: 60px 1.25rem 70px;
+  }
+
+  .home-contacto__titulo {
+    font-size: 2.5rem;
+  }
+
+  .home-contacto__stage {
+    height: 360px;
+    transform: scale(0.88);
+    transform-origin: center center;
   }
 }
