@@ -2020,73 +2020,278 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
     </div>
   </footer>
 
-  <!-- CONTACT DRAWER (SLIDES FROM RIGHT, WHITE DESIGN) -->
-    <div id="contact-modal" class="contact-modal" aria-hidden="true" role="dialog" aria-modal="true"
-      aria-labelledby="contact-modal-title">
-      <div class="contact-modal__backdrop" data-close-contact></div>
-      <div class="contact-modal__panel">
-        <div class="contact-modal__header">
-          <button type="button" class="contact-modal__close" data-close-contact aria-label="Close contact drawer">
-            <span>Close</span>
-            <span class="contact-modal__close-icon" aria-hidden="true">✕</span>
-          </button>
+  <!-- ==========================================================================
+       CONTACT POPUP MODAL (NIVARA ARCHITECTURAL EXPERIENCE & 5-PANEL CURTAIN SLIDE)
+       ========================================================================== -->
+  <div id="contact-modal" class="contact-popup" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contact-popup-heading" hidden>
+    
+    <!-- 5-Panel Page Transition Curtain -->
+    <div class="page-transition" aria-hidden="true">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+
+    <!-- Scrollable Modal Viewport -->
+    <div class="contact-popup-scroll" id="contact-popup-scroll">
+      
+      <!-- Header (Mix-blend mode to stay visible over dark/light sections) -->
+      <header class="site-header">
+        <div class="header-inner">
+          <a href="#" class="logo" data-close-contact>Nivara</a>
+          <p class="header-center">Architects, Copenhagen</p>
+          <nav class="header-nav">
+            <button type="button" class="cp-close-btn link-underline" data-close-contact aria-label="Close Contact Dialog">
+              <span>Close [ESC] ✕</span>
+            </button>
+          </nav>
         </div>
+      </header>
 
-        <div class="contact-form__content">
-          <h2 class="contact-form__heading">Let's connect.</h2>
-          <div class="contact-form__socials" aria-label="Direct contact and social profiles">
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="LinkedIn Profile" data-cursor-pill="LinkedIn">
-              <img src="assets/icons/linkedin.svg" alt="LinkedIn Logo" width="20" height="20" class="contact-social-icon" />
-              <span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/MURTAYES" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="GitHub Profile" data-cursor-pill="GitHub">
-              <img src="assets/icons/github-light.svg" alt="GitHub Logo" width="20" height="20" class="contact-social-icon" />
-              <span>GitHub</span>
-            </a>
-            <a href="mailto:samnun@murtayes.com" class="contact-social-btn" aria-label="Gmail Direct Email" data-cursor-pill="Gmail">
-              <img src="assets/icons/gmail.svg" alt="Gmail Logo" width="20" height="20" class="contact-social-icon" />
-              <span>Gmail</span>
-            </a>
+      <div class="contact-popup-content-wrap">
+        <!-- Hero Section (Dark) -->
+        <section class="hero">
+          <div class="hero-bg-wrap">
+            <div class="hero-bg animate-image">
+              <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2000&auto=format&fit=crop" alt="Studio interior" loading="eager" decoding="async">
+            </div>
           </div>
-
-          <form id="drawer-contact-form" class="contact-form__form" novalidate>
-            <div class="contact-form__field-wrap">
-              <label for="contact-name" class="contact-form__label">Name</label>
-              <input id="contact-name" type="text" autocomplete="name" placeholder="Your name"
-                class="contact-form__input" name="name" required />
+          <div class="hero-scrim"></div>
+          
+          <div class="hero-content">
+            <div class="hero-text-wrap">
+              <p class="hero-sub animate-fade" style="--delay: 0.5s;">Visit the studio</p>
+              <h1 class="hero-title" id="contact-popup-heading">
+                <span class="animate-slide-up">Contact</span>
+              </h1>
             </div>
-
-            <div class="contact-form__field-wrap">
-              <label for="contact-email" class="contact-form__label">Email</label>
-              <input id="contact-email" type="email" autocomplete="email" placeholder="you@domain.com"
-                class="contact-form__input" name="email" required />
+            
+            <div class="hero-details animate-fade" style="--delay: 0.8s;">
+              <dl>
+                <div>
+                  <dt>Studio</dt>
+                  <dd>Islands Brygge 34, 3. sal<br>2300 Copenhagen S</dd>
+                </div>
+                <div>
+                  <dt>Hours</dt>
+                  <dd>Monday to Friday, 9 to 17<br>Visits by appointment</dd>
+                </div>
+                <div>
+                  <dt>Getting here</dt>
+                  <dd>8 minutes’ walk from Islands Brygge Metro<br>Bike parking in the courtyard</dd>
+                </div>
+              </dl>
+              <a href="mailto:studio@nivara.dk" class="link-underline mt-4">Get directions</a>
             </div>
-
-            <div class="contact-form__field-wrap">
-              <label for="contact-message" class="contact-form__label">Message</label>
-              <textarea id="contact-message" name="message"
-                placeholder="Tell me a bit about what you're working on..."
-                class="contact-form__input contact-form__textarea" rows="4" required></textarea>
-            </div>
-
-            <div class="contact-form__action">
-              <button type="submit" class="contact-form__submit" aria-busy="false" data-cursor-pill="Send">
-                <span class="contact-form__submit-text">Send Message</span>
-                <span class="contact-form__submit-arrow" aria-hidden="true">→</span>
-              </button>
-            </div>
-          </form>
-
-          <!-- Success State -->
-          <div class="contact-form__success" style="display: none;" aria-live="polite">
-            <div class="contact-form__success-badge" aria-hidden="true">✓</div>
-            <h3 class="contact-form__success-heading">Message sent.</h3>
-            <p class="contact-form__success-text">Thank you for reaching out. I’ve received your note and will get back to you shortly.</p>
-            <button type="button" class="contact-form__reset-btn" data-reset-contact>Send another message</button>
           </div>
-        </div>
+        </section>
+
+        <!-- Form Section (Light) -->
+        <section class="form-section">
+          <div class="rule animate-line"></div>
+          
+          <div class="form-grid">
+            <div class="form-info">
+              <h2 class="section-title">
+                <span class="reveal-text"><span class="block">Start a project</span></span>
+              </h2>
+              <p class="section-desc reveal-text">
+                <span class="block">Tell us about your site or your brief. A partner</span>
+                <span class="block">reads every message and replies within two</span>
+                <span class="block">working days.</span>
+              </p>
+              
+              <dl class="contact-meta">
+                <div>
+                  <dt>Email</dt>
+                  <dd><a href="mailto:studio@nivara.dk" class="link-underline">studio@nivara.dk</a></dd>
+                </div>
+                <div>
+                  <dt>Phone</dt>
+                  <dd><a href="tel:+4533124080" class="link-underline">+45 33 12 40 80</a></dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="form-wrapper">
+              <form class="contact-form" id="nivara-contact-form" action="#" method="POST">
+                
+                <div class="form-row">
+                  <label class="input-group">
+                    <span class="input-label">First name</span>
+                    <input type="text" name="firstName" required autocomplete="given-name">
+                    <span class="focus-line"></span>
+                  </label>
+                  
+                  <label class="input-group">
+                    <span class="input-label">Last name</span>
+                    <input type="text" name="lastName" required autocomplete="family-name">
+                    <span class="focus-line"></span>
+                  </label>
+                </div>
+
+                <label class="input-group">
+                  <span class="input-label">Email</span>
+                  <input type="email" name="email" required autocomplete="email">
+                  <span class="focus-line"></span>
+                </label>
+
+                <label class="input-group">
+                  <span class="input-label">What is it about?</span>
+                  <select name="category" required>
+                    <option value="" disabled selected>Choose one</option>
+                    <option value="new">A new building</option>
+                    <option value="housing">Housing</option>
+                    <option value="renovation">Renovation or conversion</option>
+                    <option value="private">A private house</option>
+                  </select>
+                  <span class="focus-line"></span>
+                </label>
+
+                <label class="input-group">
+                  <span class="input-label">Message</span>
+                  <textarea name="message" rows="5" placeholder="Tell us about the site, the brief and when you hope to start." required></textarea>
+                  <span class="focus-line"></span>
+                </label>
+
+                <div class="form-submit-wrap">
+                  <button type="submit" class="submit-btn" data-cursor-pill="Send">
+                    <span class="btn-bg"></span>
+                    <span class="btn-content">
+                      <span class="btn-text-roll">
+                        <span>Send message</span>
+                        <span>Send message</span>
+                      </span>
+                      <svg viewBox="0 0 16 16" class="btn-arrow" fill="none" stroke="currentColor" stroke-width="1.3">
+                        <path d="M2 8h12M9 3l5 5-5 5"></path>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+
+                <div class="form-feedback" style="display: none;" aria-live="polite">
+                  <p class="form-feedback-text">Message sent successfully! A partner will review and reply within two working days.</p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+          <div class="faq-grid">
+            <div class="faq-left">
+              <h2 class="section-title"><span class="reveal-text"><span class="block">Questions we hear first</span></span></h2>
+              <p class="faq-sub reveal-text"><span class="block">If your question is not here, ask us in the form above.</span></p>
+            </div>
+            
+            <div class="faq-right">
+              <div class="rule animate-line"></div>
+              
+              <div class="accordion">
+                <div class="faq-item">
+                  <button type="button" class="faq-trigger" aria-expanded="true">
+                    <span>What size of project do you take on?</span>
+                    <span class="faq-icon" aria-hidden="true">
+                      <span class="icon-h"></span>
+                      <span class="icon-v"></span>
+                    </span>
+                  </button>
+                  <div class="faq-content is-open">
+                    <div class="faq-inner">
+                      <p>Most of our work is between 500 and 10,000 m²: libraries, schools, housing and workplaces. Most years we also design one or two private houses.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="faq-item">
+                  <button type="button" class="faq-trigger" aria-expanded="false">
+                    <span>Where do you work?</span>
+                    <span class="faq-icon" aria-hidden="true">
+                      <span class="icon-h"></span>
+                      <span class="icon-v"></span>
+                    </span>
+                  </button>
+                  <div class="faq-content">
+                    <div class="faq-inner">
+                      <p>Primarily in Copenhagen and across Denmark, but we take on select international projects as well.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="faq-item">
+                  <button type="button" class="faq-trigger" aria-expanded="false">
+                    <span>How are fees calculated?</span>
+                    <span class="faq-icon" aria-hidden="true">
+                      <span class="icon-h"></span>
+                      <span class="icon-v"></span>
+                    </span>
+                  </button>
+                  <div class="faq-content">
+                    <div class="faq-inner">
+                      <p>We usually work with a percentage of the construction cost, or a fixed fee depending on the scope.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="rule"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer Section (Dark) -->
+        <footer class="site-footer">
+          <div class="footer-top">
+            <div class="footer-brand">
+              <p class="footer-statement">Careful buildings, drawn in Copenhagen.</p>
+              <a href="mailto:studio@nivara.dk" class="link-underline mt-4">studio@nivara.dk</a>
+            </div>
+            
+            <div class="footer-address">
+              <p class="footer-label">Studio</p>
+              <p>Islands Brygge 34, 3. sal<br>2300 Copenhagen S</p>
+              <a href="tel:+4533124080" class="link-underline mt-2">+45 33 12 40 80</a>
+            </div>
+            
+            <div class="footer-nav">
+              <p class="footer-label">Index</p>
+              <ul>
+                <li><a href="#works" class="link-underline" data-close-contact>Projects</a></li>
+                <li><a href="#about" class="link-underline" data-close-contact>Studio</a></li>
+                <li><a href="#contact" class="link-underline" data-close-contact>Contact</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-nav">
+              <p class="footer-label">Elsewhere</p>
+              <ul>
+                <li><a href="https://github.com/MURTAYES" target="_blank" rel="noopener noreferrer" class="link-underline">GitHub</a></li>
+                <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="link-underline">LinkedIn</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Massive sliding wordmark -->
+          <div class="footer-wordmark" aria-hidden="true">
+            <span class="char">N</span>
+            <span class="char">i</span>
+            <span class="char">v</span>
+            <span class="char">a</span>
+            <span class="char">r</span>
+            <span class="char">a</span>
+          </div>
+          
+          <div class="footer-bottom">
+            <p>© 2026 Nivara Arkitekter ApS</p>
+            <p>Members of Danske Arkitektvirksomheder</p>
+          </div>
+        </footer>
+
       </div>
     </div>
+  </div>
 
     <!-- ApplyKit Specification Docket Modal -->
     <div id="applykit-modal" class="applykit-modal" aria-hidden="true" role="dialog" aria-modal="true"
