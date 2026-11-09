@@ -1,257 +1,191 @@
-/* --------------------------------------------------------------------------
-   04. SELECTED WORKS (ONE SIDE TEXT, ONE SIDE FOLDER)
-   Tactile Architectural Folders with Embedded Brand Logos & Fluid Docket Modals
-   Pure Vanilla CSS · Zero External Dependencies
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   SELECTED WORK: EDITORIAL ASYMMETRICAL DESK & MACOS GENIE MODAL
+   Pure Vanilla CSS · Zero External Dependencies · 60fps GPU Hardware Accelerated
+   Matches "Tools I reach for" Design Tokens & Architectural Aesthetic
+   ========================================================================== */
 
-.works {
-  position: relative;
-  width: 100%;
-  background-color: transparent;
-  color: #060606;
-  padding: clamp(80px, 12vh, 140px) 0;
-  box-sizing: border-box;
-  overflow: visible;
+/* Design Tokens (inherited from root, with local fallbacks) */
+:root,
+.works-desk-section {
+  --canvas: #F5F5F3;
+  --ink: #0A0A0A;
+  --night: #0A0A0A;
+  --muted: #6B6B6B;
+  --rule: rgba(10,10,10,.14);
+  --chip: rgba(10,10,10,.28);
+  --accent: #E85C3B;
+  --white: #FFFFFF;
+  --max-canvas: 1312px;
+  --margin: clamp(24px, 6vw, 96px);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --font-display: var(--font-primary, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif);
+  --font-label: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
-.works__container {
-  max-width: 1400px;
+/* ==========================================================================
+   1. SECTION CONTAINER & HEADER
+   ========================================================================== */
+
+.works-desk-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--canvas, #F5F5F3);
+  color: var(--ink, #0A0A0A);
+  padding-top: clamp(64px, 8vw, 112px);
+  padding-bottom: clamp(80px, 10vw, 140px);
+  box-sizing: border-box;
+  overflow: visible;
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.works-desk-container {
+  max-width: var(--max-canvas, 1312px);
   margin: 0 auto;
-  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  padding: 0 var(--margin, clamp(24px, 6vw, 96px));
   box-sizing: border-box;
 }
 
-/* Section Header */
-.works .section-head {
-  margin-bottom: clamp(48px, 8vh, 80px);
-  border-bottom: 1px solid rgba(6, 6, 6, 0.12);
-  padding-bottom: 24px;
+.works-header {
+  margin-bottom: clamp(48px, 7vw, 80px);
+  max-width: 1000px;
+  margin-inline: auto;
 }
 
-.works-heading {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  color: #060606;
-  line-height: 1.08;
-  margin: 0;
-  text-transform: none;
-}
-
-/* ==========================================================================
-   Asymmetrical Editorial Grid (One Side Text, One Side Folder)
-   ========================================================================== */
-
-.works-asymmetric-grid {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(70px, 12vh, 130px);
-  width: 100%;
-}
-
-.works-row {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(2.5rem, 6vw, 6rem);
-  align-items: center;
-  width: 100%;
-}
-
-/* Alternating Row 2: Folder on Left, Text on Right */
-.works-row--2 {
-  grid-template-columns: 0.95fr 1.05fr;
-}
-
-/* ==========================================================================
-   Text Side (Editorial Content, Specs & Actions)
-   ========================================================================== */
-
-.works-text-side {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.works-meta-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 14px;
-  font-family: var(--font-mono, monospace);
+.works-label {
+  font-family: var(--font-label);
   font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #666666;
-}
-
-.works-meta-num {
-  font-weight: 700;
-  color: #060606;
-}
-
-.works-meta-slash {
-  color: rgba(6, 6, 6, 0.25);
-}
-
-.works-status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #eb381c;
-  display: inline-block;
-  box-shadow: 0 0 6px currentColor;
-}
-
-.works-status-text {
-  font-weight: 600;
-  color: #060606;
-}
-
-.works-project-title {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.08;
-  color: #060606;
-  margin: 0 0 10px 0;
-}
-
-.works-project-tagline {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
-  font-weight: 600;
-  line-height: 1.4;
-  color: #222222;
-  margin: 0 0 16px 0;
-}
-
-.works-project-desc {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: var(--page-text, #060606);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted, #6B6B6B);
   margin: 0;
-  max-width: 48ch;
-  transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 1;
 }
 
-.works-spec-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 28px;
-}
-
-.spec-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 14px;
-  background: #f7f6f2;
-  border: 1px solid rgba(6, 6, 6, 0.08);
-  border-radius: 9999px;
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  font-weight: 600;
-  color: #333333;
-  letter-spacing: 0.02em;
-}
-
-.works-inspect-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
-  background: #060606;
-  color: #ffffff;
-  border: 1px solid #060606;
-  border-radius: 9999px;
-  font-family: var(--font-primary, sans-serif);
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-}
-
-.works-inspect-btn:hover {
-  background: #222222;
-  border-color: #222222;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
-}
-
-.works-inspect-btn svg {
-  transition: transform 0.25s ease;
-}
-
-.works-inspect-btn:hover svg {
-  transform: translate(2px, -2px);
+.works-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink, #0A0A0A);
+  margin-top: 12px;
+  margin-bottom: 0;
+  max-width: 24ch;
 }
 
 /* ==========================================================================
-   Folder Side (Tactile Architectural Folder with Embedded Brand Logo)
+   2. THE STAGGERED GRID (NO 3-IN-A-ROW · ASYMMETRICAL EDITORIAL DESK)
    ========================================================================== */
 
-.works-folder-side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-.folder-stage {
+/* Desktop Asymmetrical Staggered Offsets */
+@media (min-width: 1024px) {
+  .work-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 56px 48px;
+  }
+
+  /* Folder 1: Left column, aligns at the very top */
+  .work-folder:nth-child(1) {
+    grid-column: 1;
+    align-self: start;
+  }
+
+  /* Folder 2: Right column, staggered downwards by 120px */
+  .work-folder:nth-child(2) {
+    grid-column: 2;
+    margin-top: 120px;
+  }
+
+  /* Folder 3: Left column, offset upwards by -60px, justified end, 80% width */
+  .work-folder:nth-child(3) {
+    grid-column: 1;
+    margin-top: -60px;
+    justify-self: end;
+    width: 80%;
+  }
+}
+
+/* Mobile: 1 column, gap 32px, no margins */
+@media (max-width: 1023px) {
+  .work-grid {
+    gap: 32px;
+  }
+  .work-folder:nth-child(2),
+  .work-folder:nth-child(3) {
+    margin-top: 0;
+    width: 100%;
+    justify-self: stretch;
+  }
+}
+
+/* ==========================================================================
+   3. THE 3D FOLDER DESIGN (WITH LOGO AT TOP)
+   ========================================================================== */
+
+.work-folder {
   position: relative;
-  width: 100%;
-  max-width: 380px;
-  height: 270px;
-  overflow: visible;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.folder {
-  position: absolute;
-  left: 50%;
-  bottom: 14px;
-  width: 330px;
-  height: 215px;
-  margin-left: -165px;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   outline: none;
-  cursor: pointer;
-  transition: transform 0.38s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s var(--ease-out);
 }
 
-.folder:hover,
-.folder.is-opening {
-  transform: translateY(-8px);
+/* Idle floating animation */
+.work-folder .folder-body {
+  position: relative;
+  border-radius: 16px 16px 20px 20px;
+  overflow: visible;
+  box-sizing: border-box;
+  animation: folder-float 5s ease-in-out infinite;
+  will-change: transform;
+  transition: transform 0.4s var(--ease-out);
 }
 
-/* --------------------------------------------------------------------------
-   macOS Yosemite / Frosted Glass Folder Silhouette (.back & .back-tab)
-   -------------------------------------------------------------------------- */
-.back {
+.work-folder:nth-child(1) .folder-body { animation-delay: 0s; }
+.work-folder:nth-child(2) .folder-body { animation-delay: -1s; }
+.work-folder:nth-child(3) .folder-body { animation-delay: -2s; }
+
+@keyframes folder-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+/* 3D tilt on hover */
+.work-folder:hover .folder-body {
+  transform: perspective(1200px) rotateX(10deg) rotateY(-5deg) scale(1.02);
+  animation-play-state: paused;
+}
+
+/* macOS frosted glass back */
+.folder-back {
   position: absolute;
   inset: 0;
   z-index: 1;
   border-radius: 16px 16px 20px 20px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.32) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.32) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255,255,255,0.75);
+  box-shadow: 0 20px 48px -12px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.03);
 }
 
-/* macOS Top-Left Folder Tab */
-.back::before {
+/* macOS top-left tab */
+.folder-back::before {
   content: "";
   position: absolute;
   left: -1px;
@@ -259,17 +193,16 @@
   width: 38%;
   height: 26px;
   border-radius: 12px 14px 0 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.45) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.45) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255, 255, 255, 0.9);
-  border-left: 1px solid rgba(255, 255, 255, 0.9);
-  border-right: 1px solid rgba(255, 255, 255, 0.6);
-  transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border-top: 1px solid rgba(255,255,255,0.9);
+  border-left: 1px solid rgba(255,255,255,0.9);
+  border-right: 1px solid rgba(255,255,255,0.6);
 }
 
-/* Smooth Curved Fillet to Shoulder */
-.back::after {
+/* Smooth curved fillet */
+.folder-back::after {
   content: "";
   position: absolute;
   left: calc(38% - 1px);
@@ -278,246 +211,141 @@
   height: 12px;
   border-bottom-left-radius: 10px;
   background: transparent;
-  box-shadow: -4px 4px 0 0 rgba(255, 255, 255, 0.55);
+  box-shadow: -4px 4px 0 0 rgba(255,255,255,0.55);
   pointer-events: none;
-  transition: box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.sheets {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  clip-path: inset(-400px -400px 0);
-}
-
-/* --------------------------------------------------------------------------
-   macOS Frosted Glass Front Flap (.flap)
-   -------------------------------------------------------------------------- */
-.flap {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 76%;
+/* Folder flap (front face) */
+.folder-flap {
+  position: relative;
   z-index: 4;
+  min-height: 230px;
   border-radius: 14px 14px 20px 20px;
-  background: linear-gradient(175deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.46) 45%, rgba(255, 255, 255, 0.28) 100%);
+  background: linear-gradient(175deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.46) 45%, rgba(255,255,255,0.28) 100%);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-top: 1.5px solid rgba(255, 255, 255, 0.98);
-  box-shadow: inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
-              inset 0 -1px 2px 0 rgba(255, 255, 255, 0.3),
-              0 16px 38px -8px rgba(0, 0, 0, 0.1),
-              0 4px 14px -2px rgba(0, 0, 0, 0.04);
-  transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255,255,255,0.8);
+  border-top: 1.5px solid rgba(255,255,255,0.98);
+  box-shadow: inset 0 1.5px 1px 0 rgba(255,255,255,0.95),
+              inset 0 -1px 2px 0 rgba(255,255,255,0.3),
+              0 16px 38px -8px rgba(0,0,0,0.1),
+              0 4px 14px -2px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 76px 24px 30px;
+  box-sizing: border-box;
 }
 
-/* --------------------------------------------------------------------------
-   macOS Yosemite Center Logo Emblem (Centered on Glass Front Flap)
-   -------------------------------------------------------------------------- */
-.folder-center-icon {
+/* Logo at the top of the folder */
+.folder-logo {
   position: absolute;
+  top: 20px;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.folder-icon-img {
-  width: 72px;
-  height: 72px;
+  transform: translateX(-50%);
+  width: 42px;
+  height: 42px;
   object-fit: contain;
-  border-radius: 18px;
-  box-shadow: 0 10px 26px -4px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.08);
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.06));
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+  border-radius: 10px;
+  box-shadow: 0 8px 22px -4px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.06);
+  z-index: 10;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.35s ease;
 }
 
-.folder:hover .folder-icon-img {
-  transform: scale(1.09) translateY(-3px);
-  box-shadow: 0 16px 32px -4px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.1);
+.work-folder:hover .folder-logo {
+  transform: translateX(-50%) scale(1.08) translateY(-2px);
+  box-shadow: 0 14px 28px -4px rgba(0,0,0,0.16), 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Locked Folder Security Badge (Edu52) */
-.folder-lock-badge {
-  position: absolute;
-  right: -6px;
-  bottom: -6px;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #374151;
-  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Dark Theme Adaptation for macOS Glass Folder */
-body.is-dark .back {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 100%);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.6);
-}
-
-body.is-dark .back::before {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.07) 100%);
-  border-top-color: rgba(255, 255, 255, 0.3);
-  border-left-color: rgba(255, 255, 255, 0.3);
-  border-right-color: rgba(255, 255, 255, 0.15);
-}
-
-body.is-dark .back::after {
-  box-shadow: -4px 4px 0 0 rgba(255, 255, 255, 0.12);
-}
-
-body.is-dark .flap {
-  background: linear-gradient(175deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.09) 45%, rgba(255, 255, 255, 0.03) 100%);
-  border-color: rgba(255, 255, 255, 0.2);
-  border-top-color: rgba(255, 255, 255, 0.45);
-  box-shadow: inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.35),
-              inset 0 -1px 2px 0 rgba(255, 255, 255, 0.1),
-              0 20px 48px rgba(0, 0, 0, 0.55);
-}
-
-body.is-dark .folder-lock-badge {
-  background: #18181b;
-  border-color: rgba(255, 255, 255, 0.25);
-  color: #f3f4f6;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-/* Sheets inside the folder */
-.sheet {
-  --x: 0px;
-  --y: 84px;
-  --r: 0deg;
-  --lift: 0px;
-  position: absolute;
-  left: 50%;
-  bottom: 10px;
-  width: 155px;
-  height: 220px;
-  margin: 0;
-  padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.09);
-  overflow: hidden;
-  border-radius: 8px 8px 4px 4px;
-  background: #ffffff;
-  color: #111111;
-  font-family: var(--font-primary, sans-serif);
-  text-align: left;
-  cursor: pointer;
-  box-shadow: 0 4px 14px -3px rgba(0, 0, 0, 0.12);
-  transform-origin: 50% 100%;
-  transform: translate(calc(-50% + var(--x)), calc(var(--y) + var(--lift))) rotate(var(--r));
-  transition: transform 0.55s cubic-bezier(0.2, 0.9, 0.25, 1.1), opacity 0.25s, box-shadow 0.25s;
-}
-
-.sheet::before {
-  content: "";
-  display: block;
-  height: 6px;
-  background: var(--ac, #eb381c);
-}
-
-.sheet-head {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  margin: 12px 12px 4px;
-}
-
-.sheet-icon {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-  display: block;
-  border-radius: 3px;
-}
-
-.sheet b {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: #111111;
-  line-height: 1.1;
-}
-
-.sheet-spec {
-  display: block;
-  margin: 0 12px 10px;
-  font-family: var(--font-mono, monospace);
-  font-size: 9px;
+/* Folder project name */
+.folder-name {
+  font-family: var(--font-display);
   font-weight: 600;
-  letter-spacing: 0.04em;
-  color: #888888;
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--ink, #0A0A0A);
+  text-align: center;
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+
+/* Folder tagline */
+.folder-tagline {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--muted, #6B6B6B);
+  text-align: center;
+  margin: 0 0 16px;
+  line-height: 1.4;
+  max-width: 36ch;
+}
+
+/* Folder chips */
+.folder-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.folder-chip {
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 500;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 10px;
+  border: 1px solid var(--chip, rgba(10,10,10,0.28));
+  border-radius: 4px;
+  color: var(--ink, #0A0A0A);
 }
 
-.sheet i {
-  display: block;
-  height: 3px;
-  margin: 6px 12px;
-  border-radius: 2px;
-  background: #f0eee9;
-}
-
-.sheet i:nth-of-type(1) { width: 75%; }
-.sheet i:nth-of-type(2) { width: 85%; }
-.sheet i:nth-of-type(3) { width: 55%; }
-.sheet i:nth-of-type(4) { width: 80%; }
-.sheet i:nth-of-type(5) { width: 65%; }
-
-/* Fanning on Hover / Active */
-.folder:hover .sheet:nth-child(1),
-.folder.is-fanned .sheet:nth-child(1),
-.folder.is-opening .sheet:nth-child(1) {
-  --x: -52px;
-  --y: -65px;
-  --r: -12deg;
-}
-
-.folder:hover .sheet:nth-child(2),
-.folder.is-fanned .sheet:nth-child(2),
-.folder.is-opening .sheet:nth-child(2) {
-  --x: 0px;
-  --y: -82px;
-  --r: 0deg;
-}
-
-.folder:hover .sheet:nth-child(3),
-.folder.is-fanned .sheet:nth-child(3),
-.folder.is-opening .sheet:nth-child(3) {
-  --x: 52px;
-  --y: -65px;
-  --r: 12deg;
-}
-
-.folder:hover .sheet:hover,
-.folder.is-fanned .sheet:hover {
-  --lift: -16px;
+/* Spotlight cursor tracking gradient */
+.folder-body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   z-index: 5;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.22);
+  border-radius: inherit;
+  background: radial-gradient(
+    300px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255,255,255,0.18) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
-.sheet.is-away {
+.work-folder:hover .folder-body::before {
+  opacity: 1;
+}
+
+/* Scroll reveal */
+.work-folder {
   opacity: 0;
-  pointer-events: none;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out-soft), transform 0.7s var(--ease-out-soft);
+}
+
+.work-folder.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.work-folder:nth-child(1) { transition-delay: 0s; }
+.work-folder:nth-child(2) { transition-delay: 0.12s; }
+.work-folder:nth-child(3) { transition-delay: 0.24s; }
+
+/* Active state when modal is open */
+.work-folder.is-active .folder-body {
+  animation-play-state: paused;
 }
 
 /* ==========================================================================
-   GENIE LAYER: THE WINDOW CUT INTO THIN STRIPS (Apple macOS Genie Effect)
+   4. GENIE LAYER: STRIP DECOMPOSITION (Apple macOS Genie Effect)
    ========================================================================== */
 .genie {
   position: fixed;
@@ -537,10 +365,10 @@ body.is-dark .folder-lock-badge {
 }
 
 /* ==========================================================================
-   Project Details Modal Window & Backdrop (.win & .dossier-backdrop)
+   5. FULLSCREEN BACKDROP & MODAL WINDOW (.win / .project-modal)
    ========================================================================== */
 
-/* Fullscreen Blurred Backdrop */
+/* Blurred backdrop */
 .dossier-backdrop {
   position: fixed;
   inset: 0;
@@ -550,7 +378,7 @@ body.is-dark .folder-lock-badge {
   z-index: 99998;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.35s var(--ease-out-soft);
 }
 
 .dossier-backdrop.is-active {
@@ -558,41 +386,43 @@ body.is-dark .folder-lock-badge {
   pointer-events: auto;
 }
 
-/* Centered Architectural Window */
-.win {
+/* Centered Architectural Window (macOS) */
+.win,
+.project-modal {
   position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(0.94);
-  width: min(840px, 92vw);
-  max-height: 88vh;
+  left: var(--wx, 50%);
+  top: var(--wy, 50%);
+  width: var(--ww, min(840px, 92vw));
+  height: var(--wh, 88vh);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   border-radius: 16px;
-  background: #ffffff;
-  color: #111111;
-  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 34px 90px -12px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  background: var(--canvas, #F5F5F3);
+  color: var(--ink, #0A0A0A);
+  font-family: var(--font-body);
+  border: 1px solid var(--rule, rgba(10,10,10,0.14));
+  box-shadow: 0 34px 90px -12px rgba(0,0,0,0.45), 0 0 0 1px rgba(0,0,0,0.08);
   z-index: 99999;
   box-sizing: border-box;
   opacity: 0;
   pointer-events: none;
-  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  transition: opacity 0.35s ease;
 }
 
-.win[hidden] {
+.win[hidden],
+.project-modal[hidden] {
   display: none !important;
 }
 
-.win.is-open {
-  transform: translate(-50%, -50%) scale(1);
+.win.settled,
+.project-modal.settled,
+.project-modal[open] {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Window Bar (macOS Traffic Light Chrome) */
+/* Window Title Bar (macOS Traffic Lights) */
 .win .bar {
   position: relative;
   flex: none;
@@ -602,7 +432,7 @@ body.is-dark .folder-lock-badge {
   height: 48px;
   padding: 0 18px;
   background: linear-gradient(180deg, #fcfcfb, #f3f1ec);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  border-bottom: 1px solid var(--rule, rgba(10,10,10,0.14));
   box-sizing: border-box;
 }
 
@@ -622,10 +452,10 @@ body.is-dark .folder-lock-badge {
   border: 0;
   border-radius: 50%;
   font: 700 10px/12px system-ui, sans-serif;
-  color: rgba(0, 0, 0, 0.55);
+  color: rgba(0,0,0,0.55);
   text-align: center;
   cursor: pointer;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -638,7 +468,7 @@ body.is-dark .folder-lock-badge {
 .win .dot.r:hover::after {
   content: "✕";
   font-size: 8px;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0,0,0,0.7);
 }
 
 .win .ttl {
@@ -646,35 +476,36 @@ body.is-dark .folder-lock-badge {
   left: 0;
   right: 0;
   text-align: center;
-  font-family: var(--font-primary, sans-serif);
-  font-size: 13px;
-  font-weight: 700;
-  color: #333333;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted, #6B6B6B);
   pointer-events: none;
-  letter-spacing: -0.01em;
 }
 
 .win-close-btn {
   background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--rule, rgba(10,10,10,0.14));
   border-radius: 6px;
   padding: 4px 10px;
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-label);
   font-size: 11px;
   font-weight: 600;
-  color: #666666;
+  color: var(--muted, #6B6B6B);
   cursor: pointer;
   z-index: 2;
   transition: all 0.2s ease;
 }
 
 .win-close-btn:hover {
-  background: #060606;
-  color: #ffffff;
-  border-color: #060606;
+  background: var(--ink, #0A0A0A);
+  color: var(--white, #FFFFFF);
+  border-color: var(--ink, #0A0A0A);
 }
 
-/* Document Body */
+/* Document Body (scrollable case study) */
 .win .doc {
   flex: 1;
   overflow-y: auto;
@@ -683,292 +514,540 @@ body.is-dark .folder-lock-badge {
   box-sizing: border-box;
 }
 
-.doc-meta-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-mono, monospace);
+/* ==========================================================================
+   6. CASE STUDY TYPOGRAPHY (from the prompt spec)
+   ========================================================================== */
+
+.cs-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(3rem, 9vw, 8.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  margin-left: -0.062em;
+  color: var(--ink);
+}
+
+.cs-eyebrow,
+.cs-label {
+  font-family: var(--font-label);
   font-size: 11px;
-  letter-spacing: 0.08em;
+  font-weight: 500;
   text-transform: uppercase;
-  color: #888888;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-  padding-bottom: 10px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
 }
 
-.doc-badge {
-  font-weight: 700;
+.cs-chip {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 500;
+  border: 1.2px solid var(--chip);
+  padding: 9px 16px;
+  color: var(--ink);
+  display: inline-block;
 }
 
-/* Project Header within Docket */
-.doc-header-row {
+.cs-chips {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
 }
 
-.doc-brand-frame {
-  width: 72px;
-  height: 72px;
-  border-radius: 14px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.09);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  padding: 10px;
-  box-sizing: border-box;
+.cs-summary {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: 75ch;
+  margin: 24px 0 0;
 }
 
-.doc-brand-logo {
+.cs-body,
+.cs-role-list li,
+.cs-fact dd,
+.cs-approach-body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.cs-subhead {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(22px, 2.4vw, 28px);
+  color: var(--ink);
+}
+
+.cs-approach-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(18px, 1.8vw, 22px);
+  color: var(--ink);
+}
+
+.cs-approach-num {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   7. RULES (draw on scroll reveal)
+   ========================================================================== */
+
+.cs-rule {
+  height: 1.5px;
+  background: var(--rule);
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
+  position: relative;
+  overflow: hidden;
 }
 
-.doc-header-info {
+.cs-rule::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 900ms var(--ease-out-soft);
+}
+
+.cs-rule.is-drawn::after {
+  transform: scaleX(1);
+}
+
+/* ==========================================================================
+   8. CASE STUDY LAYOUT
+   ========================================================================== */
+
+.cs-hero,
+.cs-section {
+  max-width: var(--max-canvas);
+  margin-inline: auto;
+}
+
+.cs-hero {
+  padding-top: clamp(24px, 4vw, 48px);
+}
+
+.cs-section {
+  padding-top: clamp(40px, 5vw, 64px);
+}
+
+.cs-meta {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+  margin-top: 28px;
+}
+
+@media (min-width: 640px) {
+  .cs-meta { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .cs-meta { grid-template-columns: repeat(4, 1fr); }
+}
+
+.cs-meta dt {
+  font-family: var(--font-label);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.cs-meta dd {
+  font-size: 16px;
+  margin: 8px 0 0;
+  color: var(--ink);
+}
+
+.cs-hero-figure {
+  margin-top: 32px;
+}
+
+.cs-hero-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.cs-grid,
+.cs-fact,
+.cs-approach-row {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .cs-grid,
+  .cs-fact,
+  .cs-approach-row {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .cs-grid > :first-child,
+  .cs-fact > dt,
+  .cs-approach-head {
+    grid-column: 1 / 3;
+  }
+  .cs-grid > :nth-child(2),
+  .cs-fact > dd,
+  .cs-approach-body {
+    grid-column: 3 / 6;
+  }
+}
+
+.cs-role-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
-.doc h2 {
-  font-family: var(--font-primary, sans-serif);
-  font-size: clamp(2rem, 3.2vw, 2.6rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #060606;
-  margin: 0 0 6px;
-  line-height: 1.1;
+.cs-role-list li::before {
+  content: "—";
+  margin-right: 8px;
+  color: var(--muted);
 }
 
-.doc-lead {
-  font-family: var(--font-primary, sans-serif);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333333;
-  margin: 0;
-  line-height: 1.4;
+.cs-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.doc-body-p {
-  font-family: var(--font-primary, sans-serif);
-  font-size: 0.98rem;
-  font-weight: 400;
-  line-height: 1.65;
-  color: #4b5563;
-  margin: 0 0 24px;
+.cs-fact {
+  padding-top: 24px;
 }
 
-/* Technical Highlights List */
-.doc-section {
+.cs-fact:first-child {
+  padding-top: 0;
+}
+
+.cs-approach {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.cs-approach li {
+  padding: 16px 0;
+}
+
+.cs-approach-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   9. STICKY STACKS (Flow Cards & Brand Cards)
+   ========================================================================== */
+
+.cs-flow-stack,
+.cs-media-stack,
+.cs-brand-stack {
   margin-top: 24px;
 }
 
-.doc-section h4 {
-  font-family: var(--font-primary, sans-serif);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: #111111;
-  margin: 0 0 14px;
-  border-left: 3px solid var(--ac, #eb381c);
-  padding-left: 10px;
-}
-
-.doc-list {
-  margin: 0;
-  padding: 0 0 0 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-family: var(--font-primary, sans-serif);
-  font-size: 0.94rem;
-  color: #4b5563;
-  line-height: 1.55;
-}
-
-.doc-list strong {
-  color: #111111;
-}
-
-/* ==========================================================================
-   Tech Stack Grid with Official SVG Logos (Key Requirement)
-   ========================================================================== */
-
-.tech-stack-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 12px;
-  margin-top: 14px;
-}
-
-.tech-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  background: #fbfbfa;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.tech-card:hover {
-  background: #ffffff;
-  border-color: rgba(0, 0, 0, 0.18);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-}
-
-.tech-card__icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  padding: 5px;
+/* Spec Sheet Cards (Feature Cards) */
+.cs-spec-sheet-card {
+  background: var(--canvas, #F5F5F3);
+  border: 1px solid var(--rule, rgba(10,10,10,0.14));
+  border-radius: 12px;
+  padding: clamp(20px, 3vw, 32px);
+  margin-bottom: 16px;
   box-sizing: border-box;
 }
 
-.tech-card__icon img,
-.tech-card__icon svg {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-  display: block;
-}
-
-.tech-card__info {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.tech-card__name {
-  font-family: var(--font-primary, sans-serif);
-  font-size: 13px;
-  font-weight: 700;
-  color: #111111;
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.tech-card__role {
-  font-family: var(--font-mono, monospace);
+.cs-spec-badge {
+  font-family: var(--font-label);
   font-size: 10px;
-  color: #71717a;
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Docket Action Footer */
-.doc-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 32px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(0, 0, 0, 0.07);
-  flex-wrap: wrap;
-}
-
-.doc-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-family: var(--font-primary, sans-serif);
-  font-size: 13.5px;
   font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.cs-spec-sheet-card h4 {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+
+.cs-spec-sheet-card p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
+.cs-spec-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cs-spec-tech-pill {
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border: 1px solid var(--chip);
+  border-radius: 4px;
+  color: var(--ink);
+}
+
+.cs-flow-card {
+  position: sticky;
+  top: calc(20px + var(--i) * 17px);
+  z-index: calc(var(--i) + 1);
+  width: 86%;
+  margin-left: calc((var(--i) - 1) * 4%);
+  margin-bottom: 24px;
+  background: var(--canvas, #F5F5F3);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: clamp(16px, 2.5vw, 24px);
   box-sizing: border-box;
 }
 
-.doc-btn--primary {
-  background: #060606;
-  color: #ffffff;
-  border: 1px solid #060606;
+@media (min-width: 1024px) {
+  .cs-flow-card {
+    width: 36.357%;
+    margin-left: calc((var(--i) - 1) * 21.265%);
+    margin-bottom: 40px;
+  }
 }
 
-.doc-btn--primary:hover {
-  background: #222222;
-  border-color: #222222;
-  transform: translateY(-1px);
+.cs-flow-step-tag {
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 8px;
 }
 
-.doc-btn--secondary {
-  background: #fbfbfa;
-  color: #222222;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+.cs-flow-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(16px, 1.6vw, 20px);
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 6px;
 }
 
-.doc-btn--secondary:hover {
-  background: #ffffff;
-  border-color: #060606;
-  color: #060606;
+.cs-flow-card-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+}
+
+.cs-flow-icon {
+  width: 28px;
+  height: 28px;
+  margin-top: 12px;
+  opacity: 0.5;
+}
+
+.cs-brand-card {
+  position: sticky;
+  top: calc(96px + var(--i) * 17px);
+  z-index: calc(var(--i) + 1);
+  margin-bottom: 26%;
+  transform: rotate(var(--rot, 0deg));
+  background: var(--canvas, #F5F5F3);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: clamp(20px, 3vw, 28px);
+  box-sizing: border-box;
+}
+
+.cs-brand-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.cs-brand-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+
+.cs-brand-card-text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+}
+
+.cs-brand-spacer {
+  padding-top: 46%;
+}
+
+/* Next project CTA */
+.cs-next-link {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.cs-next-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.cs-next-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.5rem, 8vw, 8rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  transition: color 0.3s var(--ease-out-soft);
+}
+
+.cs-next-arrow {
+  width: 56px;
+  height: 56px;
+  color: var(--ink);
+  transition: transform 0.3s var(--ease-out-soft);
+  flex-shrink: 0;
+}
+
+.cs-next-link:hover .cs-next-title { color: var(--accent); }
+.cs-next-link:hover .cs-next-arrow { transform: translate(8px, -8px); }
+
+@media (max-width: 1023px) {
+  .cs-next-arrow { width: 36px; height: 36px; }
+}
+
+/* Scroll reveal for inside modal */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out-soft), transform 0.6s var(--ease-out-soft);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ==========================================================================
-   Responsive Adaptations
+   10. RESPONSIVE
    ========================================================================== */
 
 @media (max-width: 960px) {
-  .works-row,
-  .works-row--2 {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  /* Keep text first on mobile */
-  .works-row--2 .works-folder-side {
-    order: 2;
-  }
-
-  .works-row--2 .works-text-side {
-    order: 1;
-  }
-
-  .works-text-side {
-    align-items: flex-start;
-  }
-
-  .win {
-    width: 95vw;
-    max-height: 92vh;
+  .win,
+  .project-modal {
+    width: 95vw !important;
   }
 }
 
 @media (max-width: 600px) {
-  .works {
-    padding: 60px 0;
-  }
-
-  .folder {
-    transform: scale(0.92);
-  }
-
-  .tech-stack-grid {
-    grid-template-columns: 1fr;
+  .works-desk-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   .win .doc {
     padding: 1.25rem;
+  }
+
+  .cs-flow-card,
+  .cs-brand-card {
+    position: static;
+    margin: 16px 0;
+    width: 100%;
+    transform: none;
+  }
+
+  .cs-brand-spacer {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   11. FOCUS STYLES
+   ========================================================================== */
+
+.work-folder:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+  border-radius: 20px;
+}
+
+.win .dot:focus-visible,
+.win-close-btn:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   12. REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .work-folder {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .folder-body {
+    animation: none !important;
+  }
+
+  .work-folder:hover .folder-body {
+    transform: none;
+  }
+
+  .cs-flow-card,
+  .cs-brand-card {
+    position: static;
+    margin: 16px 0;
+    transform: none;
+  }
+
+  .cs-brand-spacer {
+    display: none;
+  }
+
+  .genie {
+    display: none !important;
+  }
+
+  .win,
+  .project-modal {
+    transition: opacity 0.1s ease !important;
   }
 }

@@ -783,180 +783,78 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
       </div>
     </section>
 
-    <!-- 04. SELECTED WORKS (ONE SIDE TEXT, ONE SIDE FOLDER · EMBEDDED LOGOS · FLUID DOCKET MODALS) -->
-    <section id="works" class="works" aria-labelledby="works-title">
-      <div class="works__container container">
+    <!-- 04. SELECTED WORK — EDITORIAL ASYMMETRIC DESK WITH MACOS GENIE MODAL -->
+    <section id="works" class="works-desk-section" aria-labelledby="works-title">
+      <div class="works-desk-container">
+
         <!-- Section Header -->
-        <div class="section-head">
-          <h2 id="works-title" class="works-heading" aria-label="Selected Works">
-            Selected Works
-          </h2>
+        <div class="works-header">
+          <p class="works-label">(SELECTED WORK)</p>
+          <h2 id="works-title" class="works-title">Projects I've shipped.</h2>
         </div>
 
-        <!-- Asymmetrical Staggered Editorial Grid (One Side Text, One Side Folder) -->
-        <div class="works-asymmetric-grid">
+        <!-- Staggered Asymmetric 2-Column Grid -->
+        <div class="work-grid">
 
-          <!-- 01. ApplyKit: Left Text, Right Folder -->
-          <article class="works-row works-row--1" aria-label="ApplyKit Project">
-            <div class="works-text-side">
-              <p class="works-project-desc">
-                Bilingual DOM heuristics engine and automated application workflow.<br>
-                Features section-scoped traversal and client-side AES-GCM encryption.
-              </p>
-            </div>
-
-            <div class="works-folder-side">
-              <div class="folder-stage">
-                <div class="folder js-folder-trigger" role="button" tabindex="0" aria-label="Open ApplyKit Architectural Folder" data-dossier-index="0" data-cursor-pill="Open ApplyKit">
-                  <div class="back"></div>
-                  <div class="sheets">
-                    <button type="button" class="sheet" style="--ac:#eb381c" data-dossier-index="0" aria-label="Open ApplyKit Manifest">
-                      <div class="sheet-head">
-                        <img src="assets/images/icon-128.png" alt="" class="sheet-icon" />
-                        <b>ApplyKit</b>
-                      </div>
-                      <span class="sheet-spec">BUILD · MV3.24</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                    <button type="button" class="sheet" style="--ac:#eb381c" data-dossier-index="0" aria-label="Open ApplyKit Engine">
-                      <div class="sheet-head">
-                        <img src="assets/images/icon-128.png" alt="" class="sheet-icon" />
-                        <b>Engine</b>
-                      </div>
-                      <span class="sheet-spec">LOCAL-FIRST</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                    <button type="button" class="sheet" style="--ac:#eb381c" data-dossier-index="0" aria-label="Open ApplyKit Latency">
-                      <div class="sheet-head">
-                        <img src="assets/images/icon-128.png" alt="" class="sheet-icon" />
-                        <b>Latency</b>
-                      </div>
-                      <span class="sheet-spec">&lt;40ms DOM SCAN</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                  </div>
-                  <div class="flap">
-                    <div class="folder-center-icon">
-                      <img src="assets/images/icon-128.png" alt="ApplyKit Logo" class="folder-icon-img" />
-                    </div>
-                  </div>
-                </div>
+          <!-- FOLDER 1: ApplyKit -->
+          <div class="work-folder" role="button" tabindex="0" aria-label="Open ApplyKit case study" data-dossier-index="0">
+            <div class="folder-body">
+              <div class="folder-back"></div>
+              <div class="folder-flap">
+                <img src="assets/images/icon-128.png" alt="ApplyKit logo" class="folder-logo" width="64" height="64" />
+                <h3 class="folder-name">ApplyKit</h3>
+                <p class="folder-tagline">Bilingual DOM heuristics engine and automated application workflow.</p>
+                <ul class="folder-chips">
+                  <li class="folder-chip">Chrome MV3</li>
+                  <li class="folder-chip">AES-GCM</li>
+                  <li class="folder-chip">Local-First</li>
+                </ul>
               </div>
             </div>
-          </article>
+          </div>
 
-          <!-- 02. PharmaERP: Left Folder, Right Text (Alternating Layout) -->
-          <article class="works-row works-row--2" aria-label="PharmaERP Project">
-            <div class="works-folder-side">
-              <div class="folder-stage">
-                <div class="folder js-folder-trigger" role="button" tabindex="0" aria-label="Open PharmaERP Architectural Folder" data-dossier-index="1" data-cursor-pill="Open PharmaERP">
-                  <div class="back"></div>
-                  <div class="sheets">
-                    <button type="button" class="sheet" style="--ac:#10b981" data-dossier-index="1" aria-label="Open PharmaERP POS">
-                      <div class="sheet-head">
-                        <img src="assets/images/pharmaerp-logo.png" alt="" class="sheet-icon" />
-                        <b>PharmaERP</b>
-                      </div>
-                      <span class="sheet-spec">BUILD · POS.V4</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                    <button type="button" class="sheet" style="--ac:#10b981" data-dossier-index="1" aria-label="Open PharmaERP Ledger">
-                      <div class="sheet-head">
-                        <img src="assets/images/pharmaerp-logo.png" alt="" class="sheet-icon" />
-                        <b>Ledger</b>
-                      </div>
-                      <span class="sheet-spec">DECIMAL128 ACID</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                    <button type="button" class="sheet" style="--ac:#10b981" data-dossier-index="1" aria-label="Open PharmaERP FEFO">
-                      <div class="sheet-head">
-                        <img src="assets/images/pharmaerp-logo.png" alt="" class="sheet-icon" />
-                        <b>Batch FEFO</b>
-                      </div>
-                      <span class="sheet-spec">&lt;300ms LATENCY</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                  </div>
-                  <div class="flap">
-                    <div class="folder-center-icon">
-                      <img src="assets/images/pharmaerp-logo.png" alt="PharmaERP Logo" class="folder-icon-img" />
-                    </div>
-                  </div>
-                </div>
+          <!-- FOLDER 2: PharmaERP -->
+          <div class="work-folder" role="button" tabindex="0" aria-label="Open PharmaERP case study" data-dossier-index="1">
+            <div class="folder-body">
+              <div class="folder-back"></div>
+              <div class="folder-flap">
+                <img src="assets/images/pharmaerp-logo.png" alt="PharmaERP logo" class="folder-logo" width="64" height="64" />
+                <h3 class="folder-name">PharmaERP</h3>
+                <p class="folder-tagline">Clinical retail counter POS kernel and FEFO batch accounting engine.</p>
+                <ul class="folder-chips">
+                  <li class="folder-chip">Decimal128</li>
+                  <li class="folder-chip">FEFO</li>
+                  <li class="folder-chip">ESC/POS</li>
+                </ul>
               </div>
             </div>
+          </div>
 
-            <div class="works-text-side">
-              <p class="works-project-desc">
-                Clinical retail counter POS kernel and FEFO batch accounting engine.<br>
-                Multi-unit dispensing terminal with Decimal128 dual-entry financial journals.
-              </p>
-            </div>
-          </article>
-
-          <!-- 03. Edu52: Left Text, Right Folder -->
-          <article class="works-row works-row--3" aria-label="Edu52 Project">
-            <div class="works-text-side">
-              <p class="works-project-desc">
-                High-stakes 200-question BCS examination simulator and optical evaluation.<br>
-                Client-side optical answer grading with live proctoring and KaTeX typography.
-              </p>
-            </div>
-
-            <div class="works-folder-side">
-              <div class="folder-stage">
-                <div class="folder js-folder-trigger" role="button" tabindex="0" aria-label="Open Edu52 Architectural Folder" data-dossier-index="2" data-cursor-pill="Open Edu52">
-                  <div class="back"></div>
-                  <div class="sheets">
-                    <button type="button" class="sheet" style="--ac:#2f5fd0" data-dossier-index="2" aria-label="Open Edu52 Simulator">
-                      <div class="sheet-head">
-                        <img src="assets/images/edu52.png" alt="" class="sheet-icon" />
-                        <b>Edu52</b>
-                      </div>
-                      <span class="sheet-spec">BUILD · 76% BETA</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                    <button type="button" class="sheet" style="--ac:#2f5fd0" data-dossier-index="2" aria-label="Open Edu52 OMR">
-                      <div class="sheet-head">
-                        <img src="assets/images/edu52.png" alt="" class="sheet-icon" />
-                        <b>OMR Kernel</b>
-                      </div>
-                      <span class="sheet-spec">KATEX FORMULAS</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                    <button type="button" class="sheet" style="--ac:#2f5fd0" data-dossier-index="2" aria-label="Open Edu52 Sockets">
-                      <div class="sheet-head">
-                        <img src="assets/images/edu52.png" alt="" class="sheet-icon" />
-                        <b>Sockets</b>
-                      </div>
-                      <span class="sheet-spec">200 CONCURRENT</span>
-                      <i></i><i></i><i></i><i></i><i></i>
-                    </button>
-                  </div>
-                  <div class="flap">
-                    <div class="folder-center-icon">
-                      <img src="assets/images/edu52.png" alt="Edu52 Logo" class="folder-icon-img" />
-                      <span class="folder-lock-badge" title="Project Docket Locked">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+          <!-- FOLDER 3: Edu52 -->
+          <div class="work-folder" role="button" tabindex="0" aria-label="Open Edu52 case study" data-dossier-index="2">
+            <div class="folder-body">
+              <div class="folder-back"></div>
+              <div class="folder-flap">
+                <img src="assets/images/edu52.png" alt="Edu52 logo" class="folder-logo" width="64" height="64" />
+                <h3 class="folder-name">Edu52</h3>
+                <p class="folder-tagline">High-stakes BCS examination simulator with optical answer evaluation.</p>
+                <ul class="folder-chips">
+                  <li class="folder-chip">WebSocket</li>
+                  <li class="folder-chip">KaTeX</li>
+                  <li class="folder-chip">OMR Engine</li>
+                </ul>
               </div>
             </div>
-          </article>
+          </div>
 
         </div>
       </div>
 
-      <!-- Fullscreen Dimming Backdrop for Project Dossiers -->
+      <!-- Fullscreen Dimming Backdrop -->
       <div id="dossier-backdrop" class="dossier-backdrop" aria-hidden="true"></div>
 
       <!-- ================= CASE STUDY 01: APPLYKIT ================= -->
-      <section class="win win-case-study" id="win-applykit" role="dialog" aria-label="ApplyKit Case Study" hidden>
+      <section class="win win-case-study project-modal" id="win-applykit" role="dialog" aria-label="ApplyKit Case Study" hidden>
         <!-- Sticky Navigation Bar -->
         <nav class="cs-nav-bar bar" aria-label="ApplyKit Case Study Navigation">
           <div class="cs-nav-bar-left">
@@ -1215,7 +1113,7 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
       </section>
 
       <!-- ================= CASE STUDY 02: PHARMAERP ================= -->
-      <section class="win win-case-study" id="win-pharmaerp" role="dialog" aria-label="PharmaERP Case Study" hidden>
+      <section class="win win-case-study project-modal" id="win-pharmaerp" role="dialog" aria-label="PharmaERP Case Study" hidden>
         <!-- Sticky Navigation Bar -->
         <nav class="cs-nav-bar bar" aria-label="PharmaERP Case Study Navigation">
           <div class="cs-nav-bar-left">
@@ -1474,7 +1372,7 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
       </section>
 
       <!-- ================= CASE STUDY 03: EDU52 ================= -->
-      <section class="win win-case-study" id="win-edu52" role="dialog" aria-label="Edu52 Case Study" hidden>
+      <section class="win win-case-study project-modal" id="win-edu52" role="dialog" aria-label="Edu52 Case Study" hidden>
         <!-- Sticky Navigation Bar -->
         <nav class="cs-nav-bar bar" aria-label="Edu52 Case Study Navigation">
           <div class="cs-nav-bar-left">
