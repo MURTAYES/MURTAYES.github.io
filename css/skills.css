@@ -1,0 +1,395 @@
+/* ============================================================
+   Section: Skills & Capabilities — Bento Grid with 3D Tilt & Spotlight
+   Pure Vanilla CSS · Zero Frameworks · Zero CDNs · 60fps GPU Hardware Accelerated
+   Matches exact reference specifications and tokens
+   ============================================================ */
+
+:root {
+  --canvas: #F5F5F3;
+  --ink: #0A0A0A;
+  --night: #0A0A0A;
+  --muted: #6B6B6B;
+  --rule: rgba(10, 10, 10, 0.14);
+  --chip: rgba(10, 10, 10, 0.28);
+  --accent: #E85C3B;
+  --white: #FFFFFF;
+  --max-canvas: 1312px;
+  --margin: clamp(24px, 6vw, 96px);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ============================================================
+   SECTION CONTAINER
+   ============================================================ */
+.skills-section {
+  position: relative;
+  background-color: var(--canvas, #f5f5f3);
+  color: var(--ink, #0a0a0a);
+  padding-top: clamp(64px, 8vw, 112px);
+  padding-bottom: clamp(64px, 8vw, 112px);
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skills-container {
+  max-width: var(--max-canvas, 1312px);
+  margin-inline: auto;
+  padding-inline: var(--margin, clamp(24px, 6vw, 96px));
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   1. SECTION HEADER
+   ============================================================ */
+.skills-header {
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.skills-label {
+  font-family: var(--font-label, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--muted, #6b6b6b);
+  margin: 0;
+  display: block;
+}
+
+.skills-title {
+  font-family: var(--font-display, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-weight: 500;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  color: var(--ink, #0a0a0a);
+  margin-top: 12px;
+  margin-bottom: 0;
+  max-width: 24ch;
+}
+
+/* ============================================================
+   2. BENTO GRID
+   ============================================================ */
+.bento {
+  display: grid;
+  gap: 12px;
+  perspective: 900px;
+}
+
+/* Desktop (>= 1024px): 4 columns, 2 rows, gap 12px */
+@media (min-width: 1024px) {
+  .bento {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, minmax(180px, auto));
+  }
+
+  .bento-card--c1 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .bento-card--c2 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .bento-card--c3 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .bento-card--c4 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .bento-card--c5 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+/* Tablet (640px – 1023px): 2 columns, auto rows, gap 12px */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .bento {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .bento-card--c1 {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  .bento-card--c2,
+  .bento-card--c3,
+  .bento-card--c4,
+  .bento-card--c5 {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+}
+
+/* Mobile (< 640px): 1 column, gap 12px */
+@media (max-width: 639px) {
+  .bento {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .bento-card {
+    grid-column: span 1 !important;
+    grid-row: auto !important;
+  }
+}
+
+/* ============================================================
+   EACH BENTO CARD
+   ============================================================ */
+.bento-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--canvas, #f5f5f3);
+  border: 1px solid var(--rule, rgba(10, 10, 10, 0.14));
+  padding: clamp(20px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  box-sizing: border-box;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  border-radius: 4px;
+  outline: none;
+
+  /* 3D Tilt Transformation via Custom Properties */
+  transform: perspective(900px)
+             rotateX(var(--rx, 0deg))
+             rotateY(var(--ry, 0deg))
+             translateY(24px);
+  opacity: 0;
+
+  /* Reveal + Tilt Transitions */
+  transition: opacity 600ms cubic-bezier(.22, 1, .36, 1),
+              transform 300ms var(--ease-out-soft, cubic-bezier(.22, 1, .36, 1)),
+              border-color 250ms ease,
+              background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: calc(var(--reveal-i, 0) * 70ms);
+}
+
+.bento-card--c1 {
+  min-height: 260px;
+}
+
+/* Revealed State */
+.bento-card.is-visible {
+  opacity: 1;
+  transform: perspective(900px)
+             rotateX(var(--rx, 0deg))
+             rotateY(var(--ry, 0deg))
+             translateY(0);
+}
+
+.bento-card:hover {
+  border-color: rgba(10, 10, 10, 0.32);
+}
+
+/* Accessibility Focus Ring */
+.bento-card:focus-visible {
+  outline: 2px solid var(--ink, #0a0a0a);
+  outline-offset: 4px;
+}
+
+/* ============================================================
+   3. SPOTLIGHT OVERLAY
+   ============================================================ */
+.bento-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    400px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(232, 92, 59, 0.14),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 300ms var(--ease-out-soft, cubic-bezier(.22, 1, .36, 1));
+  z-index: 1;
+}
+
+.bento-card:hover .bento-spotlight {
+  opacity: 1;
+}
+
+/* ============================================================
+   CARD CONTENT ELEMENTS
+   ============================================================ */
+.bento-card-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bento-icon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--ink, #0a0a0a);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.bento-title {
+  font-family: var(--font-display, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-weight: 500;
+  font-size: clamp(18px, 1.8vw, 22px);
+  color: var(--ink, #0a0a0a);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.bento-body {
+  font-family: var(--font-body, system-ui, -apple-system, 'Segoe UI', sans-serif);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted, #6b6b6b);
+  max-width: 36ch;
+  margin: 0;
+}
+
+.bento-tags {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 24px;
+  list-style: none;
+  padding: 0;
+}
+
+.bento-tag {
+  font-family: var(--font-label, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  border: 1px solid var(--rule, rgba(10, 10, 10, 0.14));
+  padding: 3px 8px;
+  color: var(--muted, #6b6b6b);
+  border-radius: 2px;
+  background: transparent;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   6. TOOL MARQUEE (Below Grid)
+   ============================================================ */
+.skills-marquee-wrap {
+  width: 100%;
+  border-top: 1px solid var(--rule, rgba(10, 10, 10, 0.14));
+  padding-block: 20px;
+  margin-top: 48px;
+  box-sizing: border-box;
+}
+
+.skills-marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.skills-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  white-space: nowrap;
+  animation: marquee-scroll 32s linear infinite;
+  will-change: transform;
+  flex-shrink: 0;
+  padding-right: 40px;
+}
+
+.skills-marquee:hover .skills-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.skills-marquee-item {
+  font-family: var(--font-label, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--muted, #6b6b6b);
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.skills-marquee-sep {
+  color: var(--rule, rgba(10, 10, 10, 0.25));
+  font-size: 14px;
+}
+
+/* ============================================================
+   7. OPTIONAL BOTTOM CTA NOTE
+   ============================================================ */
+.skills-footnote {
+  text-align: center;
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+  font-size: 13px;
+  color: var(--muted, #6b6b6b);
+  margin-top: 32px;
+  margin-bottom: 0;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   RESPONSIVE & ACCESSIBILITY ADAPTATIONS
+   ============================================================ */
+/* Touch Devices: Disable 3D tilt & spotlight */
+@media (pointer: coarse) {
+  .bento-card {
+    transform: perspective(900px) rotateX(0deg) rotateY(0deg) translateY(24px) !important;
+  }
+  .bento-card.is-visible {
+    transform: perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0) !important;
+  }
+  .bento-spotlight {
+    display: none !important;
+  }
+}
+
+/* Prefers Reduced Motion: Kill tilt, spotlight, and marquee animation */
+@media (prefers-reduced-motion: reduce) {
+  .bento-card {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  .bento-spotlight {
+    display: none !important;
+  }
+  .skills-marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}

@@ -26,6 +26,11 @@
       window.initSelectedWorks();
     }
 
+    // 05B. Skills & Capabilities Bento Grid
+    if (typeof window.initSkillsSection === "function") {
+      window.initSkillsSection();
+    }
+
     // 06. Navigation Controllers, Scroll Hide/Show & Theme Synchronization
     if (typeof window.initNavigationControllers === "function") {
       window.initNavigationControllers();
