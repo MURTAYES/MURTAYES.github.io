@@ -1,0 +1,53 @@
+{
+  "contract": "1.0.0",
+  "flavor": "core",
+  "milestone": null,
+  "phases": [
+    {
+      "number": "1",
+      "name": "Hero & Preloader",
+      "status": "complete"
+    },
+    {
+      "number": "2",
+      "name": "Manifesto Word Reveal",
+      "status": "pending"
+    },
+    {
+      "number": "3",
+      "name": "Multiplayer Canvas",
+      "status": "pending"
+    },
+    {
+      "number": "4",
+      "name": "Selected Works Folders",
+      "status": "pending"
+    },
+    {
+      "number": "5",
+      "name": "Cinematic Stats",
+      "status": "pending"
+    },
+    {
+      "number": "6",
+      "name": "What I'm Building",
+      "status": "pending"
+    },
+    {
+      "number": "7",
+      "name": "Collaborative Contact",
+      "status": "pending"
+    },
+    {
+      "number": "8",
+      "name": "Colophon Footer",
+      "status": "pending"
+    }
+  ],
+  "next": {
+    "command": "/gsd-progress --next",
+    "label": "Advance to the next step (plan phase 2)",
+    "reason": "Phase 2 of 8 — needs a plan"
+  },
+  "updated_at": "2026-11-09T04:06:54.649Z"
+}
