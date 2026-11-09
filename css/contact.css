@@ -166,73 +166,106 @@
   margin: 0 0 2.75rem;
 }
 
-/* 5. iPhone Unlock Swipe Style "Let's talk" Button */
+/* --------------------------------------------------------------------------
+   5. Interactive "Slide to Let's Talk" iPhone Unlock Slider
+   -------------------------------------------------------------------------- */
 .cta-button-wrap {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
-.iphone-swipe-btn {
+.slide-to-talk {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  padding: 8px 10px 8px 26px;
+  width: 320px;
+  max-width: 100%;
+  height: 62px;
   border-radius: 9999px;
-  background-color: var(--btn-bg);
-  color: var(--btn-fg);
-  border: 1px solid rgba(6, 6, 6, 0.12);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
-  cursor: pointer;
-  text-decoration: none;
+  background-color: #0c0f14;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32), 0 2px 8px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  padding: 6px;
   overflow: hidden;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s ease,
-              background-color 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  cursor: default;
+  outline: none;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.iphone-swipe-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
-  background-color: #1a1a1c;
+.slide-to-talk:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4), 0 16px 36px rgba(0, 0, 0, 0.32);
 }
 
-.iphone-swipe-btn:active {
-  transform: translateY(0);
+/* Background Drag Expansion Fill */
+.slide-to-talk__fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.2) 100%);
+  border-radius: 9999px;
+  pointer-events: none;
+  will-change: width;
 }
 
-/* iPhone Slide-to-Unlock Shimmer Sweep on Text */
-.btn-text-track {
-  position: relative;
-  overflow: hidden;
-  height: 24px;
-  line-height: 24px;
-  display: block;
-}
-
-.btn-text-main,
-.btn-text-hover {
+/* Shimmering Text Track */
+.slide-to-talk__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-left: 46px;
+  pointer-events: none;
+  z-index: 1;
   font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  display: block;
   white-space: nowrap;
+  will-change: opacity;
+}
 
-  /* iPhone Slide-to-Unlock Metallic Gradient Sweep */
+.slide-to-talk__text {
   background-image: linear-gradient(
     105deg,
-    rgba(255, 255, 255, 0.6) 0%,
-    rgba(255, 255, 255, 0.7) 30%,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.5) 30%,
     rgba(255, 255, 255, 1) 50%,
-    rgba(255, 255, 255, 0.7) 70%,
-    rgba(255, 255, 255, 0.6) 100%
+    rgba(255, 255, 255, 0.5) 70%,
+    rgba(255, 255, 255, 0.45) 100%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: iphoneShimmer 3s infinite linear;
+  animation: iphoneShimmer 2.8s infinite linear;
+}
+
+.slide-to-talk__chevrons {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.slide-to-talk__chevrons .chevron {
+  width: 14px;
+  height: 14px;
+  animation: chevronGlow 1.8s infinite ease-in-out;
+}
+
+.slide-to-talk__chevrons .chevron-1 { animation-delay: 0s; }
+.slide-to-talk__chevrons .chevron-2 { animation-delay: 0.25s; }
+.slide-to-talk__chevrons .chevron-3 { animation-delay: 0.5s; }
+
+@keyframes chevronGlow {
+  0%, 100% { opacity: 0.25; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(3px); }
 }
 
 @keyframes iphoneShimmer {
@@ -240,65 +273,85 @@
   100% { background-position: -200% 0; }
 }
 
-/* Kinetic Vertical Roll */
-.btn-text-main {
-  transform: translateY(0);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-text-hover {
+/* Draggable Circular Thumb */
+.slide-to-talk__thumb {
   position: absolute;
-  inset: 0;
-  transform: translateY(-100%);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.iphone-swipe-btn:hover .btn-text-main {
-  transform: translateY(100%);
-}
-
-.iphone-swipe-btn:hover .btn-text-hover {
-  transform: translateY(0);
-}
-
-/* Circular Arrow Bubble with Dual Translating Arrows */
-.btn-arrow-circle {
-  position: relative;
-  width: 40px;
-  height: 40px;
+  top: 6px;
+  left: 6px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background-color: var(--btn-circle-bg);
-  color: var(--btn-circle-fg);
+  cursor: grab;
+  z-index: 2;
+  touch-action: none;
+  will-change: transform;
+}
+
+.slide-to-talk.is-dragging .slide-to-talk__thumb {
+  cursor: grabbing;
+}
+
+.slide-thumb__circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #0c0f14;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  flex-shrink: 0;
-  transition: background-color 0.25s ease;
+  position: relative;
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
 }
 
-.btn-arrow-1,
-.btn-arrow-2 {
-  width: 18px;
-  height: 18px;
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+.slide-to-talk:not(.is-dragging) .slide-to-talk__thumb:hover .slide-thumb__circle {
+  transform: scale(1.04);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
-.btn-arrow-1 {
-  transform: translate(0, 0);
-}
-
-.btn-arrow-2 {
+.slide-thumb__arrow,
+.slide-thumb__check {
   position: absolute;
-  transform: translate(-160%, 160%);
+  transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.iphone-swipe-btn:hover .btn-arrow-1 {
-  transform: translate(160%, -160%);
+.slide-thumb__arrow {
+  opacity: 1;
+  transform: scale(1);
 }
 
-.iphone-swipe-btn:hover .btn-arrow-2 {
-  transform: translate(0, 0);
+.slide-thumb__check {
+  opacity: 0;
+  transform: scale(0.4) rotate(-20deg);
+}
+
+/* Unlocked State */
+.slide-to-talk.is-unlocked .slide-thumb__circle {
+  background: #0fa958;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(15, 169, 88, 0.6);
+}
+
+.slide-to-talk.is-unlocked .slide-thumb__arrow {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.slide-to-talk.is-unlocked .slide-thumb__check {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .slide-to-talk__text {
+    animation: none;
+    -webkit-text-fill-color: #ffffff;
+  }
+  .slide-to-talk__chevrons .chevron {
+    animation: none;
+  }
 }
 
 /* ==========================================================================

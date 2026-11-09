@@ -1830,34 +1830,44 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
           Let's transform your ideas into a high-quality website that works aligned to your goals. We are ready to start working.
         </p>
 
-        <!-- iPhone Unlock Swipe Style "Let's talk" Button -->
+        <!-- iPhone Slide-to-Unlock Style "Let's talk" Slider -->
         <div class="cta-button-wrap reveal-item" style="--delay: 300ms;">
-          <button
-            type="button"
-            class="iphone-swipe-btn group/button12"
-            data-open-contact
-            data-cursor-pill="Let's talk"
-            aria-label="Let's talk"
+          <div
+            class="slide-to-talk js-slide-to-talk"
+            role="slider"
+            tabindex="0"
+            aria-label="Slide left to right to open contact form"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            data-cursor-pill="Slide to Talk"
           >
-            <span class="relative block overflow-hidden btn-text-track">
-              <span class="block transition-transform duration-300 ease-out motion-safe:group-hover/button12:translate-y-full btn-text-main">
-                Let's talk
+            <!-- Background drag expansion fill -->
+            <div class="slide-to-talk__fill js-slide-fill" aria-hidden="true"></div>
+
+            <!-- iPhone metallic shimmering label -->
+            <div class="slide-to-talk__label js-slide-label" aria-hidden="true">
+              <span class="slide-to-talk__text">Slide to let's talk</span>
+              <span class="slide-to-talk__chevrons">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="chevron chevron-1"><path d="M9 18l6-6-6-6"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="chevron chevron-2"><path d="M9 18l6-6-6-6"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="chevron chevron-3"><path d="M9 18l6-6-6-6"/></svg>
               </span>
-              <span aria-hidden="true" class="absolute inset-0 block -translate-y-full transition-transform duration-300 ease-out motion-safe:group-hover/button12:translate-y-0 btn-text-hover">
-                Let's talk
-              </span>
-            </span>
-            <span class="relative flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full btn-arrow-circle">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow-1 transition-transform duration-300 ease-out motion-safe:group-hover/button12:translate-x-[160%] motion-safe:group-hover/button12:-translate-y-[160%]" aria-hidden="true">
-                <path d="M7 7h10v10"></path>
-                <path d="M7 17 17 7"></path>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow-2 absolute -translate-x-[160%] translate-y-[160%] transition-transform duration-300 ease-out motion-safe:group-hover/button12:translate-x-0 motion-safe:group-hover/button12:translate-y-0" aria-hidden="true">
-                <path d="M7 7h10v10"></path>
-                <path d="M7 17 17 7"></path>
-              </svg>
-            </span>
-          </button>
+            </div>
+
+            <!-- Draggable circular slider handle -->
+            <div class="slide-to-talk__thumb js-slide-thumb" role="button" aria-label="Drag slider handle">
+              <div class="slide-thumb__circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="slide-thumb__arrow" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="slide-thumb__check" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
