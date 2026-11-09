@@ -208,11 +208,11 @@
         }, 460);
       }
 
-      const silhouetteTags = heroSection.querySelector(".hero-silhouette__tags");
-      if (silhouetteTags) {
+      const interactiveDock = heroSection.querySelector(".hero-silhouette__interactive-dock") || heroSection.querySelector(".hero-silhouette__tags");
+      if (interactiveDock) {
         setTimeout(() => {
-          silhouetteTags.style.opacity = "1";
-          silhouetteTags.style.transform = "translateY(0)";
+          interactiveDock.style.opacity = "1";
+          interactiveDock.style.transform = "translateY(0)";
         }, 580);
       }
 
@@ -294,10 +294,10 @@
         silhouetteSubtitle.style.opacity = "1";
         silhouetteSubtitle.style.transform = "none";
       }
-      const silhouetteTags = heroSection.querySelector(".hero-silhouette__tags");
-      if (silhouetteTags) {
-        silhouetteTags.style.opacity = "1";
-        silhouetteTags.style.transform = "none";
+      const interactiveDock = heroSection.querySelector(".hero-silhouette__interactive-dock") || heroSection.querySelector(".hero-silhouette__tags");
+      if (interactiveDock) {
+        interactiveDock.style.opacity = "1";
+        interactiveDock.style.transform = "none";
       }
       const pixelGlyphs = heroSection.querySelectorAll(".pixel-glyph");
       pixelGlyphs.forEach((g) => {
