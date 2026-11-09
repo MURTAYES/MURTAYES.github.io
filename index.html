@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="css/works.css">
   <link rel="stylesheet" href="css/stats.css">
   <link rel="stylesheet" href="css/building.css">
+  <link rel="stylesheet" href="css/contact.css">
   <link rel="stylesheet" href="css/modals.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/cursor.css">
@@ -1134,10 +1135,128 @@
         </div>
       </div>
     </section>
+
+    <!-- 7. COLLABORATIVE WORKSPACE CONTACT SECTION -->
+    <section id="contact" class="home-contacto js-home-contacto" aria-label="Collaborative Workspace &amp; Contact">
+      <div class="home-contacto__container">
+        <!-- Left Column: Interactive Workspace Stage -->
+        <div class="home-contacto__stage js-contacto-stage">
+          <!-- Dual-Layer Spotlight Dot Grid -->
+          <div class="home-contacto__puntos" aria-hidden="true"></div>
+
+          <!-- Floating "Aa" Typography Specimen Badge -->
+          <div class="contacto-item contacto-badge-aa" data-float="true">
+            <span class="badge-aa__letter">Aa</span>
+            <div class="badge-aa__meta">
+              <span class="badge-aa__name">Jakarta Sans</span>
+              <span class="badge-aa__spec">16/24px · Dynamic Scale</span>
+            </div>
+          </div>
+
+          <!-- 3 Staggered Visual Cards -->
+          <div class="contacto-item contacto-card--metrics" data-float="true">
+            <div class="metrics-card__head">
+              <span class="metrics-dot"></span>
+              <span class="metrics-title">SYSTEM BENCHMARKS</span>
+            </div>
+            <div class="metrics-card__stat">
+              <span class="metrics-val">&lt;16ms</span>
+              <span class="metrics-lbl">Frame Budget · 60fps Lock</span>
+            </div>
+            <div class="metrics-card__bar"><div class="metrics-bar__fill"></div></div>
+          </div>
+
+          <div class="contacto-item contacto-card--laptop" data-float="true">
+            <div class="laptop-card__bar">
+              <span class="bar-dot"></span><span class="bar-dot"></span><span class="bar-dot"></span>
+              <span class="laptop-card__title">terminal.sh</span>
+            </div>
+            <div class="laptop-card__code">
+              <code>$ ./ship --zero-deps --pure-vanilla</code>
+              <span class="code-comment">// Output: 100% Native Standard</span>
+            </div>
+          </div>
+
+          <div class="contacto-item contacto-card--desk" data-float="true">
+            <div class="desk-card__img-wrap">
+              <img src="assets/images/hero.png" alt="Samnun Murtayes Portrait" class="desk-card__img" loading="lazy" />
+            </div>
+            <div class="desk-card__meta">
+              <span class="desk-card__name">Samnun Murtayes</span>
+              <span class="desk-card__role">Creative Engineer</span>
+            </div>
+          </div>
+
+          <!-- Floating Chat Dialog Window -->
+          <div class="contacto-item contacto-card--chat" data-float="true">
+            <div class="chat-bubble chat-bubble--incoming">
+              <p>Can we build this with zero dependencies?</p>
+            </div>
+            <div class="chat-bubble chat-bubble--outgoing">
+              <p>Always. 60fps guaranteed. ⚡</p>
+            </div>
+          </div>
+
+          <!-- 5 Floating Tool App Bubbles -->
+          <div class="contacto-tool-bubble tool-bubble--figma" title="Figma Design"><img src="assets/icons/figma.svg" alt="Figma" width="20" height="20" /></div>
+          <div class="contacto-tool-bubble tool-bubble--notion" title="Notion Docs"><img src="assets/icons/notion.svg" alt="Notion" width="20" height="20" /></div>
+          <div class="contacto-tool-bubble tool-bubble--claude" title="Claude Code"><img src="assets/icons/claude-code.svg" alt="Claude" width="20" height="20" /></div>
+          <div class="contacto-tool-bubble tool-bubble--chrome" title="Chrome Browser"><img src="assets/icons/chrome.svg" alt="Chrome" width="20" height="20" /></div>
+          <div class="contacto-tool-bubble tool-bubble--js" title="Vanilla JS"><img src="assets/icons/javascript.svg" alt="JS" width="20" height="20" /></div>
+
+          <!-- Autonomous "Cliente" SVG Cursor -->
+          <div class="contacto-cliente-cursor js-cliente-cursor" aria-hidden="true">
+            <svg class="cliente-cursor__svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M5.5 3.2L18.8 12.4C19.7 13.0 19.3 14.5 18.2 14.5H12.8L9.8 21.3C9.4 22.2 8.1 22.0 7.8 21.0L5.5 3.2Z" fill="#ff4d2e" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+            <div class="cliente-cursor__pill">
+              <span class="pill-dot"></span>
+              <span class="pill-text">Cliente</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: High-Contrast Editorial Conversion CTA -->
+        <div class="home-contacto__content">
+          <div class="home-contacto__eyebrow eyebrow">
+            <span>[§ 07 · COLLABORATIVE WORKSPACE]</span>
+          </div>
+          <h2 class="home-contacto__titulo">
+            <span class="titulo-line">LET'S ENGINEER <span class="home-contacto__titulo-puntos" aria-hidden="true"></span></span>
+            <span class="titulo-line">SOMETHING ICONIC <span class="home-contacto__titulo-puntos" aria-hidden="true"></span></span>
+          </h2>
+          <p class="home-contacto__desc">
+            Direct engineering partnership with zero agency bloat. Available for select frontend architecture, bespoke web systems, and high-velocity product builds.
+          </p>
+
+          <div class="home-contacto__actions">
+            <button type="button" class="home-contacto__btn-primary" data-open-contact data-cursor-pill="Open Drawer">
+              <span>Hablemos · Let's Talk</span>
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </button>
+            <button type="button" class="home-contacto__btn-email" data-cursor-pill="Copy Email">
+              <img src="assets/icons/gmail.svg" alt="Email" width="18" height="18" />
+              <span>samnun@murtayes.com</span>
+            </button>
+          </div>
+
+          <div class="home-contacto__socials">
+            <a href="https://github.com/MURTAYES" target="_blank" rel="noopener noreferrer" class="contacto-social-link" data-cursor-pill="GitHub">
+              <img src="assets/icons/github-light.svg" alt="GitHub" width="18" height="18" />
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="contacto-social-link" data-cursor-pill="LinkedIn">
+              <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="18" height="18" />
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- 10. PREVIOUS KINETIC FOOTER -->
-    <footer id="contact" class="footer">
+    <footer class="footer">
       <div class="footer__label eyebrow" data-reveal="">
         <span>Got something in mind?</span>
       </div>
@@ -1912,6 +2031,7 @@ npm run dev</code></pre>
     <script src="js/works.js" defer></script>
     <script src="js/stats.js" defer></script>
     <script src="js/building.js" defer></script>
+    <script src="js/contact.js" defer></script>
     <script src="js/cursor.js" defer></script>
     <script src="js/modals.js" defer></script>
     <script src="js/footer.js" defer></script>
