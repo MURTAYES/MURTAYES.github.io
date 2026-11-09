@@ -5,7 +5,12 @@
 (function () {
   "use strict";
 
+  let isInitialized = false;
+
   function initFooterUtilities() {
+    if (isInitialized) return;
+    isInitialized = true;
+
     // Dynamic Copyright Year
     const yearEl = document.getElementById("footer-year");
     if (yearEl) {

@@ -6,6 +6,8 @@
 (function () {
   "use strict";
 
+  let isInitialized = false;
+
   function updateNavTheme() {
     const header = document.querySelector(".site-header") || document.querySelector(".header");
     if (!header) return;
@@ -28,14 +30,30 @@
   }
 
   function initNavigationControllers() {
+    if (isInitialized) return;
+    isInitialized = true;
+
+    const header = document.querySelector(".site-header") || document.querySelector(".header");
     const menuToggle = document.getElementById("menuToggle") || document.getElementById("menu-btn");
     const siteMenu = document.getElementById("site-menu") || document.getElementById("mainNav");
     const menuWrap = document.querySelector(".site-menu-wrap");
     const scrim = document.getElementById("menu-scrim");
     const navLinks = document.querySelectorAll(".site-menu-link, .nav-link, .menu-link");
+    const wordmarkLink = document.querySelector(".wordmark-link");
+
+    // Safety fallback: Ensure header is visible and interactive if preloader was delayed
+    setTimeout(function () {
+      if (header && !header.classList.contains("is-visible")) {
+        header.classList.add("is-visible");
+      }
+    }, 3200);
 
     function openMenu() {
       document.body.classList.add("menu-open");
+      if (header) {
+        header.classList.add("menu-open");
+        header.classList.remove("is-dark");
+      }
       if (menuToggle) {
         menuToggle.setAttribute("aria-expanded", "true");
         menuToggle.setAttribute("aria-label", "Close menu");
@@ -55,6 +73,9 @@
 
     function closeMenu() {
       document.body.classList.remove("menu-open");
+      if (header) {
+        header.classList.remove("menu-open");
+      }
       if (menuToggle) {
         menuToggle.setAttribute("aria-expanded", "false");
         menuToggle.setAttribute("aria-label", "Open menu");
@@ -72,7 +93,11 @@
       updateNavTheme();
     }
 
-    function toggleMenu() {
+    function toggleMenu(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
       const isOpen = document.body.classList.contains("menu-open");
       if (isOpen) {
         closeMenu();
@@ -87,6 +112,14 @@
 
     if (scrim) {
       scrim.addEventListener("click", closeMenu);
+    }
+
+    if (wordmarkLink) {
+      wordmarkLink.addEventListener("click", function () {
+        if (document.body.classList.contains("menu-open")) {
+          closeMenu();
+        }
+      });
     }
 
     // Close menu and smooth-scroll on link click

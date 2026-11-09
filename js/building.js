@@ -6,7 +6,12 @@
 (function () {
   "use strict";
 
+  let isInitialized = false;
+
   function initBuildingTimeline() {
+    if (isInitialized) return;
+    isInitialized = true;
+
     const section = document.getElementById("building");
     if (!section) return;
 

@@ -6,7 +6,12 @@
 (function () {
   "use strict";
 
+  let isInitialized = false;
+
   function initSelectedWorks() {
+    if (isInitialized) return;
+    isInitialized = true;
+
     const folders = Array.from(document.querySelectorAll(".folder, .js-folder-trigger"));
     const wins = Array.from(document.querySelectorAll(".win"));
     const backdrop = document.getElementById("dossier-backdrop");

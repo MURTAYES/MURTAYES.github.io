@@ -6,7 +6,12 @@
 (function () {
   "use strict";
 
+  let isInitialized = false;
+
   function initContactSection() {
+    if (isInitialized) return;
+    isInitialized = true;
+
     const ctaSection = document.getElementById("contact") || document.querySelector(".cta-section");
     if (!ctaSection) return;
 
