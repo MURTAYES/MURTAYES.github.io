@@ -7,7 +7,7 @@ Build and assemble a personal portfolio for creative engineer and developer Samn
 ## Phases
 
 - [x] **Phase 1: Section 1 — Editorial Photo Silhouette Hero & Willem Preloader** - Willem preloader animation settling into photo-silhouette hero with "Samnun Murtayes" typography and animated navigation logo.
-- [ ] **Phase 2: Section 2 — Sticky Scroll-Scrubbed Manifesto Word Reveal** - Tall 260vh scroll track with sticky pinned viewport, radial dot matrix parallax, and two-stage word token scrubbing.
+- [x] **Phase 2: Section 2 — Sticky Scroll-Scrubbed Manifesto Word Reveal** - Tall 260vh scroll track with sticky pinned viewport, radial dot matrix parallax, and two-stage word token scrubbing.
 - [ ] **Phase 3: Section 3 — Multiplayer Design Canvas Interactive Stage** - Interactive Figma/Webflow-style canvas with draggable `internet.` centerpiece, Modo IA auto-switch, 6 tilted floating cards, 7 autonomous role cursors, live code typing, and snapping grid.
 - [ ] **Phase 4: Section 4 — Selected Works Folders & Legacy Cleanup** - Retain tactile 3D architectural folders (ApplyKit, PharmaERP, EduHub) and dossier overlays; purge unmentioned `#process` and `#global-physics-stage`.
 - [ ] **Phase 5: Section 5 — Cinematic Scroll-Scrubbed Stats Section** - Danish architectural stats bridge with clip-path frame expansion (0% -> 40%), image scale settling, scrim darkening, hairline rules draw, and tabular numbers count-up for Lines of Code and Projects.
@@ -44,7 +44,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 02-01: Build sticky scroll-scrubbed quote block HTML structure, CSS styling, and scroll progress animation engine.
+- [x] 02-01: Build sticky scroll-scrubbed quote block HTML structure, CSS styling, and scroll progress animation engine.
 
 ---
 
