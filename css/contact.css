@@ -1,238 +1,276 @@
-/* ==========================================================================
-   07. FINALE ARCHITECTURAL CTA SECTION ("LET'S MAKE A PROJECT TOGETHER")
-   Layer 1 — Architectural Frame: Clean viewport container with structural hairlines
-   Layer 2 — Giant Monochrome Background Marquee: Seamless -50% CSS loop
-   Layer 3 — Centered Editorial Stack: High-contrast typography & editorial note
-   Layer 4 — iPhone Unlock Swipe Style "Let's talk" Button: Shimmer sweep + kinetic roll
-   ========================================================================== */
+/* ============================================================
+   Section: Finale Architectural CTA — Bento Grid & Slide-to-Talk
+   Design Principle: Aligned with Skills & Capabilities Bento Grid
+   Pure Vanilla CSS · Zero Frameworks · Zero CDNs · 60fps GPU Hardware Accelerated
+   ============================================================ */
 
-/* 1. Design Tokens */
-.cta-section {
-  --bg: #ffffff;
-  --surface: #ffffff;
-  --fg: #060606;
-  --muted: #636366;
-  --border: rgba(6, 6, 6, 0.08);
-  --marquee-fill: rgba(6, 6, 6, 0.035);
-  --marquee-stroke: rgba(6, 6, 6, 0.075);
-  --btn-bg: #060606;
-  --btn-fg: #ffffff;
-  --btn-circle-bg: #ffffff;
-  --btn-circle-fg: #060606;
-  --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-}
-
-/* 2. Full-Bleed Architectural Section Layout */
+/* ============================================================
+   1. SECTION CONTAINER
+   ============================================================ */
 .cta-section {
   position: relative;
-  width: 100%;
-  min-height: 80svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background-color: var(--bg);
-  color: var(--fg);
+  background-color: var(--canvas, #f5f5f3);
+  color: var(--ink, #0a0a0a);
+  padding-top: clamp(64px, 8vw, 112px);
+  padding-bottom: clamp(64px, 8vw, 112px);
+  border-top: 1px solid var(--rule, rgba(10, 10, 10, 0.14));
   overflow: hidden;
-  isolation: isolate;
   box-sizing: border-box;
-  padding: clamp(80px, 14vh, 160px) clamp(1.5rem, 5vw, 4rem);
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Subtle Vertical Architectural Guide Lines */
-.cta-section::before,
-.cta-section::after {
-  content: "";
+.cta-container {
+  max-width: var(--max-canvas, 1312px);
+  margin-inline: auto;
+  padding-inline: var(--margin, clamp(24px, 6vw, 96px));
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   2. SECTION HEADER (Matching Skills Typography & Scale)
+   ============================================================ */
+.cta-header {
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.cta-title {
+  font-family: var(--font-display, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-weight: 500;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  color: var(--ink, #0a0a0a);
+  margin-top: 0;
+  margin-bottom: 12px;
+  max-width: 24ch;
+}
+
+.cta-subtitle {
+  font-family: var(--font-body, system-ui, -apple-system, 'Segoe UI', sans-serif);
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.55;
+  color: var(--muted, #6b6b6b);
+  max-width: 58ch;
+  margin: 0;
+}
+
+/* ============================================================
+   3. CTA BENTO GRID PLACEMENTS
+   ============================================================ */
+/* Desktop (>= 1024px): 4 columns, 2 rows */
+@media (min-width: 1024px) {
+  .bento-card--cta-hero {
+    grid-column: span 2;
+    grid-row: span 2;
+    min-height: 380px;
+  }
+
+  .bento-card--cta-wide {
+    grid-column: span 2;
+    grid-row: span 1;
+    min-height: 180px;
+  }
+
+  .bento-card--cta-sq1 {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 180px;
+  }
+
+  .bento-card--cta-sq2 {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 180px;
+  }
+}
+
+/* Tablet (640px – 1023px): 2 columns */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .bento-card--cta-hero {
+    grid-column: span 2;
+    grid-row: auto;
+    min-height: 340px;
+  }
+
+  .bento-card--cta-wide {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  .bento-card--cta-sq1,
+  .bento-card--cta-sq2 {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+}
+
+/* Mobile (< 640px): 1 column */
+@media (max-width: 639px) {
+  .bento-card--cta-hero,
+  .bento-card--cta-wide,
+  .bento-card--cta-sq1,
+  .bento-card--cta-sq2 {
+    grid-column: span 1 !important;
+    grid-row: auto !important;
+    min-height: auto;
+  }
+}
+
+/* ============================================================
+   4. HERO CARD COMPONENTS (Header Row, Status Badge, Pulse)
+   ============================================================ */
+.cta-card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.cta-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-label, 'Inter', system-ui, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink, #0a0a0a);
+}
+
+.status-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: statusPulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes statusPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.cta-availability-label {
+  font-family: var(--font-label, 'Inter', system-ui, sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted, #6b6b6b);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   5. INTERACTIVE "SLIDE TO LET'S TALK" CONTROLLER
+   ============================================================ */
+.cta-slider-wrap {
+  margin-top: 22px;
+  margin-bottom: 6px;
+  width: 100%;
+}
+
+.slide-to-talk {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 58px;
+  border-radius: 9999px;
+  background-color: #0c0f14;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28), 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  padding: 5px;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  cursor: default;
+  outline: none;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  box-sizing: border-box;
+}
+
+.slide-to-talk:focus-visible {
+  box-shadow: 0 0 0 3px rgba(232, 92, 59, 0.5), 0 16px 36px rgba(0, 0, 0, 0.32);
+}
+
+/* Background Drag Expansion Fill */
+.slide-to-talk__fill {
   position: absolute;
   top: 0;
+  left: 0;
   bottom: 0;
-  width: 1px;
-  background: var(--border);
+  width: 0;
+  background: linear-gradient(90deg, rgba(232, 92, 59, 0.2) 0%, rgba(232, 92, 59, 0.5) 100%);
+  border-radius: 9999px;
   pointer-events: none;
-  z-index: 2;
+  will-change: width;
 }
 
-.cta-section::before { left: clamp(1rem, 5vw, 4rem); }
-.cta-section::after { right: clamp(1rem, 5vw, 4rem); }
-
-/* 3. Giant Monochrome Background Marquee */
-.marquee-stage {
+/* Shimmering Text Track */
+.slide-to-talk__label {
   position: absolute;
   inset: 0;
-  z-index: 1;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  justify-content: center;
+  gap: 10px;
+  padding-left: 48px;
   pointer-events: none;
-  user-select: none;
-  mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  will-change: transform;
-  animation: marquee-scroll 32s linear infinite;
-}
-
-.cta-section:hover .marquee-track {
-  animation-play-state: running;
-}
-
-.marquee-group {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.marquee-phrase {
+  z-index: 1;
   font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(6.5rem, 18vw, 19rem);
-  font-weight: 800;
-  line-height: 0.85;
-  letter-spacing: -0.05em;
-  text-transform: uppercase;
-  color: var(--marquee-fill);
-  -webkit-text-stroke: 1.5px var(--marquee-stroke);
-  padding-right: 0.25em;
-}
-
-.marquee-separator {
-  display: inline-block;
-  width: clamp(1.25rem, 2.5vw, 2.5rem);
-  height: clamp(1.25rem, 2.5vw, 2.5rem);
-  border-radius: 50%;
-  border: 2px solid var(--marquee-stroke);
-  margin: 0 clamp(1.5rem, 4vw, 4rem);
-  flex-shrink: 0;
-}
-
-@keyframes marquee-scroll {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
-}
-
-/* 4. Centered Foreground Content Stack */
-.cta-center {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-/* Staggered Viewport Entrance */
-.reveal-item {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: var(--delay, 0ms);
-}
-
-.cta-section.is-ready .reveal-item {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Heading ("Let's make a project together.") */
-.cta-heading {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: clamp(2.75rem, 6.2vw, 5.25rem);
-  font-weight: 800;
-  line-height: 1.04;
-  letter-spacing: -0.04em;
-  color: var(--fg);
-  text-wrap: balance;
-  margin: 0 0 1.5rem;
-  max-width: 18ch;
-}
-
-/* Note ("Let's transform your ideas...") */
-.cta-note {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
-  line-height: 1.6;
-  color: var(--muted);
-  max-width: 46ch;
-  text-wrap: pretty;
-  margin: 0 0 2.75rem;
-}
-
-/* 5. iPhone Unlock Swipe Style "Let's talk" Button */
-.cta-button-wrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.iphone-swipe-btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  padding: 8px 10px 8px 26px;
-  border-radius: 9999px;
-  background-color: var(--btn-bg);
-  color: var(--btn-fg);
-  border: 1px solid rgba(6, 6, 6, 0.12);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
-  cursor: pointer;
-  text-decoration: none;
-  overflow: hidden;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s ease,
-              background-color 0.2s ease;
-}
-
-.iphone-swipe-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
-  background-color: #1a1a1c;
-}
-
-.iphone-swipe-btn:active {
-  transform: translateY(0);
-}
-
-/* iPhone Slide-to-Unlock Shimmer Sweep on Text */
-.btn-text-track {
-  position: relative;
-  overflow: hidden;
-  height: 24px;
-  line-height: 24px;
-  display: block;
-}
-
-.btn-text-main,
-.btn-text-hover {
-  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  display: block;
   white-space: nowrap;
+  will-change: opacity;
+}
 
-  /* iPhone Slide-to-Unlock Metallic Gradient Sweep */
+.slide-to-talk__text {
   background-image: linear-gradient(
     105deg,
-    rgba(255, 255, 255, 0.6) 0%,
-    rgba(255, 255, 255, 0.7) 30%,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.55) 30%,
     rgba(255, 255, 255, 1) 50%,
-    rgba(255, 255, 255, 0.7) 70%,
-    rgba(255, 255, 255, 0.6) 100%
+    rgba(255, 255, 255, 0.55) 70%,
+    rgba(255, 255, 255, 0.45) 100%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: iphoneShimmer 3s infinite linear;
+  animation: iphoneShimmer 2.8s infinite linear;
+}
+
+.slide-to-talk__chevrons {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.slide-to-talk__chevrons .chevron {
+  width: 14px;
+  height: 14px;
+  animation: chevronGlow 1.8s infinite ease-in-out;
+}
+
+.slide-to-talk__chevrons .chevron-1 { animation-delay: 0s; }
+.slide-to-talk__chevrons .chevron-2 { animation-delay: 0.25s; }
+.slide-to-talk__chevrons .chevron-3 { animation-delay: 0.5s; }
+
+@keyframes chevronGlow {
+  0%, 100% { opacity: 0.25; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(3px); }
 }
 
 @keyframes iphoneShimmer {
@@ -240,83 +278,168 @@
   100% { background-position: -200% 0; }
 }
 
-/* Kinetic Vertical Roll */
-.btn-text-main {
-  transform: translateY(0);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-text-hover {
+/* Draggable Circular Thumb */
+.slide-to-talk__thumb {
   position: absolute;
-  inset: 0;
-  transform: translateY(-100%);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.iphone-swipe-btn:hover .btn-text-main {
-  transform: translateY(100%);
-}
-
-.iphone-swipe-btn:hover .btn-text-hover {
-  transform: translateY(0);
-}
-
-/* Circular Arrow Bubble with Dual Translating Arrows */
-.btn-arrow-circle {
-  position: relative;
-  width: 40px;
-  height: 40px;
+  top: 5px;
+  left: 5px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background-color: var(--btn-circle-bg);
-  color: var(--btn-circle-fg);
+  cursor: grab;
+  z-index: 2;
+  touch-action: none;
+  will-change: transform;
+}
+
+.slide-to-talk.is-dragging .slide-to-talk__thumb {
+  cursor: grabbing;
+}
+
+.slide-thumb__circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #0c0f14;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  flex-shrink: 0;
-  transition: background-color 0.25s ease;
+  position: relative;
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
 }
 
-.btn-arrow-1,
-.btn-arrow-2 {
-  width: 18px;
-  height: 18px;
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+.slide-to-talk:not(.is-dragging) .slide-to-talk__thumb:hover .slide-thumb__circle {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
-.btn-arrow-1 {
-  transform: translate(0, 0);
-}
-
-.btn-arrow-2 {
+.slide-thumb__arrow,
+.slide-thumb__check {
   position: absolute;
-  transform: translate(-160%, 160%);
+  transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.iphone-swipe-btn:hover .btn-arrow-1 {
-  transform: translate(160%, -160%);
+.slide-thumb__arrow {
+  opacity: 1;
+  transform: scale(1);
 }
 
-.iphone-swipe-btn:hover .btn-arrow-2 {
-  transform: translate(0, 0);
+.slide-thumb__check {
+  opacity: 0;
+  transform: scale(0.4) rotate(-20deg);
 }
 
-/* ==========================================================================
-   Responsive Adaptations
-   ========================================================================== */
+/* Unlocked State */
+.slide-to-talk.is-unlocked .slide-thumb__circle {
+  background: #10b981;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+}
 
-@media (max-width: 768px) {
-  .cta-section {
-    padding: 70px 1.25rem 90px;
-    min-height: auto;
+.slide-to-talk.is-unlocked .slide-thumb__arrow {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.slide-to-talk.is-unlocked .slide-thumb__check {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* ============================================================
+   6. CTA INFINITE MARQUEE (Below Grid)
+   ============================================================ */
+.cta-marquee-wrap {
+  width: 100%;
+  border-top: 1px solid var(--rule, rgba(10, 10, 10, 0.14));
+  padding-block: 20px;
+  margin-top: 48px;
+  box-sizing: border-box;
+}
+
+.cta-marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.cta-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  white-space: nowrap;
+  animation: marquee-scroll 32s linear infinite;
+  will-change: transform;
+  flex-shrink: 0;
+  padding-right: 40px;
+}
+
+.cta-marquee:hover .cta-marquee-track {
+  animation-play-state: paused;
+}
+
+.cta-marquee-item {
+  font-family: var(--font-label, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--muted, #6b6b6b);
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.cta-marquee-sep {
+  color: var(--accent, #E85C3B);
+  font-size: 14px;
+}
+
+/* ============================================================
+   7. FOOTNOTE & DIRECT INQUIRY LINK
+   ============================================================ */
+.cta-footnote {
+  text-align: center;
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+  font-size: 13px;
+  color: var(--muted, #6b6b6b);
+  margin-top: 32px;
+  margin-bottom: 0;
+  letter-spacing: 0.02em;
+}
+
+.cta-email-link {
+  color: var(--ink, #0a0a0a);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.cta-email-link:hover {
+  color: var(--accent, #E85C3B);
+}
+
+/* ============================================================
+   8. RESPONSIVE & ACCESSIBILITY ADAPTATIONS
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .slide-to-talk__text {
+    animation: none;
+    -webkit-text-fill-color: #ffffff;
   }
-
-  .cta-heading {
-    font-size: 2.75rem;
+  .slide-to-talk__chevrons .chevron {
+    animation: none;
   }
-
-  .cta-note {
-    font-size: 1rem;
-    margin-bottom: 2.25rem;
+  .status-pulse-dot {
+    animation: none;
+  }
+  .cta-marquee-track {
+    animation: none !important;
+    transform: none !important;
   }
 }

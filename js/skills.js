@@ -12,10 +12,9 @@
     if (isInitialized) return;
     isInitialized = true;
 
-    const section = document.querySelector(".skills-section");
-    if (!section) return;
+    const cards = Array.from(document.querySelectorAll(".skills-section .bento-card, .cta-section .bento-card"));
+    if (cards.length === 0) return;
 
-    const cards = Array.from(section.querySelectorAll(".bento-card"));
     const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isTouch = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
 
@@ -55,6 +54,8 @@
         card.addEventListener(
           "mousemove",
           function (e) {
+            if (e.target.closest && e.target.closest(".is-dragging")) return;
+
             const r = card.getBoundingClientRect();
             const x = (e.clientX - r.left) / r.width - 0.5; // -0.5 .. 0.5
             const y = (e.clientY - r.top) / r.height - 0.5;

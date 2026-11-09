@@ -1790,75 +1790,170 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
     </section>
 
             <!-- 07. FINALE ARCHITECTURAL CTA SECTION ("LET'S MAKE A PROJECT TOGETHER") -->
-    <section id="contact" class="cta-section is-ready" aria-labelledby="ctaHeading">
+    <section class="cta-section" id="contact" aria-labelledby="ctaHeading">
+      <div class="cta-container">
+        <!-- 1. Section Header (Matching Skills Design Principle) -->
+        <header class="cta-header">
+          <h2 id="ctaHeading" class="cta-title">Let's make a project together.</h2>
+          <p class="cta-subtitle">Let's transform your ideas into a high-quality website that works aligned to your goals. We are ready to start working.</p>
+        </header>
 
-      <!-- Giant Monochrome Scrolling Marquee (Background Layer) -->
-      <div class="marquee-stage" aria-hidden="true">
-        <div class="marquee-track" id="marqueeTrack">
-          <!-- Group 1 -->
-          <div class="marquee-group">
-            <span class="marquee-phrase">Let's make a project together</span>
-            <span class="marquee-separator"></span>
-            <span class="marquee-phrase">Let's make a project together</span>
-            <span class="marquee-separator"></span>
-            <span class="marquee-phrase">Let's make a project together</span>
-            <span class="marquee-separator"></span>
+        <!-- 2. Bento Grid -->
+        <div class="bento" role="list">
+          <!-- Card 1: Direct Collaboration (Hero 2x2 with Interactive Slide to Talk Slider) -->
+          <article class="bento-card bento-card--cta-hero" role="listitem" tabindex="0" style="--reveal-i:0">
+            <div class="bento-spotlight" aria-hidden="true"></div>
+            <div class="bento-card-top">
+              <div class="cta-card-header-row">
+                <div class="cta-status-badge">
+                  <span class="status-pulse-dot" aria-hidden="true"></span>
+                  <span>Open for Sprints</span>
+                </div>
+                <span class="cta-availability-label">Q1/Q2 2026</span>
+              </div>
+              <h3 class="bento-title">Direct Collaboration</h3>
+              <p class="bento-body">
+                Have an ambitious idea, redesign, or new product? Slide the controller below to open direct inquiries or schedule a collaborative sprint.
+              </p>
+
+              <!-- Interactive iPhone Slide-to-Unlock Style "Let's talk" Slider -->
+              <div class="cta-slider-wrap">
+                <div
+                  class="slide-to-talk js-slide-to-talk"
+                  role="slider"
+                  tabindex="0"
+                  aria-label="Slide left to right to open contact form"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow="0"
+                  data-cursor-pill="Slide to Talk"
+                >
+                  <!-- Background drag expansion fill -->
+                  <div class="slide-to-talk__fill js-slide-fill" aria-hidden="true"></div>
+
+                  <!-- iPhone metallic shimmering label -->
+                  <div class="slide-to-talk__label js-slide-label" aria-hidden="true">
+                    <span class="slide-to-talk__text">Slide to let's talk</span>
+                    <span class="slide-to-talk__chevrons">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="chevron chevron-1"><path d="M9 18l6-6-6-6"/></svg>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="chevron chevron-2"><path d="M9 18l6-6-6-6"/></svg>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="chevron chevron-3"><path d="M9 18l6-6-6-6"/></svg>
+                    </span>
+                  </div>
+
+                  <!-- Draggable circular slider handle -->
+                  <div class="slide-to-talk__thumb js-slide-thumb" role="button" aria-label="Drag slider handle">
+                    <div class="slide-thumb__circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="slide-thumb__arrow" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="slide-thumb__check" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <ul class="bento-tags" aria-label="Collaboration highlights">
+              <li class="bento-tag">Fixed-Price Sprints</li>
+              <li class="bento-tag">Direct Founder Access</li>
+              <li class="bento-tag">Code Delivery</li>
+            </ul>
+          </article>
+
+          <!-- Card 2: High-Performance Engineering (Wide 2x1) -->
+          <article class="bento-card bento-card--cta-wide" role="listitem" tabindex="0" style="--reveal-i:1">
+            <div class="bento-spotlight" aria-hidden="true"></div>
+            <div class="bento-card-top">
+              <svg class="bento-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              <h3 class="bento-title">High-Performance Engineering</h3>
+              <p class="bento-body">
+                Sub-second LCP, zero runtime layout shifts, 60fps kinetic animations, and rock-solid Lighthouse 100 audits.
+              </p>
+            </div>
+            <ul class="bento-tags" aria-label="Engineering standards">
+              <li class="bento-tag">Sub-second LCP</li>
+              <li class="bento-tag">60fps Kinetic</li>
+              <li class="bento-tag">Lighthouse 100</li>
+              <li class="bento-tag">Figma Tokens</li>
+            </ul>
+          </article>
+
+          <!-- Card 3: Sprint Timeline (Square 1x1) -->
+          <article class="bento-card bento-card--cta-sq1" role="listitem" tabindex="0" style="--reveal-i:2">
+            <div class="bento-spotlight" aria-hidden="true"></div>
+            <div class="bento-card-top">
+              <svg class="bento-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              <h3 class="bento-title">Sprint Timeline</h3>
+              <p class="bento-body">
+                2-week delivery cycles with daily async updates and live staging preview URLs.
+              </p>
+            </div>
+            <ul class="bento-tags" aria-label="Process details">
+              <li class="bento-tag">2-Week Cycles</li>
+              <li class="bento-tag">Daily Previews</li>
+            </ul>
+          </article>
+
+          <!-- Card 4: Global Overlap (Square 1x1) -->
+          <article class="bento-card bento-card--cta-sq2" role="listitem" tabindex="0" style="--reveal-i:3">
+            <div class="bento-spotlight" aria-hidden="true"></div>
+            <div class="bento-card-top">
+              <svg class="bento-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              <h3 class="bento-title">Global Overlap</h3>
+              <p class="bento-body">
+                Dhaka UTC+6 HQ, remote native. 4+ hours daily synchronous overlap with US, EU, and APAC.
+              </p>
+            </div>
+            <ul class="bento-tags" aria-label="Availability">
+              <li class="bento-tag">UTC+6 HQ</li>
+              <li class="bento-tag">Remote Native</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- 3. Infinite Marquee -->
+        <div class="cta-marquee-wrap">
+          <div class="cta-marquee" aria-label="Collaboration marquee">
+            <div class="cta-marquee-track">
+              <span class="cta-marquee-item">Product Engineering <span class="cta-marquee-sep">✦</span></span>
+              <span class="cta-marquee-item">Design Systems <span class="cta-marquee-sep">✦</span></span>
+              <span class="cta-marquee-item">Motion &amp; Interaction <span class="cta-marquee-sep">✦</span></span>
+              <span class="cta-marquee-item">Performance Audits <span class="cta-marquee-sep">✦</span></span>
+              <span class="cta-marquee-item">Bespoke Web <span class="cta-marquee-sep">✦</span></span>
+              <span class="cta-marquee-item">Full-Stack Sprints <span class="cta-marquee-sep">✦</span></span>
+              <span class="cta-marquee-item">Rapid Prototyping <span class="cta-marquee-sep">✦</span></span>
+            </div>
+            <div class="cta-marquee-track" aria-hidden="true">
+              <span class="cta-marquee-item">Product Engineering <span class="cta-marquee-sep">✦</span></span>
+              <span class="cta-marquee-item">Design Systems <span class="cta-marquee-sep">✦</span></span>
+              <span class="cta-marquee-item">Motion &amp; Interaction <span class="cta-marquee-sep">✦</span></span>
+              <span class="cta-marquee-item">Performance Audits <span class="cta-marquee-sep">✦</span></span>
+              <span class="cta-marquee-item">Bespoke Web <span class="cta-marquee-sep">✦</span></span>
+              <span class="cta-marquee-item">Full-Stack Sprints <span class="cta-marquee-sep">✦</span></span>
+              <span class="cta-marquee-item">Rapid Prototyping <span class="cta-marquee-sep">✦</span></span>
+            </div>
           </div>
-          <!-- Group 2 (Identical clone for seamless -50% loop) -->
-          <div class="marquee-group">
-            <span class="marquee-phrase">Let's make a project together</span>
-            <span class="marquee-separator"></span>
-            <span class="marquee-phrase">Let's make a project together</span>
-            <span class="marquee-separator"></span>
-            <span class="marquee-phrase">Let's make a project together</span>
-            <span class="marquee-separator"></span>
-          </div>
+          <!-- 4. Direct Email Footnote -->
+          <p class="cta-footnote">
+            Direct inquiries: <a href="mailto:samnun@murtayes.com" class="cta-email-link">samnun@murtayes.com</a> &mdash; Usually responds within 24 hours.
+          </p>
         </div>
       </div>
-
-      <!-- Centered Foreground Stack -->
-      <div class="cta-center">
-        <!-- Heading -->
-        <h2 class="cta-heading reveal-item" id="ctaHeading" style="--delay: 100ms;">
-          Let's make a<br />project together.
-        </h2>
-
-        <!-- Note -->
-        <p class="cta-note reveal-item" style="--delay: 200ms;">
-          Let's transform your ideas into a high-quality website that works aligned to your goals. We are ready to start working.
-        </p>
-
-        <!-- iPhone Unlock Swipe Style "Let's talk" Button -->
-        <div class="cta-button-wrap reveal-item" style="--delay: 300ms;">
-          <button
-            type="button"
-            class="iphone-swipe-btn group/button12"
-            data-open-contact
-            data-cursor-pill="Let's talk"
-            aria-label="Let's talk"
-          >
-            <span class="relative block overflow-hidden btn-text-track">
-              <span class="block transition-transform duration-300 ease-out motion-safe:group-hover/button12:translate-y-full btn-text-main">
-                Let's talk
-              </span>
-              <span aria-hidden="true" class="absolute inset-0 block -translate-y-full transition-transform duration-300 ease-out motion-safe:group-hover/button12:translate-y-0 btn-text-hover">
-                Let's talk
-              </span>
-            </span>
-            <span class="relative flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full btn-arrow-circle">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow-1 transition-transform duration-300 ease-out motion-safe:group-hover/button12:translate-x-[160%] motion-safe:group-hover/button12:-translate-y-[160%]" aria-hidden="true">
-                <path d="M7 7h10v10"></path>
-                <path d="M7 17 17 7"></path>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow-2 absolute -translate-x-[160%] translate-y-[160%] transition-transform duration-300 ease-out motion-safe:group-hover/button12:translate-x-0 motion-safe:group-hover/button12:translate-y-0" aria-hidden="true">
-                <path d="M7 7h10v10"></path>
-                <path d="M7 17 17 7"></path>
-              </svg>
-            </span>
-          </button>
-        </div>
-      </div>
-
     </section>
   </main>
 
