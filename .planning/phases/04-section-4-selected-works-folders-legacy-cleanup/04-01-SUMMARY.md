@@ -27,3 +27,4 @@ files_deleted:
 
 ## Verification
 - Automated tests in `scratch/verify_phase4.js` verified all folder cards, dossiers, modals, zero broken asset links, and 100% clean JavaScript syntax across all modules.
+
