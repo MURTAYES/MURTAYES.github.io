@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samnun Murtayes</title>
+  <meta name="description"
+    content="Personal portfolio of Samnun Murtayes. Vibe coder, creative engineer, bespoke digital experiences, kinetic motion, and high-performance architecture.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="alternate icon" href="assets/images/logo.svg">
+  <link rel="apple-touch-icon" href="assets/images/logo.svg">
+
+  <!-- Google Fonts: Inter (UI Workhorse), Lora (Editorial Serif), Pixelify Sans (Retro Accent) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Pixelify+Sans:wght@400..700&display=swap"
+    rel="stylesheet">
+
+  <!-- Modular Stylesheets (Parallel Streaming & Caching) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/works.css">
+  <link rel="stylesheet" href="css/modals.css">
+  <link rel="stylesheet" href="css/process.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/cursor.css">
+</head>
+
+<body class="page-body">
+
+  <!-- Inline SVG Symbols for UI Icons -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="icon-arrow-tr" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        d="M7 17L17 7M7 7h10v10" />
+    </symbol>
+    <symbol id="icon-sparkle" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" />
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </symbol>
+  </svg>
+
+  <!-- 01. NAVIGATION ARCHITECTURE (Matching Reference Screenshot) -->
+  <!-- Desktop Minimalist Floating Navigation -->
+  <header class="header willen-nav header--editorial" navbar-scroll>
+    <a class="header__logo" data-cursor="Home" href="/" aria-label="Samnun Murtayes Home">
+      <img src="assets/images/logo.svg" alt="Samnun Murtayes Logo" class="header__brand-logo" width="48" height="48">
+    </a>
+
+    <nav class="header__nav-center nav-anim" aria-label="Main Navigation">
+      <a class="header__nav-link" data-cursor="About" href="#about">About Me</a>
+      <a class="header__nav-link" data-cursor="Contact" href="#contact">Contact</a>
+      <a class="header__nav-link" data-cursor="Works" href="#works">Works</a>
+    </nav>
+
+    <div class="header__actions nav-anim">
+      <button type="button" class="header__menu-button" data-navigation-toggle="toggle" aria-expanded="false"
+        aria-controls="site-menu">
+        <span class="header__bars" aria-hidden="true">
+          <span class="header__bar"></span>
+          <span class="header__bar"></span>
+        </span>
+        Menu
+      </button>
+    </div>
+  </header>
+
+  <!-- Full-Screen Mobile Drawer Navigation -->
+  <nav class="bold-nav-full" data-navigation-status="not-active">
+    <div class="bold-nav-full__bar">
+      <button class="bold-nav-full__hamburger" data-navigation-toggle="toggle" aria-label="Toggle navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <a href="/" class="nav-logo-link" aria-label="Samnun Murtayes">
+        <img src="assets/images/logo.svg" alt="Samnun Murtayes" class="nav-logo-img" style="height: 38px;">
+      </a>
+    </div>
+    <div class="bold-nav-full__tile">
+      <div class="u-container bold-nav-full__content">
+        <ul class="bold-nav-full__ul">
+          <li><a href="#about" class="bold-nav-full__link" data-navigation-toggle="close">About Me</a></li>
+          <li><a href="#contact" class="bold-nav-full__link" data-navigation-toggle="close">Contact</a></li>
+          <li><a href="#works" class="bold-nav-full__link" data-navigation-toggle="close">Works</a></li>
+        </ul>
+        <div class="bold-nav__bottom">
+          <span class="bold-nav__community">Available for select client projects & engineering</span>
+          <a href="#contact" class="bold-nav__email">samnun@murtayes.com</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- 02. HERO SECTION & KINETIC PRELOADER -->
+    <section class="willem-header" id="hero">
+      <div class="willem-loader">
+        <h1 class="willem__h1">
+          <span class="willem__h1-start">
+            <span class="willem__letter">c</span>
+            <span class="willem__letter">r</span>
+            <span class="willem__letter">e</span>
+            <span class="willem__letter">a</span>
+            <span class="willem__letter">t</span>
+          </span>
+          <div class="willem-loader__box">
+            <div class="willem-loader__box-inner">
+              <div class="willem__growing-image">
+                <img src="assets/icons/gemini.svg" class="willem__cover-image-extra is--1" alt="Google Gemini"
+                  loading="eager">
+                <img src="assets/icons/claude-code.svg" class="willem__cover-image-extra is--2" alt="Claude Code"
+                  loading="eager">
+                <img src="assets/icons/github-light.svg" class="willem__cover-image-extra is--3" alt="GitHub"
+                  loading="eager">
+                <!-- 4th Item: User's Brand Logo (assets/images/logo.svg) -->
+                <div class="willem__card-hero is--4" id="loader-brand-card">
+                  <img src="assets/images/logo.svg" class="willem__logo-hero" id="loader-brand-logo"
+                    alt="Samnun Murtayes Logo">
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="willem__h1-end">
+            <span class="willem__letter">i</span>
+            <span class="willem__letter">v</span>
+            <span class="willem__letter">i</span>
+            <span class="willem__letter">t</span>
+            <span class="willem__letter">y</span>
+          </span>
+        </h1>
+      </div>
+
+      <!-- 02B. FULL SAMNUN MURTAYES EDITORIAL SILHOUETTE HERO (Matching Reference Design) -->
+      <section class="hero hero--silhouette" aria-label="Hero">
+        <div class="hero-silhouette__bg" aria-hidden="true"></div>
+        <div class="hero-silhouette__container">
+          <div class="hero-silhouette__content">
+            <h1 class="hero-silhouette__title" aria-label="Samnun Murtayes">
+              <span class="hero-silhouette__title-line">Samnun</span>
+              <span class="hero-silhouette__title-line">Murtayes</span>
+            </h1>
+            <p class="hero-silhouette__subtitle">
+              <span>Brands, products &amp; the art in between.</span>
+              <span>I take the fun seriously.</span>
+            </p>
+            <div class="hero-silhouette__tags" role="list" aria-label="Specializations">
+              <div class="hero-silhouette__tag-row">
+                <span class="hero-silhouette__tag" role="listitem">Brand Design</span>
+                <span class="hero-silhouette__tag" role="listitem">Product Design</span>
+                <span class="hero-silhouette__tag" role="listitem">UX | UI</span>
+              </div>
+              <div class="hero-silhouette__tag-row">
+                <span class="hero-silhouette__tag" role="listitem">Art Direction</span>
+                <span class="hero-silhouette__tag" role="listitem">Motion &amp; 3D</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- 03. ABOUT SECTION -->
+    <section id="about" class="c-section about-section" data-theme="light" data-c-section-pt="l" data-c-section-pb="m">
+      <div class="u-container">
+        <div class="article-wrapper">
+          <div class="article-col__left">
+            <h2 class="about-me-title">About Me</h2>
+          </div>
+          <div class="article-col__right">
+            <h3 class="u-h3" data-gradient-wave-text="" data-gradient-wave-scroll-start="top 90%"
+              data-gradient-wave-scroll-end="center 40%" data-gradient-wave-color-start="rgba(31, 31, 31, 0.25)"
+              data-gradient-wave-color-wave="#eb381c">
+              I engineer software where performance, privacy, and tactile motion converge. Specializing in local-first browser architectures, zero-drift transactional systems, and micro-interactions that feel immediate and natural.
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. SELECTED WORKS (TACTILE ARCHITECTURAL FOLDERS & ON-PAGE DOSSIER) -->
+    <section id="works" class="works" aria-labelledby="works-title">
+      <div class="works__container container">
+        <!-- Section Header -->
+        <div class="section-head">
+          <h2 id="works-title" class="display" aria-label="Selected Works">
+            <div class="lline" aria-hidden="true">Selected Works</div>
+          </h2>
+        </div>
+
+        <!-- 3 Interactive Project Folders Showcase -->
+        <div class="works-folders-grid" role="tablist" aria-label="Project Architectural Folders">
+
+          <!-- Folder 01: ApplyKit -->
+          <div class="folder-card" data-folder="applykit" role="tab" aria-selected="false" tabindex="0" data-cursor-pill="Open ApplyKit">
+            <div class="folder-wrapper">
+              <!-- Folder Backing -->
+              <div class="folder-back">
+                <!-- 3 Floating Document Pages inside folder -->
+                <div class="folder-page folder-page--1">
+                  <div class="page-top-bar">
+                    <span class="page-file-name">MANIFEST V3</span>
+                  </div>
+                  <div class="page-clean-graphic">
+                    <div class="doc-line w-80"></div>
+                    <div class="doc-line w-100"></div>
+                    <div class="doc-line w-60"></div>
+                  </div>
+                  <span class="page-badge-pill">OFFLINE</span>
+                </div>
+                <div class="folder-page folder-page--2">
+                  <div class="page-top-bar">
+                    <span class="page-file-name">APPLYKIT</span>
+                  </div>
+                  <div class="page-thumb-preview">
+                    <img src="assets/images/appykit.jpg" alt="ApplyKit Preview" loading="lazy" />
+                  </div>
+                  <span class="page-badge-pill highlight">LOCAL-FIRST</span>
+                </div>
+                <div class="folder-page folder-page--3">
+                  <div class="page-top-bar">
+                    <span class="page-file-name">BENCHMARK</span>
+                  </div>
+                  <div class="page-stat-block">
+                    <span class="stat-number">&lt;40ms</span>
+                    <span class="stat-label">DOM SCAN</span>
+                  </div>
+                  <span class="page-badge-pill">0 CLOUD</span>
+                </div>
+              </div>
+
+              <!-- Folder Front Flap -->
+              <div class="folder-front">
+                <svg class="folder-svg" viewBox="0 0 235 121" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M104.615 0.350494L33.1297 0.838776C32.7542 0.841362 32.3825 0.881463 32.032 0.918854C31.6754 0.956907 31.3392 0.992086 31.0057 0.992096H31.0047C30.6871 0.99235 30.3673 0.962051 30.0272 0.929596C29.6927 0.897686 29.3384 0.863802 28.9803 0.866119L13.2693 0.967682H13.2527L13.2352 0.969635C13.1239 0.981406 13.0121 0.986674 12.9002 0.986237H9.91388C8.33299 0.958599 6.76052 1.22345 5.27423 1.76651H5.27325C4.33579 2.11246 3.48761 2.66213 2.7879 3.37393L2.49689 3.68839L2.492 3.69424C1.62667 4.73882 1.00023 5.96217 0.656067 7.27725C0.653324 7.28773 0.654065 7.29886 0.652161 7.30948C0.3098 8.62705 0.257231 10.0048 0.499817 11.3446L12.2147 114.399L12.2156 114.411L12.2176 114.423C12.6046 116.568 13.7287 118.508 15.3934 119.902C17.058 121.297 19.1572 122.056 21.3231 122.049V122.05H215.379C217.76 122.02 220.064 121.192 221.926 119.698V119.697C223.657 118.384 224.857 116.485 225.305 114.35L225.307 114.339L235.914 53.3798L235.968 53.1093L235.97 53.0985L235.971 53.0888C236.134 51.8978 236.044 50.685 235.705 49.5321C235.307 48.1669 234.63 46.9005 233.717 45.8144L233.383 45.4296C232.58 44.5553 231.614 43.8449 230.539 43.3398C229.311 42.7628 227.971 42.4685 226.616 42.4774H146.746C144.063 42.4705 141.423 41.8004 139.056 40.5263C136.691 39.2522 134.671 37.4127 133.175 35.1689L113.548 5.05948L113.544 5.05362L113.539 5.04776C112.545 3.65165 111.238 2.51062 109.722 1.72061C108.266 0.886502 106.627 0.422235 104.952 0.365143V0.364166L104.633 0.350494H104.615Z"
+                    class="folder-svg-path" />
+                </svg>
+                <div class="folder-front-overlay">
+                  <div class="folder-tab-badge">
+                    <span class="tab-badge-text">ApplyKit</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Folder Foot Info -->
+            <div class="folder-card-meta">
+              <h3 class="folder-card-title">ApplyKit</h3>
+              <p class="folder-card-sub">Chrome Extension · Local-First</p>
+            </div>
+          </div>
+
+          <!-- Folder 02: PharmaERP -->
+          <div class="folder-card" data-folder="pharmaerp" role="tab" aria-selected="false" tabindex="0" data-cursor-pill="Open PharmaERP">
+            <div class="folder-wrapper">
+              <!-- Folder Backing -->
+              <div class="folder-back">
+                <!-- 3 Floating Document Pages inside folder -->
+                <div class="folder-page folder-page--1">
+                  <div class="page-top-bar">
+                    <span class="page-file-name">FEFO LEDGER</span>
+                  </div>
+                  <div class="page-clean-graphic">
+                    <div class="doc-line w-80"></div>
+                    <div class="doc-line w-100"></div>
+                    <div class="doc-line w-60"></div>
+                  </div>
+                  <span class="page-badge-pill">DECIMAL128</span>
+                </div>
+                <div class="folder-page folder-page--2">
+                  <div class="page-top-bar">
+                    <span class="page-dot green"></span>
+                    <span class="page-file-name">PHARMAERP</span>
+                  </div>
+                  <div class="page-thumb-preview">
+                    <img src="assets/images/pharma.jpg" alt="PharmaERP Preview" loading="lazy" />
+                  </div>
+                  <span class="page-badge-pill highlight green">CLINICAL POS</span>
+                </div>
+                <div class="folder-page folder-page--3">
+                  <div class="page-top-bar">
+                    <span class="page-file-name">BENCHMARK</span>
+                  </div>
+                  <div class="page-stat-block">
+                    <span class="stat-number">&lt;300ms</span>
+                    <span class="stat-label">DISCOVERY</span>
+                  </div>
+                  <span class="page-badge-pill">ACID SAFE</span>
+                </div>
+              </div>
+
+              <!-- Folder Front Flap -->
+              <div class="folder-front">
+                <svg class="folder-svg" viewBox="0 0 235 121" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M104.615 0.350494L33.1297 0.838776C32.7542 0.841362 32.3825 0.881463 32.032 0.918854C31.6754 0.956907 31.3392 0.992086 31.0057 0.992096H31.0047C30.6871 0.99235 30.3673 0.962051 30.0272 0.929596C29.6927 0.897686 29.3384 0.863802 28.9803 0.866119L13.2693 0.967682H13.2527L13.2352 0.969635C13.1239 0.981406 13.0121 0.986674 12.9002 0.986237H9.91388C8.33299 0.958599 6.76052 1.22345 5.27423 1.76651H5.27325C4.33579 2.11246 3.48761 2.66213 2.7879 3.37393L2.49689 3.68839L2.492 3.69424C1.62667 4.73882 1.00023 5.96217 0.656067 7.27725C0.653324 7.28773 0.654065 7.29886 0.652161 7.30948C0.3098 8.62705 0.257231 10.0048 0.499817 11.3446L12.2147 114.399L12.2156 114.411L12.2176 114.423C12.6046 116.568 13.7287 118.508 15.3934 119.902C17.058 121.297 19.1572 122.056 21.3231 122.049V122.05H215.379C217.76 122.02 220.064 121.192 221.926 119.698V119.697C223.657 118.384 224.857 116.485 225.305 114.35L225.307 114.339L235.914 53.3798L235.968 53.1093L235.97 53.0985L235.971 53.0888C236.134 51.8978 236.044 50.685 235.705 49.5321C235.307 48.1669 234.63 46.9005 233.717 45.8144L233.383 45.4296C232.58 44.5553 231.614 43.8449 230.539 43.3398C229.311 42.7628 227.971 42.4685 226.616 42.4774H146.746C144.063 42.4705 141.423 41.8004 139.056 40.5263C136.691 39.2522 134.671 37.4127 133.175 35.1689L113.548 5.05948L113.544 5.05362L113.539 5.04776C112.545 3.65165 111.238 2.51062 109.722 1.72061C108.266 0.886502 106.627 0.422235 104.952 0.365143V0.364166L104.633 0.350494H104.615Z"
+                    class="folder-svg-path" />
+                </svg>
+                <div class="folder-front-overlay">
+                  <div class="folder-tab-badge">
+                    <span class="tab-badge-text">PharmaERP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Folder Foot Info -->
+            <div class="folder-card-meta">
+              <h3 class="folder-card-title">PharmaERP</h3>
+              <p class="folder-card-sub">Clinical POS · FEFO Engine</p>
+            </div>
+          </div>
+
+          <!-- Folder 03: EduHub (PRIVATE BETA · 76% SPRINT) -->
+          <div class="folder-card folder--locked" data-folder="eduhub" role="tab" aria-selected="false" tabindex="0" data-cursor-pill="Private Beta · 76%">
+            <div class="folder-wrapper">
+              <!-- Folder Backing -->
+              <div class="folder-back folder-back--locked">
+                <!-- 3 Floating Document Pages inside folder -->
+                <div class="folder-page folder-page--1">
+                  <div class="page-top-bar">
+                    <span class="page-file-name">OMR CORE</span>
+                  </div>
+                  <div class="page-clean-graphic">
+                    <div class="doc-line w-80"></div>
+                    <div class="doc-line w-100"></div>
+                    <div class="doc-line w-60"></div>
+                  </div>
+                  <span class="page-badge-pill amber">KATEX</span>
+                </div>
+                <div class="folder-page folder-page--2">
+                  <div class="page-top-bar">
+                    <span class="page-dot amber"></span>
+                    <span class="page-file-name">EDUHUB</span>
+                  </div>
+                  <div class="page-thumb-preview">
+                    <img src="assets/images/edu52-banner.webp" alt="EduHub Preview" loading="lazy" />
+                  </div>
+                  <span class="page-badge-pill highlight amber">76% SPRINT</span>
+                </div>
+                <div class="folder-page folder-page--3">
+                  <div class="page-top-bar">
+                    <span class="page-file-name">SIMULATOR</span>
+                  </div>
+                  <div class="page-stat-block">
+                    <span class="stat-number">200 MCQ</span>
+                    <span class="stat-label">SPLIT BOOKLET</span>
+                  </div>
+                  <span class="page-badge-pill amber">PROCTOR WS</span>
+                </div>
+              </div>
+
+              <!-- Folder Front Flap -->
+              <div class="folder-front folder-front--locked">
+                <svg class="folder-svg" viewBox="0 0 235 121" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M104.615 0.350494L33.1297 0.838776C32.7542 0.841362 32.3825 0.881463 32.032 0.918854C31.6754 0.956907 31.3392 0.992086 31.0057 0.992096H31.0047C30.6871 0.99235 30.3673 0.962051 30.0272 0.929596C29.6927 0.897686 29.3384 0.863802 28.9803 0.866119L13.2693 0.967682H13.2527L13.2352 0.969635C13.1239 0.981406 13.0121 0.986674 12.9002 0.986237H9.91388C8.33299 0.958599 6.76052 1.22345 5.27423 1.76651H5.27325C4.33579 2.11246 3.48761 2.66213 2.7879 3.37393L2.49689 3.68839L2.492 3.69424C1.62667 4.73882 1.00023 5.96217 0.656067 7.27725C0.653324 7.28773 0.654065 7.29886 0.652161 7.30948C0.3098 8.62705 0.257231 10.0048 0.499817 11.3446L12.2147 114.399L12.2156 114.411L12.2176 114.423C12.6046 116.568 13.7287 118.508 15.3934 119.902C17.058 121.297 19.1572 122.056 21.3231 122.049V122.05H215.379C217.76 122.02 220.064 121.192 221.926 119.698V119.697C223.657 118.384 224.857 116.485 225.305 114.35L225.307 114.339L235.914 53.3798L235.968 53.1093L235.97 53.0985L235.971 53.0888C236.134 51.8978 236.044 50.685 235.705 49.5321C235.307 48.1669 234.63 46.9005 233.717 45.8144L233.383 45.4296C232.58 44.5553 231.614 43.8449 230.539 43.3398C229.311 42.7628 227.971 42.4685 226.616 42.4774H146.746C144.063 42.4705 141.423 41.8004 139.056 40.5263C136.691 39.2522 134.671 37.4127 133.175 35.1689L113.548 5.05948L113.544 5.05362L113.539 5.04776C112.545 3.65165 111.238 2.51062 109.722 1.72061C108.266 0.886502 106.627 0.422235 104.952 0.365143V0.364166L104.633 0.350494H104.615Z"
+                    class="folder-svg-path" />
+                </svg>
+                <div class="folder-front-overlay">
+                  <div class="folder-tab-badge amber">
+                    <span class="tab-badge-text">EduHub</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Folder Foot Info -->
+            <div class="folder-card-meta">
+              <h3 class="folder-card-title">EduHub</h3>
+              <p class="folder-card-sub">BCS Exam Simulator · Private Beta</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Slide-Up Archival Dossier Overlay (Comes up with animation on folder click) -->
+      <div class="works-dossier-overlay" id="works-dossier-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project Architectural Dossier">
+        <div class="dossier-overlay-backdrop" id="dossier-overlay-backdrop"></div>
+        <div class="dossier-slide-panel" id="dossier-slide-panel">
+          <!-- Tactile Drag Handle & Sticky Header with Close Button -->
+          <div class="dossier-drawer-header">
+            <div class="dossier-drawer-handle" aria-hidden="true"></div>
+            <div class="dossier-drawer-bar">
+              <div class="dossier-drawer-eyebrow">
+                <span>ARCHIVAL DOSSIER · INSPECTION MODE</span>
+              </div>
+              <button type="button" class="dossier-dismiss-btn" id="dossier-dismiss-btn" aria-label="Close Project Dossier" data-cursor-pill="Close">
+                <span class="dismiss-icon" aria-hidden="true">✕</span>
+                <span class="dismiss-text">CLOSE</span>
+                <span class="dismiss-kbd" aria-hidden="true">[ESC]</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Scrollable Dossier Content -->
+          <div class="dossier-slide-content" id="works-dossier-viewer" aria-live="polite">
+
+            <!-- ================= Dossier Panel 01: ApplyKit ================= -->
+            <article class="works-dossier-panel" id="dossier-applykit" data-dossier="applykit">
+            <div class="dossier-top-bar">
+              <div class="dossier-status-badge">
+                <span class="dossier-badge-text">ARCHIVE DOSSIER 01 / 03 · PRODUCTION EXTENSION</span>
+              </div>
+              <span class="dossier-meta-id">BUILD · MV3.24</span>
+            </div>
+
+            <div class="dossier-body">
+              <div class="dossier-col-text">
+                <div class="dossier-heading-wrap">
+                  <h3 class="dossier-title">ApplyKit</h3>
+                  <p class="dossier-subhead">Local-First Job Autofill &amp; Bilingual DOM Heuristics</p>
+                </div>
+
+                <p class="dossier-desc">
+                  A high-velocity Chrome extension engineered in the Swiss International Typographic Style for automated job applications. Features section-scoped bilingual DOM heuristics, zero-cloud transmission, and sub-40ms execution.
+                </p>
+
+                <div class="dossier-specs-list">
+                  <div class="dossier-spec-item">
+                    <span class="spec-label">Why This Project</span>
+                    <p class="spec-value">To eliminate repetitive, soul-crushing job application forms instantly while keeping candidate data 100% private and encrypted on-device.</p>
+                  </div>
+                  <div class="dossier-spec-item">
+                    <span class="spec-label">Core Technical Highlights</span>
+                    <ul class="spec-bullet-list">
+                      <li><strong>Bilingual DOM Matcher:</strong> Context-aware regex engine with section-scoped traversal and fuzzy label resolution.</li>
+                      <li><strong>Zero-Cloud Guarantee:</strong> All personal credentials reside solely in browser IndexedDB (AES-GCM encryption).</li>
+                      <li><strong>Sub-40ms Pipeline:</strong> Instant autofill execution avoiding frame drops or page scroll degradation.</li>
+                    </ul>
+                  </div>
+                  <div class="dossier-spec-item">
+                    <span class="spec-label">Tools &amp; Stack</span>
+                    <div class="dossier-tools-row">
+                      <span class="tool" data-cursor-pill="Chrome MV3" title="Chrome Extension Manifest V3">
+                        <img src="assets/icons/chrome.svg" alt="Google Chrome Logo" class="tool-img" width="18" height="18" />
+                        <span>MV3</span>
+                      </span>
+                      <span class="tool" data-cursor-pill="IndexedDB" title="IndexedDB Encrypted Storage">
+                        <svg class="tool-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#e65100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <ellipse cx="12" cy="5" rx="9" ry="3" />
+                          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                        </svg>
+                        <span>IDB</span>
+                      </span>
+                      <span class="tool" data-cursor-pill="DOM Heuristics" title="Sub-40ms Bilingual Form Matching">
+                        <svg class="tool-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                          <line x1="14" y1="4" x2="10" y2="20" />
+                        </svg>
+                        <span>DOM</span>
+                      </span>
+                      <span class="tool" data-cursor-pill="JavaScript" title="Zero-dependency Modular Core">
+                        <img src="assets/icons/javascript.svg" alt="JavaScript Logo" class="tool-img" width="18" height="18" />
+                        <span>JS</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dossier-actions-row">
+                  <button type="button" class="dossier-primary-btn" data-applykit-modal-open data-cursor-pill="Read ApplyKit Specs">
+                    <span>Open Architecture Docket</span>
+                    <span class="btn-arrow">↗</span>
+                  </button>
+                  <a href="https://github.com/MURTAYES/ApplyKit" target="_blank" rel="noopener noreferrer" class="dossier-secondary-btn" data-cursor-pill="View on GitHub">
+                    <img src="assets/icons/github-light.svg" alt="GitHub Logo" class="btn-git-icon" width="18" height="18" />
+                    <span>GitHub Repo</span>
+                    <span class="btn-arrow">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="dossier-col-visual">
+                <div class="dossier-media-frame">
+                  <img src="assets/images/appykit.jpg" alt="ApplyKit Extension UI" class="dossier-media-img" loading="lazy" />
+                  <div class="dossier-media-badge">
+                    <span class="media-badge-tag">SWISS BRUTALISM</span>
+                    <span class="media-badge-val">40ms Execution</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ================= Dossier Panel 02: PharmaERP ================= -->
+          <article class="works-dossier-panel" id="dossier-pharmaerp" data-dossier="pharmaerp">
+            <div class="dossier-top-bar">
+              <div class="dossier-status-badge">
+                <span class="dossier-badge-text">ARCHIVE DOSSIER 02 / 03 · CLINICAL POS &amp; LEDGER</span>
+              </div>
+              <span class="dossier-meta-id">BUILD · POS.V4</span>
+            </div>
+
+            <div class="dossier-body">
+              <div class="dossier-col-text">
+                <div class="dossier-heading-wrap">
+                  <h3 class="dossier-title">PharmaERP</h3>
+                  <p class="dossier-subhead">Clinical Dispensing POS &amp; FEFO Batch Accounting Kernel</p>
+                </div>
+
+                <p class="dossier-desc">
+                  A clinical pharmacy dispensing terminal and high-speed POS kernel engineered for retail counters. Features batch-wise FEFO inventory tracking, multi-unit conversions (Piece ↔ Strip ↔ Box), and Decimal128 ledger precision.
+                </p>
+
+                <div class="dossier-specs-list">
+                  <div class="dossier-spec-item">
+                    <span class="spec-label">Why This Project</span>
+                    <p class="spec-value">To eliminate retail counter bottlenecks, prevent expired medicine dispensing loss, and maintain immutable financial ledgers at microsecond transaction speeds.</p>
+                  </div>
+                  <div class="dossier-spec-item">
+                    <span class="spec-label">Core Technical Highlights</span>
+                    <ul class="spec-bullet-list">
+                      <li><strong>Automated FEFO Engine:</strong> Dispenses nearest-expiry inventory first with sub-300ms counter latency.</li>
+                      <li><strong>Multi-Unit Conversion:</strong> Seamless bidirectional conversion across wholesale cartons, blister strips, and unit tablets.</li>
+                      <li><strong>Decimal128 Ledger Precision:</strong> Zero float-rounding errors across dual-entry accounting journals.</li>
+                    </ul>
+                  </div>
+                  <div class="dossier-spec-item">
+                    <span class="spec-label">Tools &amp; Stack</span>
+                    <div class="dossier-tools-row">
+                      <span class="tool" data-cursor-pill="Node.js" title="Express RESTful API service">
+                        <img src="assets/icons/nodejs.svg" alt="Node.js Logo" class="tool-img" width="18" height="18" />
+                        <span>Node</span>
+                      </span>
+                      <span class="tool" data-cursor-pill="Express.js" title="High-throughput POS Service">
+                        <img src="assets/icons/express.svg" alt="Express Logo" class="tool-img" width="18" height="18" />
+                        <span>Express</span>
+                      </span>
+                      <span class="tool" data-cursor-pill="MongoDB" title="ACID transactions with Decimal128">
+                        <img src="assets/icons/mongodb.svg" alt="MongoDB Logo" class="tool-img" width="18" height="18" />
+                        <span>Mongo</span>
+                      </span>
+                      <span class="tool" data-cursor-pill="Tailwind CSS" title="Ergonomic clinical interface">
+                        <img src="assets/icons/tailwind-css.svg" alt="Tailwind CSS Logo" class="tool-img" width="18" height="18" />
+                        <span>Tailwind</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dossier-actions-row">
+                  <button type="button" class="dossier-primary-btn green" data-pharmaerp-modal-open data-cursor-pill="Read PharmaERP Specs">
+                    <span>Open Architecture Docket</span>
+                    <span class="btn-arrow">↗</span>
+                  </button>
+                  <a href="https://github.com/MURTAYES/PharmaERP" target="_blank" rel="noopener noreferrer" class="dossier-secondary-btn" data-cursor-pill="View on GitHub">
+                    <img src="assets/icons/github-light.svg" alt="GitHub Logo" class="btn-git-icon" width="18" height="18" />
+                    <span>GitHub Repo</span>
+                    <span class="btn-arrow">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="dossier-col-visual">
+                <div class="dossier-media-frame">
+                  <img src="assets/images/pharma.jpg" alt="PharmaERP POS Terminal" class="dossier-media-img" loading="lazy" />
+                  <div class="dossier-media-badge green">
+                    <span class="media-badge-tag">CLINICAL POS</span>
+                    <span class="media-badge-val">Sub-300ms FEFO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ================= Dossier Panel 03: EduHub (PRIVATE BETA · 76%) ================= -->
+          <article class="works-dossier-panel works-dossier-panel--locked" id="dossier-eduhub" data-dossier="eduhub">
+            <div class="dossier-top-bar">
+              <div class="dossier-status-badge amber">
+                <span class="dossier-badge-text">ARCHIVE DOSSIER 03 / 03 · PRIVATE BETA SPRINT</span>
+              </div>
+              <span class="dossier-meta-id">SPRINT 04 · 76% COMPLETED</span>
+            </div>
+
+            <div class="dossier-body">
+              <div class="dossier-col-text">
+                <div class="dossier-heading-wrap">
+                  <div class="locked-title-row">
+                    <div class="beta-icon-badge">
+                      <span>BETA</span>
+                    </div>
+                    <h3 class="dossier-title">EduHub</h3>
+                  </div>
+                  <p class="dossier-subhead">BCS Exam Simulator &amp; Real-Time OMR Evaluation Engine</p>
+                </div>
+
+                <!-- 76% Progress Meter HUD -->
+                <div class="eduhub-progress-box">
+                  <div class="progress-box-top">
+                    <span class="progress-label">ARCHITECTURE SPRINT PROGRESS</span>
+                    <span class="progress-percent-badge" id="eduhub-progress-num">76%</span>
+                  </div>
+                  <div class="progress-track" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-fill" id="eduhub-progress-bar" style="width: 76%;"></div>
+                  </div>
+                  <p class="progress-note">
+                    <strong>Status: Private Beta.</strong> 4-page physical booklet layout, 200-question BCS bank, and client-side OMR evaluation engine are 100% verified. Distributed anti-cheat websockets and proctoring audit trails are currently in active build (76% complete), actively testing with 200 concurrent candidates.
+                  </p>
+                </div>
+
+                <div class="dossier-specs-list">
+                  <div class="dossier-spec-item">
+                    <span class="spec-label">Milestone Matrix</span>
+                    <ul class="spec-bullet-list milestone-list">
+                      <li class="done"><span class="milestone-icon">✓</span> <strong>Core BCS Question Bank &amp; KaTeX Engine</strong> — 100% (Completed)</li>
+                      <li class="done"><span class="milestone-icon">✓</span> <strong>4-Page Physical Booklet Exam Layout</strong> — 100% (Completed)</li>
+                      <li class="done"><span class="milestone-icon">✓</span> <strong>Offline-First OMR Evaluation Kernel</strong> — 100% (Completed)</li>
+                      <li class="wip"><span class="milestone-icon">⏳</span> <strong>Anti-Cheat Heuristics &amp; Proctoring Sockets</strong> — 76% (Active Beta)</li>
+                      <li class="locked"><span class="milestone-icon">🔒</span> <strong>Zero-Key-Leak Penetration &amp; Security Audit</strong> — Queued for Q1</li>
+                    </ul>
+                  </div>
+                  <div class="dossier-spec-item">
+                    <span class="spec-label">Tools &amp; Stack</span>
+                    <div class="dossier-tools-row">
+                      <span class="tool" data-cursor-pill="React 18" title="Multi-column OMR state machine">
+                        <img src="assets/icons/react-light.svg" alt="React Logo" class="tool-img" width="18" height="18" />
+                        <span>React</span>
+                      </span>
+                      <span class="tool" data-cursor-pill="Express.js" title="Anti-tamper grading engine">
+                        <img src="assets/icons/express.svg" alt="Express Logo" class="tool-img" width="18" height="18" />
+                        <span>Express</span>
+                      </span>
+                      <span class="tool" data-cursor-pill="MongoDB Atlas" title="Curated 200-question BCS bank">
+                        <img src="assets/icons/mongodb.svg" alt="MongoDB Logo" class="tool-img" width="18" height="18" />
+                        <span>Atlas</span>
+                      </span>
+                      <span class="tool" data-cursor-pill="KaTeX" title="Sub-10ms KaTeX math formula rendering">
+                        <img src="assets/icons/javascript.svg" alt="JavaScript Logo" class="tool-img" width="18" height="18" />
+                        <span>KaTeX</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dossier-actions-row">
+                  <button type="button" class="dossier-primary-btn amber" data-edu52-modal-open data-cursor-pill="Preview Blueprint">
+                    <span>Preview Specification Docket</span>
+                    <span class="btn-arrow">↗</span>
+                  </button>
+                  <a href="https://github.com/MURTAYES/edu52" target="_blank" rel="noopener noreferrer" class="dossier-secondary-btn" data-cursor-pill="View on GitHub">
+                    <img src="assets/icons/github-light.svg" alt="GitHub Logo" class="btn-git-icon" width="18" height="18" />
+                    <span>GitHub Repo</span>
+                    <span class="btn-arrow">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="dossier-col-visual">
+                <div class="dossier-media-frame">
+                  <img src="assets/images/edu52-banner.webp" alt="EduHub BCS Simulator" class="dossier-media-img" loading="lazy" />
+                  <div class="dossier-media-badge amber">
+                    <span class="media-badge-tag">PRIVATE BETA</span>
+                    <span class="media-badge-val">200 Sockets · 76% Sprint</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- 09. SEAMLESS INTEGRATION SECTION (3-STEP SCROLL STORY) -->
+    <div class="demo-main">
+      <section id="process" class="integrations-section">
+        <div class="integrations-sticky-wrapper">
+          <div class="integrations-container">
+            <!-- Left Column: Section Title & 3 Progressive Steps with In-Place Smooth Cross-Fade -->
+            <div class="integrations-left-col">
+              <div class="integrations-header">
+                <h2 class="integrations-section-heading">Architecture &amp; Tooling</h2>
+              </div>
+
+              <div class="integrations-content-slider">
+                <!-- Step 1 Content -->
+                <div class="integrations-step-panel is-active" data-step-panel="1">
+                  <h3 class="integrations-title">
+                    Modern Core &amp; Kinetic UI
+                  </h3>
+                  <p class="integrations-description">
+                    Engineering fluid, reactive interfaces with sub-pixel precision, composable design tokens, and strict type-safe systems that respond instantly to touch.
+                  </p>
+                </div>
+
+                <!-- Step 2 Content -->
+                <div class="integrations-step-panel" data-step-panel="2">
+                  <h3 class="integrations-title">
+                    Cloud APIs &amp; Concurrent Systems
+                  </h3>
+                  <p class="integrations-description">
+                    Architecting resilient microservices, distributed serverless pipelines, and zero-gravity event streams engineered for high concurrency and sub-millisecond response.
+                  </p>
+                </div>
+
+                <!-- Step 3 Content -->
+                <div class="integrations-step-panel" data-step-panel="3">
+                  <h3 class="integrations-title">
+                    Autonomous AI &amp; Frontier Agents
+                  </h3>
+                  <p class="integrations-description">
+                    Integrating frontier reasoning models, autonomous multi-agent pipelines, and automated intelligence tools that eliminate toil and multiply engineering velocity.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Content - Sticky Visual Grid with 12 Receptive Sockets (8 Auto, 4 Manual) -->
+            <div class="integrations-visual">
+              <div class="integrations-board">
+                <!-- 4 Manual Empty Slots (Never auto-fill on scroll, receptive to any icon dropped) -->
+                <div class="integration-grid-slot manual-slot" data-slot-index="8" data-manual="true" style="left: 72px; top: 0px;" title="Drag &amp; drop any icon here"></div>
+                <div class="integration-grid-slot manual-slot" data-slot-index="9" data-manual="true" style="left: 0px; top: 72px;" title="Drag &amp; drop any icon here"></div>
+                <div class="integration-grid-slot manual-slot" data-slot-index="10" data-manual="true" style="left: 0px; top: 216px;" title="Drag &amp; drop any icon here"></div>
+                <div class="integration-grid-slot manual-slot" data-slot-index="11" data-manual="true" style="left: 216px; top: 288px;" title="Drag &amp; drop any icon here"></div>
+
+                <!-- 8 Receptive Grid Slots for Floating Page Icons to Dock Into Automatically on Scroll -->
+                <div class="integration-grid-slot" data-slot-index="0" data-stage="1" style="left: 216px; top: 0px;"></div>
+                <div class="integration-grid-slot" data-slot-index="1" data-stage="1" style="left: 144px; top: 72px;"></div>
+                <div class="integration-grid-slot" data-slot-index="2" data-stage="1" style="left: 72px; top: 288px;"></div>
+                <div class="integration-grid-slot" data-slot-index="3" data-stage="2" style="left: 72px; top: 144px;"></div>
+                <div class="integration-grid-slot" data-slot-index="4" data-stage="2" style="left: 216px; top: 144px;"></div>
+                <div class="integration-grid-slot" data-slot-index="5" data-stage="2" style="left: 144px; top: 216px;"></div>
+                <div class="integration-grid-slot" data-slot-index="6" data-stage="3" style="left: 288px; top: 72px;"></div>
+                <div class="integration-grid-slot" data-slot-index="7" data-stage="3" style="left: 288px; top: 216px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- 10. PREVIOUS KINETIC FOOTER -->
+    <footer id="contact" class="footer">
+      <div class="footer__label eyebrow" data-reveal="">
+        <span>Got something in mind?</span>
+      </div>
+      <a class="footer__big" data-cursor="Let's go" href="#contact" data-open-contact>
+        <span class="footer__big-text">
+          <span class="kinetic__letter" data-char="W" data-k="360"
+            style="font-variation-settings: &quot;wdth&quot; 85, &quot;wght&quot; 900;"></span>
+          <span class="kinetic__letter" data-char="A" data-k="360"
+            style="font-variation-settings: &quot;wdth&quot; 85, &quot;wght&quot; 900;"></span>
+          <span class="kinetic__letter" data-char="N" data-k="360"
+            style="font-variation-settings: &quot;wdth&quot; 85, &quot;wght&quot; 900;"></span>
+          <span class="kinetic__letter" data-char="N" data-k="360"
+            style="font-variation-settings: &quot;wdth&quot; 85, &quot;wght&quot; 900;"></span>
+          <span class="kinetic__letter" data-char="A" data-k="360"
+            style="font-variation-settings: &quot;wdth&quot; 85, &quot;wght&quot; 900;"></span>
+          <span class="kinetic__space" style="width:.28em"></span>
+          <span class="kinetic__letter" data-char="T" data-k="360"
+            style="font-variation-settings: &quot;wdth&quot; 85, &quot;wght&quot; 900;"></span>
+          <span class="kinetic__letter" data-char="A" data-k="360"
+            style="font-variation-settings: &quot;wdth&quot; 85, &quot;wght&quot; 900;"></span>
+          <span class="kinetic__letter" data-char="L" data-k="360"
+            style="font-variation-settings: &quot;wdth&quot; 85, &quot;wght&quot; 900;"></span>
+          <span class="kinetic__letter" data-char="K" data-k="360"
+            style="font-variation-settings: &quot;wdth&quot; 85, &quot;wght&quot; 900;"></span>
+        </span>
+        <span class="footer__big-arrow" aria-hidden="true">↗</span>
+      </a>
+      <div class="footer__row">
+        <a href="/" class="footer__brand" aria-label="Samnun Murtayes Home">
+          <img src="assets/images/logo.svg" alt="Samnun Murtayes Logo" class="footer__logo" width="36" height="36">
+          <span class="footer__brand-name">Samnun Murtayes</span>
+        </a>
+        <a href="mailto:samnun@murtayes.com" class="footer__email">samnun@murtayes.com</a>
+        <div class="footer__socials">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/MURTAYES" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+        <span><span id="footer-live-time">15:52</span></span>
+        <button type="button" class="footer__top" id="footer-back-top">Back to top ↑</button>
+      </div>
+    </footer>
+
+    <!-- CONTACT DRAWER (SLIDES FROM RIGHT, WHITE DESIGN) -->
+    <div id="contact-modal" class="contact-modal" aria-hidden="true" role="dialog" aria-modal="true"
+      aria-labelledby="contact-modal-title">
+      <div class="contact-modal__backdrop" data-close-contact></div>
+      <div class="contact-modal__panel">
+        <div class="contact-modal__header">
+          <button type="button" class="contact-modal__close" data-close-contact aria-label="Close contact drawer">
+            <span>Close</span>
+            <span class="contact-modal__close-icon" aria-hidden="true">✕</span>
+          </button>
+        </div>
+
+        <div class="contact-form__content">
+          <h2 class="contact-form__heading">Let's connect.</h2>
+          <div class="contact-form__socials" aria-label="Direct contact and social profiles">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="LinkedIn Profile" data-cursor-pill="LinkedIn">
+              <img src="assets/icons/linkedin.svg" alt="LinkedIn Logo" width="20" height="20" class="contact-social-icon" />
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/MURTAYES" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="GitHub Profile" data-cursor-pill="GitHub">
+              <img src="assets/icons/github-light.svg" alt="GitHub Logo" width="20" height="20" class="contact-social-icon" />
+              <span>GitHub</span>
+            </a>
+            <a href="mailto:samnun@murtayes.com" class="contact-social-btn" aria-label="Gmail Direct Email" data-cursor-pill="Gmail">
+              <img src="assets/icons/gmail.svg" alt="Gmail Logo" width="20" height="20" class="contact-social-icon" />
+              <span>Gmail</span>
+            </a>
+          </div>
+
+          <form id="drawer-contact-form" class="contact-form__form" novalidate>
+            <div class="contact-form__field-wrap">
+              <label for="contact-name" class="contact-form__label">Name</label>
+              <input id="contact-name" type="text" autocomplete="name" placeholder="Your name"
+                class="contact-form__input" name="name" required />
+            </div>
+
+            <div class="contact-form__field-wrap">
+              <label for="contact-email" class="contact-form__label">Email</label>
+              <input id="contact-email" type="email" autocomplete="email" placeholder="you@domain.com"
+                class="contact-form__input" name="email" required />
+            </div>
+
+            <div class="contact-form__field-wrap">
+              <label for="contact-message" class="contact-form__label">Message</label>
+              <textarea id="contact-message" name="message"
+                placeholder="Tell me a bit about what you're working on..."
+                class="contact-form__input contact-form__textarea" rows="4" required></textarea>
+            </div>
+
+            <div class="contact-form__action">
+              <button type="submit" class="contact-form__submit" aria-busy="false" data-cursor-pill="Send">
+                <span class="contact-form__submit-text">Send Message</span>
+                <span class="contact-form__submit-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Success State -->
+          <div class="contact-form__success" style="display: none;" aria-live="polite">
+            <div class="contact-form__success-badge" aria-hidden="true">✓</div>
+            <h3 class="contact-form__success-heading">Message sent.</h3>
+            <p class="contact-form__success-text">Thank you for reaching out. I’ve received your note and will get back to you shortly.</p>
+            <button type="button" class="contact-form__reset-btn" data-reset-contact>Send another message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ApplyKit Specification Docket Modal -->
+    <div id="applykit-modal" class="applykit-modal" aria-hidden="true" role="dialog" aria-modal="true"
+      aria-labelledby="applykit-modal-title">
+      <div class="applykit-modal__backdrop" data-applykit-modal-close></div>
+      <div class="applykit-modal__panel">
+        <div class="applykit-modal__top">
+          <div class="applykit-modal__top-left">
+            <span class="applykit-dossier__dot"></span>
+            <span id="applykit-modal-title" class="applykit-modal__title">APPLYKIT · TECHNOLOGY STACK &amp;
+              ARCHITECTURE</span>
+          </div>
+          <button type="button" class="applykit-modal__close" data-applykit-modal-close
+            aria-label="Close Specification">
+            <span>ESC [X]</span>
+          </button>
+        </div>
+        <div class="applykit-modal__content">
+          <p align="center" style="margin-top: 0.5rem;">
+            <a href="https://github.com/MURTAYES/ApplyKit" target="_blank" rel="noopener">
+              <img src="assets/images/logo-128.png" width="76" height="76" alt="ApplyKit Logo"
+                class="applykit-modal__brand-logo" />
+            </a>
+          </p>
+
+          <h1 align="center" style="margin-top: 0.25rem;">APPLYKIT · TECH STACK</h1>
+
+          <p align="center"
+            style="font-size: 0.95rem; color: #555; margin-bottom: 1.25rem; max-width: 58ch; margin-left: auto; margin-right: auto;">
+            Local-first Chrome MV3 architecture powered by zero-transmission sandboxed storage, section-scoped heuristic
+            matching, and Swiss typography.
+          </p>
+
+          <!-- Tech Stack Grid with Logos from assets/icons -->
+          <div class="applykit-tech-grid">
+            <!-- TypeScript & Zod -->
+            <div class="applykit-tech-item">
+              <div class="applykit-tech-item__logo-box">
+                <img src="assets/icons/standardjs-64px.png" width="36" height="36" alt="TypeScript / StandardJS" />
+              </div>
+              <div class="applykit-tech-item__info">
+                <div class="applykit-tech-item__head">
+                  <span class="applykit-tech-item__name">TypeScript &amp; Zod</span>
+                  <span class="applykit-tech-item__tag">CORE LOGIC</span>
+                </div>
+                <p class="applykit-tech-item__desc">Strict compile-time type validation, schema boundary guards, and
+                  zero-drift form mapping contracts.</p>
+              </div>
+            </div>
+
+            <!-- React 18 -->
+            <div class="applykit-tech-item">
+              <div class="applykit-tech-item__logo-box dark-badge">
+                <img src="assets/icons/react-light.svg" width="36" height="36" alt="React 18" />
+              </div>
+              <div class="applykit-tech-item__info">
+                <div class="applykit-tech-item__head">
+                  <span class="applykit-tech-item__name">React 18</span>
+                  <span class="applykit-tech-item__tag">EXTENSION UI</span>
+                </div>
+                <p class="applykit-tech-item__desc">High-speed Extension Popup and Master Options dashboard with instant
+                  client-side state synchronization.</p>
+              </div>
+            </div>
+
+            <!-- Chrome MV3 Engine -->
+            <div class="applykit-tech-item">
+              <div class="applykit-tech-item__logo-box">
+                <img src="assets/icons/chrome.svg" width="36" height="36" alt="Manifest V3" />
+              </div>
+              <div class="applykit-tech-item__info">
+                <div class="applykit-tech-item__head">
+                  <span class="applykit-tech-item__name">Manifest V3</span>
+                  <span class="applykit-tech-item__tag">SANDBOX RUNTIME</span>
+                </div>
+                <p class="applykit-tech-item__desc">Event-driven background service worker injecting autofill payloads
+                  on click via activeTab permissions.</p>
+              </div>
+            </div>
+
+            <!-- Swiss Vanilla CSS -->
+            <div class="applykit-tech-item">
+              <div class="applykit-tech-item__logo-box dark-badge">
+                <img src="assets/icons/suits.svg" width="36" height="36" alt="Swiss CSS" />
+              </div>
+              <div class="applykit-tech-item__info">
+                <div class="applykit-tech-item__head">
+                  <span class="applykit-tech-item__name">Swiss CSS System</span>
+                  <span class="applykit-tech-item__tag">DESIGN SYSTEM</span>
+                </div>
+                <p class="applykit-tech-item__desc">Zero-radius brutalist design tokens, stark contrast grid layouts,
+                  and mathematical typography.</p>
+              </div>
+            </div>
+
+            <!-- chrome.storage.local -->
+            <div class="applykit-tech-item">
+              <div class="applykit-tech-item__logo-box dark-badge">
+                <img src="assets/icons/mongodb.svg" width="36" height="36" alt="Local Storage" />
+              </div>
+              <div class="applykit-tech-item__info">
+                <div class="applykit-tech-item__head">
+                  <span class="applykit-tech-item__name">Local Sandbox Storage</span>
+                  <span class="applykit-tech-item__tag">LOCAL-FIRST</span>
+                </div>
+                <p class="applykit-tech-item__desc">100% sandboxed browser storage. Zero external HTTP requests, zero
+                  telemetry, zero privacy leak.</p>
+              </div>
+            </div>
+
+            <!-- GitHub -->
+            <div class="applykit-tech-item">
+              <div class="applykit-tech-item__logo-box dark-badge">
+                <img src="assets/icons/github.svg" width="36" height="36" alt="GitHub" />
+              </div>
+              <div class="applykit-tech-item__info">
+                <div class="applykit-tech-item__head">
+                  <span class="applykit-tech-item__name">GitHub</span>
+                  <span class="applykit-tech-item__tag">VCS &amp; DEPLOY</span>
+                </div>
+                <p class="applykit-tech-item__desc">Open-source repository archive, automated MV3 compiler bundles, and
+                  reproducible release packages.</p>
+              </div>
+            </div>
+
+            <!-- Claude Code -->
+            <div class="applykit-tech-item">
+              <div class="applykit-tech-item__logo-box">
+                <img src="assets/icons/claude-code.svg" width="36" height="36" alt="Claude Code" />
+              </div>
+              <div class="applykit-tech-item__info">
+                <div class="applykit-tech-item__head">
+                  <span class="applykit-tech-item__name">Claude Code</span>
+                  <span class="applykit-tech-item__tag">AI ENGINE</span>
+                </div>
+                <p class="applykit-tech-item__desc">Autonomous deep architectural planning, portal DOM schema boundary
+                  audits, and heuristic synthesis.</p>
+              </div>
+            </div>
+
+            <!-- Google Gemini -->
+            <div class="applykit-tech-item">
+              <div class="applykit-tech-item__logo-box">
+                <img src="assets/icons/gemini.svg" width="36" height="36" alt="Google Gemini" />
+              </div>
+              <div class="applykit-tech-item__info">
+                <div class="applykit-tech-item__head">
+                  <span class="applykit-tech-item__name">Google Gemini</span>
+                  <span class="applykit-tech-item__tag">AI CO-PILOT</span>
+                </div>
+                <p class="applykit-tech-item__desc">Bilingual English ↔ Bengali dictionary curation across 64 districts
+                  and 495+ upazila entities.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2>[§ STACK ARCHITECTURE &amp; GUARANTEES]</h2>
+          <div style="overflow-x: auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tier</th>
+                  <th>Technology</th>
+                  <th>Core Function</th>
+                  <th>Performance / SLA Guarantee</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Extension Shell</strong></td>
+                  <td>Manifest V3 (Chrome / Edge)</td>
+                  <td>Service Worker + On-Demand Content Script Injection</td>
+                  <td>&lt; 40ms Fill Execution</td>
+                </tr>
+                <tr>
+                  <td><strong>Matching Engine</strong></td>
+                  <td>Section-Scoped Heuristics</td>
+                  <td>Fuzzy Upward/Sideways DOM Tree Hierarchy Resolution</td>
+                  <td>Bilingual EN ↔ BN Dictionary</td>
+                </tr>
+                <tr>
+                  <td><strong>Security Sandbox</strong></td>
+                  <td>chrome.storage.local</td>
+                  <td>Zero Cloud Transmission / 100% Local Encrypted Sandbox</td>
+                  <td>0.00% Remote Telemetry</td>
+                </tr>
+                <tr>
+                  <td><strong>Form Safety</strong></td>
+                  <td>R1–R6 Strict Rules</td>
+                  <td>No Overwrite / No Automated Submission / Manual File Upload</td>
+                  <td>100% Safe Candidate Review</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr style="border: none; border-top: 1px solid #E5E5E5; margin: 1.5rem 0;" />
+
+          <h2>[§ REPOSITORY &amp; CITATION]</h2>
+          <pre><code class="language-bash"># Clone repository from GitHub archive
+git clone https://github.com/MURTAYES/ApplyKit.git
+cd ApplyKit
+
+# Install dependencies and build unpacked MV3 extension
+npm install
+npm run build</code></pre>
+          <p style="font-size: 0.85rem; color: #666; margin-top: 0.75rem;">
+            Distributed under the <strong>MIT License</strong>. For full documentation and architecture guarantees,
+            explore the <a href="https://github.com/MURTAYES/ApplyKit" target="_blank" rel="noopener"
+              style="color: #BC0009; font-weight: 700; text-decoration: underline;">ApplyKit GitHub Repository ↗</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PharmaERP Specification Docket Modal -->
+    <div id="pharmaerp-modal" class="pharmaerp-modal" aria-hidden="true" role="dialog" aria-modal="true"
+      aria-labelledby="pharmaerp-modal-title">
+      <div class="pharmaerp-modal__backdrop" data-pharmaerp-modal-close></div>
+      <div class="pharmaerp-modal__panel">
+        <div class="pharmaerp-modal__top">
+          <div class="pharmaerp-modal__top-left">
+            <span id="pharmaerp-modal-title" class="pharmaerp-modal__title">PHARMAERP · TECHNOLOGY STACK &amp;
+              ARCHITECTURE</span>
+          </div>
+          <button type="button" class="pharmaerp-modal__close" data-pharmaerp-modal-close
+            aria-label="Close Specification">
+            <span>ESC [X]</span>
+          </button>
+        </div>
+        <div class="pharmaerp-modal__content">
+          <p align="center" style="margin-top: 0.5rem;">
+            <a href="https://github.com/MURTAYES/PharmaERP" target="_blank" rel="noopener">
+              <img src="assets/images/pharmaerp-logo.png" width="76" height="76" alt="PharmaERP Logo"
+                class="pharmaerp-modal__brand-logo" />
+            </a>
+          </p>
+
+          <h1 align="center" style="margin-top: 0.25rem;">PHARMAERP · TECH STACK</h1>
+
+          <p align="center"
+            style="font-size: 0.95rem; color: #555; margin-bottom: 1.25rem; max-width: 58ch; margin-left: auto; margin-right: auto;">
+            High-concurrency technologies powering sub-300ms counter product discovery, Decimal128 monetary accuracy,
+            and FEFO clinical medicine dispensing.
+          </p>
+
+          <!-- Tech Stack Grid with Logos from assets/icons -->
+          <div class="pharmaerp-tech-grid">
+            <!-- React 19 -->
+            <div class="pharmaerp-tech-item">
+              <div class="pharmaerp-tech-item__logo-box dark-badge">
+                <img src="assets/icons/react-light.svg" width="36" height="36" alt="React 19" />
+              </div>
+              <div class="pharmaerp-tech-item__info">
+                <div class="pharmaerp-tech-item__head">
+                  <span class="pharmaerp-tech-item__name">React 19</span>
+                  <span class="pharmaerp-tech-item__tag">FRONTEND</span>
+                </div>
+                <p class="pharmaerp-tech-item__desc">High-speed POS counter SPA with Zustand global state, TanStack
+                  Query cache, and zero typing lag.</p>
+              </div>
+            </div>
+
+            <!-- Node.js -->
+            <div class="pharmaerp-tech-item">
+              <div class="pharmaerp-tech-item__logo-box">
+                <img src="assets/icons/nodejs-64px.png" width="36" height="36" alt="Node.js" />
+              </div>
+              <div class="pharmaerp-tech-item__info">
+                <div class="pharmaerp-tech-item__head">
+                  <span class="pharmaerp-tech-item__name">Node.js</span>
+                  <span class="pharmaerp-tech-item__tag">RUNTIME / API</span>
+                </div>
+                <p class="pharmaerp-tech-item__desc">Express RESTful API service orchestrating inventory locks, thermal
+                  print dispatch, and JWT security.</p>
+              </div>
+            </div>
+
+            <!-- MongoDB ACID -->
+            <div class="pharmaerp-tech-item">
+              <div class="pharmaerp-tech-item__logo-box dark-badge">
+                <img src="assets/icons/mongodb.svg" width="36" height="36" alt="MongoDB" />
+              </div>
+              <div class="pharmaerp-tech-item__info">
+                <div class="pharmaerp-tech-item__head">
+                  <span class="pharmaerp-tech-item__name">MongoDB</span>
+                  <span class="pharmaerp-tech-item__tag">ACID DATABASE</span>
+                </div>
+                <p class="pharmaerp-tech-item__desc">Replica set multi-document ACID transactions with Decimal128 BSON
+                  exact-precision monetary ledger storage.</p>
+              </div>
+            </div>
+
+            <!-- Tailwind CSS -->
+            <div class="pharmaerp-tech-item">
+              <div class="pharmaerp-tech-item__logo-box">
+                <img src="assets/icons/tailwind-css-64px.png" width="36" height="36" alt="Tailwind CSS" />
+              </div>
+              <div class="pharmaerp-tech-item__info">
+                <div class="pharmaerp-tech-item__head">
+                  <span class="pharmaerp-tech-item__name">Tailwind CSS</span>
+                  <span class="pharmaerp-tech-item__tag">STYLING</span>
+                </div>
+                <p class="pharmaerp-tech-item__desc">Ergonomic dark &amp; clinical POS utility design system optimized
+                  for long cashier shifts with zero visual fatigue.</p>
+              </div>
+            </div>
+
+            <!-- StandardJS / Clean Code -->
+            <div class="pharmaerp-tech-item">
+              <div class="pharmaerp-tech-item__logo-box">
+                <img src="assets/icons/standardjs-64px.png" width="36" height="36" alt="StandardJS" />
+              </div>
+              <div class="pharmaerp-tech-item__info">
+                <div class="pharmaerp-tech-item__head">
+                  <span class="pharmaerp-tech-item__name">StandardJS</span>
+                  <span class="pharmaerp-tech-item__tag">CODE QUALITY</span>
+                </div>
+                <p class="pharmaerp-tech-item__desc">Strict ECMAScript styling conventions ensuring zero lint drift and
+                  reliable asynchronous transaction handlers.</p>
+              </div>
+            </div>
+
+            <!-- GitHub -->
+            <div class="pharmaerp-tech-item">
+              <div class="pharmaerp-tech-item__logo-box dark-badge">
+                <img src="assets/icons/github.svg" width="36" height="36" alt="GitHub" />
+              </div>
+              <div class="pharmaerp-tech-item__info">
+                <div class="pharmaerp-tech-item__head">
+                  <span class="pharmaerp-tech-item__name">GitHub</span>
+                  <span class="pharmaerp-tech-item__tag">VCS &amp; DEPLOY</span>
+                </div>
+                <p class="pharmaerp-tech-item__desc">Open-source repository archive, continuous integration test
+                  pipelines, and automated release tags.</p>
+              </div>
+            </div>
+
+            <!-- Claude Code -->
+            <div class="pharmaerp-tech-item">
+              <div class="pharmaerp-tech-item__logo-box">
+                <img src="assets/icons/claude-code.svg" width="36" height="36" alt="Claude Code" />
+              </div>
+              <div class="pharmaerp-tech-item__info">
+                <div class="pharmaerp-tech-item__head">
+                  <span class="pharmaerp-tech-item__name">Claude Code</span>
+                  <span class="pharmaerp-tech-item__tag">AI ENGINE</span>
+                </div>
+                <p class="pharmaerp-tech-item__desc">Autonomous deep architectural planning, transaction schema boundary
+                  audits, and workflow synthesis.</p>
+              </div>
+            </div>
+
+            <!-- Google Gemini -->
+            <div class="pharmaerp-tech-item">
+              <div class="pharmaerp-tech-item__logo-box">
+                <img src="assets/icons/gemini.svg" width="36" height="36" alt="Google Gemini" />
+              </div>
+              <div class="pharmaerp-tech-item__info">
+                <div class="pharmaerp-tech-item__head">
+                  <span class="pharmaerp-tech-item__name">Google Gemini</span>
+                  <span class="pharmaerp-tech-item__tag">AI CO-PILOT</span>
+                </div>
+                <p class="pharmaerp-tech-item__desc">Intelligent code analysis, unit test generation, and multi-file
+                  transactional verification.</p>
+              </div>
+            </div>
+          </div>
+
+          <hr style="border: none; border-top: 1px solid #E5E5E5; margin: 1.5rem 0;" />
+
+          <h2>[§ STACK ARCHITECTURE &amp; GUARANTEES]</h2>
+          <div style="overflow-x: auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tier</th>
+                  <th>Technology</th>
+                  <th>Core Function</th>
+                  <th>Performance / SLA Guarantee</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Client UI</strong></td>
+                  <td>React 19 + Tailwind</td>
+                  <td>Dual-Search POS Terminal (Brand <code>F2</code> / Generic <code>F3</code>)</td>
+                  <td>&lt; 300ms Type-Ahead Response</td>
+                </tr>
+                <tr>
+                  <td><strong>State Cache</strong></td>
+                  <td>Zustand + TanStack</td>
+                  <td>In-Memory Active Cart &amp; Batch Selector</td>
+                  <td>0ms Local Input Blocking</td>
+                </tr>
+                <tr>
+                  <td><strong>Backend API</strong></td>
+                  <td>Node.js + Express</td>
+                  <td>Inventory Ledger &amp; Thermal Printing Kernel</td>
+                  <td>Append-Only Audit History</td>
+                </tr>
+                <tr>
+                  <td><strong>Database</strong></td>
+                  <td>MongoDB Replica Set</td>
+                  <td>FEFO Expiry Queue &amp; Multi-Doc ACID Transactions</td>
+                  <td>Exact Decimal128 Arithmetic</td>
+                </tr>
+                <tr>
+                  <td><strong>Security</strong></td>
+                  <td>JWT + Bcrypt</td>
+                  <td>Granular 5-Role Access Control (RBAC)</td>
+                  <td>Strict API Cost Price Concealment</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr style="border: none; border-top: 1px solid #E5E5E5; margin: 1.5rem 0;" />
+
+          <h2>[§ REPOSITORY &amp; CITATION]</h2>
+          <pre><code class="language-bash"># Clone repository from GitHub archive
+git clone https://github.com/MURTAYES/PharmaERP.git
+cd PharmaERP
+
+# Install and start full-stack development environment
+npm run dev</code></pre>
+          <p style="font-size: 0.85rem; color: #666; margin-top: 0.75rem;">
+            Distributed under the <strong>MIT License</strong>. For full documentation and API contracts, explore the <a
+              href="https://github.com/MURTAYES/PharmaERP" target="_blank" rel="noopener"
+              style="color: #059669; font-weight: 700; text-decoration: underline;">PharmaERP GitHub Repository ↗</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edu52 Specification Docket Modal -->
+    <div id="edu52-modal" class="edu52-modal" aria-hidden="true" role="dialog" aria-modal="true"
+      aria-labelledby="edu52-modal-title">
+      <div class="edu52-modal__backdrop" data-edu52-modal-close></div>
+      <div class="edu52-modal__panel">
+        <div class="edu52-modal__top">
+          <div class="edu52-modal__top-left">
+            <span id="edu52-modal-title" class="edu52-modal__title">EDU52 · TECHNOLOGY STACK &amp; ARCHITECTURE</span>
+          </div>
+          <button type="button" class="edu52-modal__close" data-edu52-modal-close aria-label="Close Specification">
+            <span>ESC [X]</span>
+          </button>
+        </div>
+        <div class="edu52-modal__content">
+          <p align="center" style="margin-top: 0.5rem;">
+            <a href="https://github.com/MURTAYES/edu52" target="_blank" rel="noopener">
+              <img src="assets/images/edu52.png" width="76" height="76" alt="Edu52 Logo"
+                class="edu52-modal__brand-logo" style="border-radius: 8px;" />
+            </a>
+          </p>
+
+          <h1 align="center" style="margin-top: 0.25rem;">EDU52 · TECH STACK</h1>
+
+          <p align="center"
+            style="font-size: 0.95rem; color: #555; margin-bottom: 1.25rem; max-width: 58ch; margin-left: auto; margin-right: auto;">
+            High-fidelity BCS exam simulator featuring dual-column 200 MCQ OMR synchronization, zero-key-leak server
+            evaluation, and KaTeX mathematical typesetting.
+          </p>
+
+          <!-- Tech Stack Grid with Logos from assets/icons -->
+          <div class="edu52-tech-grid">
+            <!-- React 18 -->
+            <div class="edu52-tech-item">
+              <div class="edu52-tech-item__logo-box dark-badge">
+                <img src="assets/icons/react-light.svg" width="36" height="36" alt="React 18" />
+              </div>
+              <div class="edu52-tech-item__info">
+                <div class="edu52-tech-item__head">
+                  <span class="edu52-tech-item__name">React 18</span>
+                  <span class="edu52-tech-item__tag">FRONTEND SPA</span>
+                </div>
+                <p class="edu52-tech-item__desc">Interactive 4-page split exam booklet synced instantaneously with
+                  200-question interactive OMR bubble matrix.</p>
+              </div>
+            </div>
+
+            <!-- Node.js & Express -->
+            <div class="edu52-tech-item">
+              <div class="edu52-tech-item__logo-box">
+                <img src="assets/icons/nodejs-64px.png" width="36" height="36" alt="Node.js" />
+              </div>
+              <div class="edu52-tech-item__info">
+                <div class="edu52-tech-item__head">
+                  <span class="edu52-tech-item__name">Node.js &amp; Express</span>
+                  <span class="edu52-tech-item__tag">API SERVER</span>
+                </div>
+                <p class="edu52-tech-item__desc">Secure attempt generation streaming answer-stripped question papers and
+                  handling timed submission proctoring.</p>
+              </div>
+            </div>
+
+            <!-- MongoDB Atlas -->
+            <div class="edu52-tech-item">
+              <div class="edu52-tech-item__logo-box dark-badge">
+                <img src="assets/icons/mongodb.svg" width="36" height="36" alt="MongoDB" />
+              </div>
+              <div class="edu52-tech-item__info">
+                <div class="edu52-tech-item__head">
+                  <span class="edu52-tech-item__name">MongoDB Atlas</span>
+                  <span class="edu52-tech-item__tag">QUESTION BANK</span>
+                </div>
+                <p class="edu52-tech-item__desc">Categorized BCS question bank with multi-subject syllabus quotas,
+                  explanation metadata, and attempt logs.</p>
+              </div>
+            </div>
+
+            <!-- Tailwind CSS -->
+            <div class="edu52-tech-item">
+              <div class="edu52-tech-item__logo-box">
+                <img src="assets/icons/tailwind-css-64px.png" width="36" height="36" alt="Tailwind CSS" />
+              </div>
+              <div class="edu52-tech-item__info">
+                <div class="edu52-tech-item__head">
+                  <span class="edu52-tech-item__name">Tailwind CSS</span>
+                  <span class="edu52-tech-item__tag">DESIGN SYSTEM</span>
+                </div>
+                <p class="edu52-tech-item__desc">Clean, paper-like exam typography and physical BPSC question booklet
+                  aesthetics for realistic exam training.</p>
+              </div>
+            </div>
+
+            <!-- KaTeX Engine -->
+            <div class="edu52-tech-item">
+              <div class="edu52-tech-item__logo-box">
+                <img src="assets/icons/standardjs-64px.png" width="36" height="36" alt="KaTeX Math" />
+              </div>
+              <div class="edu52-tech-item__info">
+                <div class="edu52-tech-item__head">
+                  <span class="edu52-tech-item__name">KaTeX Engine</span>
+                  <span class="edu52-tech-item__tag">MATH TYPESETTING</span>
+                </div>
+                <p class="edu52-tech-item__desc">Instantaneous rendering of mathematical formulas, algebraic equations,
+                  and scientific notation without layout shift.</p>
+              </div>
+            </div>
+
+            <!-- GitHub -->
+            <div class="edu52-tech-item">
+              <div class="edu52-tech-item__logo-box dark-badge">
+                <img src="assets/icons/github.svg" width="36" height="36" alt="GitHub" />
+              </div>
+              <div class="edu52-tech-item__info">
+                <div class="edu52-tech-item__head">
+                  <span class="edu52-tech-item__name">GitHub</span>
+                  <span class="edu52-tech-item__tag">REPOSITORY</span>
+                </div>
+                <p class="edu52-tech-item__desc">Open-source codebase with modular client-server mono-structure,
+                  automated CI checks, and release distribution.</p>
+              </div>
+            </div>
+
+            <!-- Claude Code -->
+            <div class="edu52-tech-item">
+              <div class="edu52-tech-item__logo-box">
+                <img src="assets/icons/claude-code.svg" width="36" height="36" alt="Claude Code" />
+              </div>
+              <div class="edu52-tech-item__info">
+                <div class="edu52-tech-item__head">
+                  <span class="edu52-tech-item__name">Claude Code</span>
+                  <span class="edu52-tech-item__tag">SYSTEM CO-ARCHITECT</span>
+                </div>
+                <p class="edu52-tech-item__desc">Architected question bank schemas, server-side grading negative marking
+                  algorithms, and proctoring logic.</p>
+              </div>
+            </div>
+
+            <!-- Google Gemini -->
+            <div class="edu52-tech-item">
+              <div class="edu52-tech-item__logo-box">
+                <img src="assets/icons/gemini.svg" width="36" height="36" alt="Google Gemini" />
+              </div>
+              <div class="edu52-tech-item__info">
+                <div class="edu52-tech-item__head">
+                  <span class="edu52-tech-item__name">Google Gemini</span>
+                  <span class="edu52-tech-item__tag">OCR &amp; CURATION</span>
+                </div>
+                <p class="edu52-tech-item__desc">Multimodal extraction of historical BCS question papers and automated
+                  bilingual proofing.</p>
+              </div>
+            </div>
+          </div>
+
+          <hr style="border: none; border-top: 1px solid #E5E5E5; margin: 1.5rem 0;" />
+
+          <h2>[§ ARCHITECTURE &amp; PERFORMANCE SLA]</h2>
+          <div class="edu52-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Component</th>
+                  <th>Technology</th>
+                  <th>Operational Role</th>
+                  <th>Target Benchmark</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Paper Streaming</strong></td>
+                  <td>Express + MongoDB</td>
+                  <td>Sans-Key Question Attempt Generation</td>
+                  <td>&lt; 80ms First Question Paint</td>
+                </tr>
+                <tr>
+                  <td><strong>OMR Sync</strong></td>
+                  <td>React State Machine</td>
+                  <td>200-Bubble Matrix &harr; 4-Page Jump Sync</td>
+                  <td>Zero Frame Drop (&lt; 16ms)</td>
+                </tr>
+                <tr>
+                  <td><strong>Proctoring</strong></td>
+                  <td>Visibility API + Server Lock</td>
+                  <td>Tab-Switch Detection &amp; Auto-Submit Guard</td>
+                  <td>Zero-Key-Leak Security</td>
+                </tr>
+                <tr>
+                  <td><strong>Math Engine</strong></td>
+                  <td>KaTeX WebAssembly/JS</td>
+                  <td>Real-Time Mathematical Typesetting</td>
+                  <td>Sub-millisecond Formula Render</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr style="border: none; border-top: 1px solid #E5E5E5; margin: 1.5rem 0;" />
+
+          <h2>[§ REPOSITORY &amp; CITATION]</h2>
+          <pre><code class="language-bash"># Clone repository from GitHub archive
+git clone https://github.com/MURTAYES/edu52.git
+cd edu52
+
+# Install backend &amp; frontend dependencies
+cd server &amp;&amp; npm install
+cd ../client &amp;&amp; npm install
+
+# Start development servers
+npm run dev</code></pre>
+          <p style="font-size: 0.85rem; color: #666; margin-top: 0.75rem;">
+            Distributed under the <strong>MIT License</strong>. For full documentation and BCS question sets, explore
+            the <a href="https://github.com/MURTAYES/edu52" target="_blank" rel="noopener"
+              style="color: #d97706; font-weight: 700; text-decoration: underline;">Edu52 GitHub Repository ↗</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unified Global Floating Tech Badges (Physics Across Entire Page - No Section Boundaries) -->
+    <div id="global-physics-stage" class="global-physics-stage float-physics-stage" aria-label="Interactive floating tech badges">
+      <div class="float-physics-item" data-cursor-pill="Python">
+        <img src="assets/icons/python.svg" alt="Python" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="AWS">
+        <img src="assets/icons/aws.svg" alt="AWS" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="OpenAI">
+        <img class="icon-invert-light" src="assets/icons/openai.svg" alt="OpenAI" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="React">
+        <img src="assets/icons/react-light.svg" alt="React" width="30" height="30" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="TypeScript">
+        <img src="assets/icons/typescript.svg" alt="TypeScript" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Docker">
+        <img src="assets/icons/docker.svg" alt="Docker" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Next.js">
+        <img src="assets/icons/nextdotjs.svg" alt="Next.js" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Node.js">
+        <img src="assets/icons/nodejs.svg" alt="Node.js" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Firebase">
+        <img src="assets/icons/firebase.svg" alt="Firebase" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Redis">
+        <img src="assets/icons/redis.svg" alt="Redis" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Supabase">
+        <img src="assets/icons/supabase.svg" alt="Supabase" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Figma">
+        <img src="assets/icons/figma.svg" alt="Figma" width="26" height="30" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Claude Code">
+        <img src="assets/icons/claude-code.svg" alt="Claude Code" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Google Gemini">
+        <img src="assets/icons/gemini.svg" alt="Gemini" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Linux">
+        <img src="assets/icons/linux.svg" alt="Linux" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Apple">
+        <img class="icon-invert-light" src="assets/icons/apple.svg" alt="Apple" width="26" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Swift">
+        <img src="assets/icons/swift.svg" alt="Swift" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="PostgreSQL">
+        <img src="assets/icons/postgresql.svg" alt="PostgreSQL" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="MongoDB">
+        <img src="assets/icons/mongodb.svg" alt="MongoDB" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Tailwind CSS">
+        <img src="assets/icons/tailwind-css.svg" alt="Tailwind CSS" width="30" height="20" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="C++">
+        <img src="assets/icons/c-plusplus.svg" alt="C++" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Notion">
+        <img class="icon-invert-light" src="assets/icons/notion.svg" alt="Notion" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Discord">
+        <img src="assets/icons/discord.svg" alt="Discord" width="28" height="28" loading="lazy" />
+      </div>
+      <div class="float-physics-item" data-cursor-pill="Google Antigravity">
+        <img src="assets/icons/google-antigravity.svg" alt="Google Antigravity" width="28" height="28" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Fluid Interactive Cursor with Fluid Liquid Tail & Hover Badge -->
+    <canvas id="cursor-trail-canvas" class="cursor-trail-canvas" aria-hidden="true"></canvas>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-badge" aria-hidden="true"><span class="cursor-label"></span></div>
+
+    <!-- Modular Application Architecture (Pure Vanilla JavaScript) -->
+    <script src="js/preloader.js" defer></script>
+    <script src="js/canvas.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/physics.js" defer></script>
+    <script src="js/works.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+    <script src="js/process.js" defer></script>
+    <script src="js/modals.js" defer></script>
+    <script src="js/footer.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>

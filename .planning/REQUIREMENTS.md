@@ -9,11 +9,11 @@ Requirements for initial release. Each section maps directly to an execution pha
 
 ### Section 1: Hero & Kinetic Preloader (Phase 1)
 
-- [ ] **HERO-01**: Kinetic Willem preloader animation plays on initial load and smoothly transitions to the hero section.
-- [ ] **HERO-02**: Background utilizes the reference silhouette image (`assets/images/hero-bg.jpg`) positioned and framed cleanly.
-- [ ] **HERO-03**: Prominent typography displays "Samnun Murtayes" (replacing Dor Sharaby) with subtitle "Brands, products & the art in between. I take the fun seriously."
-- [ ] **HERO-04**: Interactive skill tags displayed: "Brand Design", "Product Design", "UX | UI", "Art Direction", "Motion & 3D".
-- [ ] **HERO-05**: Brand logo smoothly animates from the Willem preloader card into the fixed top navigation bar (replacing Pamidor Studio).
+- [x] **HERO-01**: Kinetic Willem preloader animation plays on initial load and smoothly transitions to the hero section.
+- [x] **HERO-02**: Background utilizes the reference silhouette image (`assets/images/hero-bg.jpg`) positioned and framed cleanly.
+- [x] **HERO-03**: Prominent typography displays "Samnun Murtayes" (replacing Dor Sharaby) with subtitle "Brands, products & the art in between. I take the fun seriously."
+- [x] **HERO-04**: Interactive skill tags displayed: "Brand Design", "Product Design", "UX | UI", "Art Direction", "Motion & 3D".
+- [x] **HERO-05**: Brand logo smoothly animates from the Willem preloader card into the fixed top navigation bar (replacing Pamidor Studio).
 
 ### Section 2: Sticky Scroll-Scrubbed Manifesto (Phase 2)
 
@@ -92,7 +92,7 @@ Requirements for initial release. Each section maps directly to an execution pha
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| HERO-01, HERO-02, HERO-03, HERO-04, HERO-05 | Phase 1 | Pending |
+| HERO-01, HERO-02, HERO-03, HERO-04, HERO-05 | Phase 1 | Completed |
 | MANI-01, MANI-02, MANI-03, MANI-04, MANI-05 | Phase 2 | Pending |
 | CANV-01, CANV-02, CANV-03, CANV-04, CANV-05, CANV-06, CANV-07, CANV-08, CANV-09 | Phase 3 | Pending |
 | WORK-01, WORK-02, WORK-03, WORK-04 | Phase 4 | Pending |
@@ -109,3 +109,4 @@ Requirements for initial release. Each section maps directly to an execution pha
 ---
 *Requirements defined: 2026-11-09*
 *Last updated: 2026-11-09 after project initialization*
+

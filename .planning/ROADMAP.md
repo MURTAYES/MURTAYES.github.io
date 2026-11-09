@@ -6,7 +6,7 @@ Build and assemble a personal portfolio for creative engineer and developer Samn
 
 ## Phases
 
-- [ ] **Phase 1: Section 1 — Editorial Photo Silhouette Hero & Willem Preloader** - Willem preloader animation settling into photo-silhouette hero with "Samnun Murtayes" typography and animated navigation logo.
+- [x] **Phase 1: Section 1 — Editorial Photo Silhouette Hero & Willem Preloader** - Willem preloader animation settling into photo-silhouette hero with "Samnun Murtayes" typography and animated navigation logo.
 - [ ] **Phase 2: Section 2 — Sticky Scroll-Scrubbed Manifesto Word Reveal** - Tall 260vh scroll track with sticky pinned viewport, radial dot matrix parallax, and two-stage word token scrubbing.
 - [ ] **Phase 3: Section 3 — Multiplayer Design Canvas Interactive Stage** - Interactive Figma/Webflow-style canvas with draggable `internet.` centerpiece, Modo IA auto-switch, 6 tilted floating cards, 7 autonomous role cursors, live code typing, and snapping grid.
 - [ ] **Phase 4: Section 4 — Selected Works Folders & Legacy Cleanup** - Retain tactile 3D architectural folders (ApplyKit, PharmaERP, EduHub) and dossier overlays; purge unmentioned `#process` and `#global-physics-stage`.
@@ -29,7 +29,7 @@ Build and assemble a personal portfolio for creative engineer and developer Samn
 **Plans**: 1 plan
 
 Plans:
-- [ ] 01-01: Implement photo silhouette hero markup, styles, and Willem preloader transition choreography.
+- [x] 01-01: Implement photo silhouette hero markup, styles, and Willem preloader transition choreography.
 
 ---
 
@@ -148,7 +148,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Hero & Preloader | 0/1 | Not started | - |
+| 1. Hero & Preloader | 1/1 | Complete | 2026-11-09 |
 | 2. Manifesto Word Reveal | 0/1 | Not started | - |
 | 3. Multiplayer Canvas | 0/1 | Not started | - |
 | 4. Selected Works Folders | 0/1 | Not started | - |
@@ -160,3 +160,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 ---
 *Roadmap defined: 2026-11-09*
 *Last updated: 2026-11-09 after project initialization*
+
