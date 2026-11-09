@@ -121,27 +121,59 @@
     render();
 
     // --------------------------------------------------------------------------
-    // White -> Black -> White Viewport-Center IntersectionObserver
-    // Matching the architecture of onlines.com.ar (.home-bloque-dark-mode)
+    // White -> Black -> White Viewport IntersectionObserver
+    // Matching the exact architecture of onlines.com.ar (home-bloque-dark-mode-view.js)
     // --------------------------------------------------------------------------
+    var TRIGGER_SELECTOR = ".home-bloque-dark-mode__descripcion";
+    var BODY_DARK_CLASS = "is-dark";
+    var SWITCHING_CLASS = "theme-switching";
+    var SWITCHING_DURATION = 850;
+    var TRIGGER_ROOT_MARGIN = "0px";
+
+    var switchingTimeout = null;
+
+    function setDarkMode(activar) {
+      var body = document.body;
+
+      if (activar === body.classList.contains(BODY_DARK_CLASS)) {
+        return;
+      }
+
+      body.classList.add(SWITCHING_CLASS);
+
+      if (activar) {
+        body.classList.add(BODY_DARK_CLASS);
+      } else {
+        body.classList.remove(BODY_DARK_CLASS);
+      }
+
+      if (switchingTimeout) {
+        clearTimeout(switchingTimeout);
+      }
+
+      switchingTimeout = setTimeout(function () {
+        body.classList.remove(SWITCHING_CLASS);
+        switchingTimeout = null;
+      }, SWITCHING_DURATION);
+    }
+
     if ("IntersectionObserver" in window) {
-      const darkThemeObserver = new IntersectionObserver(
+      var trigger = section.querySelector(TRIGGER_SELECTOR) || section;
+
+      var darkThemeObserver = new IntersectionObserver(
         function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              document.body.classList.add("is-dark");
-            } else {
-              document.body.classList.remove("is-dark");
-            }
-          });
+          for (var i = 0; i < entries.length; i++) {
+            setDarkMode(entries[i].isIntersecting);
+          }
         },
         {
-          rootMargin: "-40% 0px -40% 0px",
+          root: null,
+          rootMargin: TRIGGER_ROOT_MARGIN,
           threshold: 0
         }
       );
 
-      darkThemeObserver.observe(section);
+      darkThemeObserver.observe(trigger);
     }
 
     // Connect Dossier Quick Jump Links to Selected Works Folders

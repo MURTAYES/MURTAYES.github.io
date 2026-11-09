@@ -111,13 +111,13 @@ body.menu-open {
 /* Header dark theme adaptation when closed (bound to global --page-text & --page-bg) */
 .wordmark-img,
 .header__brand-logo {
-  transition: filter 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s var(--spring-ease), opacity 0.25s ease;
+  transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s var(--spring-ease), opacity 0.25s ease;
 }
 
 .hamburger-line,
 .menu-toggle span {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
               width 0.25s ease;
 }
 
@@ -139,7 +139,7 @@ body.is-dark .site-header:not(.menu-open) .nav-button,
 body.is-dark .site-header:not(.menu-open) .header__cta {
   background-color: var(--page-text);
   color: var(--page-bg);
-  transition: background-color 0.65s cubic-bezier(0.16, 1, 0.3, 1), color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Active Icon Animation (Transforms 2 lines into clean symmetrical 'X') */

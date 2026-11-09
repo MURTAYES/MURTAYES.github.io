@@ -12,7 +12,7 @@
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
-  background-color: #ffffff;
+  background-color: var(--page-bg);
   overflow: hidden;
   isolation: isolate;
   display: flex;
@@ -20,6 +20,15 @@
   justify-content: center;
   user-select: none;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.is-dark .home-hero-canvas {
+  background-color: var(--page-bg);
+}
+
+body.is-dark .home-hero-canvas .grilla-celdas {
+  opacity: 0.2;
 }
 
 .home-hero__inner {

@@ -21,7 +21,7 @@
   background-color: transparent;
   isolation: isolate;
   box-sizing: border-box;
-  transition: color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --------------------------------------------------------------------------
@@ -152,7 +152,7 @@
   letter-spacing: -0.03em;
   color: var(--page-text);
   margin: 0;
-  transition: color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .building-section .text-lead {
@@ -163,7 +163,7 @@
   letter-spacing: -0.015em;
   color: var(--page-text);
   margin: 0;
-  transition: color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .building-section .text-graphite {
@@ -172,7 +172,7 @@
   font-size: 0.9375rem;
   line-height: 1.55;
   margin: 0.25rem 0 0 0;
-  transition: color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .building-section .text-small {
@@ -180,7 +180,7 @@
   font-size: 0.8125rem;
   line-height: 1.4;
   color: var(--page-muted);
-  transition: color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .building-section .border-t {
@@ -195,12 +195,12 @@
 
 .building-section .border-ink {
   border-color: var(--border-subtle);
-  transition: border-color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .building-section .border-rule {
   border-color: var(--border-subtle);
-  transition: border-color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --------------------------------------------------------------------------
@@ -227,7 +227,7 @@
   background-color: var(--page-text);
   transform-origin: right center;
   transform: scaleX(0);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .building-section .link:hover::after,
@@ -250,7 +250,7 @@
   overflow: visible;
   color: var(--page-text);
   pointer-events: none;
-  transition: color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .building-section .js-building-path {
@@ -260,7 +260,7 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   will-change: stroke-dasharray;
-  transition: stroke 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: stroke 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Sine-wave Station Circle Nodes (Pure Black with crisp white halo) */
@@ -272,7 +272,7 @@
   transform-box: fill-box;
   transform: scale(0);
   opacity: 0;
-  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, fill 0.65s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, fill 0.8s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
   pointer-events: auto;
   cursor: pointer;

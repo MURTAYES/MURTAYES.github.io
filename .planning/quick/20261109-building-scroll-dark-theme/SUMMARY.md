@@ -2,21 +2,18 @@
 task: building-scroll-dark-theme
 date: 2026-11-09
 status: complete
-description: Reordered "What I'm building currently" as Section 3 with smooth White-to-Black-to-White full-page scroll theme transition
+description: Refined White->Black->White scroll theme transition to exact Onlines 60fps cubic-bezier(0.4, 0, 0.2, 1) timing and description trigger
 ---
 
-# Summary: Section 3 Reordering and White -> Black -> White Scroll Theme Transition
+# Summary: Section 3 Reordering and Exact Onlines White -> Black -> White Scroll Theme Transition
 
-- **Reordered Hierarchy**:
-  - Moved `#building` directly between Section 2 (`#about`) and Section 4 (`#canvas`).
-  - Section heading updated to `What I'm building currently.`.
-- **Global CSS Theme Engine (`css/variables.css`)**:
-  - Defined `--page-bg`, `--page-text`, `--page-muted`, and `--border-subtle` on `:root` and overridden inside `body.is-dark`.
-  - Configured 0.65s smooth cubic-bezier transitions on background and text colors.
-- **Fixed Header Auto-Inversion (`css/header.css`)**:
-  - Bound header elements to `--page-text` and `--page-bg`.
-  - Wordmark automatically inverts to white when `body.is-dark` is active.
-- **Viewport-Center IntersectionObserver (`js/building.js`)**:
-  - Configured `rootMargin: "-40% 0px -40% 0px"` on `.home-bloque-dark-mode` so `.is-dark` activates when the section enters the center of the viewport and deactivates smoothly when scrolling out.
-- **Zero Runtime Dependencies**:
-  - Pure HTML5, CSS3, and native vanilla JavaScript with zero external libraries.
+- **Exact Onlines View Script Engine (`js/building.js`)**:
+  - Implemented `TRIGGER_SELECTOR = ".home-bloque-dark-mode__descripcion"` with `TRIGGER_ROOT_MARGIN = "0px"` and `threshold: 0`.
+  - Added `SWITCHING_CLASS = "theme-switching"` with `SWITCHING_DURATION = 850` to `document.body` during transitions.
+- **Cinematic Easing Curve (`0.8s cubic-bezier(0.4, 0, 0.2, 1)`)**:
+  - Replaced abrupt `0.65s` ease-out with Onlines's exact `0.8s cubic-bezier(0.4, 0, 0.2, 1)` across `html`, `body`, `#building`, `#about`, `#canvas`, and fixed header.
+  - Deep dark background aligned to `#010101`.
+- **Harmonized Neighboring Boundaries**:
+  - Added `transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1)` and `var(--page-bg)` to `#about` (`.home-quote-block`) and `#canvas` (`.home-hero-canvas`), eliminating jarring cutoffs when scrolling across boundaries.
+- **Paint Cost Suppression**:
+  - Suppressed heavy backdrop-filters during `.theme-switching` for 60fps fluidity.
