@@ -685,6 +685,93 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
           </div>
         </div>
 
+        <!-- Autonomous Multiplayer Workbench (Live Building Constructs) -->
+        <div class="home-hero__workbench js-home-hero-workbench" aria-hidden="true">
+          <!-- Dynamic SVG Canvas Layer: Snap Guides, Cables, Calipers -->
+          <svg class="wb-svg-layer js-wb-svg" width="100%" height="100%" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="wb-cable-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00d2b4" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#00d2b4" stop-opacity="0.3" />
+              </linearGradient>
+              <filter id="wb-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- UI Designer Dynamic Alignment Snap Guides -->
+            <line class="wb-guide-line wb-guide-x js-wb-guide-x" x1="0" y1="0" x2="0" y2="0" />
+            <line class="wb-guide-line wb-guide-y js-wb-guide-y" x1="0" y1="0" x2="0" y2="0" />
+
+            <!-- Backend Engineer Cable & Flow Particles -->
+            <path class="wb-cable-bg js-wb-cable-bg" d="" />
+            <path class="wb-cable-fg js-wb-cable-fg" d="" />
+            <circle class="wb-pulse-packet js-wb-pulse-1" r="3.5" fill="#ffffff" filter="url(#wb-glow)" />
+            <circle class="wb-pulse-packet js-wb-pulse-2" r="2.5" fill="#00d2b4" />
+
+            <!-- Creative Director Typography Kerning Calipers -->
+            <line class="wb-caliper-line js-wb-caliper-base" x1="0" y1="0" x2="0" y2="0" />
+            <line class="wb-caliper-line js-wb-caliper-cap" x1="0" y1="0" x2="0" y2="0" />
+            <path class="wb-caliper-bracket js-wb-bracket-l" d="" />
+            <path class="wb-caliper-bracket js-wb-bracket-r" d="" />
+          </svg>
+
+          <!-- UI Designer: Live Drawn Wireframe Card -->
+          <div class="wb-frame js-wb-frame">
+            <div class="wb-frame-dim js-wb-frame-dim">
+              <span class="dim-tag">Frame 04</span>
+              <span class="dim-val js-wb-dim-val">260 × 140</span>
+            </div>
+            <div class="wb-frame-handles">
+              <span class="wb-handle wb-handle--tl"></span>
+              <span class="wb-handle wb-handle--tr"></span>
+              <span class="wb-handle wb-handle--bl"></span>
+              <span class="wb-handle wb-handle--br"></span>
+            </div>
+            <div class="wb-frame-skeleton js-wb-frame-skeleton">
+              <div class="wb-skel-header">
+                <span class="wb-skel-icon"></span>
+                <span class="wb-skel-bar wb-skel-bar--w60"></span>
+              </div>
+              <div class="wb-skel-body">
+                <span class="wb-skel-bar wb-skel-bar--w90"></span>
+                <span class="wb-skel-bar wb-skel-bar--w75"></span>
+              </div>
+              <div class="wb-skel-btn js-wb-skel-btn">
+                <span>Deploy System</span>
+              </div>
+            </div>
+            <div class="wb-spacing-badge js-wb-spacing-badge">16px</div>
+          </div>
+
+          <!-- Backend Engineer: Telemetry Socket Outlet -->
+          <div class="wb-socket js-wb-socket">
+            <span class="wb-socket-pulse"></span>
+            <div class="wb-telemetry js-wb-telemetry">
+              <span class="telemetry-dot"></span>
+              <span class="telemetry-text">API Socket · 200 OK (18ms)</span>
+            </div>
+          </div>
+
+          <!-- Creative Director: Typography Spec & Approval Stamp -->
+          <div class="wb-typo-spec js-wb-typo-spec">
+            <span class="spec-label">Inter Display · 64px · -0.04em · 700wt</span>
+          </div>
+          <div class="wb-approval-stamp js-wb-approval-stamp">
+            <div class="stamp-chip">
+              <span class="stamp-icon">✅</span>
+              <span class="stamp-text">Approved for Production</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Click Ripples Container -->
+          <div class="wb-pings-layer js-wb-pings"></div>
+        </div>
+
         <!-- Autonomous Multiplayer Role Cursors with Exact Figma Vector Outline -->
         <div class="home-hero__cursores" aria-hidden="true">
           <!-- Shared Drop Shadow Filter for Cursors -->
@@ -696,81 +783,123 @@ c4 26 5 51 4 56 -2 6 -28 -2 -56 -17z"/>
             </defs>
           </svg>
 
-          <!-- 1. Desarrollador (#00d2b4) -->
-          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="-380" data-offset-y="180" data-cursor-delay="0" style="--cursor-color: #00d2b4;">
+          <!-- 1. Backend Engineer (#00d2b4) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-role="backend" data-offset-x="280" data-offset-y="-140" data-cursor-delay="0" style="--cursor-color: #00d2b4;">
             <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
               <g filter="url(#filter-figma-cursor)">
                 <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#00d2b4"></path>
                 <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
               </g>
             </svg>
-            <span class="home-hero__cursor-label" style="background:#00d2b4;">Backend Engineer</span>
+            <div class="home-hero__cursor-badge-group">
+              <span class="home-hero__cursor-label" style="background:#00d2b4;">Backend Engineer</span>
+              <span class="home-hero__cursor-action js-cursor-action">
+                <span class="action-dot"></span>
+                <span class="action-text">Coding API...</span>
+              </span>
+            </div>
           </div>
 
-          <!-- 2. Cliente (#ff6b4a) -->
-          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="360" data-offset-y="150" data-cursor-delay="510" style="--cursor-color: #ff6b4a;">
+          <!-- 2. Frontend Developer (#ff6b4a) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-role="frontend" data-offset-x="40" data-offset-y="180" data-cursor-delay="510" style="--cursor-color: #ff6b4a;">
             <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
               <g filter="url(#filter-figma-cursor)">
                 <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#ff6b4a"></path>
                 <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
               </g>
             </svg>
-            <span class="home-hero__cursor-label" style="background:#ff6b4a;">Frontend Developer</span>
+            <div class="home-hero__cursor-badge-group">
+              <span class="home-hero__cursor-label" style="background:#ff6b4a;">Frontend Developer</span>
+              <span class="home-hero__cursor-action js-cursor-action">
+                <span class="action-dot"></span>
+                <span class="action-text">Testing sync...</span>
+              </span>
+            </div>
           </div>
 
-          <!-- 3. Director creativo (#0fa958) -->
-          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="-180" data-offset-y="-240" data-cursor-delay="1020" style="--cursor-color: #0fa958;">
+          <!-- 3. Creative Director (#0fa958) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-role="director" data-offset-x="-120" data-offset-y="-50" data-cursor-delay="1020" style="--cursor-color: #0fa958;">
             <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
               <g filter="url(#filter-figma-cursor)">
                 <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#0fa958"></path>
                 <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
               </g>
             </svg>
-            <span class="home-hero__cursor-label" style="background:#0fa958;">Creative Director</span>
+            <div class="home-hero__cursor-badge-group">
+              <span class="home-hero__cursor-label" style="background:#0fa958;">Creative Director</span>
+              <span class="home-hero__cursor-action js-cursor-action">
+                <span class="action-dot"></span>
+                <span class="action-text">Inspecting kerning...</span>
+              </span>
+            </div>
           </div>
 
-          <!-- 4. Diseñador UI (#9b51e0) -->
-          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="-420" data-offset-y="-120" data-cursor-delay="255" style="--cursor-color: #9b51e0;">
+          <!-- 4. UI Designer (#9b51e0) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-role="ui-designer" data-offset-x="-340" data-offset-y="-60" data-cursor-delay="255" style="--cursor-color: #9b51e0;">
             <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
               <g filter="url(#filter-figma-cursor)">
                 <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#9b51e0"></path>
                 <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
               </g>
             </svg>
-            <span class="home-hero__cursor-label" style="background:#9b51e0;">UI Designer</span>
+            <div class="home-hero__cursor-badge-group">
+              <span class="home-hero__cursor-label" style="background:#9b51e0;">UI Designer</span>
+              <span class="home-hero__cursor-action js-cursor-action">
+                <span class="action-dot"></span>
+                <span class="action-text">Drawing frame...</span>
+              </span>
+            </div>
           </div>
 
-          <!-- 5. Diseñador UX (#ff4081) -->
-          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="-280" data-offset-y="70" data-cursor-delay="765" style="--cursor-color: #ff4081;">
+          <!-- 5. UI/UX Designer (#ff4081) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-role="ux-designer" data-offset-x="-280" data-offset-y="70" data-cursor-delay="765" style="--cursor-color: #ff4081;">
             <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
               <g filter="url(#filter-figma-cursor)">
                 <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#ff4081"></path>
                 <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
               </g>
             </svg>
-            <span class="home-hero__cursor-label" style="background:#ff4081;">UI/UX Designer</span>
+            <div class="home-hero__cursor-badge-group">
+              <span class="home-hero__cursor-label" style="background:#ff4081;">UI/UX Designer</span>
+              <span class="home-hero__cursor-action js-cursor-action">
+                <span class="action-dot"></span>
+                <span class="action-text">Touch targets...</span>
+              </span>
+            </div>
           </div>
 
           <!-- 6. Project Manager (#2d9cdb) -->
-          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="260" data-offset-y="-150" data-cursor-delay="1360" style="--cursor-color: #2d9cdb;">
+          <div class="home-hero__cursor js-home-hero-cursor" data-role="pm" data-offset-x="260" data-offset-y="-60" data-cursor-delay="1360" style="--cursor-color: #2d9cdb;">
             <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
               <g filter="url(#filter-figma-cursor)">
                 <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#2d9cdb"></path>
                 <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
               </g>
             </svg>
-            <span class="home-hero__cursor-label" style="background:#2d9cdb;">Project Manager</span>
+            <div class="home-hero__cursor-badge-group">
+              <span class="home-hero__cursor-label" style="background:#2d9cdb;">Project Manager</span>
+              <span class="home-hero__cursor-action js-cursor-action">
+                <span class="action-dot"></span>
+                <span class="action-text">Reviewing roadmap...</span>
+              </span>
+            </div>
           </div>
 
-          <!-- 7. QA / Desarrollador 2 (#f2c94c) -->
-          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="180" data-offset-y="240" data-cursor-delay="1700" style="--cursor-color: #f2c94c;">
+          <!-- 7. QA Engineer (#f2c94c) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-role="qa" data-offset-x="180" data-offset-y="120" data-cursor-delay="1700" style="--cursor-color: #f2c94c;">
             <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
               <g filter="url(#filter-figma-cursor)">
                 <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#f2c94c"></path>
                 <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
               </g>
             </svg>
-            <span class="home-hero__cursor-label" style="background:#f2c94c; color:#060606;">QA Engineer</span>
+            <div class="home-hero__cursor-badge-group">
+              <span class="home-hero__cursor-label" style="background:#f2c94c; color:#060606;">QA Engineer</span>
+              <span class="home-hero__cursor-action js-cursor-action">
+                <span class="action-dot"></span>
+                <span class="action-text">Testing build...</span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
