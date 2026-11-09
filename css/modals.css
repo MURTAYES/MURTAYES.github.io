@@ -1,0 +1,1388 @@
+/* --------------------------------------------------------------------------
+   14B. APPLYKIT SWISS MONOLITH & ARCHIVAL DOCKET STYLES
+   -------------------------------------------------------------------------- */
+.applykit-hat-logo {
+  width: clamp(34px, 3.5vw, 46px);
+  height: clamp(34px, 3.5vw, 46px);
+  object-fit: contain;
+  border-radius: 6px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.applykit-card:hover .applykit-hat-logo {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.applykit-lead {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.applykit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.applykit-docket-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px 16px;
+  background: #0A0A0A;
+  color: #FFFFFF;
+  border: 1px solid #0A0A0A;
+  border-left: 3px solid #BC0009;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.applykit-docket-btn:hover {
+  background: #BC0009;
+  border-color: #BC0009;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(188, 0, 9, 0.35);
+}
+
+.applykit-docket-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.applykit-docket-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.applykit-preview-wrap {
+  background: transparent !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.applykit-case-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid #0A0A0A;
+  box-shadow: 8px 8px 0px #0A0A0A;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  display: block;
+}
+
+.applykit-case-img:hover {
+  transform: scale(1.025) translateY(-2px);
+  box-shadow: 12px 12px 0px #BC0009;
+}
+
+/* ApplyKit Tech Stack Grid */
+.applykit-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin: 1.25rem 0;
+}
+
+.applykit-tech-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px;
+  background: #FAFAFA;
+  border: 1px solid #E5E5E5;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.applykit-tech-item:hover {
+  border-color: #BC0009;
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.08);
+}
+
+.applykit-tech-item__logo-box {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.applykit-tech-item__logo-box.dark-badge {
+  background: #0A0A0A;
+  border-color: #0A0A0A;
+}
+
+.applykit-tech-item__logo-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.applykit-tech-item__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.applykit-tech-item__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.applykit-tech-item__name {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #0A0A0A;
+}
+
+.applykit-tech-item__tag {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #BC0009;
+  background: rgba(188, 0, 9, 0.08);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.applykit-tech-item__desc {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #555555;
+  margin: 0;
+}
+
+.applykit-modal__brand-logo {
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.applykit-modal__brand-logo:hover {
+  transform: scale(1.04);
+}
+
+/* Full Archive Specification Modal */
+.applykit-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.applykit-modal.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.applykit-modal__backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.applykit-modal__panel {
+  width: 100%;
+  max-width: 880px;
+  max-height: 88vh;
+  background: #FFFFFF;
+  color: #111111;
+  border: 2px solid #0A0A0A;
+  box-shadow: 14px 14px 0px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.applykit-modal__top {
+  background: #0A0A0A;
+  color: #FFFFFF;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #BC0009;
+}
+
+.applykit-modal__top-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.applykit-modal__title {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.applykit-modal__close {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.applykit-modal__close:hover {
+  background: #BC0009;
+  border-color: #BC0009;
+}
+
+.applykit-modal__content {
+  padding: clamp(20px, 3.5vw, 40px);
+  overflow-y: auto;
+  font-family: var(--font-primary, sans-serif);
+  line-height: 1.6;
+}
+
+.applykit-modal__content h1,
+.applykit-modal__content h2,
+.applykit-modal__content h3 {
+  font-family: var(--font-display, sans-serif);
+  color: #0A0A0A;
+  letter-spacing: -0.02em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.applykit-modal__content pre {
+  background: #0A0A0A;
+  color: #EDEAE4;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  padding: 14px 18px;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin: 1rem 0;
+  border-left: 3px solid #BC0009;
+}
+
+.applykit-modal__content code {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.85em;
+  background: #f4f4f5;
+  color: #0A0A0A;
+  padding: 2px 6px;
+  border: 1px solid #E5E5E5;
+}
+
+.applykit-modal__content pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+}
+
+.applykit-modal__content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.85rem;
+  background: #FFFFFF;
+}
+
+.applykit-modal__content th,
+.applykit-modal__content td {
+  border: 1px solid #E5E5E5;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.applykit-modal__content th {
+  background: #F5F2F3;
+  font-weight: 700;
+  color: #0A0A0A;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.applykit-modal__content tr:nth-child(even) td {
+  background: #FAFAFA;
+}
+
+.applykit-modal__content blockquote {
+  border-left: 3px solid #BC0009;
+  background: #FAFAFA;
+  padding: 14px 18px;
+  margin: 1.25rem 0;
+  color: #222222;
+}
+
+/* --------------------------------------------------------------------------
+   14C. PHARMAERP CLINICAL DISPENSING & POS KERNEL STYLES
+   -------------------------------------------------------------------------- */
+.pharmaerp-card {
+  position: relative;
+  overflow: hidden;
+  background: 
+    radial-gradient(ellipse 75% 65% at 85% 15%, rgba(16, 185, 129, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 65% 55% at 15% 85%, rgba(6, 182, 212, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%),
+    linear-gradient(145deg, #282c35 0%, #1c2027 100%) !important;
+  color: #ffffff;
+}
+
+.pharmaerp-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(16, 185, 129, 0.22) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px, 56px 56px, 56px 56px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.pharmaerp-card::after {
+  content: 'CLINICAL POS · DECIMAL128 · FEFO';
+  position: absolute;
+  bottom: 2rem;
+  left: 2.5rem;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.035);
+  pointer-events: none;
+  z-index: 1;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.pharmaerp-card .case-content_warpper {
+  position: relative;
+  z-index: 2;
+}
+
+.case-hat__title-wrap {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.5vw, 20px);
+}
+
+.pharmaerp-hat-logo {
+  width: clamp(34px, 3.5vw, 46px);
+  height: clamp(34px, 3.5vw, 46px);
+  object-fit: contain;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 10px rgba(16, 185, 129, 0.45));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.pharmaerp-card:hover .pharmaerp-hat-logo {
+  transform: scale(1.08) rotate(-4deg);
+  filter: brightness(0) invert(1) drop-shadow(0 4px 16px rgba(16, 185, 129, 0.7));
+}
+
+.pharmaerp-lead {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.pharmaerp-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  padding: 4px 10px;
+  border-left: 3px solid #10b981;
+  border-radius: 2px;
+}
+
+.pharmaerp-caps-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 1rem;
+}
+
+.pharmaerp-cap-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: clamp(0.825rem, 1vw, 0.925rem);
+  line-height: 1.45;
+}
+
+.pharmaerp-cap-item .cap-badge {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #10b981;
+}
+
+.pharmaerp-cap-item:nth-child(2) .cap-badge {
+  color: #06b6d4;
+}
+
+.pharmaerp-cap-item:nth-child(3) .cap-badge {
+  color: #f59e0b;
+}
+
+.pharmaerp-cap-item .cap-desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.pharmaerp-cap-item .cap-desc strong {
+  color: #ffffff;
+}
+
+.pharmaerp-cap-item .cap-desc code {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.85em;
+  background: rgba(255, 255, 255, 0.08);
+  color: #34d399;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.pharmaerp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.pharmaerp-spec-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px 16px;
+  background: #0A0A0A;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 3px solid #10b981;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 0;
+}
+
+.pharmaerp-spec-btn:hover {
+  background: #10b981;
+  color: #000000;
+  border-color: #10b981;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+}
+
+.pharmaerp-spec-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.pharmaerp-spec-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.pharmaerp-preview-wrap {
+  background: transparent !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pharmaerp-case-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  display: block;
+}
+
+.pharmaerp-case-img:hover {
+  transform: scale(1.025) translateY(-2px);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.85);
+}
+
+/* Tech Stack Modal Components */
+.pharmaerp-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin: 1.25rem 0;
+}
+
+.pharmaerp-tech-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px;
+  background: #FAFAFA;
+  border: 1px solid #E5E5E5;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pharmaerp-tech-item:hover {
+  border-color: #10b981;
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.08);
+}
+
+.pharmaerp-tech-item__logo-box {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.pharmaerp-tech-item__logo-box.dark-badge {
+  background: #0A0A0A;
+  border-color: #0A0A0A;
+}
+
+.pharmaerp-tech-item__logo-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.pharmaerp-tech-item__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pharmaerp-tech-item__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pharmaerp-tech-item__name {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #0A0A0A;
+}
+
+.pharmaerp-tech-item__tag {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #059669;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.pharmaerp-tech-item__desc {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #555555;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   PharmaERP Full System Specification Modal
+   -------------------------------------------------------------------------- */
+.pharmaerp-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(5, 5, 7, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.pharmaerp-modal.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pharmaerp-modal__backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.pharmaerp-modal__panel {
+  width: 100%;
+  max-width: 900px;
+  max-height: 88vh;
+  background: #FFFFFF;
+  color: #111111;
+  border: 2px solid #0A0A0A;
+  box-shadow: 14px 14px 0px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.pharmaerp-modal__top {
+  background: #0A0A0A;
+  color: #FFFFFF;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #10b981;
+}
+
+.pharmaerp-modal__top-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pharmaerp-modal__title {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.pharmaerp-modal__close {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pharmaerp-modal__close:hover {
+  background: #10b981;
+  border-color: #10b981;
+  color: #0A0A0A;
+  font-weight: 700;
+}
+
+.pharmaerp-modal__content {
+  padding: clamp(20px, 3.5vw, 40px);
+  overflow-y: auto;
+  font-family: var(--font-primary, sans-serif);
+  line-height: 1.6;
+  color: #111111;
+}
+
+.pharmaerp-modal__brand-logo {
+  display: inline-block;
+  vertical-align: middle;
+  filter: none;
+  transition: transform 0.2s ease;
+}
+
+.pharmaerp-modal__brand-logo:hover {
+  transform: scale(1.04);
+}
+
+.pharmaerp-modal__content h1,
+.pharmaerp-modal__content h2,
+.pharmaerp-modal__content h3 {
+  font-family: var(--font-display, sans-serif);
+  color: #0A0A0A;
+  letter-spacing: -0.02em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.pharmaerp-modal__content h1 {
+  font-size: 1.75rem;
+}
+
+.pharmaerp-modal__content h2 {
+  font-size: 1.25rem;
+  border-bottom: 1px solid #E5E5E5;
+  padding-bottom: 0.4rem;
+}
+
+.pharmaerp-modal__content h3 {
+  font-size: 1.05rem;
+}
+
+.pharmaerp-modal__content pre {
+  background: #0A0A0A;
+  color: #EDEAE4;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  padding: 14px 18px;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin: 1rem 0;
+  border-left: 3px solid #10b981;
+}
+
+.pharmaerp-modal__content code {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.85em;
+  background: #f4f4f5;
+  color: #0A0A0A;
+  padding: 2px 6px;
+  border: 1px solid #E5E5E5;
+}
+
+.pharmaerp-modal__content pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+}
+
+.pharmaerp-modal__content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.85rem;
+  background: #FFFFFF;
+}
+
+.pharmaerp-modal__content th,
+.pharmaerp-modal__content td {
+  border: 1px solid #E5E5E5;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.pharmaerp-modal__content th {
+  background: #F5F2F3;
+  font-weight: 700;
+  color: #0A0A0A;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pharmaerp-modal__content tr:nth-child(even) td {
+  background: #FAFAFA;
+}
+
+.pharmaerp-modal__content blockquote {
+  border-left: 3px solid #10b981;
+  background: #F9F9FB;
+  padding: 14px 18px;
+  margin: 1.25rem 0;
+  color: #222222;
+}
+
+/* --------------------------------------------------------------------------
+   14D. EDU52 BCS EXAM SIMULATOR & QUESTION BANK STYLES
+   -------------------------------------------------------------------------- */
+.edu52-card {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--_card---beige, #f6efe6);
+  color: #1c1917;
+}
+
+.edu52-hat-logo {
+  width: clamp(34px, 3.5vw, 46px);
+  height: clamp(34px, 3.5vw, 46px);
+  object-fit: contain;
+  border-radius: 6px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.edu52-card:hover .edu52-hat-logo {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.edu52-lead {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.edu52-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.edu52-spec-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px 16px;
+  background: #1c1917;
+  color: #FFFFFF;
+  border: 1px solid #1c1917;
+  border-left: 3px solid #d97706;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 0;
+}
+
+.edu52-spec-btn:hover {
+  background: #d97706;
+  color: #000000;
+  border-color: #d97706;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.35);
+}
+
+.edu52-spec-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.edu52-spec-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.edu52-preview-wrap {
+  background: transparent !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edu52-case-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid #1c1917;
+  box-shadow: 8px 8px 0px rgba(41, 37, 36, 0.9);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  display: block;
+}
+
+.edu52-case-img:hover {
+  transform: scale(1.025) translateY(-2px);
+  box-shadow: 12px 12px 0px #d97706;
+}
+
+/* Edu52 Tech Stack Grid */
+.edu52-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin: 1.25rem 0;
+}
+
+.edu52-tech-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px;
+  background: #FAFAFA;
+  border: 1px solid #E5E5E5;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edu52-tech-item:hover {
+  border-color: #d97706;
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.08);
+}
+
+.edu52-tech-item__logo-box {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.edu52-tech-item__logo-box.dark-badge {
+  background: #0A0A0A;
+  border-color: #0A0A0A;
+}
+
+.edu52-tech-item__logo-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.edu52-tech-item__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edu52-tech-item__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.edu52-tech-item__name {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #0A0A0A;
+}
+
+.edu52-tech-item__tag {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #b45309;
+  background: rgba(217, 119, 6, 0.1);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.edu52-tech-item__desc {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #555555;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Edu52 Full System Specification Modal
+   -------------------------------------------------------------------------- */
+.edu52-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(10, 8, 6, 0.84);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.edu52-modal.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.edu52-modal__backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.edu52-modal__panel {
+  width: 100%;
+  max-width: 900px;
+  max-height: 88vh;
+  background: #FFFFFF;
+  color: #111111;
+  border: 2px solid #0A0A0A;
+  box-shadow: 14px 14px 0px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.edu52-modal__top {
+  background: #0A0A0A;
+  color: #FFFFFF;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #d97706;
+}
+
+.edu52-modal__top-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edu52-modal__title {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.edu52-modal__close {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.2s ease;
+}
+
+.edu52-modal__close:hover {
+  background: #d97706;
+  border-color: #d97706;
+  color: #0A0A0A;
+  font-weight: 700;
+}
+
+.edu52-modal__brand-logo {
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.edu52-modal__brand-logo:hover {
+  transform: scale(1.04);
+}
+
+.edu52-modal__content {
+  padding: clamp(20px, 3.5vw, 40px);
+  overflow-y: auto;
+  font-family: var(--font-primary, sans-serif);
+  line-height: 1.6;
+  color: #111111;
+}
+
+.edu52-modal__content h1,
+.edu52-modal__content h2,
+.edu52-modal__content h3 {
+  font-family: var(--font-display, sans-serif);
+  color: #0A0A0A;
+  letter-spacing: -0.02em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.edu52-modal__content h1 {
+  font-size: 1.75rem;
+}
+
+.edu52-modal__content h2 {
+  font-size: 1.25rem;
+  border-bottom: 1px solid #E5E5E5;
+  padding-bottom: 0.4rem;
+}
+
+.edu52-modal__content h3 {
+  font-size: 1.05rem;
+}
+
+.edu52-modal__content pre {
+  background: #0A0A0A;
+  color: #EDEAE4;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  padding: 14px 18px;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin: 1rem 0;
+  border-left: 3px solid #d97706;
+}
+
+.edu52-modal__content code {
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.85em;
+  background: #f4f4f5;
+  color: #0A0A0A;
+  padding: 2px 6px;
+  border: 1px solid #E5E5E5;
+}
+
+.edu52-modal__content pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+}
+
+.edu52-modal__content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.85rem;
+  background: #FFFFFF;
+}
+
+.edu52-modal__content th,
+.edu52-modal__content td {
+  border: 1px solid #E5E5E5;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.edu52-modal__content th {
+  background: #F5F2F3;
+  font-weight: 700;
+  color: #0A0A0A;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.edu52-modal__content tr:nth-child(even) td {
+  background: #FAFAFA;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Modal Scaling for Mobile Devices & Full-Viewport Docket Sheets
+   -------------------------------------------------------------------------- */
+.edu52-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.25rem 0;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.edu52-table-wrap table {
+  min-width: 460px;
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .applykit-modal,
+  .pharmaerp-modal,
+  .edu52-modal {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .applykit-modal__panel,
+  .pharmaerp-modal__panel,
+  .edu52-modal__panel {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: 100vw;
+    max-height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    border-top: 2px solid #BC0009;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .pharmaerp-modal__panel {
+    border-top-color: #10b981;
+  }
+
+  .edu52-modal__panel {
+    border-top-color: #d97706;
+  }
+
+  .applykit-modal__top,
+  .pharmaerp-modal__top,
+  .edu52-modal__top {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    flex-shrink: 0;
+    padding: 12px 14px;
+    padding-top: max(12px, env(safe-area-inset-top));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .applykit-modal__top-left,
+  .pharmaerp-modal__top-left,
+  .edu52-modal__top-left {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .applykit-modal__title,
+  .pharmaerp-modal__title,
+  .edu52-modal__title {
+    font-size: 0.72rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .applykit-modal__close,
+  .pharmaerp-modal__close,
+  .edu52-modal__close {
+    min-width: 48px;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    touch-action: manipulation;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .applykit-modal__content,
+  .pharmaerp-modal__content,
+  .edu52-modal__content {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    padding: 16px 14px;
+    padding-bottom: max(32px, env(safe-area-inset-bottom, 32px));
+  }
+
+  .applykit-tech-grid,
+  .pharmaerp-tech-grid,
+  .edu52-tech-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .applykit-tech-item,
+  .pharmaerp-tech-item,
+  .edu52-tech-item {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .applykit-case-img {
+    max-width: 100%;
+    box-shadow: 4px 4px 0px #0A0A0A;
+  }
+
+  .applykit-docket-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+    min-height: 48px;
+  }
+
+  .edu52-table-wrap,
+  .applykit-modal__content table,
+  .pharmaerp-modal__content table,
+  .edu52-modal__content table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .applykit-tech-grid,
+  .pharmaerp-tech-grid,
+  .edu52-tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

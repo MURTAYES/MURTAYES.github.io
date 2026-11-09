@@ -1,0 +1,13 @@
+/* ==========================================================================
+   THE PRESTIGE PORTFOLIO — MASTER STYLESHEET MANIFEST
+   Modular architecture for maximum parallel streaming, caching & maintainability
+   ========================================================================== */
+
+@import url('./variables.css');
+@import url('./header.css');
+@import url('./about.css');
+@import url('./sections.css');
+@import url('./works.css');
+@import url('./modals.css');
+@import url('./footer.css');
+@import url('./cursor.css');

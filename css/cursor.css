@@ -1,0 +1,71 @@
+/* --------------------------------------------------------------------------
+   19. FLUID TAIL CURSOR & INTERACTIVE BADGE
+   -------------------------------------------------------------------------- */
+.cursor-trail-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99998;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #111111;
+  pointer-events: none;
+  z-index: 99999;
+  margin: -3.5px 0 0 -3.5px;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+  will-change: transform;
+  display: block;
+}
+
+.cursor-dot.is-dark-bg {
+  background: #ffffff;
+}
+
+.cursor-badge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #111111;
+  color: #ffffff;
+  font-family: var(--font-serif, 'Lora', Georgia, serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transform: translate3d(-100px, -100px, 0) scale(0);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease;
+  will-change: transform, opacity;
+  white-space: nowrap;
+}
+
+.cursor-badge.is-visible {
+  opacity: 1;
+}
+
+.cursor-badge.is-dark-theme {
+  background: #edeae4;
+  color: #0b0b0b;
+}
+
+@media (pointer: coarse), (max-width: 768px) {
+  .cursor-trail-canvas,
+  .cursor-dot,
+  .cursor-badge {
+    display: none !important;
+  }
+}
