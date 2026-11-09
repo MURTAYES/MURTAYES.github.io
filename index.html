@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="css/about.css">
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/works.css">
+  <link rel="stylesheet" href="css/stats.css">
   <link rel="stylesheet" href="css/modals.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/cursor.css">
@@ -893,6 +894,67 @@
       </div>
     </div>
   </section>
+
+    <!-- 05. CINEMATIC SCROLL-SCRUBBED STATS SECTION (Danish Architectural Aesthetic) -->
+    <section id="stats" class="stats-track js-stats-track" aria-label="Engineering Performance &amp; Scale">
+      <div class="stats-sticky js-stats-sticky">
+        <!-- Pinned Architectural Image Frame with Expanding Clip-Path & Darkening Scrim -->
+        <div class="stats-frame js-stats-frame" aria-hidden="true">
+          <div class="stats-bg-image js-stats-image"></div>
+          <div class="stats-scrim js-stats-scrim"></div>
+        </div>
+
+        <!-- 12-Column Swiss Content Grid -->
+        <div class="stats-container container js-stats-content">
+          <div class="stats-header">
+            <span class="stats-eyebrow">Performance &amp; Scale</span>
+            <h2 class="stats-heading">Engineering metrics by the numbers.</h2>
+          </div>
+
+          <div class="stats-grid">
+            <!-- Stat 01: Lines of Code -->
+            <div class="stat-card js-stat-card">
+              <span class="stat-hairline js-stat-hairline" aria-hidden="true"></span>
+              <div class="stat-metric">
+                <span class="stat-number js-stat-num" data-target="120" data-suffix="K+">0</span>
+              </div>
+              <h3 class="stat-label">Production Code Written</h3>
+              <p class="stat-note">TypeScript, React, &amp; Modern CSS</p>
+            </div>
+
+            <!-- Stat 02: Systems Shipped -->
+            <div class="stat-card js-stat-card">
+              <span class="stat-hairline js-stat-hairline" aria-hidden="true"></span>
+              <div class="stat-metric">
+                <span class="stat-number js-stat-num" data-target="18" data-suffix="+">0</span>
+              </div>
+              <h3 class="stat-label">Bespoke Systems Shipped</h3>
+              <p class="stat-note">Platforms, MVPs, &amp; Microservices</p>
+            </div>
+
+            <!-- Stat 03: Performance Score -->
+            <div class="stat-card js-stat-card">
+              <span class="stat-hairline js-stat-hairline" aria-hidden="true"></span>
+              <div class="stat-metric">
+                <span class="stat-number js-stat-num" data-target="100" data-suffix="%">0</span>
+              </div>
+              <h3 class="stat-label">Performance Score</h3>
+              <p class="stat-note">Lighthouse &amp; Core Web Vitals</p>
+            </div>
+
+            <!-- Stat 04: Frame Budget -->
+            <div class="stat-card js-stat-card">
+              <span class="stat-hairline js-stat-hairline" aria-hidden="true"></span>
+              <div class="stat-metric">
+                <span class="stat-number js-stat-num" data-target="16" data-prefix="&lt;" data-suffix="ms">0</span>
+              </div>
+              <h3 class="stat-label">Frame Budget</h3>
+              <p class="stat-note">Strict 60 FPS Fluid Kinetic Target</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- 10. PREVIOUS KINETIC FOOTER -->
@@ -1669,6 +1731,7 @@ npm run dev</code></pre>
     <script src="js/decrypt-text.js" defer></script>
     <script src="js/quote.js" defer></script>
     <script src="js/works.js" defer></script>
+    <script src="js/stats.js" defer></script>
     <script src="js/cursor.js" defer></script>
     <script src="js/modals.js" defer></script>
     <script src="js/footer.js" defer></script>
