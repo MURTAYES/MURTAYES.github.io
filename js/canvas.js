@@ -10,55 +10,160 @@
     const canvasSection = document.getElementById("canvas") || document.querySelector(".home-hero-canvas");
     if (!canvasSection) return;
 
+    const inner = canvasSection.querySelector(".home-hero__inner") || canvasSection;
+
     // ------------------------------------------------------------------------
     // 1. Mouse-Driven Multi-Layer Lerp Parallax
     // ------------------------------------------------------------------------
     const floatElements = canvasSection.querySelectorAll(".js-home-hero-float");
-    let mouseX = 0, mouseY = 0;
-    let currentX = 0, currentY = 0;
-    let isMouseOverSection = false;
+    let mouseNormX = 0, mouseNormY = 0;
+    let lerpX = 0, lerpY = 0;
+    let userX = -9999, userY = -9999;
+    let isMouseInside = false;
 
-    window.addEventListener("mousemove", (e) => {
+    // Reveal floating items
+    floatElements.forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+
+    window.addEventListener("pointermove", function (e) {
       const rect = canvasSection.getBoundingClientRect();
       if (rect.bottom > 0 && rect.top < window.innerHeight) {
-        isMouseOverSection = true;
-        mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-        mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+        isMouseInside = true;
+        const centerX = rect.left + rect.width * 0.5;
+        const centerY = rect.top + rect.height * 0.5;
+        mouseNormX = Math.max(-1, Math.min(1, (e.clientX - centerX) / (rect.width * 0.5)));
+        mouseNormY = Math.max(-1, Math.min(1, (e.clientY - centerY) / (rect.height * 0.5)));
+        userX = e.clientX - rect.left;
+        userY = e.clientY - rect.top;
       } else {
-        isMouseOverSection = false;
+        isMouseInside = false;
+        userX = -9999;
+        userY = -9999;
       }
     }, { passive: true });
 
-    function animateParallax() {
-      // Smooth lerp damping towards target mouse coordinates
-      currentX += (mouseX - currentX) * 0.08;
-      currentY += (mouseY - currentY) * 0.08;
-
-      floatElements.forEach((el) => {
-        const factor = parseFloat(el.getAttribute("data-float-parallax") || "0.1") * 90;
-        const rotate = parseFloat(el.getAttribute("data-base-rotate") || "0");
-        const tx = (currentX * factor).toFixed(2);
-        const ty = (currentY * factor).toFixed(2);
-        el.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rotate}deg)`;
-      });
-
-      requestAnimationFrame(animateParallax);
-    }
-    requestAnimationFrame(animateParallax);
+    // Cache element properties to prevent reflows in rAF
+    const floatItems = Array.prototype.map.call(floatElements, function (el) {
+      return {
+        el: el,
+        factor: parseFloat(el.getAttribute("data-float-parallax") || "0.1") * 55,
+        rotate: parseFloat(el.getAttribute("data-base-rotate") || "0"),
+        isCenter: el.getAttribute("data-float-center") === "1"
+      };
+    });
 
     // ------------------------------------------------------------------------
-    // 2. Draggable Centerpiece & Figma Selection Box
+    // 2. Autonomous Multiplayer Role Cursors (Anchored Micro-Sways + Repulsion)
+    // ------------------------------------------------------------------------
+    const cursorEls = canvasSection.querySelectorAll(".js-home-hero-cursor");
+    const cursorData = Array.prototype.map.call(cursorEls, function (el, idx) {
+      return {
+        el: el,
+        offsetX: parseFloat(el.getAttribute("data-offset-x") || "0"),
+        offsetY: parseFloat(el.getAttribute("data-offset-y") || "0"),
+        delay: parseFloat(el.getAttribute("data-cursor-delay") || (idx * 300)),
+        phase: idx * 0.85,
+        pushX: 0,
+        pushY: 0
+      };
+    });
+
+    // ------------------------------------------------------------------------
+    // 3. Main 60fps Animation Loop
+    // ------------------------------------------------------------------------
+    let lastTime = 0;
+
+    function renderLoop(now) {
+      // Lerp mouse damping factor
+      lerpX += (mouseNormX - lerpX) * 0.065;
+      lerpY += (mouseNormY - lerpY) * 0.065;
+
+      // Update Parallax Floats
+      for (let i = 0; i < floatItems.length; i++) {
+        const item = floatItems[i];
+        const tx = lerpX * item.factor;
+        const ty = lerpY * item.factor;
+
+        if (item.isCenter) {
+          item.el.style.transform = "translateX(-50%) translate3d(" + tx.toFixed(2) + "px, " + ty.toFixed(2) + "px, 0) rotate(" + item.rotate + "deg)";
+        } else {
+          item.el.style.transform = "translate3d(" + tx.toFixed(2) + "px, " + ty.toFixed(2) + "px, 0) rotate(" + item.rotate + "deg)";
+        }
+      }
+
+      // Update Cursors
+      const rect = canvasSection.getBoundingClientRect();
+      const cx = rect.width * 0.5;
+      const cy = rect.height * 0.5;
+
+      for (let j = 0; j < cursorData.length; j++) {
+        const cur = cursorData[j];
+        const t = now + cur.delay;
+
+        // Micro-sway around designated anchor
+        const swayX = Math.sin(t * 0.0011 + cur.phase) * 16 + Math.cos(t * 0.0006 + cur.phase * 1.5) * 7;
+        const swayY = Math.cos(t * 0.0009 + cur.phase) * 14 + Math.sin(t * 0.0007 + cur.phase * 2.0) * 6;
+
+        let posX = cx + cur.offsetX + swayX;
+        let posY = cy + cur.offsetY + swayY;
+
+        // Gentle interactive magnetic repulsion when user cursor is near
+        let targetPushX = 0;
+        let targetPushY = 0;
+
+        if (isMouseInside && userX > -9000) {
+          const dx = posX - userX;
+          const dy = posY - userY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 140 && dist > 0) {
+            const force = (140 - dist) / 140;
+            targetPushX = (dx / dist) * force * 35;
+            targetPushY = (dy / dist) * force * 35;
+          }
+        }
+
+        cur.pushX += (targetPushX - cur.pushX) * 0.1;
+        cur.pushY += (targetPushY - cur.pushY) * 0.1;
+
+        const finalX = posX + cur.pushX;
+        const finalY = posY + cur.pushY;
+
+        cur.el.style.transform = "translate3d(" + finalX.toFixed(2) + "px, " + finalY.toFixed(2) + "px, 0)";
+      }
+
+      requestAnimationFrame(renderLoop);
+    }
+    requestAnimationFrame(renderLoop);
+
+    // ------------------------------------------------------------------------
+    // 4. Draggable Centerpiece & Figma Selection Box
     // ------------------------------------------------------------------------
     const title = canvasSection.querySelector(".home-hero__titulo.is-draggable");
     const selectionBox = canvasSection.querySelector(".js-home-hero-seleccion");
-    const dimBadge = selectionBox ? selectionBox.querySelector(".seleccion-dimension") : null;
+
+    function syncSelectionBox() {
+      if (!title || !selectionBox) return;
+      const titleRect = title.getBoundingClientRect();
+      const parentRect = title.parentElement.getBoundingClientRect();
+      const left = titleRect.left - parentRect.left;
+      const top = titleRect.top - parentRect.top;
+
+      selectionBox.style.width = titleRect.width + "px";
+      selectionBox.style.height = titleRect.height + "px";
+      selectionBox.style.left = left + "px";
+      selectionBox.style.top = top + "px";
+    }
 
     if (title && selectionBox) {
+      syncSelectionBox();
+      window.addEventListener("resize", syncSelectionBox, { passive: true });
+
       let isDragging = false;
       let startX = 0, startY = 0;
       let dragOffsetX = 0, dragOffsetY = 0;
 
-      title.addEventListener("pointerdown", (e) => {
+      title.addEventListener("pointerdown", function (e) {
         isDragging = true;
         startX = e.clientX - dragOffsetX;
         startY = e.clientY - dragOffsetY;
@@ -66,19 +171,14 @@
         title.classList.add("is-dragging");
       });
 
-      title.addEventListener("pointermove", (e) => {
+      title.addEventListener("pointermove", function (e) {
         if (!isDragging) return;
         dragOffsetX = e.clientX - startX;
         dragOffsetY = e.clientY - startY;
 
-        const transformStr = `translate3d(${dragOffsetX.toFixed(1)}px, ${dragOffsetY.toFixed(1)}px, 0)`;
+        const transformStr = "translate3d(" + dragOffsetX.toFixed(1) + "px, " + dragOffsetY.toFixed(1) + "px, 0)";
         title.style.transform = transformStr;
         selectionBox.style.transform = transformStr;
-
-        if (dimBadge) {
-          const rect = title.getBoundingClientRect();
-          dimBadge.textContent = `${Math.round(rect.width)} × ${Math.round(rect.height)} · X:${Math.round(dragOffsetX)} Y:${Math.round(dragOffsetY)}`;
-        }
       });
 
       function endDrag(e) {
@@ -95,15 +195,15 @@
     }
 
     // ------------------------------------------------------------------------
-    // 3. Coordinate Grid Trail Illumination
+    // 5. Coordinate Grid Trail Illumination
     // ------------------------------------------------------------------------
     const litContainer = canvasSection.querySelector(".js-grilla-lit");
     if (litContainer) {
-      const cellW = 60.27;
+      const cellW = 60.2727;
       const cellH = 60.5;
-      const activeCells = new Map();
+      let lastCellKey = "";
 
-      canvasSection.addEventListener("mousemove", (e) => {
+      canvasSection.addEventListener("pointermove", function (e) {
         const rect = canvasSection.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -111,64 +211,30 @@
 
         const col = Math.floor(x / cellW);
         const row = Math.floor(y / cellH);
-        const key = `${col}_${row}`;
+        const key = col + "_" + row;
 
-        if (!activeCells.has(key)) {
-          const cellEl = document.createElement("div");
-          cellEl.className = "grilla-celda-activa";
-          cellEl.style.left = `${col * cellW}px`;
-          cellEl.style.top = `${row * cellH}px`;
-          litContainer.appendChild(cellEl);
-          activeCells.set(key, cellEl);
+        if (key !== lastCellKey) {
+          lastCellKey = key;
+          const cell = document.createElement("div");
+          cell.className = "grilla-celda-activa";
+          cell.style.left = (col * cellW) + "px";
+          cell.style.top = (row * cellH) + "px";
+          litContainer.appendChild(cell);
 
-          setTimeout(() => {
-            cellEl.style.opacity = "0";
-            setTimeout(() => {
-              if (cellEl.parentNode) cellEl.parentNode.removeChild(cellEl);
-              activeCells.delete(key);
-            }, 850);
-          }, 350);
+          setTimeout(function () {
+            cell.style.opacity = "0";
+            setTimeout(function () {
+              if (cell.parentNode) {
+                cell.parentNode.removeChild(cell);
+              }
+            }, 650);
+          }, 300);
         }
       }, { passive: true });
     }
 
     // ------------------------------------------------------------------------
-    // 4. Autonomous Role Cursors (7 Collaborative Personas)
-    // ------------------------------------------------------------------------
-    const cursors = canvasSection.querySelectorAll(".js-home-hero-cursor");
-    const cursorConfigs = [
-      { fx: 0.00065, fy: 0.00078, rx: 0.38, ry: 0.32, px: 0.2, py: 0.8 },
-      { fx: 0.00085, fy: 0.00060, rx: 0.34, ry: 0.36, px: 1.5, py: 2.1 },
-      { fx: 0.00072, fy: 0.00092, rx: 0.40, ry: 0.28, px: 3.1, py: 0.5 },
-      { fx: 0.00090, fy: 0.00074, rx: 0.32, ry: 0.35, px: 4.2, py: 1.8 },
-      { fx: 0.00060, fy: 0.00082, rx: 0.36, ry: 0.30, px: 2.4, py: 3.4 },
-      { fx: 0.00078, fy: 0.00068, rx: 0.30, ry: 0.34, px: 0.9, py: 2.7 },
-      { fx: 0.00082, fy: 0.00088, rx: 0.35, ry: 0.33, px: 5.0, py: 1.2 }
-    ];
-
-    function animateCursors(time) {
-      const rect = canvasSection.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
-
-      cursors.forEach((cur, i) => {
-        const cfg = cursorConfigs[i % cursorConfigs.length];
-        const cx = w * 0.5;
-        const cy = h * 0.5;
-
-        // Smooth continuous Lissajous curve
-        const x = cx + (w * cfg.rx) * Math.sin(time * cfg.fx + cfg.px) + Math.cos(time * 0.0003) * 20;
-        const y = cy + (h * cfg.ry) * Math.cos(time * cfg.fy + cfg.py) + Math.sin(time * 0.0004) * 15;
-
-        cur.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
-      });
-
-      requestAnimationFrame(animateCursors);
-    }
-    requestAnimationFrame(animateCursors);
-
-    // ------------------------------------------------------------------------
-    // 5. "Modo IA" Pill Switch
+    // 6. "Modo IA" Pill Switch
     // ------------------------------------------------------------------------
     const aiSwitch = canvasSection.querySelector(".js-home-hero-switch");
     if (aiSwitch) {
@@ -179,7 +245,6 @@
       function setAiState(active) {
         isAiActive = active;
         aiSwitch.classList.toggle("is-active", isAiActive);
-        aiSwitch.setAttribute("aria-pressed", String(isAiActive));
       }
 
       function toggleAi() {
@@ -191,56 +256,59 @@
         switchTimer = setInterval(toggleAi, intervalMs);
       }
 
-      aiSwitch.addEventListener("click", () => {
+      aiSwitch.addEventListener("click", function () {
         toggleAi();
-        startAutoSwitch(); // Reset interval on user interaction
+        startAutoSwitch();
+      });
+
+      aiSwitch.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleAi();
+          startAutoSwitch();
+        }
       });
 
       startAutoSwitch();
     }
 
     // ------------------------------------------------------------------------
-    // 6. Live macOS Code Typing Block
+    // 7. Live Code Block Typing
     // ------------------------------------------------------------------------
-    const codeEl = canvasSection.querySelector(".js-live-type-code");
-    if (codeEl) {
-      const codeSnippet = `import { studio } from "@samnun/core";
-
-const canvas = studio.mount({
-  fps: 60,
-  latency: "0ms",
-  motion: "fluid"
-});
-
-export default canvas;`;
-
-      let charIdx = 0;
+    const typingTextEl = canvasSection.querySelector(".js-typing-text");
+    if (typingTextEl) {
+      const codeLines = [
+        "<h1>Fluid & Kinetic</h1>",
+        "<p>60fps zero dependencies.</p>",
+        "<script src=\"canvas.js\"></script>"
+      ];
+      const fullText = codeLines.join("\n");
+      let charIndex = 0;
       let isDeleting = false;
-      let pauseTimer = null;
 
-      function typeLoop() {
+      function stepType() {
         if (!isDeleting) {
-          charIdx++;
-          codeEl.textContent = codeSnippet.substring(0, charIdx);
-          if (charIdx >= codeSnippet.length) {
+          charIndex++;
+          typingTextEl.textContent = fullText.slice(0, charIndex);
+          if (charIndex >= fullText.length) {
             isDeleting = true;
-            pauseTimer = setTimeout(typeLoop, 3200);
+            setTimeout(stepType, 3000);
             return;
           }
-          setTimeout(typeLoop, 35);
+          setTimeout(stepType, 40 + Math.random() * 25);
         } else {
-          charIdx--;
-          codeEl.textContent = codeSnippet.substring(0, charIdx);
-          if (charIdx <= 0) {
+          charIndex--;
+          typingTextEl.textContent = fullText.slice(0, charIndex);
+          if (charIndex <= 0) {
             isDeleting = false;
-            pauseTimer = setTimeout(typeLoop, 800);
+            setTimeout(stepType, 600);
             return;
           }
-          setTimeout(typeLoop, 15);
+          setTimeout(stepType, 18);
         }
       }
 
-      typeLoop();
+      stepType();
     }
   }
 

@@ -194,190 +194,235 @@
       </div>
     </section>
 
-    <!-- 03B. MULTIPLAYER DESIGN CANVAS INTERACTIVE STAGE -->
-    <section id="canvas" class="home-hero-canvas js-home-hero-grilla" aria-label="Collaborative Design Canvas">
-      <!-- 60px Coordinate Grid Layer & Lit Cell Trail -->
-      <div class="grilla-celdas" aria-hidden="true">
-        <div class="grilla-celdas__lit js-grilla-lit"></div>
-      </div>
-
-      <!-- Spatial Peripheral Scatter: 6 Tilted Floating Cards with Mouse Lerp Parallax -->
-      <div class="home-hero__scatter" aria-hidden="true">
-        <!-- 1. Code Window with Live Character Typing -->
-        <div class="scatter-card scatter-card--code js-home-hero-float" data-float-parallax="0.12" data-base-rotate="-3.5">
-          <div class="code-card-header">
-            <div class="code-card-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <span class="code-card-title">canvas.config.ts</span>
-            <span class="code-card-badge">TypeScript</span>
-          </div>
-          <div class="code-card-body">
-            <pre class="code-card-pre"><code class="js-live-type-code"></code><span class="type-caret"></span></pre>
-          </div>
+    <!-- 03B. MULTIPLAYER DESIGN CANVAS INTERACTIVE STAGE (Onlines-Grade Collaborative Studio) -->
+    <section id="canvas" class="home-hero wp-block-onlines-home-hero is-started home-hero-canvas js-home-hero-grilla" data-hero-started="true" aria-label="Collaborative Design Canvas">
+      <div class="home-hero__inner">
+        <!-- 60px Coordinate Grid Layer & Illuminated Cell Trail -->
+        <div class="home-hero__grilla grilla-celdas js-home-hero-grilla" aria-hidden="true" style="--grilla-celda-ancho: 60.2727px; --grilla-celda-alto: 60.5px;">
+          <div class="grilla-celdas__lit js-grilla-lit"></div>
         </div>
 
-        <!-- 2. Modern Laptop Device Mockup -->
-        <div class="scatter-card scatter-card--laptop js-home-hero-float" data-float-parallax="0.18" data-base-rotate="4.2">
-          <div class="laptop-bezel">
-            <div class="laptop-camera"></div>
-            <div class="laptop-screen">
-              <div class="screen-wireframe">
-                <div class="wireframe-nav"></div>
-                <div class="wireframe-hero">
-                  <div class="wireframe-pill"></div>
-                  <div class="wireframe-title"></div>
-                  <div class="wireframe-btn"></div>
-                </div>
-                <div class="wireframe-grid">
-                  <span></span><span></span><span></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="laptop-base"></div>
-        </div>
-
-        <!-- 3. Smartphone Frame -->
-        <div class="scatter-card scatter-card--mobile js-home-hero-float" data-float-parallax="0.14" data-base-rotate="-5.3">
-          <div class="mobile-notch"></div>
-          <div class="mobile-screen">
-            <div class="mobile-feed">
-              <div class="mobile-avatar"></div>
-              <div class="mobile-line w-75"></div>
-              <div class="mobile-card"></div>
-              <div class="mobile-line w-50"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. Figma Comment Thread Card -->
-        <div class="scatter-card scatter-card--comment js-home-hero-float" data-float-parallax="0.08" data-base-rotate="2.1">
-          <div class="comment-author">
-            <span class="author-avatar" style="background-color: #ff6b4a;">C</span>
-            <div class="author-meta">
-              <span class="author-name">Cliente</span>
-              <span class="author-time">ahora</span>
-            </div>
-          </div>
-          <p class="comment-text">¿Podemos hacer que el movimiento sea aún más fluido y cinético? 🔥</p>
-          <div class="comment-reply">
-            <span class="reply-check">✓</span>
-            <span class="reply-status">Resuelto por Samnun</span>
-          </div>
-        </div>
-
-        <!-- 5. Editorial Typography Card -->
-        <div class="scatter-card scatter-card--editorial js-home-hero-float" data-float-parallax="0.15" data-base-rotate="5.89">
-          <div class="editorial-eyebrow">CREATIVE ARCHITECTURE</div>
-          <div class="editorial-title">Systems &amp; Motion</div>
-          <div class="editorial-metrics">
-            <div class="metric-item">
-              <span class="metric-num">60</span>
-              <span class="metric-unit">fps</span>
-            </div>
-            <div class="metric-item">
-              <span class="metric-num">0</span>
-              <span class="metric-unit">deps</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6. UI Wireframe Card -->
-        <div class="scatter-card scatter-card--wireframe js-home-hero-float" data-float-parallax="0.10" data-base-rotate="-2.8">
-          <div class="wireframe-header">
-            <span class="wf-circle"></span>
-            <span class="wf-line"></span>
-          </div>
-          <div class="wireframe-content">
-            <div class="wf-box highlight"></div>
-            <div class="wf-box"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Autonomous Multiplayer Role Cursors (7 Collaborative Personas) -->
-      <div class="home-hero__cursors-layer" aria-hidden="true">
-        <!-- 1. Desarrollador (#00d2b4) -->
-        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="0" data-cursor-role="Desarrollador" style="--cursor-color: #00d2b4;">
-          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
-          </svg>
-          <span class="cursor-tag">Desarrollador</span>
-        </div>
-
-        <!-- 2. Cliente (#ff6b4a) -->
-        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="1" data-cursor-role="Cliente" style="--cursor-color: #ff6b4a;">
-          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
-          </svg>
-          <span class="cursor-tag">Cliente</span>
-        </div>
-
-        <!-- 3. Director creativo (#9b51e0) -->
-        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="2" data-cursor-role="Director creativo" style="--cursor-color: #9b51e0;">
-          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
-          </svg>
-          <span class="cursor-tag">Director creativo</span>
-        </div>
-
-        <!-- 4. Diseñador UI/UX (#ff4081) -->
-        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="3" data-cursor-role="Diseñador UI/UX" style="--cursor-color: #ff4081;">
-          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
-          </svg>
-          <span class="cursor-tag">Diseñador UI/UX</span>
-        </div>
-
-        <!-- 5. Project Manager (#2d9cdb) -->
-        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="4" data-cursor-role="Project Manager" style="--cursor-color: #2d9cdb;">
-          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
-          </svg>
-          <span class="cursor-tag">Project Manager</span>
-        </div>
-
-        <!-- 6. QA Engineer (#f2c94c) -->
-        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="5" data-cursor-role="QA Engineer" style="--cursor-color: #f2c94c;">
-          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
-          </svg>
-          <span class="cursor-tag">QA Engineer</span>
-        </div>
-
-        <!-- 7. Motion Designer (#6fcf97) -->
-        <div class="home-hero-cursor js-home-hero-cursor" data-cursor-idx="6" data-cursor-role="Motion Designer" style="--cursor-color: #6fcf97;">
-          <svg class="cursor-svg" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M0 0L6 14.5L8.5 9L14 7L0 0Z" />
-          </svg>
-          <span class="cursor-tag">Motion Designer</span>
-        </div>
-      </div>
-
-      <!-- Focal Anchor: Draggable 'internet.' Centerpiece with Vector Selection Box -->
-      <div class="home-hero__centerpiece-wrap">
         <!-- Figma Vector Selection Box -->
-        <div class="home-hero__seleccion js-home-hero-seleccion" aria-hidden="true">
-          <span class="seleccion-handle handle-tl"></span>
-          <span class="seleccion-handle handle-tc"></span>
-          <span class="seleccion-handle handle-tr"></span>
-          <span class="seleccion-handle handle-bl"></span>
-          <span class="seleccion-handle handle-bc"></span>
-          <span class="seleccion-handle handle-br"></span>
-          <span class="seleccion-dimension">1440 × 900</span>
+        <div class="home-hero__seleccion js-home-hero-seleccion is-selected" aria-hidden="true">
+          <div class="home-hero__seleccion-borde">
+            <span class="home-hero__handle home-hero__handle--tl"></span>
+            <span class="home-hero__handle home-hero__handle--tc"></span>
+            <span class="home-hero__handle home-hero__handle--tr"></span>
+            <span class="home-hero__handle home-hero__handle--bl"></span>
+            <span class="home-hero__handle home-hero__handle--bc"></span>
+            <span class="home-hero__handle home-hero__handle--br"></span>
+          </div>
         </div>
 
-        <!-- Draggable Title -->
-        <h2 class="home-hero__titulo is-draggable" data-cursor="Drag">internet.</h2>
+        <!-- Central Focal Draggable Title -->
+        <h3 class="home-hero__titulo is-draggable" data-cursor="Drag">internet.</h3>
 
-        <!-- Interactive "Modo IA" Pill Switch -->
-        <div class="home-hero__switch-wrap">
-          <button type="button" class="home-hero__switch js-home-hero-switch" data-switch-interval="4000" aria-pressed="false" aria-label="Toggle Modo IA">
-            <span class="switch-indicator"></span>
-            <span class="switch-label">Modo IA</span>
-            <span class="switch-pulse" aria-hidden="true"></span>
-          </button>
+        <!-- Spatial Peripheral Scatter Cards (Parallax Damped) -->
+        <!-- 1. Wireframe Card -->
+        <div class="home-hero__elemento home-hero__wireframe js-home-hero-float is-visible" data-float-parallax="0.10" data-base-rotate="6.16" aria-hidden="true">
+          <div class="wireframe-inner">
+            <div class="wireframe-header"><span class="wf-circle"></span><span class="wf-bar"></span></div>
+            <div class="wireframe-boxes">
+              <span class="wf-box highlight"></span>
+              <span class="wf-box"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Code Block with Live Typing -->
+        <div class="home-hero__elemento home-hero__codigo js-home-hero-float is-visible" data-float-parallax="0.13" data-base-rotate="-5.72" aria-hidden="true">
+          <div class="home-hero__codigo-header">
+            <div class="codigo-dots"><span></span><span></span><span></span></div>
+            <span class="codigo-filename">index.html</span>
+          </div>
+          <div class="home-hero__codigo-texto js-home-hero-typing"><span class="js-typing-text"></span><span class="js-typing-cursor"></span></div>
+        </div>
+
+        <!-- 3. Chat Window -->
+        <div class="home-hero__elemento home-hero__chat js-home-hero-float is-visible" data-float-parallax="0.08" data-base-rotate="4.81" aria-hidden="true">
+          <div class="chat-inner">
+            <div class="chat-bubble chat-bubble--in">¿Podemos hacer el movimiento aún más fluido?</div>
+            <div class="chat-bubble chat-bubble--out">Listo. 60fps con zero runtime deps. 🔥</div>
+          </div>
+        </div>
+
+        <!-- 4. Bespoke Design Card -->
+        <div class="home-hero__elemento home-hero__diseno js-home-hero-float is-visible" data-float-parallax="0.16" data-base-rotate="-3.73" aria-hidden="true">
+          <div class="diseno-inner">
+            <div class="diseno-badge">CREATIVE TECH</div>
+            <div class="diseno-title">Diseño a medida</div>
+            <div class="diseno-stat">
+              <strong>60</strong><span>fps kinetic</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Laptop Device Mockup -->
+        <div class="home-hero__elemento home-hero__pc js-home-hero-float is-visible" data-float-parallax="0.18" data-base-rotate="-3.70" aria-hidden="true">
+          <div class="home-hero__pc-contenedor">
+            <div class="laptop-mockup-frame">
+              <div class="laptop-mockup-screen">
+                <div class="screen-bar"></div>
+                <div class="screen-pill"></div>
+                <div class="screen-line"></div>
+                <div class="screen-columns"><span></span><span></span><span></span></div>
+              </div>
+              <div class="laptop-mockup-base"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Smartphone Mobile Screen -->
+        <div class="home-hero__elemento home-hero__celular js-home-hero-float is-visible" data-float-parallax="0.11" data-base-rotate="4.35" aria-hidden="true">
+          <div class="home-hero__celular-contenedor">
+            <div class="celular-notch"></div>
+            <div class="celular-content">
+              <div class="celular-avatar"></div>
+              <div class="celular-stripe w-80"></div>
+              <div class="celular-stripe w-60"></div>
+              <div class="celular-card-thumb"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Modo IA Pill Switch -->
+        <div class="home-hero__elemento home-hero__switch js-home-hero-float is-visible" data-float-parallax="0.06" data-float-center="1" data-base-rotate="0.23" aria-hidden="true">
+          <div class="home-hero__switch-pill js-home-hero-switch" data-switch-interval="4000" role="button" tabindex="0" aria-label="Toggle Modo IA">
+            <span class="home-hero__switch-label">Modo IA</span>
+            <span class="home-hero__switch-toggle">
+              <span class="home-hero__switch-toggle-knob"></span>
+            </span>
+          </div>
+        </div>
+
+        <!-- 8. Figma Comment Bubble 1 -->
+        <div class="comentario-figma home-hero__elemento home-hero__comentario home-hero__comentario--1 js-home-hero-float is-visible" data-float-parallax="0.09" data-base-rotate="0.05" aria-hidden="true">
+          <div class="comentario-figma__burbuja">
+            <span class="comentario-figma__avatar-pill" style="background:#ff6b4a;">S</span>
+            <div class="comentario-figma__contenido">
+              <p class="comentario-figma__header"><strong>Samnun</strong> <span>justo ahora</span></p>
+              <p class="comentario-figma__texto">Hagamos tu nuevo sitio web.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Figma Comment Bubble 2 -->
+        <div class="comentario-figma home-hero__elemento home-hero__comentario home-hero__comentario--2 js-home-hero-float is-visible" data-float-parallax="0.12" data-float-center="1" data-base-rotate="0.78" aria-hidden="true">
+          <div class="comentario-figma__burbuja">
+            <span class="comentario-figma__avatar-pill" style="background:#0d99ff;">M</span>
+            <div class="comentario-figma__contenido">
+              <p class="comentario-figma__header"><strong>Murtayes</strong> <span>justo ahora</span></p>
+              <p class="comentario-figma__texto">Diseñado y desarrollado a medida.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating App Badges -->
+        <div class="home-hero__apps" aria-hidden="true">
+          <div class="home-hero__app js-home-hero-float" data-float-parallax="0.05" data-base-rotate="0.49" style="top: 22%; left: 32%;">
+            <img src="assets/icons/react-light.svg" alt="React" width="28" height="28" loading="lazy">
+          </div>
+          <div class="home-hero__app js-home-hero-float" data-float-parallax="0.06" data-base-rotate="0.54" style="top: 26%; right: 30%;">
+            <img src="assets/icons/figma.svg" alt="Figma" width="22" height="28" loading="lazy">
+          </div>
+          <div class="home-hero__app js-home-hero-float" data-float-parallax="0.05" data-base-rotate="0.45" style="bottom: 24%; left: 34%;">
+            <img src="assets/icons/notion.svg" alt="Notion" width="26" height="28" loading="lazy">
+          </div>
+          <div class="home-hero__app js-home-hero-float" data-float-parallax="0.07" data-base-rotate="0.38" style="bottom: 22%; right: 32%;">
+            <img src="assets/icons/nextdotjs.svg" alt="Next.js" width="28" height="28" loading="lazy">
+          </div>
+          <div class="home-hero__app js-home-hero-float" data-float-parallax="0.05" data-float-center="1" data-base-rotate="0.62" style="bottom: 12%; left: 50%;">
+            <img src="assets/icons/tailwind-css.svg" alt="Tailwind CSS" width="28" height="28" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Autonomous Multiplayer Role Cursors with Exact Figma Vector Outline -->
+        <div class="home-hero__cursores" aria-hidden="true">
+          <!-- Shared Drop Shadow Filter for Cursors -->
+          <svg width="0" height="0" style="position:absolute;">
+            <defs>
+              <filter id="filter-figma-cursor" x="-2" y="-2" width="26" height="28" filterUnits="userSpaceOnUse">
+                <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-opacity="0.25" />
+              </filter>
+            </defs>
+          </svg>
+
+          <!-- 1. Desarrollador (#00d2b4) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="-380" data-offset-y="180" data-cursor-delay="0" style="--cursor-color: #00d2b4;">
+            <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
+              <g filter="url(#filter-figma-cursor)">
+                <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#00d2b4"></path>
+                <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
+              </g>
+            </svg>
+            <span class="home-hero__cursor-label" style="background:#00d2b4;">Desarrollador</span>
+          </div>
+
+          <!-- 2. Cliente (#ff6b4a) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="360" data-offset-y="150" data-cursor-delay="510" style="--cursor-color: #ff6b4a;">
+            <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
+              <g filter="url(#filter-figma-cursor)">
+                <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#ff6b4a"></path>
+                <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
+              </g>
+            </svg>
+            <span class="home-hero__cursor-label" style="background:#ff6b4a;">Cliente</span>
+          </div>
+
+          <!-- 3. Director creativo (#0fa958) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="-180" data-offset-y="-240" data-cursor-delay="1020" style="--cursor-color: #0fa958;">
+            <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
+              <g filter="url(#filter-figma-cursor)">
+                <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#0fa958"></path>
+                <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
+              </g>
+            </svg>
+            <span class="home-hero__cursor-label" style="background:#0fa958;">Director creativo</span>
+          </div>
+
+          <!-- 4. Diseñador UI (#9b51e0) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="-420" data-offset-y="-120" data-cursor-delay="255" style="--cursor-color: #9b51e0;">
+            <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
+              <g filter="url(#filter-figma-cursor)">
+                <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#9b51e0"></path>
+                <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
+              </g>
+            </svg>
+            <span class="home-hero__cursor-label" style="background:#9b51e0;">Diseñador UI</span>
+          </div>
+
+          <!-- 5. Diseñador UX (#ff4081) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="-280" data-offset-y="70" data-cursor-delay="765" style="--cursor-color: #ff4081;">
+            <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
+              <g filter="url(#filter-figma-cursor)">
+                <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#ff4081"></path>
+                <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
+              </g>
+            </svg>
+            <span class="home-hero__cursor-label" style="background:#ff4081;">Diseñador UX</span>
+          </div>
+
+          <!-- 6. Project Manager (#2d9cdb) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="260" data-offset-y="-150" data-cursor-delay="1360" style="--cursor-color: #2d9cdb;">
+            <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
+              <g filter="url(#filter-figma-cursor)">
+                <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#2d9cdb"></path>
+                <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
+              </g>
+            </svg>
+            <span class="home-hero__cursor-label" style="background:#2d9cdb;">Project Manager</span>
+          </div>
+
+          <!-- 7. QA / Desarrollador 2 (#f2c94c) -->
+          <div class="home-hero__cursor js-home-hero-cursor" data-offset-x="180" data-offset-y="240" data-cursor-delay="1700" style="--cursor-color: #f2c94c;">
+            <svg class="cursor-svg" width="16" height="18" viewBox="0 0 22 24" fill="none">
+              <g filter="url(#filter-figma-cursor)">
+                <path d="M6.47489 17.1216L4.00903 2.58942C3.93912 2.17746 4.3754 1.86658 4.74197 2.06714L17.5232 9.06009C17.9445 9.29057 17.8302 9.92457 17.355 9.99355L11.0105 10.9145C10.8527 10.9374 10.7153 11.0342 10.6406 11.1752L7.40964 17.272C7.18605 17.694 6.55477 17.5923 6.47489 17.1216Z" fill="#f2c94c"></path>
+                <path d="M3.02285 2.75718C2.81967 1.55981 4.04211 0.646628 5.11855 1.13804L5.22207 1.1898L18.0033 8.18296C19.2669 8.87447 18.924 10.7758 17.4984 10.9828L11.4047 11.8666L8.29335 17.7406C7.6225 19.0061 5.7283 18.7007 5.48867 17.2884L3.02285 2.75718Z" stroke="white" stroke-width="2"></path>
+              </g>
+            </svg>
+            <span class="home-hero__cursor-label" style="background:#f2c94c; color:#060606;">QA Engineer</span>
+          </div>
         </div>
       </div>
     </section>
