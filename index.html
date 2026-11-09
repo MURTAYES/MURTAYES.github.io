@@ -145,31 +145,35 @@
               <span>Where raw technical architecture converges with fluid kinetic motion.</span>
             </p>
 
-            <!-- Interactive Kinetic Dock -->
+            <!-- Interactive Kinetic Dock: Decrypt Text Terminal CLI Card -->
             <div class="hero-silhouette__interactive-dock">
-              <!-- Action Row: Magnetic Roll CTA Button + Kinetic Equalizer Wave -->
-              <div class="hero-dock__action-row">
-                <a href="#about" class="hero-dock__cta-btn" data-cursor="Explore">
-                  <span class="hero-dock__cta-label">
-                    <span class="hero-dock__cta-text">Explore Portfolio</span>
-                    <span class="hero-dock__cta-text hero-dock__cta-text--clone" aria-hidden="true">Explore Portfolio</span>
+              <a href="#about" class="decrypt-terminal-card" data-cursor="Explore" aria-label="Explore Portfolio">
+                <span class="decrypt-terminal-badge" aria-hidden="true">
+                  <span class="decrypt-terminal-dot"></span>
+                  <span class="decrypt-terminal-dot"></span>
+                  <span class="decrypt-terminal-dot"></span>
+                  <span class="decrypt-terminal-tag">BASH</span>
+                </span>
+                <div class="decrypt-terminal-line">
+                  <span class="decrypt-terminal-prompt" aria-hidden="true">$</span>
+                  <span class="decrypt-terminal-body js-decrypt-text"
+                    data-decrypt="samnun.init({ craft: 'creative_engineer', motion: 'fluid' })"
+                    data-speed="35"
+                    data-stagger="30"
+                    data-start-delay="400"
+                    data-jitter="70"
+                    data-loop="6500">
+                    samnun.init({ craft: 'creative_engineer', motion: 'fluid' })
                   </span>
-                  <span class="hero-dock__cta-arrow-circle" aria-hidden="true">
-                    <svg class="hero-dock__cta-arrow" viewBox="0 0 16 16" fill="none">
-                      <path d="M8 3.5V12.5M8 12.5L12 8.5M8 12.5L4 8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </a>
-
-                <div class="hero-dock__wave" aria-label="Interactive visualizer" title="60 FPS Interaction Engine">
-                  <span class="hero-dock__wave-bar" style="--bar-delay: 0.05s; --bar-h: 20px;"></span>
-                  <span class="hero-dock__wave-bar" style="--bar-delay: 0.3s; --bar-h: 30px;"></span>
-                  <span class="hero-dock__wave-bar" style="--bar-delay: 0.18s; --bar-h: 15px;"></span>
-                  <span class="hero-dock__wave-bar" style="--bar-delay: 0.45s; --bar-h: 26px;"></span>
-                  <span class="hero-dock__wave-bar" style="--bar-delay: 0.22s; --bar-h: 18px;"></span>
-                  <span class="hero-dock__wave-tag">60 FPS</span>
+                  <span class="decrypt-terminal-caret" aria-hidden="true"></span>
                 </div>
-              </div>
+                <div class="decrypt-terminal-cta" aria-hidden="true">
+                  <span class="decrypt-cta-label">Explore</span>
+                  <svg class="decrypt-cta-icon" viewBox="0 0 16 16" fill="none">
+                    <path d="M8 3.5V12.5M8 12.5L12 8.5M8 12.5L4 8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -1520,6 +1524,7 @@ npm run dev</code></pre>
     <script src="js/preloader.js" defer></script>
     <script src="js/canvas.js" defer></script>
     <script src="js/navigation.js" defer></script>
+    <script src="js/decrypt-text.js" defer></script>
     <script src="js/quote.js" defer></script>
     <script src="js/works.js" defer></script>
     <script src="js/cursor.js" defer></script>
