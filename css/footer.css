@@ -1,142 +1,46 @@
 /* --------------------------------------------------------------------------
-   08. MINIMALIST SINGLE-LINE ARCHITECTURAL COLOPHON FOOTER (LIGHT THEME)
-   Pure Vanilla CSS System
+   08. MINIMALIST ARCHITECTURAL COLOPHON FOOTER (ONLINES REFERENCE DESIGN)
+   Single-Line Centered Legal Typography with Dotted Top Divider
    -------------------------------------------------------------------------- */
 
 .site-colophon {
   position: relative;
   width: 100%;
-  background-color: var(--_color---bg-page, #fbfbfa);
-  color: #666666;
-  padding: 24px clamp(1.5rem, 5vw, 4rem);
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  color: #888888;
+  padding: 28px clamp(1.5rem, 5vw, 4rem);
+  border-top: 1px dotted rgba(0, 0, 0, 0.22);
   box-sizing: border-box;
-  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   z-index: 10;
+  text-align: center;
 }
 
 .site-colophon__container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+  display: block;
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
 }
 
-.site-colophon__left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-.colophon-brand {
-  color: #111111;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
-.colophon-role {
-  color: #666666;
-  font-size: 0.8rem;
-}
-
-.colophon-copy {
+.colophon-legal-text {
+  margin: 0;
+  line-height: 1.8;
   color: #888888;
-  font-size: 0.78rem;
-}
-
-.colophon-sep {
-  color: rgba(0, 0, 0, 0.18);
-  font-size: 0.8rem;
-  user-select: none;
-}
-
-.site-colophon__center {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.8rem;
-  color: #666666;
-  white-space: nowrap;
-}
-
-.colophon-location {
-  color: #555555;
-}
-
-.colophon-time #footer-live-time {
-  color: #10b981;
-  font-weight: 700;
-}
-
-.site-colophon__right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  white-space: nowrap;
 }
 
 .colophon-link {
-  color: #666666;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
+  color: #777777;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   transition: color 0.2s ease;
-  cursor: pointer;
 }
 
 .colophon-link:hover {
-  color: #111111;
-}
-
-.colophon-top-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  color: #444444;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.78rem;
-  font-weight: 700;
-  border-radius: 9999px;
-  padding: 5px 12px;
-  cursor: pointer;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  transition: all 0.2s ease;
-}
-
-.colophon-top-btn:hover {
-  background: #111111;
-  color: #ffffff;
-  border-color: #111111;
-  transform: translateY(-1px);
-}
-
-@media (max-width: 960px) {
-  .site-colophon {
-    padding: 20px 1.25rem;
-  }
-
-  .site-colophon__container {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-  }
-
-  .site-colophon__left,
-  .site-colophon__center,
-  .site-colophon__right {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
+  color: #0066ff;
 }
 
 /* --------------------------------------------------------------------------

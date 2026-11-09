@@ -19,3 +19,4 @@ description: Asymmetrical staggered architectural layout for Selected Works with
    - Configured all 3 `.win` inspection modals with sharp right angles, prominent hero image frames (`assets/images/appykit.jpg`, `assets/images/pharma.jpg`, `assets/images/edu52-banner.webp`), architectural captions, technical highlights, and action buttons.
 6. **Multi-Folder Genie Animation**:
    - Updated `js/works.js` to animate each window directly from and back into its respective folder flap with GPU-accelerated horizontal strips and smoothstep funnel physics.
+

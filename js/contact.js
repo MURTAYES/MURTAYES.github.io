@@ -1,106 +1,75 @@
 /**
  * Collaborative Workspace Contact Section Module (Pure Vanilla JavaScript)
- * Handles autonomous Lissajous "Cliente" cursor drift, mouse override,
- * dual-layer spotlight dot grid tracking, and floating element parallax.
+ * Handles interactive mouse parallax on floating cards and smooth cursor dynamics.
+ * Matches Onlines Architectural Studio Design.
  */
 (function () {
   "use strict";
 
   function initContactSection() {
     const stage = document.querySelector(".js-contacto-stage");
-    const cursor = document.querySelector(".js-cliente-cursor");
-    if (!stage || !cursor) return;
+    if (!stage) return;
+
+    const cursor = stage.querySelector(".contacto-client-cursor, .js-cliente-cursor");
+    const floatItems = stage.querySelectorAll('[data-float="true"], .contacto-app-tile');
+
+    const getBaseRotation = (item) => {
+      if (item.classList.contains("contacto-card--chart")) return -4;
+      if (item.classList.contains("contacto-card--photo-desk")) return 6;
+      if (item.classList.contains("contacto-card--photo-laptop")) return -6;
+      if (item.classList.contains("contacto-card--wireframe")) return 4;
+      return 0;
+    };
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
-      const w = stage.clientWidth;
-      const h = stage.clientHeight;
-      cursor.style.transform = `translate3d(${w * 0.65}px, ${h * 0.45}px, 0)`;
-      stage.style.setProperty("--dot-lit-x", `${w * 0.65}px`);
-      stage.style.setProperty("--dot-lit-y", `${h * 0.45}px`);
-      return;
-    }
+    if (prefersReducedMotion) return;
 
+    let targetX = 0;
+    let targetY = 0;
+    let currX = 0;
+    let currY = 0;
     let isHovered = false;
     let isVisible = false;
-    let targetX = stage.clientWidth * 0.5;
-    let targetY = stage.clientHeight * 0.5;
-    let currX = targetX;
-    let currY = targetY;
-    let animationFrameId = null;
+    let animId = null;
 
-    // Floating cards for subtle mouse parallax
-    const floatItems = stage.querySelectorAll('[data-float="true"]');
-
-    function updateAnimation(timestamp) {
+    function update() {
       if (!isVisible) {
-        animationFrameId = requestAnimationFrame(updateAnimation);
+        animId = requestAnimationFrame(update);
         return;
       }
 
-      const rect = stage.getBoundingClientRect();
-      const stageW = rect.width || 600;
-      const stageH = rect.height || 500;
-
       if (isHovered) {
-        // Smooth lerp toward mouse pointer
-        currX += (targetX - currX) * 0.14;
-        currY += (targetY - currY) * 0.14;
+        currX += (targetX - currX) * 0.1;
+        currY += (targetY - currY) * 0.1;
       } else {
-        // Autonomous organic Lissajous curve
-        const t = timestamp || performance.now();
-        const lissajousX = stageW * (0.5 + 0.34 * Math.sin(t * 0.0011 + 0.8));
-        const lissajousY = stageH * (0.5 + 0.28 * Math.sin(t * 0.0016));
-        currX += (lissajousX - currX) * 0.06;
-        currY += (lissajousY - currY) * 0.06;
+        currX += (0 - currX) * 0.06;
+        currY += (0 - currY) * 0.06;
       }
 
-      // Update cursor coordinates
-      cursor.style.transform = `translate3d(${currX}px, ${currY}px, 0)`;
+      floatItems.forEach((item, index) => {
+        const factor = 4 + (index % 5) * 2.5;
+        const r = getBaseRotation(item);
+        item.style.transform = `translate3d(${currX * factor}px, ${currY * factor}px, 0) rotate(${r}deg)`;
+      });
 
-      // Update dual-layer spotlight dot grid CSS variables
-      stage.style.setProperty("--dot-lit-x", `${currX}px`);
-      stage.style.setProperty("--dot-lit-y", `${currY}px`);
-
-      animationFrameId = requestAnimationFrame(updateAnimation);
+      animId = requestAnimationFrame(update);
     }
 
-    // Pointer events on stage
-    stage.addEventListener("mouseenter", (e) => {
+    stage.addEventListener("mousemove", (e) => {
       isHovered = true;
       const rect = stage.getBoundingClientRect();
-      targetX = e.clientX - rect.left;
-      targetY = e.clientY - rect.top;
-    });
-
-    stage.addEventListener("mousemove", (e) => {
-      const rect = stage.getBoundingClientRect();
-      targetX = e.clientX - rect.left;
-      targetY = e.clientY - rect.top;
-
-      // Parallax effect on floating items
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const offX = (targetX - centerX) / centerX;
-      const offY = (targetY - centerY) / centerY;
-
-      floatItems.forEach((item, index) => {
-        const factor = 4 + (index % 3) * 3;
-        const rotate = item.classList.contains("contacto-badge-aa") ? -8 : 0;
-        item.style.transform = `translate3d(${offX * factor}px, ${offY * factor}px, 0) rotate(${rotate}deg)`;
-      });
+      targetX = (e.clientX - rect.left - centerX) / centerX;
+      targetY = (e.clientY - rect.top - centerY) / centerY;
     });
 
     stage.addEventListener("mouseleave", () => {
       isHovered = false;
-      // Reset floating items
-      floatItems.forEach((item) => {
-        const rotate = item.classList.contains("contacto-badge-aa") ? -8 : 0;
-        item.style.transform = `translate3d(0, 0, 0) rotate(${rotate}deg)`;
-      });
+      targetX = 0;
+      targetY = 0;
     });
 
-    // IntersectionObserver to conserve animation frames when offscreen
     if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -115,31 +84,9 @@
       isVisible = true;
     }
 
-    // Email copy-to-clipboard feedback
-    const emailBtn = document.querySelector(".home-contacto__btn-email");
-    if (emailBtn) {
-      emailBtn.addEventListener("click", (e) => {
-        const email = "samnun@murtayes.com";
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(email).then(() => {
-            const span = emailBtn.querySelector("span");
-            if (span) {
-              const original = span.textContent;
-              span.textContent = "Copied to clipboard!";
-              setTimeout(() => {
-                span.textContent = original;
-              }, 2000);
-            }
-          }).catch(() => {});
-        }
-      });
-    }
-
-    // Kick off animation loop
-    animationFrameId = requestAnimationFrame(updateAnimation);
+    animId = requestAnimationFrame(update);
   }
 
-  // Export & auto-init
   window.initContactSection = initContactSection;
 
   if (document.readyState === "loading") {

@@ -8,3 +8,4 @@ Redesign the Selected Works section (`#works`) into an asymmetrical, staggered e
 4. Sharp corners (`border-radius: 0`) for folders, flaps, sheets, tags, and tabs.
 5. Sharp-cornered inspection windows when opened, with prominent editorial project imagery, captions, technical highlights, and repository links.
 6. Multi-folder genie animation handling in `js/works.js`.
+
