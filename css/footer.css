@@ -1,15 +1,15 @@
 /* --------------------------------------------------------------------------
-   08. MINIMALIST SINGLE-LINE ARCHITECTURAL COLOPHON FOOTER
+   08. MINIMALIST SINGLE-LINE ARCHITECTURAL COLOPHON FOOTER (LIGHT THEME)
    Pure Vanilla CSS System
    -------------------------------------------------------------------------- */
 
 .site-colophon {
   position: relative;
   width: 100%;
-  background-color: #141414;
-  color: #777777;
+  background-color: var(--_color---bg-page, #fbfbfa);
+  color: #666666;
   padding: 24px clamp(1.5rem, 5vw, 4rem);
-  border-top: 1px dashed rgba(255, 255, 255, 0.14);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
   font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.85rem;
@@ -35,23 +35,23 @@
 }
 
 .colophon-brand {
-  color: #ffffff;
+  color: #111111;
   font-weight: 700;
   letter-spacing: 0.06em;
 }
 
 .colophon-role {
-  color: #a3a3a3;
+  color: #666666;
   font-size: 0.8rem;
 }
 
 .colophon-copy {
-  color: #666666;
+  color: #888888;
   font-size: 0.78rem;
 }
 
 .colophon-sep {
-  color: rgba(255, 255, 255, 0.18);
+  color: rgba(0, 0, 0, 0.18);
   font-size: 0.8rem;
   user-select: none;
 }
@@ -62,12 +62,12 @@
   gap: 8px;
   font-family: var(--font-mono, monospace);
   font-size: 0.8rem;
-  color: #888888;
+  color: #666666;
   white-space: nowrap;
 }
 
 .colophon-location {
-  color: #aaaaaa;
+  color: #555555;
 }
 
 .colophon-time #footer-live-time {
@@ -83,7 +83,7 @@
 }
 
 .colophon-link {
-  color: #888888;
+  color: #666666;
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 600;
@@ -92,29 +92,30 @@
 }
 
 .colophon-link:hover {
-  color: #ffffff;
+  color: #111111;
 }
 
 .colophon-top-btn {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #888888;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #444444;
   font-family: var(--font-mono, monospace);
   font-size: 0.78rem;
   font-weight: 700;
   border-radius: 9999px;
   padding: 5px 12px;
   cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   transition: all 0.2s ease;
 }
 
 .colophon-top-btn:hover {
-  background: #ffffff;
-  color: #141414;
-  border-color: #ffffff;
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
   transform: translateY(-1px);
 }
 
