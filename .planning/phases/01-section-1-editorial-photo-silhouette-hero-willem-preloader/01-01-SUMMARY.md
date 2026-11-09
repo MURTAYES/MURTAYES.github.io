@@ -44,3 +44,4 @@ Section 1 of the portfolio has been completely transformed to match the referenc
 - Automated HTML verification passed: `.hero--silhouette`, "Samnun", "Murtayes", "Brand Design" all present.
 - Automated CSS verification passed: `.hero--silhouette`, `hero-bg.jpg`, `.hero-silhouette__tag` properly defined.
 - Automated JS verification passed: `triggerBlossomAndFlight`, `.hero--silhouette` element targeting confirmed.
+

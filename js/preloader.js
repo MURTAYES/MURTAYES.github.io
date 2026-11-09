@@ -37,9 +37,6 @@
     const growingImage = container.querySelector(".willem__growing-image");
     const headingStart = container.querySelectorAll(".willem__h1-start .willem__letter");
     const headingEnd = container.querySelectorAll(".willem__h1-end .willem__letter");
-    const img1 = container.querySelector(".willem__cover-image-extra.is--1");
-    const img2 = container.querySelector(".willem__cover-image-extra.is--2");
-    const img3 = container.querySelector(".willem__cover-image-extra.is--3");
     const heroCard = container.querySelector(".willem__card-hero.is--4");
     const loaderLogo = heroCard ? heroCard.querySelector("#loader-brand-logo") : null;
     const heroSection = container.querySelector(".hero--silhouette") || container.querySelector(".hero--wilcock") || container.querySelector(".hero");
@@ -62,7 +59,7 @@
       }, 50 + i * 25);
     });
 
-    // Step 2: Expand center cutout box to 16:9 ratio
+    // Step 2: Expand center cutout box to 16:9 ratio with brand logo ready
     if (box) {
       box.style.width = "0px";
       box.style.transition = "width 0.9s cubic-bezier(0.65, 0, 0.35, 1)";
@@ -80,68 +77,15 @@
       }, 180);
     }
 
-    // Step 3: Cycle Logos (Gemini -> Claude -> GitHub -> Brand Logo)
-    if (img1) {
-      img1.style.opacity = "1";
-      img1.style.transform = "scale(1)";
-      img1.style.transition = "opacity 0.28s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1)";
-    }
-    if (img2) {
-      img2.style.opacity = "0";
-      img2.style.transform = "scale(0.85)";
-      img2.style.transition = "opacity 0.28s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1)";
-    }
-    if (img3) {
-      img3.style.opacity = "0";
-      img3.style.transform = "scale(0.85)";
-      img3.style.transition = "opacity 0.28s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1)";
-    }
     if (heroCard) {
-      heroCard.style.opacity = "0";
-      heroCard.style.transform = "scale(0.85)";
-      heroCard.style.transition = "opacity 0.32s ease, transform 0.36s cubic-bezier(0.16, 1, 0.3, 1)";
+      heroCard.style.opacity = "1";
+      heroCard.style.transform = "scale(1)";
     }
 
-    // Transition: Gemini -> Claude
-    setTimeout(() => {
-      if (img1) {
-        img1.style.opacity = "0";
-        img1.style.transform = "scale(0.85)";
-      }
-      if (img2) {
-        img2.style.opacity = "1";
-        img2.style.transform = "scale(1)";
-      }
-    }, 950);
-
-    // Transition: Claude -> GitHub
-    setTimeout(() => {
-      if (img2) {
-        img2.style.opacity = "0";
-        img2.style.transform = "scale(0.85)";
-      }
-      if (img3) {
-        img3.style.opacity = "1";
-        img3.style.transform = "scale(1)";
-      }
-    }, 1550);
-
-    // Transition: GitHub -> User's Brand Logo
-    setTimeout(() => {
-      if (img3) {
-        img3.style.opacity = "0";
-        img3.style.transform = "scale(0.85)";
-      }
-      if (heroCard) {
-        heroCard.style.opacity = "1";
-        heroCard.style.transform = "scale(1)";
-      }
-    }, 2150);
-
-    // Step 4: Fullscreen Blossom & Logo Flight to Navbar
+    // Step 3: Fullscreen Blossom & Brand Logo Flight directly to Navbar
     setTimeout(() => {
       triggerBlossomAndFlight();
-    }, 2750);
+    }, 1150);
 
     function triggerBlossomAndFlight() {
       if (!heroSection) return;
@@ -173,10 +117,10 @@
         const startRect = loaderLogo.getBoundingClientRect();
         const targetRect = navLogo.getBoundingClientRect();
 
-        const targetW = targetRect.width || 48;
-        const targetH = targetRect.height || 48;
-        const targetX = targetRect.width ? targetRect.left : (window.innerWidth - (window.innerWidth <= 768 ? 60 : 80));
-        const targetY = targetRect.height ? targetRect.top : (window.innerWidth <= 768 ? 12 : 18);
+        const targetW = targetRect.width || 42;
+        const targetH = targetRect.height || 42;
+        const targetX = targetRect.width ? targetRect.left : (window.innerWidth <= 768 ? 24 : 48);
+        const targetY = targetRect.height ? targetRect.top : (window.innerWidth <= 768 ? 16 : 24);
 
         const startW = startRect.width || targetW;
         const startH = startRect.height || targetH;

@@ -56,23 +56,22 @@
       <img src="assets/images/logo.svg" alt="Samnun Murtayes Logo" class="header__brand-logo" width="48" height="48">
     </a>
 
-    <nav class="header__nav-center nav-anim" aria-label="Main Navigation">
-      <a class="header__nav-link" data-cursor="About" href="#about">About Me</a>
-      <a class="header__nav-link" data-cursor="Contact" href="#contact">Contact</a>
-      <a class="header__nav-link" data-cursor="Works" href="#works">Works</a>
-    </nav>
-
     <div class="header__actions nav-anim">
       <button type="button" class="header__menu-button" data-navigation-toggle="toggle" aria-expanded="false"
-        aria-controls="site-menu">
+        aria-controls="site-menu" aria-label="Toggle navigation">
         <span class="header__bars" aria-hidden="true">
           <span class="header__bar"></span>
           <span class="header__bar"></span>
         </span>
-        Menu
       </button>
     </div>
   </header>
+
+  <!-- Side Nominee Badge (Matching Reference Screenshot) -->
+  <aside class="side-nominee-badge" aria-label="Recognition">
+    <span class="side-nominee-badge__mark">W.</span>
+    <span class="side-nominee-badge__label">Nominee</span>
+  </aside>
 
   <!-- Full-Screen Mobile Drawer Navigation -->
   <nav class="bold-nav-full" data-navigation-status="not-active">
@@ -117,14 +116,8 @@
           <div class="willem-loader__box">
             <div class="willem-loader__box-inner">
               <div class="willem__growing-image">
-                <img src="assets/icons/gemini.svg" class="willem__cover-image-extra is--1" alt="Google Gemini"
-                  loading="eager">
-                <img src="assets/icons/claude-code.svg" class="willem__cover-image-extra is--2" alt="Claude Code"
-                  loading="eager">
-                <img src="assets/icons/github-light.svg" class="willem__cover-image-extra is--3" alt="GitHub"
-                  loading="eager">
-                <!-- 4th Item: User's Brand Logo (assets/images/logo.svg) -->
-                <div class="willem__card-hero is--4" id="loader-brand-card">
+                <!-- User's Brand Logo (assets/images/logo.svg) -->
+                <div class="willem__card-hero is--4 is--active" id="loader-brand-card">
                   <img src="assets/images/logo.svg" class="willem__logo-hero" id="loader-brand-logo"
                     alt="Samnun Murtayes Logo">
                 </div>
@@ -141,9 +134,19 @@
         </h1>
       </div>
 
-      <!-- 02B. FULL SAMNUN MURTAYES EDITORIAL SILHOUETTE HERO (Matching Reference Design) -->
+      <!-- 02B. FULL SAMNUN MURTAYES EDITORIAL SILHOUETTE HERO (Matching Reference Design with hero.png) -->
       <section class="hero hero--silhouette" aria-label="Hero">
-        <div class="hero-silhouette__bg" aria-hidden="true"></div>
+        <!-- Studio High-Key Backlight Environment -->
+        <div class="hero-silhouette__stage" aria-hidden="true">
+          <div class="hero-silhouette__glow"></div>
+        </div>
+
+        <!-- Silhouette Figure Cutout (assets/images/hero.png) -->
+        <div class="hero-silhouette__figure-wrap" aria-hidden="true">
+          <img src="assets/images/hero.png" alt="Samnun Murtayes Silhouette" class="hero-silhouette__figure" loading="eager" decoding="async">
+        </div>
+
+        <!-- Foreground Editorial Content -->
         <div class="hero-silhouette__container">
           <div class="hero-silhouette__content">
             <h1 class="hero-silhouette__title" aria-label="Samnun Murtayes">
@@ -1506,82 +1509,6 @@ npm run dev</code></pre>
       </div>
     </div>
 
-    <!-- Unified Global Floating Tech Badges (Physics Across Entire Page - No Section Boundaries) -->
-    <div id="global-physics-stage" class="global-physics-stage float-physics-stage" aria-label="Interactive floating tech badges">
-      <div class="float-physics-item" data-cursor-pill="Python">
-        <img src="assets/icons/python.svg" alt="Python" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="AWS">
-        <img src="assets/icons/aws.svg" alt="AWS" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="OpenAI">
-        <img class="icon-invert-light" src="assets/icons/openai.svg" alt="OpenAI" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="React">
-        <img src="assets/icons/react-light.svg" alt="React" width="30" height="30" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="TypeScript">
-        <img src="assets/icons/typescript.svg" alt="TypeScript" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Docker">
-        <img src="assets/icons/docker.svg" alt="Docker" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Next.js">
-        <img src="assets/icons/nextdotjs.svg" alt="Next.js" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Node.js">
-        <img src="assets/icons/nodejs.svg" alt="Node.js" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Firebase">
-        <img src="assets/icons/firebase.svg" alt="Firebase" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Redis">
-        <img src="assets/icons/redis.svg" alt="Redis" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Supabase">
-        <img src="assets/icons/supabase.svg" alt="Supabase" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Figma">
-        <img src="assets/icons/figma.svg" alt="Figma" width="26" height="30" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Claude Code">
-        <img src="assets/icons/claude-code.svg" alt="Claude Code" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Google Gemini">
-        <img src="assets/icons/gemini.svg" alt="Gemini" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Linux">
-        <img src="assets/icons/linux.svg" alt="Linux" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Apple">
-        <img class="icon-invert-light" src="assets/icons/apple.svg" alt="Apple" width="26" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Swift">
-        <img src="assets/icons/swift.svg" alt="Swift" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="PostgreSQL">
-        <img src="assets/icons/postgresql.svg" alt="PostgreSQL" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="MongoDB">
-        <img src="assets/icons/mongodb.svg" alt="MongoDB" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Tailwind CSS">
-        <img src="assets/icons/tailwind-css.svg" alt="Tailwind CSS" width="30" height="20" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="C++">
-        <img src="assets/icons/c-plusplus.svg" alt="C++" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Notion">
-        <img class="icon-invert-light" src="assets/icons/notion.svg" alt="Notion" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Discord">
-        <img src="assets/icons/discord.svg" alt="Discord" width="28" height="28" loading="lazy" />
-      </div>
-      <div class="float-physics-item" data-cursor-pill="Google Antigravity">
-        <img src="assets/icons/google-antigravity.svg" alt="Google Antigravity" width="28" height="28" loading="lazy" />
-      </div>
-    </div>
-
     <!-- Fluid Interactive Cursor with Fluid Liquid Tail & Hover Badge -->
     <canvas id="cursor-trail-canvas" class="cursor-trail-canvas" aria-hidden="true"></canvas>
     <div class="cursor-dot" aria-hidden="true"></div>
@@ -1591,7 +1518,6 @@ npm run dev</code></pre>
     <script src="js/preloader.js" defer></script>
     <script src="js/canvas.js" defer></script>
     <script src="js/navigation.js" defer></script>
-    <script src="js/physics.js" defer></script>
     <script src="js/works.js" defer></script>
     <script src="js/cursor.js" defer></script>
     <script src="js/process.js" defer></script>

@@ -7,19 +7,16 @@
   left: 0;
   right: 0;
   z-index: 9999;
-  padding: clamp(2px, 0.4vh, 6px) clamp(24px, 5vw, 64px);
-  background: rgba(251, 251, 250, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  padding: clamp(18px, 2.8vh, 32px) clamp(24px, 5vw, 64px);
+  background: transparent;
   border-bottom: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
   box-sizing: border-box;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.6s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+  transition: opacity 0.6s ease;
 }
 
 .header.is-visible,
@@ -30,7 +27,7 @@
 
 /* Header on dark sections */
 .header.is-dark {
-  background: rgba(11, 11, 11, 0.88);
+  background: transparent;
   border-bottom: none;
 }
 
@@ -38,30 +35,11 @@
   filter: brightness(0) invert(1);
 }
 
-.header.is-dark .header__nav-link {
-  color: #edeae4;
+.header.is-dark .header__bar {
+  background-color: #ffffff;
 }
 
-.header.is-dark .header__nav-link:hover {
-  color: var(--_color---orange, #eb381c);
-}
-
-.header.is-dark .header__wave-button {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: #edeae4;
-}
-
-.header.is-dark .header__wave-icon {
-  stroke: #edeae4;
-}
-
-.header.is-dark .header__menu-button {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #edeae4;
-}
-
-/* Brand Logo (Far Right) */
+/* Brand Logo (Far Left) */
 .header__logo {
   align-items: center;
   display: inline-flex;
@@ -72,7 +50,96 @@
 
 .header__brand-logo {
   display: block;
-  width: clamp(42px, 3.8vw, 54px);
+  height: clamp(34px, 3.2vw, 42px);
+  width: auto;
+  object-fit: contain;
+  filter: none;
+  opacity: 1;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s ease, opacity 0.25s ease;
+}
+
+.header__logo:hover .header__brand-logo {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+/* Minimalist Hamburger Button (Two Clean Parallel Bars matching screenshot) */
+.header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header__menu-button {
+  background: transparent !important;
+  border: none !important;
+  padding: 8px 0;
+  margin: 0;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  min-height: 38px;
+  min-width: 38px;
+  touch-action: manipulation;
+}
+
+.header__bars {
+  flex-direction: column;
+  gap: 6px;
+  width: 26px;
+  display: flex;
+}
+
+.header__bar {
+  height: 2px;
+  background-color: #060606;
+  display: block;
+  width: 100%;
+  border-radius: 1px;
+  transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+}
+
+/* Right Edge Nominee Badge (Matching Reference Screenshot) */
+.side-nominee-badge {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 8px 14px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  z-index: 999;
+  user-select: none;
+  pointer-events: auto;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+.side-nominee-badge__mark {
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.side-nominee-badge__label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+}
   height: clamp(42px, 3.8vw, 54px);
   object-fit: contain;
   filter: none;
@@ -498,13 +565,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
+  font-family: var(--font-primary, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif) !important;
   font-size: clamp(2.2rem, 9.5vw, 11vw);
   line-height: 1.15;
   font-weight: 700;
   letter-spacing: -0.04em;
   text-transform: lowercase;
-  color: #201d1d;
+  color: #060606;
   white-space: nowrap;
 }
 
@@ -520,6 +587,9 @@
 
 .willem__letter {
   display: inline-block;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: -0.04em;
   line-height: 1.15;
   padding-bottom: 0.04em;
 }
@@ -688,27 +758,71 @@
   pointer-events: auto;
 }
 
-/* Background image of silhouette person with smooth positioning */
-.hero-silhouette__bg {
+/* Studio high-key backlit backdrop matching hero-bg.jpg */
+.hero-silhouette__stage {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../assets/images/hero-bg.jpg');
-  background-repeat: no-repeat;
-  background-position: right 12% center;
-  background-size: cover;
+  background: radial-gradient(ellipse 72% 76% at 56% 48%, #ffffff 0%, #f6f6f6 32%, #ececec 64%, #dedede 100%);
   z-index: 1;
   pointer-events: none;
 }
 
-.hero-silhouette__bg::before {
-  content: "";
+/* Luminous soft halo glow centered behind the figure */
+.hero-silhouette__glow {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(251, 251, 250, 0.96) 0%, rgba(251, 251, 250, 0.85) 35%, rgba(251, 251, 250, 0.2) 65%, transparent 100%);
+  right: clamp(40px, 16vw, 240px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(450px, 55vw, 900px);
+  height: clamp(450px, 55vw, 900px);
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 32%, rgba(255, 255, 255, 0.25) 55%, transparent 75%);
+  filter: blur(35px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Silhouette Person Figure (hero.png) standing from bottom right */
+.hero-silhouette__figure-wrap {
+  position: absolute;
+  right: clamp(10px, 6vw, 100px);
+  bottom: 0;
+  height: clamp(460px, 86vh, 880px);
+  max-width: 58vw;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   z-index: 2;
   pointer-events: none;
+  user-select: none;
+}
+
+.hero-silhouette__figure {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+  filter: drop-shadow(0 18px 45px rgba(0, 0, 0, 0.12));
+}
+
+@media screen and (max-width: 991px) {
+  .hero-silhouette__figure-wrap {
+    right: 0;
+    height: 70vh;
+    opacity: 0.45;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hero-silhouette__figure-wrap {
+    right: -20px;
+    height: 60vh;
+    opacity: 0.28;
+  }
 }
 
 /* Container & Typography Stage */
