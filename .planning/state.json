@@ -11,43 +11,43 @@
     {
       "number": "2",
       "name": "Manifesto Word Reveal",
-      "status": "pending"
+      "status": "complete"
     },
     {
       "number": "3",
       "name": "Multiplayer Canvas",
-      "status": "pending"
+      "status": "complete"
     },
     {
       "number": "4",
       "name": "Selected Works Folders",
-      "status": "pending"
+      "status": "complete"
     },
     {
       "number": "5",
       "name": "Cinematic Stats",
-      "status": "pending"
+      "status": "complete"
     },
     {
       "number": "6",
       "name": "What I'm Building",
-      "status": "pending"
+      "status": "complete"
     },
     {
       "number": "7",
       "name": "Collaborative Contact",
-      "status": "pending"
+      "status": "complete"
     },
     {
       "number": "8",
       "name": "Colophon Footer",
-      "status": "pending"
+      "status": "complete"
     }
   ],
   "next": {
-    "command": "/gsd-progress --next",
-    "label": "Advance to the next step (plan phase 2)",
-    "reason": "Phase 2 of 8 — needs a plan"
+    "command": "/gsd-progress",
+    "label": "Show progress",
+    "reason": "Unsure of state — showing progress"
   },
-  "updated_at": "2026-11-09T04:06:54.649Z"
+  "updated_at": "2026-11-10T06:43:25.552Z"
 }
