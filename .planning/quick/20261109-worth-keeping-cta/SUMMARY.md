@@ -1,3 +1,10 @@
+---
+status: complete
+date: 2026-11-09
+task: worth-keeping-cta
+description: Replace Section 7 with Worth Keeping architectural CTA and magnetic seal
+---
+
 # Quick Task Summary: "Worth Keeping" Architectural CTA
 
 ## Overview

@@ -153,27 +153,8 @@
     updateNavTheme();
   }
 
-  function initScrollGauge() {
-    const pctEl = document.getElementById("hero-scroll-pct");
-    const fillEl = document.getElementById("hero-scroll-fill");
-    if (!pctEl || !fillEl) return;
-
-    function updateGauge() {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = docHeight > 0 ? Math.min(100, Math.max(0, Math.round((scrollTop / docHeight) * 100))) : 0;
-      pctEl.textContent = `${pct}%`;
-      fillEl.style.height = `${pct}%`;
-    }
-
-    window.addEventListener("scroll", updateGauge, { passive: true });
-    window.addEventListener("resize", updateGauge, { passive: true });
-    updateGauge();
-  }
-
   window.updateNavTheme = updateNavTheme;
   window.initNavigationControllers = initNavigationControllers;
-  window.initScrollGauge = initScrollGauge;
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initNavigationControllers);

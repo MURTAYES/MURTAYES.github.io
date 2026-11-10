@@ -1,3 +1,10 @@
+---
+status: complete
+date: 2026-11-09
+task: works-white-folders-locked
+description: Selected Works white folders, logos, hover animation, and Edu52 locked docket
+---
+
 # Quick Task Summary: Selected Works Modernization & White Folder Design
 
 ## Overview

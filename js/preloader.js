@@ -1,6 +1,7 @@
 /**
  * Preloader & Hero Kinetic Entrance Module
- * Handles scroll lock, letters reveal, logo cycling, and fullscreen blossom
+ * Pure Vanilla JavaScript · 60fps GPU Hardware Accelerated
+ * Handles letters reveal, logo cycling, FLIP brand flight to navbar, and fullscreen blossom.
  */
 (function () {
   "use strict";
@@ -25,6 +26,9 @@
 
   window.scrollTo(0, 0);
 
+  // Safety fallback: Guarantee scrolling unlocks even if an asset fails to load
+  setTimeout(unlockScroll, 3800);
+
   function initHeroPreloader() {
     const container = document.querySelector(".willem-header");
     if (!container) {
@@ -42,8 +46,8 @@
     const img3 = container.querySelector(".willem__cover-image-extra.is--3");
     const heroCard = container.querySelector(".willem__card-hero.is--4");
     const loaderLogo = heroCard ? heroCard.querySelector("#loader-brand-logo") : null;
-    const heroSection = container.querySelector(".hero--silhouette") || container.querySelector(".hero--wilcock") || container.querySelector(".hero");
-    const desktopNav = document.querySelector(".willen-nav");
+    const heroSection = container.querySelector(".hero--silhouette") || container.querySelector(".hero");
+    const desktopNav = document.querySelector(".willen-nav") || document.querySelector(".site-header");
     const navLogo = desktopNav ? desktopNav.querySelector(".header__brand-logo") : null;
 
     lockScroll();
@@ -62,7 +66,7 @@
       }, 50 + i * 25);
     });
 
-    // Step 2: Expand center cutout box to 16:9 ratio with brand logo ready
+    // Step 2: Expand center cutout box to 16:9 ratio
     if (box) {
       box.style.width = "0px";
       box.style.transition = "width 0.9s cubic-bezier(0.65, 0, 0.35, 1)";
@@ -126,7 +130,7 @@
       }
     }, 1550);
 
-    // Transition 3: GitHub -> User's Brand Logo
+    // Transition 3: GitHub -> Brand Logo
     setTimeout(() => {
       if (img3) {
         img3.style.opacity = "0";
@@ -144,7 +148,10 @@
     }, 2750);
 
     function triggerBlossomAndFlight() {
-      if (!heroSection) return;
+      if (!heroSection) {
+        unlockScroll();
+        return;
+      }
 
       const boxRect = box ? box.getBoundingClientRect() : { top: window.innerHeight * 0.45, left: window.innerWidth * 0.45, right: window.innerWidth * 0.55, bottom: window.innerHeight * 0.55 };
       const top = Math.max(0, Math.round(boxRect.top));
@@ -152,7 +159,7 @@
       const right = Math.max(0, Math.round(window.innerWidth - boxRect.right));
       const bottom = Math.max(0, Math.round(window.innerHeight - boxRect.bottom));
 
-      // 4A. Reveal header in place so destination coordinates are rock-solid
+      // 4A. Reveal header in place
       if (desktopNav) {
         desktopNav.classList.add("is-visible");
         desktopNav.style.transform = "none";
@@ -166,7 +173,7 @@
         });
       }
 
-      // 4B. Butter-smooth GPU FLIP flight: Logo glides from cutout box directly into header logo
+      // 4B. GPU FLIP flight: Logo glides from cutout box directly into header logo
       if (loaderLogo && navLogo) {
         navLogo.style.opacity = "0";
 
@@ -183,7 +190,6 @@
         const startX = startRect.left;
         const startY = startRect.top;
 
-        // Create flying logo pinned to target coordinates, transformed from start
         const flyingLogo = document.createElement("img");
         flyingLogo.src = "assets/images/logo.svg";
         flyingLogo.alt = "Samnun Murtayes Logo";
@@ -206,17 +212,14 @@
         const scaleX = startW / targetW;
         const scaleY = startH / targetH;
 
-        // Invert to start position
         flyingLogo.style.transform = `translate3d(${dx.toFixed(2)}px, ${dy.toFixed(2)}px, 0px) scale(${scaleX.toFixed(3)}, ${scaleY.toFixed(3)})`;
         flyingLogo.style.transition = "none";
 
         document.body.appendChild(flyingLogo);
         loaderLogo.style.opacity = "0";
 
-        // Force synchronous reflow so starting state is guaranteed committed
-        flyingLogo.offsetHeight;
+        flyingLogo.offsetHeight; // force reflow
 
-        // Play: Hardware-accelerated GPU curve
         requestAnimationFrame(() => {
           flyingLogo.style.transition = "transform 1.15s cubic-bezier(0.16, 1, 0.3, 1)";
           flyingLogo.style.transform = "translate3d(0px, 0px, 0px) scale(1, 1)";
@@ -240,7 +243,7 @@
         heroSection.style.clipPath = "inset(0px 0px 0px 0px)";
       });
 
-      // 4D. Slide up & fade out "creat" and "ivity"
+      // 4D. Slide up & fade out 'creat' and 'ivity'
       allLetters.forEach((letter) => {
         letter.style.transition = "all 0.55s ease";
         letter.style.transform = "translateY(-30px)";
@@ -272,21 +275,7 @@
         }, 580);
       }
 
-      // Legacy fallback for pixel glyphs
-      const pixelGlyphs = heroSection.querySelectorAll(".pixel-glyph");
-      pixelGlyphs.forEach((glyph, idx) => {
-        glyph.style.display = "inline-block";
-        glyph.style.transform = "translateY(115%)";
-        glyph.style.opacity = "0";
-        glyph.style.transition = "transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s ease";
-
-        setTimeout(() => {
-          glyph.style.transform = "translateY(0%)";
-          glyph.style.opacity = "1";
-        }, 220 + idx * 30);
-      });
-
-      // 4F. Reveal statement, metadata, LinkedIn badge, and scroll gauge
+      // 4F. Reveal statement and metadata
       const heroReveals = heroSection.querySelectorAll("[data-reveal]");
       heroReveals.forEach((el, idx) => {
         el.style.opacity = "0";
@@ -297,28 +286,6 @@
           el.style.transform = "translateY(0px)";
         }, 350 + idx * 100);
       });
-
-      const inBadge = heroSection.querySelector(".hero-editorial__linkedin-badge");
-      if (inBadge) {
-        inBadge.style.opacity = "0";
-        inBadge.style.transform = "scale(0.75)";
-        inBadge.style.transition = "all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
-        setTimeout(() => {
-          inBadge.style.opacity = "1";
-          inBadge.style.transform = "scale(1)";
-        }, 700);
-      }
-
-      const scrollGauge = heroSection.querySelector(".hero-scroll-gauge");
-      if (scrollGauge) {
-        scrollGauge.style.opacity = "0";
-        scrollGauge.style.transform = "translateX(20px)";
-        scrollGauge.style.transition = "opacity 0.8s ease, transform 0.8s ease";
-        setTimeout(() => {
-          scrollGauge.style.opacity = "1";
-          scrollGauge.style.transform = "translateX(0px)";
-        }, 500);
-      }
 
       // Cleanup preloader container and unlock scroll
       setTimeout(() => {
@@ -332,7 +299,7 @@
 
   function revealHeroDirectly() {
     unlockScroll();
-    const heroSection = document.querySelector(".hero--silhouette") || document.querySelector(".hero--wilcock") || document.querySelector(".hero");
+    const heroSection = document.querySelector(".hero--silhouette") || document.querySelector(".hero");
     if (heroSection) {
       heroSection.classList.add("is-active");
       heroSection.style.opacity = "1";
@@ -352,11 +319,6 @@
         interactiveDock.style.opacity = "1";
         interactiveDock.style.transform = "none";
       }
-      const pixelGlyphs = heroSection.querySelectorAll(".pixel-glyph");
-      pixelGlyphs.forEach((g) => {
-        g.style.opacity = "1";
-        g.style.transform = "none";
-      });
       const heroReveals = heroSection.querySelectorAll("[data-reveal]");
       heroReveals.forEach((r) => {
         r.style.opacity = "1";
@@ -374,4 +336,10 @@
   window.initHeroPreloader = initHeroPreloader;
   window.lockScroll = lockScroll;
   window.unlockScroll = unlockScroll;
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHeroPreloader);
+  } else {
+    initHeroPreloader();
+  }
 })();

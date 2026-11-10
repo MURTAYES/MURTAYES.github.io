@@ -21,7 +21,7 @@
   background-color: transparent;
   isolation: isolate;
   box-sizing: border-box;
-  transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --------------------------------------------------------------------------

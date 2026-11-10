@@ -1,6 +1,6 @@
 /**
- * Section 07 — Finale Architectural CTA Module
- * Interactive "Slide to Let's Talk" Controller & Contact Modal Trigger
+ * Section 07 — Finale Architectural CTA & Contact Drawer Module
+ * Interactive "Slide to Let's Talk" Controller & Accessible Contact Modal Drawer
  * Pure Vanilla JavaScript · Zero Dependencies
  */
 (function () {
@@ -15,10 +15,16 @@
     const ctaSection = document.getElementById("contact") || document.querySelector(".cta-section");
     const modal = document.getElementById("contact-modal");
 
+    let resetSlider = function () {};
+
     // ------------------------------------------------------------------------
-    // 1. Modal Helper
+    // 1. Modal Helper (Open & Close)
     // ------------------------------------------------------------------------
-    function openModal() {
+    function openModal(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
       if (!modal) return;
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
@@ -32,14 +38,123 @@
       }, 120);
     }
 
-    // Direct click triggers (if any explicit button exists outside the slider)
-    const directTriggers = document.querySelectorAll("[data-open-contact]");
-    directTriggers.forEach(function (btn) {
-      btn.addEventListener("click", function (e) {
+    function closeModal(e) {
+      if (e) {
         e.preventDefault();
-        openModal();
-      });
+        e.stopPropagation();
+      }
+      if (!modal) return;
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.documentElement.classList.remove("is--modal-open");
+      document.body.classList.remove("is--modal-open");
+      document.body.style.overflow = "";
+
+      if (typeof resetSlider === "function") {
+        setTimeout(resetSlider, 200);
+      }
+    }
+
+    // Direct click triggers (e.g. navbar or buttons with data-open-contact)
+    const directTriggers = document.querySelectorAll(
+      '.nav-button-wrap .btn, [data-open-contact], .footer__big, [href="/contact"], [href="#contact-modal"]'
+    );
+    directTriggers.forEach(function (btn) {
+      btn.addEventListener("click", openModal);
     });
+
+    // Modal Close Triggers (Close button, backdrop click, Escape key)
+    if (modal) {
+      const closeButtons = modal.querySelectorAll("[data-close-contact]");
+      closeButtons.forEach(function (btn) {
+        btn.addEventListener("click", closeModal);
+      });
+
+      modal.addEventListener("click", function (e) {
+        if (e.target.closest("[data-close-contact]") || e.target.classList.contains("contact-modal__backdrop")) {
+          closeModal(e);
+        }
+      });
+
+      window.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal.classList.contains("is-open")) {
+          closeModal(e);
+        }
+      });
+
+      // ----------------------------------------------------------------------
+      // Form Validation & Mock Submission
+      // ----------------------------------------------------------------------
+      const form = document.getElementById("drawer-contact-form");
+      const successBox = modal.querySelector(".contact-form__success");
+      const resetBtn = modal.querySelector("[data-reset-contact]");
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const nameInput = form.querySelector('[name="name"]');
+          const emailInput = form.querySelector('[name="email"]');
+          const messageInput = form.querySelector('[name="message"]');
+          let isValid = true;
+
+          if (nameInput && !nameInput.value.trim()) {
+            nameInput.classList.add("has-error");
+            isValid = false;
+          } else if (nameInput) {
+            nameInput.classList.remove("has-error");
+          }
+
+          if (emailInput && (!emailInput.value.trim() || !emailInput.value.includes("@"))) {
+            emailInput.classList.add("has-error");
+            isValid = false;
+          } else if (emailInput) {
+            emailInput.classList.remove("has-error");
+          }
+
+          if (messageInput && !messageInput.value.trim()) {
+            messageInput.classList.add("has-error");
+            isValid = false;
+          } else if (messageInput) {
+            messageInput.classList.remove("has-error");
+          }
+
+          if (!isValid) return;
+
+          const submitBtn = form.querySelector('button[type="submit"]');
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            const submitText = submitBtn.querySelector(".contact-form__submit-text") || submitBtn;
+            submitText.textContent = "Sending...";
+          }
+
+          setTimeout(function () {
+            form.style.display = "none";
+            if (successBox) successBox.style.display = "flex";
+          }, 450);
+        });
+
+        form.querySelectorAll("input, textarea").forEach(function (field) {
+          field.addEventListener("input", function () {
+            field.classList.remove("has-error");
+          });
+        });
+      }
+
+      if (resetBtn && form && successBox) {
+        resetBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          form.reset();
+          const submitBtn = form.querySelector('button[type="submit"]');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            const submitText = submitBtn.querySelector(".contact-form__submit-text") || submitBtn;
+            submitText.textContent = "Send Message";
+          }
+          form.style.display = "";
+          successBox.style.display = "none";
+        });
+      }
+    }
 
     // ------------------------------------------------------------------------
     // 2. Interactive "Slide to Let's Talk" Slider
@@ -66,7 +181,7 @@
         return maxTravel;
       }
 
-      function resetSlider() {
+      resetSlider = function () {
         isDragging = false;
         hasMoved = false;
         currentX = 0;
@@ -85,7 +200,7 @@
           label.style.opacity = "1";
         }
         slider.setAttribute("aria-valuenow", "0");
-      }
+      };
 
       function triggerUnlock() {
         if (slider.classList.contains("is-unlocked")) return;
@@ -230,35 +345,6 @@
           triggerNudge();
         }
       });
-
-      // Reset slider when modal closes
-      if (modal) {
-        const closeTriggers = modal.querySelectorAll("[data-close-contact]");
-        closeTriggers.forEach(function (trigger) {
-          trigger.addEventListener("click", function () {
-            setTimeout(resetSlider, 350);
-          });
-        });
-
-        window.addEventListener("keydown", function (e) {
-          if (e.key === "Escape" && modal.classList.contains("is-open")) {
-            setTimeout(resetSlider, 350);
-          }
-        });
-
-        if ("MutationObserver" in window) {
-          const observer = new MutationObserver(function (mutations) {
-            mutations.forEach(function (mutation) {
-              if (mutation.attributeName === "class") {
-                if (!modal.classList.contains("is-open")) {
-                  setTimeout(resetSlider, 250);
-                }
-              }
-            });
-          });
-          observer.observe(modal, { attributes: true });
-        }
-      }
     }
   }
 

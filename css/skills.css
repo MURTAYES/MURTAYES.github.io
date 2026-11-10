@@ -87,7 +87,7 @@
 
   .bento-card--c1 {
     grid-column: span 2;
-    grid-row: span 2;
+    grid-row: span 1;
   }
 
   .bento-card--c2 {
@@ -106,7 +106,12 @@
   }
 
   .bento-card--c5 {
-    grid-column: span 2;
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .bento-card--c6 {
+    grid-column: span 1;
     grid-row: span 1;
   }
 }
@@ -118,15 +123,16 @@
     grid-template-rows: auto;
   }
 
-  .bento-card--c1 {
+  .bento-card--c1,
+  .bento-card--c2 {
     grid-column: span 2;
     grid-row: auto;
   }
 
-  .bento-card--c2,
   .bento-card--c3,
   .bento-card--c4,
-  .bento-card--c5 {
+  .bento-card--c5,
+  .bento-card--c6 {
     grid-column: span 1;
     grid-row: auto;
   }

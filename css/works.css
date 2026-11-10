@@ -32,6 +32,10 @@
   position: relative;
   width: 100%;
   background-color: var(--canvas, #F5F5F3);
+  background-image: 
+    radial-gradient(circle at 18% 28%, rgba(255, 255, 255, 0.95) 0%, transparent 45%),
+    radial-gradient(circle at 82% 65%, rgba(230, 230, 226, 0.75) 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.6) 0%, transparent 40%);
   color: var(--ink, #0A0A0A);
   padding-top: clamp(64px, 8vw, 112px);
   padding-bottom: clamp(80px, 10vw, 140px);
@@ -40,16 +44,71 @@
   transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+body.is-dark .works-desk-section {
+  background-color: #010101;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  color: #ffffff;
+}
+
+body.is-dark .works-title {
+  color: #ffffff;
+}
+
 .works-desk-container {
+  position: relative;
+  z-index: 1;
   max-width: var(--max-canvas, 1312px);
   margin: 0 auto;
   padding: 0 var(--margin, clamp(24px, 6vw, 96px));
   box-sizing: border-box;
 }
 
+/* ==========================================================================
+   SECTION BACKGROUND LOGO OUTLINE WATERMARK
+   ========================================================================== */
+
+.works-bg-watermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.works-bg-watermark img {
+  width: clamp(520px, 62vw, 880px);
+  height: auto;
+  max-height: 85%;
+  object-fit: contain;
+  opacity: 0.045;
+  user-select: none;
+  pointer-events: none;
+  transform: translateY(28px);
+  filter: grayscale(100%) contrast(140%)
+          drop-shadow(1px 0 0 rgba(10, 10, 10, 0.4))
+          drop-shadow(-1px 0 0 rgba(10, 10, 10, 0.4))
+          drop-shadow(0 1px 0 rgba(10, 10, 10, 0.4))
+          drop-shadow(0 -1px 0 rgba(10, 10, 10, 0.4));
+  transition: opacity 0.6s ease;
+}
+
+body.is-dark .works-bg-watermark img {
+  opacity: 0.06;
+  filter: grayscale(100%) invert(1) contrast(140%)
+          drop-shadow(1px 0 0 rgba(255, 255, 255, 0.4))
+          drop-shadow(-1px 0 0 rgba(255, 255, 255, 0.4))
+          drop-shadow(0 1px 0 rgba(255, 255, 255, 0.4))
+          drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.4));
+}
+
 .works-header {
-  margin-bottom: clamp(48px, 7vw, 80px);
-  max-width: 1000px;
+  margin-bottom: clamp(40px, 6vw, 64px);
+  max-width: 760px;
   margin-inline: auto;
 }
 
@@ -77,24 +136,26 @@
 }
 
 /* ==========================================================================
-   2. THE STAGGERED GRID (NO 3-IN-A-ROW · ASYMMETRICAL EDITORIAL DESK)
+   2. THE STAGGERED GRID (PROPORTIONAL 330px FOLDERS · EDITORIAL DESK)
    ========================================================================== */
 
 .work-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 48px;
-  max-width: 1000px;
+  gap: 36px;
+  max-width: 760px;
   margin: 0 auto;
+  justify-items: center;
   box-sizing: border-box;
 }
 
 /* Desktop Asymmetrical Staggered Offsets */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .work-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 330px);
+    justify-content: center;
     align-items: start;
-    gap: 56px 48px;
+    gap: 48px 56px;
   }
 
   /* Folder 1: Left column, aligns at the very top */
@@ -103,36 +164,33 @@
     align-self: start;
   }
 
-  /* Folder 2: Right column, staggered downwards by 120px */
+  /* Folder 2: Right column, staggered downwards by 90px */
   .work-folder:nth-child(2) {
     grid-column: 2;
-    margin-top: 120px;
+    margin-top: 90px;
   }
 
-  /* Folder 3: Left column, offset upwards by -60px, justified end, 80% width */
+  /* Folder 3: Left column, staggered below folder 1 */
   .work-folder:nth-child(3) {
     grid-column: 1;
-    margin-top: -60px;
-    justify-self: end;
-    width: 80%;
+    margin-top: 10px;
+    width: 100%;
   }
 }
 
-/* Mobile: 1 column, gap 32px, no margins */
-@media (max-width: 1023px) {
+/* Mobile: 1 column, gap 32px, centered */
+@media (max-width: 767px) {
   .work-grid {
     gap: 32px;
   }
   .work-folder:nth-child(2),
   .work-folder:nth-child(3) {
     margin-top: 0;
-    width: 100%;
-    justify-self: stretch;
   }
 }
 
 /* ==========================================================================
-   3. THE 3D FOLDER DESIGN (WITH LOGO AT TOP)
+   3. THE 3D FOLDER DESIGN (PROPORTIONAL COMPACT FOLDER)
    ========================================================================== */
 
 .work-folder {
@@ -143,6 +201,8 @@
   perspective: 1200px;
   transform-style: preserve-3d;
   transition: transform 0.4s var(--ease-out);
+  width: 100%;
+  max-width: 330px;
 }
 
 /* Idle floating animation */
@@ -177,64 +237,86 @@
   inset: 0;
   z-index: 1;
   border-radius: 16px 16px 20px 20px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.32) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.75);
-  box-shadow: 0 20px 48px -12px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.03);
+  background: linear-gradient(180deg, rgba(255,255,255,0.52) 0%, rgba(255,255,255,0.2) 100%);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow: 0 24px 50px -14px rgba(0,0,0,0.08), 0 2px 10px rgba(0,0,0,0.02);
+  transition: background 0.4s var(--ease-out), border-color 0.4s ease, box-shadow 0.4s var(--ease-out);
 }
 
-/* macOS top-left tab */
+/* macOS top-left tab (proportional 116px width) */
 .folder-back::before {
   content: "";
   position: absolute;
   left: -1px;
-  top: -20px;
-  width: 38%;
-  height: 26px;
+  top: -18px;
+  width: 116px;
+  height: 24px;
   border-radius: 12px 14px 0 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.45) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255,255,255,0.9);
-  border-left: 1px solid rgba(255,255,255,0.9);
-  border-right: 1px solid rgba(255,255,255,0.6);
+  background: linear-gradient(180deg, rgba(255,255,255,0.68) 0%, rgba(255,255,255,0.35) 100%);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-top: 1.5px solid rgba(255,255,255,0.95);
+  border-left: 1px solid rgba(255,255,255,0.85);
+  border-right: 1px solid rgba(255,255,255,0.5);
 }
 
 /* Smooth curved fillet */
 .folder-back::after {
   content: "";
   position: absolute;
-  left: calc(38% - 1px);
-  top: -10px;
-  width: 16px;
-  height: 12px;
-  border-bottom-left-radius: 10px;
+  left: 115px;
+  top: -9px;
+  width: 14px;
+  height: 11px;
+  border-bottom-left-radius: 9px;
   background: transparent;
-  box-shadow: -4px 4px 0 0 rgba(255,255,255,0.55);
+  box-shadow: -3px 3px 0 0 rgba(255,255,255,0.48);
   pointer-events: none;
 }
 
-/* Folder flap (front face) */
+/* Folder flap (front face) - Modern Apple-Grade Glassmorphism */
 .folder-flap {
   position: relative;
   z-index: 4;
-  min-height: 230px;
+  min-height: 215px;
   border-radius: 14px 14px 20px 20px;
-  background: linear-gradient(175deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.46) 45%, rgba(255,255,255,0.28) 100%);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.8);
-  border-top: 1.5px solid rgba(255,255,255,0.98);
-  box-shadow: inset 0 1.5px 1px 0 rgba(255,255,255,0.95),
-              inset 0 -1px 2px 0 rgba(255,255,255,0.3),
-              0 16px 38px -8px rgba(0,0,0,0.1),
-              0 4px 14px -2px rgba(0,0,0,0.04);
+  background: linear-gradient(150deg, 
+    rgba(255, 255, 255, 0.62) 0%, 
+    rgba(255, 255, 255, 0.32) 42%, 
+    rgba(255, 255, 255, 0.18) 100%);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.98);
+  box-shadow: inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95),
+              inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.22),
+              inset 0 0 24px 0 rgba(255, 255, 255, 0.16),
+              0 22px 48px -12px rgba(0, 0, 0, 0.08),
+              0 4px 16px -2px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 76px 24px 30px;
+  justify-content: center;
+  padding: 68px 22px 24px;
   box-sizing: border-box;
+  overflow: hidden;
+  transition: background 0.4s var(--ease-out), border-color 0.4s ease, box-shadow 0.4s var(--ease-out);
+}
+
+.work-folder:hover .folder-flap {
+  background: linear-gradient(150deg, 
+    rgba(255, 255, 255, 0.72) 0%, 
+    rgba(255, 255, 255, 0.42) 42%, 
+    rgba(255, 255, 255, 0.26) 100%);
+  border-color: rgba(255, 255, 255, 0.88);
+  border-top-color: #ffffff;
+  box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 1),
+              inset 0 -1px 2px 0 rgba(255, 255, 255, 0.35),
+              inset 0 0 32px 0 rgba(255, 255, 255, 0.25),
+              0 28px 60px -12px rgba(0, 0, 0, 0.12),
+              0 8px 24px -3px rgba(0, 0, 0, 0.04);
 }
 
 /* Logo at the top of the folder */
@@ -259,24 +341,79 @@
 
 /* Folder project name */
 .folder-name {
+  position: relative;
+  z-index: 3;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(18px, 2vw, 22px);
+  font-size: 20px;
   color: var(--ink, #0A0A0A);
   text-align: center;
   margin: 0 0 6px;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 /* Folder tagline */
 .folder-tagline {
+  position: relative;
+  z-index: 3;
   font-family: var(--font-body);
   font-size: 13px;
   color: var(--muted, #6B6B6B);
   text-align: center;
-  margin: 0 0 16px;
-  line-height: 1.4;
-  max-width: 36ch;
+  margin: 0;
+  line-height: 1.45;
+  max-width: 26ch;
+}
+
+/* Dark Theme Glassmorphism & Logo Outline */
+body.is-dark .folder-back {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.65);
+}
+
+body.is-dark .folder-back::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 100%);
+  border-top-color: rgba(255, 255, 255, 0.35);
+  border-left-color: rgba(255, 255, 255, 0.25);
+  border-right-color: rgba(255, 255, 255, 0.12);
+}
+
+body.is-dark .folder-back::after {
+  box-shadow: -3px 3px 0 0 rgba(255, 255, 255, 0.12);
+}
+
+body.is-dark .folder-flap {
+  background: linear-gradient(150deg, 
+    rgba(255, 255, 255, 0.14) 0%, 
+    rgba(255, 255, 255, 0.05) 45%, 
+    rgba(255, 255, 255, 0.02) 100%);
+  border-color: rgba(255, 255, 255, 0.16);
+  border-top-color: rgba(255, 255, 255, 0.38);
+  box-shadow: inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.3),
+              inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.4),
+              inset 0 0 20px 0 rgba(255, 255, 255, 0.05),
+              0 24px 50px -12px rgba(0, 0, 0, 0.65);
+}
+
+body.is-dark .work-folder:hover .folder-flap {
+  background: linear-gradient(150deg, 
+    rgba(255, 255, 255, 0.2) 0%, 
+    rgba(255, 255, 255, 0.08) 45%, 
+    rgba(255, 255, 255, 0.04) 100%);
+  border-color: rgba(255, 255, 255, 0.28);
+  border-top-color: rgba(255, 255, 255, 0.55);
+  box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 0.45),
+              inset 0 0 28px 0 rgba(255, 255, 255, 0.08),
+              0 30px 60px -12px rgba(0, 0, 0, 0.8);
+}
+
+body.is-dark .folder-name {
+  color: #ffffff;
+}
+
+body.is-dark .folder-tagline {
+  color: #a3a3a3;
 }
 
 /* Folder chips */

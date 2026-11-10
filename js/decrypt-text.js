@@ -61,7 +61,16 @@
 
     const o = { ...DEFAULTS, ...fromData(el.dataset), ...options };
     const terminal = o.variant === "terminal";
-    const text = el.textContent.replace(/\s+/g, " ").trim();
+    const hasBr = /<br\s*[\/]?>/i.test(el.innerHTML);
+    const lineTexts = hasBr
+      ? el.innerHTML.split(/<br\s*[\/]?>/i).map((chunk) => {
+          const t = document.createElement("div");
+          t.innerHTML = chunk;
+          return t.textContent.replace(/\s+/g, " ").trim();
+        }).filter(Boolean)
+      : [el.textContent.replace(/\s+/g, " ").trim()];
+
+    const text = lineTexts.join(" ");
     const pool = Array.from(o.glyphs || (terminal ? POOL_TERMINAL : POOL_DISPLAY));
     const chars = [];
     let raf = null, timer = null, lastStart = -Infinity, run = 0;
@@ -72,19 +81,25 @@
     const sr = span("mk-dt__sr");
     sr.textContent = text;
     const glyphs = span("mk-dt__glyphs", true);
-    const words = text.split(" ");
-    words.forEach((word, w) => {
-      const wordEl = span("mk-dt__word");
-      for (const ch of word) {
-        const c = document.createElement("span");
-        c.dataset.mkChar = ch;
-        c.dataset.state = "plain";
-        c.textContent = ch;
-        wordEl.append(c);
-        chars.push(c);
+
+    lineTexts.forEach((lineStr, lineIdx) => {
+      const words = lineStr.split(" ");
+      words.forEach((word, w) => {
+        const wordEl = span("mk-dt__word");
+        for (const ch of word) {
+          const c = document.createElement("span");
+          c.dataset.mkChar = ch;
+          c.dataset.state = "plain";
+          c.textContent = ch;
+          wordEl.append(c);
+          chars.push(c);
+        }
+        glyphs.append(wordEl);
+        if (w < words.length - 1) glyphs.append(" ");
+      });
+      if (lineIdx < lineTexts.length - 1) {
+        glyphs.append(document.createElement("br"));
       }
-      glyphs.append(wordEl);
-      if (w < words.length - 1) glyphs.append(" ");
     });
     el.textContent = "";
     el.classList.add("mk-dt");

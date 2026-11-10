@@ -110,6 +110,7 @@
 
     function onScrollOrResize() {
       targetProgress = calculateProgress();
+      updateThemeOnScroll();
       if (!isTicking) {
         isTicking = true;
         requestAnimationFrame(render);
@@ -126,14 +127,12 @@
     render();
 
     // --------------------------------------------------------------------------
-    // White -> Black -> White Viewport IntersectionObserver
-    // Matching the exact architecture of onlines.com.ar (home-bloque-dark-mode-view.js)
+    // White -> Black -> White Hysteresis Viewport Scrub Engine
+    // Ensures seamless 0.8s cubic-bezier cross-fades without premature cutoffs
     // --------------------------------------------------------------------------
-    var TRIGGER_SELECTOR = ".home-bloque-dark-mode__descripcion";
     var BODY_DARK_CLASS = "is-dark";
     var SWITCHING_CLASS = "theme-switching";
     var SWITCHING_DURATION = 850;
-    var TRIGGER_ROOT_MARGIN = "0px";
 
     var switchingTimeout = null;
 
@@ -162,23 +161,38 @@
       }, SWITCHING_DURATION);
     }
 
-    if ("IntersectionObserver" in window) {
-      var trigger = section.querySelector(TRIGGER_SELECTOR) || section;
+    function updateThemeOnScroll() {
+      var rect = section.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var isDarkCurrent = document.body.classList.contains(BODY_DARK_CLASS);
 
+      var shouldBeDark = false;
+      if (isDarkCurrent) {
+        // Hysteresis exit: stay dark until top scrolls down past 75% or bottom scrolls up past 20%
+        shouldBeDark = rect.top < vh * 0.75 && rect.bottom > vh * 0.20;
+      } else {
+        // Hysteresis enter: turn dark when top reaches 60% and bottom is still below 35%
+        shouldBeDark = rect.top <= vh * 0.60 && rect.bottom >= vh * 0.35;
+      }
+
+      setDarkMode(shouldBeDark);
+    }
+
+    // Initial theme check
+    updateThemeOnScroll();
+
+    if ("IntersectionObserver" in window) {
       var darkThemeObserver = new IntersectionObserver(
-        function (entries) {
-          for (var i = 0; i < entries.length; i++) {
-            setDarkMode(entries[i].isIntersecting);
-          }
+        function () {
+          updateThemeOnScroll();
         },
         {
           root: null,
-          rootMargin: TRIGGER_ROOT_MARGIN,
-          threshold: 0
+          threshold: [0, 0.1, 0.25, 0.5, 0.75, 1.0]
         }
       );
 
-      darkThemeObserver.observe(trigger);
+      darkThemeObserver.observe(section);
     }
 
     // Connect Dossier Quick Jump Links to Selected Works Folders

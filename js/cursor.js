@@ -1,11 +1,17 @@
 /**
  * Fluid Interactive Cursor Module
  * Custom cursor with liquid spring tail and interactive hover pill badges
+ * Pure Vanilla JavaScript · 60fps GPU Hardware Accelerated
  */
 (function () {
   "use strict";
 
+  let isInitialized = false;
+
   function initCustomCursor() {
+    if (isInitialized) return;
+    isInitialized = true;
+
     const isFine = window.matchMedia("(pointer: fine)").matches;
     if (!isFine) return;
 
@@ -42,7 +48,7 @@
       if (badge && badgeText) {
         badge.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0px) translate(16px, 16px) scale(1)`;
       }
-    });
+    }, { passive: true });
 
     document.addEventListener("mouseleave", () => {
       mouse.active = false;
@@ -57,7 +63,7 @@
 
     document.addEventListener("mouseover", (e) => {
       const target = e.target.closest(
-        "[data-cursor], [data-cursor-pill], a, button, .c-button, .case-content_link, .footer__big, .tool, .work-github-btn, .applykit-docket-btn, .pharmaerp-spec-btn, .edu52-spec-btn, .float-physics-item"
+        "[data-cursor], [data-cursor-pill], a, button, .case-content_link, .tool, .work-github-btn, .float-physics-item, .work-folder"
       );
       if (!target) {
         badgeText = "";
@@ -106,17 +112,14 @@
         const strokeLength = Math.hypot(head.x - tail.x, head.y - tail.y);
 
         if (strokeLength > 1.5) {
-          // Dynamic head width responding fluidly to velocity
           const maxHeadWidth = Math.min(13, Math.max(7.5, 6 + strokeLength / 16));
           const minTailWidth = 0.8;
 
-          // Render tapered calligraphy ink brush (thick head -> narrow tail) in rich black
           for (let i = 0; i < NUM_POINTS - 1; i++) {
             const p0 = points[i];
             const p1 = points[i + 1];
-            const t = i / (NUM_POINTS - 1); // 0 at head, 1 at tail
+            const t = i / (NUM_POINTS - 1);
 
-            // Taper profile: wide top head tapering gracefully to narrow tail
             const currentWidth = maxHeadWidth * Math.pow(1 - t, 1.35) + minTailWidth;
             const currentAlpha = Math.min(0.92, Math.max(0.12, 0.88 * Math.pow(1 - t, 0.45)));
 
@@ -138,4 +141,10 @@
   }
 
   window.initCustomCursor = initCustomCursor;
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCustomCursor);
+  } else {
+    initCustomCursor();
+  }
 })();
