@@ -148,6 +148,12 @@
       }
     });
 
+    // Dynamic colophon year
+    const yearEl = document.querySelector(".colophon-year");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+
     // Scroll listener for dark section theme updates
     window.addEventListener("scroll", updateNavTheme, { passive: true });
     updateNavTheme();
